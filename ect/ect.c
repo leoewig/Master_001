@@ -8,7 +8,6 @@
  *  Contains ect initiate for sent.
  * 
  *
- 
  * revision history:
  *
  * Date        Author           Description
