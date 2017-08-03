@@ -1,0 +1,1227 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: OBC BMS
+
+
+BO_ 271 Reserved_OBC_10F: 8 Vector__XXX
+
+BO_ 270 Reserved_OBC_10E: 8 Vector__XXX
+
+BO_ 269 Reserved_OBC_10D: 8 Vector__XXX
+
+BO_ 268 Reserved_OBC_10C: 8 Vector__XXX
+
+BO_ 267 Reserved_OBC_10B: 8 Vector__XXX
+
+BO_ 266 Reserved_OBC_10A: 8 Vector__XXX
+
+BO_ 265 Reserved_OBC_109: 8 Vector__XXX
+
+BO_ 1503 OBC_Diag_16: 8 OBC
+ SG_ BBatt0RecTimout : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NcountAfterT49 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NvehPilotADCout : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NLEDPriStatus : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NvehPilotGlitchCount : 40|8@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BVLVinputVtimeout : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ saved_fault_flags : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ fault_codes : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BBattRecTotTimeout : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BisoPcheckpgDownFlag : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1502 OBC_Diag_15: 8 OBC
+ SG_ vTrimNegLimit : 32|16@1+ (1,0) [0|12528] "" Vector__XXX
+ SG_ vSetPointPos : 16|16@1+ (0.01,0) [0|350] "V" Vector__XXX
+ SG_ vSetPointNeg : 0|16@1+ (0.01,0) [0|350] "V" Vector__XXX
+ SG_ vTrimPosLimit : 48|16@1+ (1,0) [0|12528] "" Vector__XXX
+
+BO_ 1501 OBC_Diag_14: 8 OBC
+ SG_ vTrimFaultLimiter : 16|16@1+ (1,0) [0|12528] "" Vector__XXX
+ SG_ psuTemperature : 56|8@1+ (0.5,-40) [-40|87.5] "C" Vector__XXX
+ SG_ ISOspare1 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ vPsuSmoothed : 32|16@1+ (0.01,0) [0|650] "V" Vector__XXX
+ SG_ temperatureFoldback : 48|8@1+ (1,0) [0|100] "%" Vector__XXX
+
+BO_ 1500 OBC_Diag_13: 8 OBC
+ SG_ iSetPoint : 0|16@1+ (0.001,0) [0|0] "A" Vector__XXX
+ SG_ availablePower : 48|16@1+ (1,0) [0|2400] "W" Vector__XXX
+ SG_ vSetPoint : 16|16@1+ (0.01,0) [0|0] "V" Vector__XXX
+ SG_ VOutIlimitFactor : 32|16@1+ (1,0) [0|10000] "" Vector__XXX
+
+BO_ 1499 OBC_Diag_12: 8 OBC
+ SG_ vTrimBank2 : 16|16@1+ (1,0) [0|6424] "" Vector__XXX
+ SG_ vTrimBank1 : 0|16@1+ (1,0) [0|6424] "" Vector__XXX
+ SG_ vTrimBank3 : 32|16@1+ (1,0) [0|6424] "" Vector__XXX
+ SG_ vTrimBank4 : 48|16@1+ (1,0) [0|6424] "" Vector__XXX
+
+BO_ 1498 OBC_Diag_11: 8 OBC
+ SG_ vPsuPos : 0|16@1+ (0.01,0) [0|350] "V" Vector__XXX
+ SG_ vPsuNeg : 16|16@1+ (0.01,0) [0|350] "V" Vector__XXX
+ SG_ vOutNeg : 48|16@1+ (0.01,0) [0|350] "V" Vector__XXX
+ SG_ vOutPos : 32|16@1+ (0.01,0) [0|350] "V" Vector__XXX
+
+BO_ 1497 OBC_Diag_10: 8 OBC
+ SG_ NOBC_Diag_10 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1496 OBC_Diag_09: 8 OBC
+ SG_ NOBC_Diag_09 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1495 OBC_Diag_08: 8 OBC
+ SG_ veh_Prox_Voltage : 16|16@1+ (1,0) [0|0] "mV" Vector__XXX
+ SG_ ILVAhCalc : 56|8@1+ (1,0) [0|0] "Ah" Vector__XXX
+ SG_ B12vRecCounterChk : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VLVRecThreshold : 0|16@1+ (1,0) [0|1] "mV" Vector__XXX
+ SG_ BisoIncChkCounter : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BisoIncCounter : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1494 OBC_Diag_07: 8 OBC
+ SG_ VVehPilotMesNeg : 48|16@1+ (1,0) [0|0] "mV" Vector__XXX
+ SG_ NLVPsuITrim : 16|16@1+ (1,0) [0|2048] "" Vector__XXX
+ SG_ NLVPsuVTrim : 0|16@1+ (1,0) [0|2048] "" Vector__XXX
+ SG_ VVehPilotMesPos : 32|16@1+ (1,0) [0|0] "mV" Vector__XXX
+
+BO_ 1493 OBC_Diag_06: 8 OBC
+ SG_ TCaseMeasured : 0|8@1+ (0.5,-40) [-40|80] "C" Vector__XXX
+ SG_ IMainsPilotCalc : 32|8@1+ (1,0) [0|0] "A" Vector__XXX
+ SG_ TPsuMeasured : 8|8@1+ (0.5,-40) [-40|80] "C" Vector__XXX
+ SG_ NMainProxStatus : 40|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NMainsPilotDuty : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NVehPilotDuty : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NMainsProxStatusSave : 44|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1492 OBC_Diag_05: 8 OBC
+ SG_ NRcmStatus : 0|8@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BUserSwitchOff : 33|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NSelfPowerStatus : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NVehPilotStatus : 56|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NFaultSelfPower : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NVehConStatus : 48|8@1+ (0.01,0) [0|0] "" Vector__XXX
+ SG_ BPowerSwitch : 36|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMainsProxRemoved : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NVehPilotGlitch : 60|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NSystemStatus : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NFaultState : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMainsRemoved : 34|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1491 OBC_Diag_04: 8 OBC
+ SG_ BLVRelayStatus : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IRcmMeasured : 16|8@1- (1,0) [0|0] "uA" Vector__XXX
+ SG_ BISOcomm101Fault : 49|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BBMSAssertTimeout : 44|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BLVPsuPgSignal : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BSwitchStatus : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BINILVRelayFuseFault : 37|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BBMScommError : 48|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BRCMPowerStatus : 28|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BSafetyChkISOslfchkTimeout : 60|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BINICfgFault : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BTCaseFault : 40|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BINIVehPilotFault : 36|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BINILogFault : 33|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BRCMFault : 43|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BHVposRelayStatus : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BLVAHfault : 46|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BHVmatchTimeout : 62|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BINILVFault : 35|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BselfTestTimeout : 57|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NLVSetStatus : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BLVRelayRequest : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BSelfCheckStatus : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BSafetyChkISOmsgTimeout : 61|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BISOFault : 45|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BLVPGstatusFiltered : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BmainsProxTimeout : 56|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BTPSUFault : 41|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BSafetyChkISOrdyTimeout : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BBMS304ChksumErr : 52|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BINIMainsProxFault : 39|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BselfTestFault : 47|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BINIcurrentOffsetFault : 34|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BBMS301ChksumErr : 51|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BHVnegRellayStatus : 25|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BBMScommSanityErr : 54|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BISOuPowerStatus : 27|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BVehPilotFault : 42|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BSHTDNTimeout : 63|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BLVRelayStatusFiltered : 26|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BRcmAlarmStatus : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BINIRCMFault : 38|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMainsProxStatus : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BISOcomm102Fault : 50|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BGNDcanErr : 53|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BTcoolingTimeout : 58|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPowerStatus : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1490 OBC_Diag_03: 8 OBC
+ SG_ ILVSetPoint : 0|8@1- (1,0) [-12.7|12.7] "mA" Vector__XXX
+ SG_ VLVSetPoint : 8|8@1+ (1,0) [0|0] "V" Vector__XXX
+ SG_ ILVMeasured : 16|16@1+ (1,0) [0|0] "mA" Vector__XXX
+ SG_ VLVOutputMeasured : 48|16@1+ (1,0) [0|0] "mV" Vector__XXX
+ SG_ VLVSupplyMeasured : 32|16@1+ (1,0) [0|0] "mV" Vector__XXX
+
+BO_ 1489 OBC_Diag_02: 8 OBC
+ SG_ NOBC_Diag_02 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1488 OBC_Diag_01: 8 OBC
+ SG_ currentSetPoint : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 264 OBC_Ctrl_8: 8 OBC
+ SG_ NOBC_Ctrl_8 : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 263 OBC_Ctrl_7: 8 OBC
+ SG_ NOBC_Ctrl_7 : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 262 OBC_Ctrl_6: 8 OBC
+ SG_ NOBC_Ctrl_6 : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 261 OBC_Ctrl_5: 8 OBC
+ SG_ NOBC_Ctrl5 : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 260 OBC_Ctrl_4: 8 OBC
+ SG_ maxCurrentAvail : 16|16@1+ (1,0) [0|0] "mA" Vector__XXX
+ SG_ ISOspare2 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ faultErrorCode : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ maxCurrentAvailOutput : 0|16@1+ (1,0) [0|0] "mA" Vector__XXX
+ SG_ statusFl_copy : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 259 OBC_Ctrl_3: 8 OBC
+ SG_ input12v_fault_UV : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ psu_12v_PG_fail : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TChargerPSU : 16|8@1+ (0.5,-40) [-40|87] "C" Vector__XXX
+ SG_ sanity_warning_flag : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TChargerCase : 24|8@1+ (0.5,-40) [-40|87] "C" Vector__XXX
+ SG_ RCM_fault : 15|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ case_temp_fault : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ mains_prox_Invalid : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ veh_Pilot_FLT : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ chg_12v_PSU_PG_signal_fault : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ psu_hv_match_timeout : 13|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ shutdown_timout : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PSU_temp_fault : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 258 OBC_Ctrl_2: 8 OBC
+ SG_ vLimNegFault : 51|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood8 : 23|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ voltPosFault : 38|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoRelayReqNeg : 15|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ iLimFault : 49|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ logDataFault : 34|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ relayNegFault : 47|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ psuBank3Fault : 42|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ vLimPosFault : 50|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ vTrim1Fault : 53|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ currentFault : 37|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ overCurrentSafeLim : 58|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ vTrim4Fault : 56|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NIsoSystemState : 8|6@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ psuBank4Fault : 43|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ relayPosFault : 46|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood9 : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ psuBank1Fault : 40|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoRelayReqPos : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuEn78 : 28|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood11 : 26|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood4 : 19|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NIsoCounter : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ overVoltSafeLim : 60|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ bmsConPosFault : 44|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood10 : 25|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood1 : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ bmsConNegFault : 45|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood5 : 20|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ psuBank2Fault : 41|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ voltNegFault : 39|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ canRxFault : 36|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ iTrimFault : 52|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ configFault : 33|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood6 : 21|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ vTrim3Fault : 55|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ overTempSafeLim : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood3 : 18|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood2 : 17|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ psuPgFault : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuEn911 : 29|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuPGood7 : 22|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ fuseFault : 48|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ canTxFault : 35|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ vTrim2Fault : 54|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ vehicleConn : 57|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoPsuEn16 : 27|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Isense_en : 30|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 257 OBC_Ctrl_1: 8 OBC
+ SG_ IHVMeasure : 32|16@1- (0.1,-500) [-3776.8|2776.7] "mA" Vector__XXX
+ SG_ NIHVTrim : 48|16@1+ (1,0) [0|6424] "" Vector__XXX
+ SG_ VHVMeasureInt : 0|16@1+ (0.01,0) [0|0] "mV" Vector__XXX
+ SG_ VHVMeasureExt : 16|16@1+ (0.01,0) [0|0] "mV" Vector__XXX
+
+BO_ 256 OBC_Ctrl_0: 8 OBC
+ SG_ VHVChargerTarget : 16|16@1+ (0.1,0) [0|6553.5] "mV" Vector__XXX
+ SG_ IHVExtTarget : 32|16@1+ (1,0) [0|5000] "mA" Vector__XXX
+ SG_ NIsoOpMode : 8|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoHVNegRelay : 15|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsoHVPosRelay : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VMainsMeasured : 56|8@1+ (1,-90) [-90|165] "V" Vector__XXX
+ SG_ NGndCounter : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ NVehConnect : 12|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IMainsMax : 48|8@1+ (0.1,0) [0|25.5] "A" Vector__XXX
+
+BO_ 771 OBC_2: 8 OBC
+ SG_ VCharger : 7|16@0+ (0.01,0) [0|655.35] "V"  BMS
+ SG_ NOBC_2Counter : 55|4@0+ (1,0) [0|15] ""  BMS
+ SG_ NOBC_2Checksum : 63|8@0+ (1,0) [0|255] ""  BMS
+ SG_ ICharger : 23|8@0+ (0.025,0) [0|6.375] "A"  BMS
+
+BO_ 770 OBC_1: 8 OBC
+ SG_ BChargerIsolationInhibit : 29|1@0+ (1,0) [0|1] ""  BMS
+ SG_ BBMSIndicatesFault : 30|1@0+ (1,0) [0|1] ""  BMS
+ SG_ NCharger12VSupplyStatus : 51|2@0+ (1,0) [0|3] ""  BMS
+ SG_ NOBC_1Checksum : 63|8@0+ (1,0) [0|255] ""  BMS
+ SG_ BChargerHVFault : 6|1@0+ (1,0) [0|1] ""  BMS
+ SG_ IChargerMax : 23|8@0+ (0.025,0) [0|6.375] "A"  BMS
+ SG_ BChargerDetectBMSFault : 4|1@0+ (1,0) [0|1] ""  BMS
+ SG_ NChargerHVContactorStatus : 49|2@0+ (1,0) [0|3] ""  BMS
+ SG_ BChargerIndicatesEPBInhibit : 5|1@0+ (1,0) [0|1] ""  BMS
+ SG_ NChargerSerialID : 39|16@0+ (1,0) [0|65535] ""  BMS
+ SG_ NOBC_1Counter : 55|4@0+ (1,0) [0|15] ""  BMS
+ SG_ NChargerStatus : 27|4@0+ (1,0) [0|15] ""  BMS
+ SG_ BChargerFault : 7|1@0+ (1,0) [0|1] ""  BMS
+ SG_ BChargerCableFault : 31|1@0+ (1,0) [0|1] ""  BMS
+
+BO_ 1471 BMS_Diag_16: 8 BMS
+ SG_ NBMS_Diag_16 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1470 BMS_Diag_15: 8 BMS
+ SG_ NBMS_Diag_15 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1469 BMS_Diag_14: 8 BMS
+ SG_ NBMS_Diag_14 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1468 BMS_Diag_13: 8 BMS
+ SG_ NBMS_Diag_13 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1467 BMS_Diag_12: 8 BMS
+ SG_ NBMS_Diag_12 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1466 BMS_Diag_11: 8 BMS
+ SG_ NBMS_Diag_11 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1465 BMS_Diag_10: 8 BMS
+ SG_ NBMS_Diag_10 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1464 BMS_Diag_09: 8 BMS
+ SG_ NBMS_Diag_09 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1463 BMS_Diag_08: 8 BMS
+ SG_ NBMS_Diag_08 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1462 BMS_Diag_07: 8 BMS
+ SG_ NBMS_Diag_07 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1461 BMS_Diag_06: 8 BMS
+ SG_ NBMS_Diag_06 : 7|64@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1460 BMS_Diag_05: 8 BMS
+ SG_ VVehNegBMS : 39|16@0- (0.0625,0) [0|0] "" Vector__XXX
+ SG_ VVehPosBMS : 23|16@0- (0.0625,0) [0|0] "" Vector__XXX
+
+BO_ 1459 BMS_Diag_04: 8 BMS
+ SG_ NBMSChargeInhibitMask : 47|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ NBMSState : 39|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ NTermReason : 63|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VProxPin : 7|16@0- (0.0009765625,0) [0|0] "V" Vector__XXX
+ SG_ VPilotPin : 23|16@0- (0.0028125,0.25) [0|0] "V" Vector__XXX
+
+BO_ 1458 BMS_Diag_03: 8 BMS
+ SG_ NPilotStatus : 55|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsTetheredToSomething : 59|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ Additional_BMS_Errors_Chg_3 : 39|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsTetheredToNothing : 58|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BIsChargerCapableToCharge : 62|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ Additional_BMS_Errors_Chg_1 : 23|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsChargerReady : 63|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BPilotControl : 57|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VPackBMS : 7|16@0- (0.0625,0) [0|0] "" Vector__XXX
+ SG_ NProxStatus : 47|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BIsTetheredToActiveCharger : 61|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BIsTetheredToCharger : 60|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ Additional_BMS_Errors_Chg_2 : 31|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1457 BMS_Diag_02: 8 BMS
+ SG_ NChgState : 47|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VChgPosBMS : 7|16@0- (0.0625,0) [0|0] "" Vector__XXX
+ SG_ VChgNegBMS : 23|16@0- (0.0625,0) [0|0] "" Vector__XXX
+ SG_ NChgLastResult : 39|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BCtcNegVehHs : 61|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BCtcNegChgHs : 59|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BCtcPosChgLs : 56|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BCtcNegChgLs : 58|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BCtcPosChgHs : 57|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ BCtcNegVehLs : 60|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ NCcoState : 55|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1456 BMS_Diag_01: 8 BMS
+ SG_ VCellMaxBMS : 39|16@0+ (0.0001220703125,0) [0|0] "mV" Vector__XXX
+ SG_ IChargerBMS : 7|32@0- (0.001,0) [0|0] "A" Vector__XXX
+ SG_ VCellMinBMS : 55|16@0+ (0.0001220703125,0) [0|0] "mV" Vector__XXX
+
+BO_ 772 BMS_CH2: 8 BMS
+ SG_ RBMSHVPos : 39|16@0+ (0.01,0) [0|655.35] "kohm"  OBC
+ SG_ NBMS_CH2Counter : 55|4@0+ (1,0) [0|15] ""  OBC
+ SG_ NBMS_CH2Checksum : 63|8@0+ (1,0) [0|255] ""  OBC
+ SG_ RBMSHVNeg : 23|16@0+ (0.01,0) [0|655.35] "kohm"  OBC
+
+BO_ 769 BMS_CH1: 8 BMS
+ SG_ BCableFault : 51|1@0+ (1,0) [0|1] ""  OBC
+ SG_ BBMSIsolationInhibit : 36|1@0+ (1,0) [0|1] ""  OBC
+ SG_ BConnectorCheckInhibit : 47|1@0+ (1,0) [0|1] ""  OBC
+ SG_ BBMSFault : 38|1@0+ (1,0) [0|1] ""  OBC
+ SG_ B12VSupplyInhibit : 39|1@0+ (1,0) [0|1] ""  OBC
+ SG_ VChargerSet : 23|16@0+ (0.01,0) [0|655.35] "V"  OBC
+ SG_ NChargerHVContactorReq : 49|2@0+ (1,0) [0|3] ""  OBC
+ SG_ BEPBInhibit : 46|1@0+ (1,0) [0|1] ""  OBC
+ SG_ NBMS_CH1Checksum : 63|8@0+ (1,0) [0|255] ""  OBC
+ SG_ BBMSHVFault : 37|1@0+ (1,0) [0|1] ""  OBC
+ SG_ BChargerIndicatesFault : 50|1@0+ (1,0) [0|1] ""  OBC
+ SG_ BVehicleAwakeInhibit : 45|1@0+ (1,0) [0|1] ""  OBC
+ SG_ NBMS_CH1Counter : 55|4@0+ (1,0) [0|15] ""  OBC
+ SG_ BVehicleFault : 44|1@0+ (1,0) [0|1] ""  OBC
+ SG_ NBMSCommandedMode : 42|3@0+ (1,0) [0|7] ""  OBC
+ SG_ IChargerSet : 15|8@0+ (0.025,0) [0|6.375] "A"  OBC
+ SG_ BBMSIndicateChargerFault : 43|1@0+ (1,0) [0|1] ""  OBC
+ SG_ rBatterySOCCharger : 7|8@0+ (0.5,0) [0|100] "%"  OBC
+ SG_ BBMSVehicleShuttingDownInhibit : 35|1@0+ (1,0) [0|1] ""  OBC
+ SG_ NChargingCompleteStatus : 33|2@0+ (1,0) [0|3] ""  OBC
+
+
+
+CM_ "P12 4.4";
+CM_ BU_ OBC "Off-Board Charger";
+CM_ SG_ 1503 NcountAfterT49 "counter after cooling temp. below 50 c";
+CM_ SG_ 1503 NvehPilotADCout "adc veh pilot output";
+CM_ SG_ 1503 NLEDPriStatus "led indicator priotity status ";
+CM_ SG_ 1503 NvehPilotGlitchCount "veh. pilot glitch counter";
+CM_ SG_ 1503 saved_fault_flags "same as fault_flags in message 0x5D3 byte 5   bits 40 to 47";
+CM_ SG_ 1503 fault_codes "LV PSU PG good count";
+CM_ SG_ 1501 psuTemperature "Temp used for foldback";
+CM_ SG_ 1501 ISOspare1 "not used value 0";
+CM_ SG_ 1501 temperatureFoldback "% of output available";
+CM_ SG_ 1495 veh_Prox_Voltage "beh prox voltage";
+CM_ SG_ 1495 ILVAhCalc "capacity ";
+CM_ SG_ 1495 B12vRecCounterChk "count ellapsed sinse 12 v contactor closed for recovery ";
+CM_ SG_ 1495 VLVRecThreshold "Threshold recovery voltage - voltage in which to test battery recovery charge";
+CM_ SG_ 1495 BisoIncChkCounter "bms inc message counter check";
+CM_ SG_ 1495 BisoIncCounter "bms inc message coutner";
+CM_ SG_ 1494 VVehPilotMesNeg "negative value only incomming veh pilot signal";
+CM_ SG_ 1494 NLVPsuITrim "12 V PSU I TRIM value";
+CM_ SG_ 1494 NLVPsuVTrim "12 V PSU V TRIM value ";
+CM_ SG_ 1494 VVehPilotMesPos "postive value only incomming veh pilot signal";
+CM_ SG_ 1493 TCaseMeasured "Case Temperature";
+CM_ SG_ 1493 IMainsPilotCalc "current value mapped from pwm value";
+CM_ SG_ 1493 TPsuMeasured "Case Temperature";
+CM_ SG_ 1493 NMainProxStatus "mains prox state";
+CM_ SG_ 1493 NVehPilotDuty "Veh Pilot On Time";
+CM_ SG_ 1493 NMainsProxStatusSave "saved (at state macine time) prox state";
+CM_ SG_ 1492 NRcmStatus "RCM states machine current state";
+CM_ SG_ 1492 BUserSwitchOff "shutdown flags - ";
+CM_ SG_ 1492 NSelfPowerStatus "self power on state machine - current state";
+CM_ SG_ 1492 NVehPilotStatus "veh pilot state filtered ";
+CM_ SG_ 1492 NFaultSelfPower "self power state machine - last fail state";
+CM_ SG_ 1492 BPowerSwitch "switch on - 1 switch off - 0    change on switch pressing from 0 - 1 and from 1 - 0";
+CM_ SG_ 1492 BMainsProxRemoved "shutdown flags - ";
+CM_ SG_ 1492 NVehPilotGlitch "veh pilot state before filter";
+CM_ SG_ 1492 NSystemStatus "system state machine  - current state";
+CM_ SG_ 1492 NFaultState "system state machine - last fail state ";
+CM_ SG_ 1492 BMainsRemoved "shutdown flags - ";
+CM_ SG_ 1491 BLVRelayStatus "I/P 12 v sensor current fault";
+CM_ SG_ 1491 IRcmMeasured "mapped hv relay negative on";
+CM_ SG_ 1491 BISOcomm101Fault "iso comm fault message x101";
+CM_ SG_ 1491 BBMSAssertTimeout "BMS assert timeout";
+CM_ SG_ 1491 BLVPsuPgSignal "I/P psu 12v PSU power good  ";
+CM_ SG_ 1491 BSwitchStatus "I/P Peizo Switch";
+CM_ SG_ 1491 BINILVRelayFuseFault "initialize fault after closing relay or lv fuse fault";
+CM_ SG_ 1491 BBMScommError "BMS rcv. comm error";
+CM_ SG_ 1491 BRCMPowerStatus "RCM power status";
+CM_ SG_ 1491 BSafetyChkISOslfchkTimeout "Safety check ISO sleftest timeout";
+CM_ SG_ 1491 BINICfgFault "initialization configuration fault ";
+CM_ SG_ 1491 BTCaseFault "Case temp Fault range (-40 to 85)";
+CM_ SG_ 1491 BINIVehPilotFault "init. veh. pilot fault";
+CM_ SG_ 1491 BINILogFault "initialization log fault";
+CM_ SG_ 1491 BRCMFault "RCM Fault";
+CM_ SG_ 1491 BHVposRelayStatus "High voltage positive relay status ";
+CM_ SG_ 1491 BLVAHfault "Ah > 1.5 batt capacity when battery recovery ";
+CM_ SG_ 1491 BHVmatchTimeout "requested HV doens't match the incomming HV from ISO";
+CM_ SG_ 1491 BINILVFault "12 V  initialization fault";
+CM_ SG_ 1491 BselfTestTimeout "Self Test timeout fault";
+CM_ SG_ 1491 NLVSetStatus "LV Current control Status";
+CM_ SG_ 1491 BLVRelayRequest "Soft relay request";
+CM_ SG_ 1491 BSelfCheckStatus "Self Check Enabled";
+CM_ SG_ 1491 BSafetyChkISOmsgTimeout "Safety check ISO message timeout";
+CM_ SG_ 1491 BISOFault "Receive ISO u  fault state";
+CM_ SG_ 1491 BLVPGstatusFiltered "12 V Power Good status filtered";
+CM_ SG_ 1491 BmainsProxTimeout "Mains Proximity Timeout";
+CM_ SG_ 1491 BTPSUFault "PSU temp Fault range (-40 to 85)";
+CM_ SG_ 1491 BSafetyChkISOrdyTimeout "safety check ISO ready timeout";
+CM_ SG_ 1491 BBMS304ChksumErr "bms message x304 checksum error";
+CM_ SG_ 1491 BINIMainsProxFault "init. mains proximity fault";
+CM_ SG_ 1491 BselfTestFault "selftest fault ";
+CM_ SG_ 1491 BINIcurrentOffsetFault "initialization current offset fault";
+CM_ SG_ 1491 BBMS301ChksumErr "bms message x301 checksum error";
+CM_ SG_ 1491 BHVnegRellayStatus "Hight voltage negative relay status";
+CM_ SG_ 1491 BBMScommSanityErr "bms comm sanity warning";
+CM_ SG_ 1491 BISOuPowerStatus "ISO u power status";
+CM_ SG_ 1491 BVehPilotFault "veh. pilot fault";
+CM_ SG_ 1491 BSHTDNTimeout "shutdown timout - failed to reduce voltage of PSU below 60V";
+CM_ SG_ 1491 BLVRelayStatusFiltered "12 V relay status ";
+CM_ SG_ 1491 BRcmAlarmStatus "I/P RCM alalrm";
+CM_ SG_ 1491 BINIRCMFault "init. RCM fault";
+CM_ SG_ 1491 BMainsProxStatus "I/P mains prox switch";
+CM_ SG_ 1491 BISOcomm102Fault "ios comm fualt message x102";
+CM_ SG_ 1491 BGNDcanErr "GND CAN Tx error";
+CM_ SG_ 1491 BTcoolingTimeout "charger cooling timout  (> 30 minutes and T >=50";
+CM_ SG_ 1491 BIsoPowerStatus "ISO Micro Power Status";
+CM_ SG_ 1490 ILVSetPoint "current set point value";
+CM_ SG_ 1490 VLVSetPoint "voltage set point value";
+CM_ SG_ 260 ISOspare2 "Not used value 0";
+CM_ SG_ 260 statusFl_copy "status flags captured at fault event";
+CM_ SG_ 259 input12v_fault_UV "12 V - undervoltage fault";
+CM_ SG_ 259 psu_12v_PG_fail "12 v pg fail ";
+CM_ SG_ 259 TChargerPSU "charger PSU temprature";
+CM_ SG_ 259 TChargerCase "charger Case temprature ";
+CM_ SG_ 259 RCM_fault "RCM fault receved";
+CM_ SG_ 259 case_temp_fault "case temp < -40 or above  85";
+CM_ SG_ 259 mains_prox_Invalid "mains prox voltage is > 400 mV";
+CM_ SG_ 259 veh_Pilot_FLT "veh pilot voltage > 11400 or  < 8000";
+CM_ SG_ 259 chg_12v_PSU_PG_signal_fault "PSU PG SIGNAL fault";
+CM_ SG_ 259 psu_hv_match_timeout "requested hv doens't match the provdied hv longer than 30 sec";
+CM_ SG_ 259 shutdown_timout "voltage form psu didn't drop for 10 sec.";
+CM_ SG_ 259 PSU_temp_fault "PSU temp < -40 or above  85";
+CM_ SG_ 257 IHVMeasure "Correction to Signed";
+CM_ SG_ 771 VCharger "Measured charger bus voltage 
+For info only - not used for control";
+CM_ SG_ 771 NOBC_2Counter "message counter";
+CM_ SG_ 771 NOBC_2Checksum "checksum";
+CM_ SG_ 771 ICharger "Measured charger current
+For info only - not used for control";
+CM_ SG_ 770 BChargerIsolationInhibit "Charger indicating to BMS that charging is inhibited due to break down of Isolation";
+CM_ SG_ 770 BBMSIndicatesFault "Charger indicating to BMS that BMS indicates Fault.
+Charger may use this information for user display.
+Used in conjunction with NChargerStatus.";
+CM_ SG_ 770 NCharger12VSupplyStatus "Status of 12V supply";
+CM_ SG_ 770 NOBC_1Checksum "checksum";
+CM_ SG_ 770 BChargerHVFault "Charger indicating to BMS that charging is inhibited due to HV Fault within charging system.
+Charger may use this information for user display.
+Used in conjunction with NChargerStatus.";
+CM_ SG_ 770 IChargerMax "Maximum current available from charger for thermal derating";
+CM_ SG_ 770 BChargerDetectBMSFault "Charger indicating to BMS BMS Fault.
+Charger may use this information for user display.
+Used in conjunction with NChargerStatus.";
+CM_ SG_ 770 NChargerHVContactorStatus "HV Contactor status";
+CM_ SG_ 770 BChargerIndicatesEPBInhibit "Charger indicating to EPB inhibit.
+Charger may use this information for user display.
+Used in conjunction with NChargerStatus.";
+CM_ SG_ 770 NChargerSerialID "Charger Serial ID for logging faults specific to chargers.";
+CM_ SG_ 770 NOBC_1Counter "message counter";
+CM_ SG_ 770 NChargerStatus "Off-Board Charger current mode of operation";
+CM_ SG_ 770 BChargerFault "Charger indicating to BMS that charging is inhibited due to Charger fault.
+Charger may use this information for user display.
+Used in conjunction with NChargerStatus.";
+CM_ SG_ 770 BChargerCableFault "Charger indicating to BMS that charging is inhibited due to Cable fault.
+Charger may use this information for user display.
+Used in conjunction with NChargerStatus.";
+CM_ SG_ 772 RBMSHVPos "Isolation resestance Pos-Gnd measured by BMS";
+CM_ SG_ 772 NBMS_CH2Counter "message counter";
+CM_ SG_ 772 NBMS_CH2Checksum "checksum";
+CM_ SG_ 772 RBMSHVNeg "Isolation resestance Neg-Gnd measured by BMS";
+CM_ SG_ 769 BCableFault "BMS indicating to Charger that charging is inhibited due to Cable Fault.
+Charger may use this information for user display.";
+CM_ SG_ 769 BBMSIsolationInhibit "BMS indicating to Charger that charging is inhibited due to break down of Isolation";
+CM_ SG_ 769 BConnectorCheckInhibit "BMS indicating to Charger that charging is inhibited due to charger connector not being fully inserted, or dead charger.
+Charger may use this information for user display.";
+CM_ SG_ 769 BBMSFault "BMS indicating to Charger that charging is inhibited due to BMS Fault.
+Charger may use this information for user display.";
+CM_ SG_ 769 B12VSupplyInhibit "BMS indicating to Charger that charging is inhibited due to too low voltage on 12V supply.
+Charger may use this information for user display.";
+CM_ SG_ 769 VChargerSet "Charging voltage set point requested by the BMS to off-board charger.";
+CM_ SG_ 769 NChargerHVContactorReq "BMS request for the charger to close internal HV contactors
+This request may only be made when the charger is in Charge mode";
+CM_ SG_ 769 BEPBInhibit "BMS indicating to Charger that charging is inhibited due to EPB not being applied.
+Charger may use this information for user display.";
+CM_ SG_ 769 NBMS_CH1Checksum "checksum";
+CM_ SG_ 769 BBMSHVFault "BMS indicating to Charger that charging inhibited due to HV Fault within charging system.
+Charger may use this information for user display.";
+CM_ SG_ 769 BChargerIndicatesFault "BMS indicating to Charger that charging is inhibited due to a fault that Charger identified.
+Charger may use this information for user display.";
+CM_ SG_ 769 BVehicleAwakeInhibit "BMS indicating to Charger that charging is inhibited due to Vehicle being awake.
+Charger may use this information for user display.";
+CM_ SG_ 769 NBMS_CH1Counter "message counter";
+CM_ SG_ 769 BVehicleFault "BMS indicating to Charger that charging is inhibited due to Vehicle Fault.
+Charger may use this information for user display.";
+CM_ SG_ 769 NBMSCommandedMode "BMS Commands Off-Board Charger mode of operation.
+Standby: Contactors open, HV isolated.
+Charge: Close contacrtors with precharge, BMS charging mode.
+Sleep: Enter low power mode, wakeable over Charger CAN.";
+CM_ SG_ 769 IChargerSet "Charging current set point";
+CM_ SG_ 769 BBMSIndicateChargerFault "BMS indicating to Charger that charging is inhibited due to Charger Fault.
+Charger may use this information for user display.";
+CM_ SG_ 769 rBatterySOCCharger "BMS indication of present SOC to charger
+Charger may use information for user display";
+CM_ SG_ 769 BBMSVehicleShuttingDownInhibit "BMS indicating to Charger that charging is inhibited due to vehicle shutting down";
+CM_ SG_ 769 NChargingCompleteStatus "BMS indication to the charger that charging is complete (Charger can show user solid green light).";
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","NoMsgSendType","NotUsed";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 0;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed";
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "VersionYear" INT 0 99;
+BA_DEF_  "VersionWeek" INT 0 53;
+BA_DEF_  "Version" HEX 0 255;
+BA_DEF_ BO_  "TpTxIndex" INT 0 99;
+BA_DEF_ BU_  "TpOwnSystemEcuNumber" HEX 0 255;
+BA_DEF_ BU_  "TpNodeBaseAddress" HEX 0 65535;
+BA_DEF_  "SamplePointMin" FLOAT 0 100;
+BA_DEF_  "SamplePointMax" FLOAT 0 100;
+BA_DEF_ SG_  "RID" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmStationAddress" HEX 0 64;
+BA_DEF_ BU_  "NmNode" ENUM  "No","Yes";
+BA_DEF_  "NmMessageCount" INT 0 64;
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmInmMaster" ENUM  "no","yes";
+BA_DEF_  "NmBaseAddress" INT 0 0;
+BA_DEF_  "NBTMin" INT 0 255;
+BA_DEF_  "NBTMax" INT 0 255;
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_  "ILTxTimeout" INT 0 10000;
+BA_DEF_ SG_  "GenSigSpecialFunction" STRING ;
+BA_DEF_ SG_  "GenSigSNA" STRING ;
+BA_DEF_ SG_  "GenSigReceiveSetting" STRING ;
+BA_DEF_ SG_  "GenSigPreSetting" STRING ;
+BA_DEF_ SG_  "GenSigPreIfSetting" STRING ;
+BA_DEF_ SG_  "GenSigPostSetting" STRING ;
+BA_DEF_ SG_  "GenSigPostIfSetting" STRING ;
+BA_DEF_ SG_  "GenSigEnvVarType" ENUM  "int","float","undef";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "GenSigConditionalSend" STRING ;
+BA_DEF_ SG_  "GenSigAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigAutoGenDsp" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigAssignSetting" STRING ;
+BA_DEF_ SG_  "GenSigAltSetting" STRING ;
+BA_DEF_  "GenNWMSleepTime" INT 0 10000000;
+BA_DEF_ BO_  "GenMsgStartValue" STRING ;
+BA_DEF_ BO_  "GenMsgPreSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPreIfSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPostSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPostIfSetting" STRING ;
+BA_DEF_ BO_  "GenMsgMinAcceptLength" INT 0 0;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgEVName" STRING ;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgConditionalSend" STRING ;
+BA_DEF_ BO_  "GenMsgAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgAutoGenDsp" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgAltSetting" STRING ;
+BA_DEF_ SG_  "Gatewaysignal" INT 0 1;
+BA_DEF_ BO_  "DiagState" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagRequest" ENUM  "No","Yes";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutTime" INT 0 0;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "Baudrate" 125000;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NmType" "";
+BA_DEF_DEF_  "Manufacturer" "McLaren";
+BA_DEF_DEF_  "VersionYear" 7;
+BA_DEF_DEF_  "VersionWeek" 6;
+BA_DEF_DEF_  "Version" 160;
+BA_DEF_DEF_  "TpTxIndex" 0;
+BA_DEF_DEF_  "TpOwnSystemEcuNumber" 0;
+BA_DEF_DEF_  "TpNodeBaseAddress" 0;
+BA_DEF_DEF_  "SamplePointMin" 75;
+BA_DEF_DEF_  "SamplePointMax" 81.25;
+BA_DEF_DEF_  "RID" "";
+BA_DEF_DEF_  "NodeLayerModules" "OSEKNM01.dll,CANoeILNLVector.dll";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmNode" "Yes";
+BA_DEF_DEF_  "NmMessageCount" 64;
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "NmInmMaster" "no";
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "NBTMin" 9;
+BA_DEF_DEF_  "NBTMax" 21;
+BA_DEF_DEF_  "ILUsed" "Yes";
+BA_DEF_DEF_  "ILTxTimeout" 30;
+BA_DEF_DEF_  "GenSigSpecialFunction" "";
+BA_DEF_DEF_  "GenSigSNA" "";
+BA_DEF_DEF_  "GenSigReceiveSetting" "";
+BA_DEF_DEF_  "GenSigPreSetting" "";
+BA_DEF_DEF_  "GenSigPreIfSetting" "";
+BA_DEF_DEF_  "GenSigPostSetting" "";
+BA_DEF_DEF_  "GenSigPostIfSetting" "";
+BA_DEF_DEF_  "GenSigEnvVarType" "undef";
+BA_DEF_DEF_  "GenSigEVName" "";
+BA_DEF_DEF_  "GenSigConditionalSend" "";
+BA_DEF_DEF_  "GenSigAutoGenSnd" "No";
+BA_DEF_DEF_  "GenSigAutoGenDsp" "No";
+BA_DEF_DEF_  "GenSigAssignSetting" "";
+BA_DEF_DEF_  "GenSigAltSetting" "";
+BA_DEF_DEF_  "GenNWMSleepTime" 10000000;
+BA_DEF_DEF_  "GenMsgStartValue" "";
+BA_DEF_DEF_  "GenMsgPreSetting" "";
+BA_DEF_DEF_  "GenMsgPreIfSetting" "";
+BA_DEF_DEF_  "GenMsgPostSetting" "";
+BA_DEF_DEF_  "GenMsgPostIfSetting" "";
+BA_DEF_DEF_  "GenMsgMinAcceptLength" 8;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgEVName" "";
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgConditionalSend" "";
+BA_DEF_DEF_  "GenMsgAutoGenSnd" "No";
+BA_DEF_DEF_  "GenMsgAutoGenDsp" "No";
+BA_DEF_DEF_  "GenMsgAltSetting" "";
+BA_DEF_DEF_  "Gatewaysignal" 0;
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_REL_ "GenSigTimeoutTime" 0;
+BA_ "Manufacturer" "McLaren";
+BA_ "NmType" "";
+BA_ "BusType" "CAN";
+BA_ "Baudrate" 500000;
+BA_ "NBTMax" 20;
+BA_ "NBTMin" 0;
+BA_ "NmBaseAddress" 1792;
+BA_ "NmMessageCount" 32;
+BA_ "DBName" "ChargerCAN";
+BA_ "NmStationAddress" BU_ BMS 1;
+BA_ "GenMsgSendType" BO_ 1503 0;
+BA_ "GenMsgCycleTime" BO_ 1503 1000;
+BA_ "GenMsgSendType" BO_ 1502 0;
+BA_ "GenMsgCycleTime" BO_ 1502 1000;
+BA_ "GenMsgSendType" BO_ 1501 0;
+BA_ "GenMsgCycleTime" BO_ 1501 1000;
+BA_ "GenMsgSendType" BO_ 1500 0;
+BA_ "GenMsgCycleTime" BO_ 1500 1000;
+BA_ "GenMsgSendType" BO_ 1499 0;
+BA_ "GenMsgCycleTime" BO_ 1499 1000;
+BA_ "GenMsgSendType" BO_ 1498 0;
+BA_ "GenMsgCycleTime" BO_ 1498 1000;
+BA_ "GenMsgSendType" BO_ 1497 0;
+BA_ "GenMsgCycleTime" BO_ 1497 1000;
+BA_ "GenMsgSendType" BO_ 1496 0;
+BA_ "GenMsgCycleTime" BO_ 1496 1000;
+BA_ "GenMsgSendType" BO_ 1495 0;
+BA_ "GenMsgCycleTime" BO_ 1495 1000;
+BA_ "GenMsgSendType" BO_ 1494 0;
+BA_ "GenMsgCycleTime" BO_ 1494 1000;
+BA_ "GenMsgSendType" BO_ 1493 0;
+BA_ "GenMsgCycleTime" BO_ 1493 1000;
+BA_ "GenMsgSendType" BO_ 1492 0;
+BA_ "GenMsgCycleTime" BO_ 1492 1000;
+BA_ "GenMsgSendType" BO_ 1491 0;
+BA_ "GenMsgCycleTime" BO_ 1491 1000;
+BA_ "GenMsgSendType" BO_ 1490 0;
+BA_ "GenMsgCycleTime" BO_ 1490 1000;
+BA_ "GenMsgSendType" BO_ 1489 0;
+BA_ "GenMsgCycleTime" BO_ 1489 1000;
+BA_ "GenMsgSendType" BO_ 1488 0;
+BA_ "GenMsgCycleTime" BO_ 1488 1000;
+BA_ "GenMsgSendType" BO_ 264 8;
+BA_ "GenMsgSendType" BO_ 263 8;
+BA_ "GenMsgSendType" BO_ 262 8;
+BA_ "GenMsgSendType" BO_ 261 8;
+BA_ "GenMsgSendType" BO_ 260 8;
+BA_ "GenMsgSendType" BO_ 259 8;
+BA_ "GenMsgSendType" BO_ 258 8;
+BA_ "GenMsgSendType" BO_ 257 8;
+BA_ "GenMsgSendType" BO_ 256 8;
+BA_ "GenMsgSendType" BO_ 771 0;
+BA_ "GenMsgCycleTime" BO_ 771 20;
+BA_ "GenMsgSendType" BO_ 770 0;
+BA_ "GenMsgCycleTime" BO_ 770 20;
+BA_ "GenMsgSendType" BO_ 1471 0;
+BA_ "GenMsgCycleTime" BO_ 1471 100;
+BA_ "GenMsgSendType" BO_ 1470 0;
+BA_ "GenMsgCycleTime" BO_ 1470 100;
+BA_ "GenMsgSendType" BO_ 1469 0;
+BA_ "GenMsgCycleTime" BO_ 1469 100;
+BA_ "GenMsgSendType" BO_ 1468 0;
+BA_ "GenMsgCycleTime" BO_ 1468 100;
+BA_ "GenMsgSendType" BO_ 1467 0;
+BA_ "GenMsgCycleTime" BO_ 1467 100;
+BA_ "GenMsgSendType" BO_ 1466 0;
+BA_ "GenMsgCycleTime" BO_ 1466 100;
+BA_ "GenMsgSendType" BO_ 1465 0;
+BA_ "GenMsgCycleTime" BO_ 1465 100;
+BA_ "GenMsgSendType" BO_ 1464 0;
+BA_ "GenMsgCycleTime" BO_ 1464 100;
+BA_ "GenMsgSendType" BO_ 1463 0;
+BA_ "GenMsgCycleTime" BO_ 1463 100;
+BA_ "GenMsgSendType" BO_ 1462 0;
+BA_ "GenMsgCycleTime" BO_ 1462 100;
+BA_ "GenMsgSendType" BO_ 1461 0;
+BA_ "GenMsgCycleTime" BO_ 1461 100;
+BA_ "GenMsgSendType" BO_ 1460 0;
+BA_ "GenMsgCycleTime" BO_ 1460 100;
+BA_ "GenMsgSendType" BO_ 1459 0;
+BA_ "GenMsgCycleTime" BO_ 1459 100;
+BA_ "GenMsgSendType" BO_ 1458 0;
+BA_ "GenMsgCycleTime" BO_ 1458 100;
+BA_ "GenMsgSendType" BO_ 1457 0;
+BA_ "GenMsgCycleTime" BO_ 1457 100;
+BA_ "GenMsgSendType" BO_ 1456 0;
+BA_ "GenMsgCycleTime" BO_ 1456 100;
+BA_ "GenMsgSendType" BO_ 772 0;
+BA_ "GenMsgCycleTime" BO_ 772 20;
+BA_ "GenMsgSendType" BO_ 769 0;
+BA_ "GenMsgCycleTime" BO_ 769 20;
+BA_ "GenSigSendType" SG_ 1503 BBatt0RecTimout 0;
+BA_ "GenSigSendType" SG_ 1503 NcountAfterT49 0;
+BA_ "GenSigSendType" SG_ 1503 NvehPilotADCout 0;
+BA_ "GenSigSendType" SG_ 1503 NLEDPriStatus 0;
+BA_ "GenSigSendType" SG_ 1503 NvehPilotGlitchCount 0;
+BA_ "GenSigSendType" SG_ 1503 BVLVinputVtimeout 0;
+BA_ "GenSigSendType" SG_ 1503 saved_fault_flags 0;
+BA_ "GenSigSendType" SG_ 1503 fault_codes 0;
+BA_ "GenSigSendType" SG_ 1503 BBattRecTotTimeout 0;
+BA_ "GenSigSendType" SG_ 1503 BisoPcheckpgDownFlag 0;
+BA_ "GenSigSendType" SG_ 1502 vTrimNegLimit 0;
+BA_ "GenSigSendType" SG_ 1502 vSetPointPos 0;
+BA_ "GenSigSendType" SG_ 1502 vSetPointNeg 0;
+BA_ "GenSigSendType" SG_ 1502 vTrimPosLimit 0;
+BA_ "GenSigSendType" SG_ 1501 vTrimFaultLimiter 0;
+BA_ "GenSigSendType" SG_ 1501 psuTemperature 0;
+BA_ "GenSigSendType" SG_ 1501 ISOspare1 0;
+BA_ "GenSigSendType" SG_ 1501 vPsuSmoothed 0;
+BA_ "GenSigSendType" SG_ 1501 temperatureFoldback 0;
+BA_ "GenSigSendType" SG_ 1500 iSetPoint 0;
+BA_ "GenSigSendType" SG_ 1500 availablePower 0;
+BA_ "GenSigSendType" SG_ 1500 vSetPoint 0;
+BA_ "GenSigSendType" SG_ 1500 VOutIlimitFactor 0;
+BA_ "GenSigSendType" SG_ 1499 vTrimBank2 0;
+BA_ "GenSigSendType" SG_ 1499 vTrimBank1 0;
+BA_ "GenSigSendType" SG_ 1499 vTrimBank3 0;
+BA_ "GenSigSendType" SG_ 1499 vTrimBank4 0;
+BA_ "GenSigSendType" SG_ 1498 vPsuPos 0;
+BA_ "GenSigSendType" SG_ 1498 vPsuNeg 0;
+BA_ "GenSigSendType" SG_ 1498 vOutNeg 0;
+BA_ "GenSigSendType" SG_ 1498 vOutPos 0;
+BA_ "GenSigSendType" SG_ 1497 NOBC_Diag_10 0;
+BA_ "GenSigSendType" SG_ 1496 NOBC_Diag_09 0;
+BA_ "GenSigSendType" SG_ 1495 veh_Prox_Voltage 0;
+BA_ "GenSigSendType" SG_ 1495 ILVAhCalc 0;
+BA_ "GenSigSendType" SG_ 1495 B12vRecCounterChk 0;
+BA_ "GenSigSendType" SG_ 1495 VLVRecThreshold 0;
+BA_ "GenSigSendType" SG_ 1495 BisoIncChkCounter 0;
+BA_ "GenSigSendType" SG_ 1495 BisoIncCounter 0;
+BA_ "GenSigSendType" SG_ 1494 VVehPilotMesNeg 0;
+BA_ "GenSigSendType" SG_ 1494 NLVPsuITrim 0;
+BA_ "GenSigSendType" SG_ 1494 NLVPsuVTrim 0;
+BA_ "GenSigSendType" SG_ 1494 VVehPilotMesPos 0;
+BA_ "GenSigSendType" SG_ 1493 TCaseMeasured 0;
+BA_ "GenSigSendType" SG_ 1493 IMainsPilotCalc 0;
+BA_ "GenSigSendType" SG_ 1493 TPsuMeasured 0;
+BA_ "GenSigSendType" SG_ 1493 NMainProxStatus 0;
+BA_ "GenSigSendType" SG_ 1493 NMainsPilotDuty 0;
+BA_ "GenSigSendType" SG_ 1493 NVehPilotDuty 0;
+BA_ "GenSigSendType" SG_ 1493 NMainsProxStatusSave 0;
+BA_ "GenSigSendType" SG_ 1492 NRcmStatus 0;
+BA_ "GenSigSendType" SG_ 1492 BUserSwitchOff 0;
+BA_ "GenSigSendType" SG_ 1492 NSelfPowerStatus 0;
+BA_ "GenSigSendType" SG_ 1492 NVehPilotStatus 0;
+BA_ "GenSigSendType" SG_ 1492 NFaultSelfPower 0;
+BA_ "GenSigSendType" SG_ 1492 NVehConStatus 0;
+BA_ "GenSigSendType" SG_ 1492 BPowerSwitch 0;
+BA_ "GenSigSendType" SG_ 1492 BMainsProxRemoved 0;
+BA_ "GenSigSendType" SG_ 1492 NVehPilotGlitch 0;
+BA_ "GenSigSendType" SG_ 1492 NSystemStatus 0;
+BA_ "GenSigSendType" SG_ 1492 NFaultState 0;
+BA_ "GenSigSendType" SG_ 1492 BMainsRemoved 0;
+BA_ "GenSigSendType" SG_ 1491 BLVRelayStatus 0;
+BA_ "GenSigSendType" SG_ 1491 IRcmMeasured 0;
+BA_ "GenSigSendType" SG_ 1491 BISOcomm101Fault 0;
+BA_ "GenSigSendType" SG_ 1491 BBMSAssertTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 BLVPsuPgSignal 0;
+BA_ "GenSigSendType" SG_ 1491 BSwitchStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BINILVRelayFuseFault 0;
+BA_ "GenSigSendType" SG_ 1491 BBMScommError 0;
+BA_ "GenSigSendType" SG_ 1491 BRCMPowerStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BSafetyChkISOslfchkTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 BINICfgFault 0;
+BA_ "GenSigSendType" SG_ 1491 BTCaseFault 0;
+BA_ "GenSigSendType" SG_ 1491 BINIVehPilotFault 0;
+BA_ "GenSigSendType" SG_ 1491 BINILogFault 0;
+BA_ "GenSigSendType" SG_ 1491 BRCMFault 0;
+BA_ "GenSigSendType" SG_ 1491 BHVposRelayStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BLVAHfault 0;
+BA_ "GenSigSendType" SG_ 1491 BHVmatchTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 BINILVFault 0;
+BA_ "GenSigSendType" SG_ 1491 BselfTestTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 NLVSetStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BLVRelayRequest 0;
+BA_ "GenSigSendType" SG_ 1491 BSelfCheckStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BSafetyChkISOmsgTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 BISOFault 0;
+BA_ "GenSigSendType" SG_ 1491 BLVPGstatusFiltered 0;
+BA_ "GenSigSendType" SG_ 1491 BmainsProxTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 BTPSUFault 0;
+BA_ "GenSigSendType" SG_ 1491 BSafetyChkISOrdyTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 BBMS304ChksumErr 0;
+BA_ "GenSigSendType" SG_ 1491 BINIMainsProxFault 0;
+BA_ "GenSigSendType" SG_ 1491 BselfTestFault 0;
+BA_ "GenSigSendType" SG_ 1491 BINIcurrentOffsetFault 0;
+BA_ "GenSigSendType" SG_ 1491 BBMS301ChksumErr 0;
+BA_ "GenSigSendType" SG_ 1491 BHVnegRellayStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BBMScommSanityErr 0;
+BA_ "GenSigSendType" SG_ 1491 BISOuPowerStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BVehPilotFault 0;
+BA_ "GenSigSendType" SG_ 1491 BSHTDNTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 BLVRelayStatusFiltered 0;
+BA_ "GenSigSendType" SG_ 1491 BRcmAlarmStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BINIRCMFault 0;
+BA_ "GenSigSendType" SG_ 1491 BMainsProxStatus 0;
+BA_ "GenSigSendType" SG_ 1491 BISOcomm102Fault 0;
+BA_ "GenSigSendType" SG_ 1491 BGNDcanErr 0;
+BA_ "GenSigSendType" SG_ 1491 BTcoolingTimeout 0;
+BA_ "GenSigSendType" SG_ 1491 BIsoPowerStatus 0;
+BA_ "GenSigSendType" SG_ 1490 ILVSetPoint 0;
+BA_ "GenSigSendType" SG_ 1490 VLVSetPoint 0;
+BA_ "GenSigSendType" SG_ 1490 ILVMeasured 0;
+BA_ "GenSigSendType" SG_ 1490 VLVOutputMeasured 0;
+BA_ "GenSigSendType" SG_ 1490 VLVSupplyMeasured 0;
+BA_ "GenSigSendType" SG_ 1489 NOBC_Diag_02 0;
+BA_ "GenSigSendType" SG_ 1488 currentSetPoint 0;
+BA_ "GenSigSendType" SG_ 264 NOBC_Ctrl_8 7;
+BA_ "GenSigSendType" SG_ 263 NOBC_Ctrl_7 7;
+BA_ "GenSigSendType" SG_ 262 NOBC_Ctrl_6 7;
+BA_ "GenSigSendType" SG_ 261 NOBC_Ctrl5 7;
+BA_ "GenSigSendType" SG_ 260 maxCurrentAvail 7;
+BA_ "GenSigSendType" SG_ 260 ISOspare2 7;
+BA_ "GenSigSendType" SG_ 260 faultErrorCode 7;
+BA_ "GenSigSendType" SG_ 260 maxCurrentAvailOutput 7;
+BA_ "GenSigSendType" SG_ 260 statusFl_copy 7;
+BA_ "GenSigSendType" SG_ 259 input12v_fault_UV 7;
+BA_ "GenSigSendType" SG_ 259 psu_12v_PG_fail 7;
+BA_ "GenSigSendType" SG_ 259 TChargerPSU 7;
+BA_ "GenSigSendType" SG_ 259 sanity_warning_flag 7;
+BA_ "GenSigSendType" SG_ 259 TChargerCase 7;
+BA_ "GenSigSendType" SG_ 259 RCM_fault 7;
+BA_ "GenSigSendType" SG_ 259 case_temp_fault 7;
+BA_ "GenSigSendType" SG_ 259 mains_prox_Invalid 7;
+BA_ "GenSigSendType" SG_ 259 veh_Pilot_FLT 7;
+BA_ "GenSigSendType" SG_ 259 chg_12v_PSU_PG_signal_fault 7;
+BA_ "GenSigSendType" SG_ 259 psu_hv_match_timeout 7;
+BA_ "GenSigSendType" SG_ 259 shutdown_timout 7;
+BA_ "GenSigSendType" SG_ 259 PSU_temp_fault 7;
+BA_ "GenSigSendType" SG_ 258 vLimNegFault 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood8 7;
+BA_ "GenSigSendType" SG_ 258 voltPosFault 7;
+BA_ "GenSigSendType" SG_ 258 BIsoRelayReqNeg 7;
+BA_ "GenSigSendType" SG_ 258 iLimFault 7;
+BA_ "GenSigSendType" SG_ 258 logDataFault 7;
+BA_ "GenSigSendType" SG_ 258 relayNegFault 7;
+BA_ "GenSigSendType" SG_ 258 psuBank3Fault 7;
+BA_ "GenSigSendType" SG_ 258 vLimPosFault 7;
+BA_ "GenSigSendType" SG_ 258 vTrim1Fault 7;
+BA_ "GenSigSendType" SG_ 258 currentFault 7;
+BA_ "GenSigSendType" SG_ 258 overCurrentSafeLim 7;
+BA_ "GenSigSendType" SG_ 258 vTrim4Fault 7;
+BA_ "GenSigSendType" SG_ 258 NIsoSystemState 7;
+BA_ "GenSigSendType" SG_ 258 psuBank4Fault 7;
+BA_ "GenSigSendType" SG_ 258 relayPosFault 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood9 7;
+BA_ "GenSigSendType" SG_ 258 psuBank1Fault 7;
+BA_ "GenSigSendType" SG_ 258 BIsoRelayReqPos 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuEn78 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood11 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood4 7;
+BA_ "GenSigSendType" SG_ 258 NIsoCounter 7;
+BA_ "GenSigSendType" SG_ 258 overVoltSafeLim 7;
+BA_ "GenSigSendType" SG_ 258 bmsConPosFault 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood10 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood1 7;
+BA_ "GenSigSendType" SG_ 258 bmsConNegFault 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood5 7;
+BA_ "GenSigSendType" SG_ 258 psuBank2Fault 7;
+BA_ "GenSigSendType" SG_ 258 voltNegFault 7;
+BA_ "GenSigSendType" SG_ 258 canRxFault 7;
+BA_ "GenSigSendType" SG_ 258 iTrimFault 7;
+BA_ "GenSigSendType" SG_ 258 configFault 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood6 7;
+BA_ "GenSigSendType" SG_ 258 vTrim3Fault 7;
+BA_ "GenSigSendType" SG_ 258 overTempSafeLim 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood3 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood2 7;
+BA_ "GenSigSendType" SG_ 258 psuPgFault 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuEn911 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuPGood7 7;
+BA_ "GenSigSendType" SG_ 258 fuseFault 7;
+BA_ "GenSigSendType" SG_ 258 canTxFault 7;
+BA_ "GenSigSendType" SG_ 258 vTrim2Fault 7;
+BA_ "GenSigSendType" SG_ 258 vehicleConn 7;
+BA_ "GenSigSendType" SG_ 258 BIsoPsuEn16 7;
+BA_ "GenSigSendType" SG_ 258 Isense_en 7;
+BA_ "GenSigSendType" SG_ 257 IHVMeasure 7;
+BA_ "GenSigStartValue" SG_ 257 IHVMeasure 5000;
+BA_ "GenSigSendType" SG_ 257 NIHVTrim 7;
+BA_ "GenSigSendType" SG_ 257 VHVMeasureInt 7;
+BA_ "GenSigSendType" SG_ 257 VHVMeasureExt 7;
+BA_ "GenSigSendType" SG_ 256 VHVChargerTarget 7;
+BA_ "GenSigSendType" SG_ 256 IHVExtTarget 7;
+BA_ "GenSigSendType" SG_ 256 NIsoOpMode 7;
+BA_ "GenSigSendType" SG_ 256 BIsoHVNegRelay 7;
+BA_ "GenSigSendType" SG_ 256 BIsoHVPosRelay 7;
+BA_ "GenSigSendType" SG_ 256 VMainsMeasured 7;
+BA_ "GenSigSendType" SG_ 256 NGndCounter 7;
+BA_ "GenSigSendType" SG_ 256 NVehConnect 7;
+BA_ "GenSigSendType" SG_ 256 IMainsMax 7;
+BA_ "GenSigSendType" SG_ 771 VCharger 0;
+BA_ "GenSigStartValue" SG_ 771 VCharger 65535;
+BA_ "GenSigSendType" SG_ 771 NOBC_2Counter 0;
+BA_ "GenSigStartValue" SG_ 771 NOBC_2Counter 15;
+BA_ "GenSigSendType" SG_ 771 NOBC_2Checksum 0;
+BA_ "GenSigStartValue" SG_ 771 NOBC_2Checksum 255;
+BA_ "GenSigSendType" SG_ 771 ICharger 0;
+BA_ "GenSigStartValue" SG_ 771 ICharger 255;
+BA_ "GenSigSendType" SG_ 770 BChargerIsolationInhibit 0;
+BA_ "GenSigSendType" SG_ 770 BBMSIndicatesFault 0;
+BA_ "GenSigSendType" SG_ 770 NCharger12VSupplyStatus 0;
+BA_ "GenSigStartValue" SG_ 770 NCharger12VSupplyStatus 3;
+BA_ "GenSigSendType" SG_ 770 NOBC_1Checksum 0;
+BA_ "GenSigStartValue" SG_ 770 NOBC_1Checksum 255;
+BA_ "GenSigSendType" SG_ 770 BChargerHVFault 0;
+BA_ "GenSigSendType" SG_ 770 IChargerMax 0;
+BA_ "GenSigStartValue" SG_ 770 IChargerMax 255;
+BA_ "GenSigSendType" SG_ 770 BChargerDetectBMSFault 0;
+BA_ "GenSigSendType" SG_ 770 NChargerHVContactorStatus 0;
+BA_ "GenSigStartValue" SG_ 770 NChargerHVContactorStatus 3;
+BA_ "GenSigSendType" SG_ 770 BChargerIndicatesEPBInhibit 0;
+BA_ "GenSigSendType" SG_ 770 NChargerSerialID 0;
+BA_ "GenSigSendType" SG_ 770 NOBC_1Counter 0;
+BA_ "GenSigStartValue" SG_ 770 NOBC_1Counter 15;
+BA_ "GenSigSendType" SG_ 770 NChargerStatus 0;
+BA_ "GenSigStartValue" SG_ 770 NChargerStatus 15;
+BA_ "GenSigSendType" SG_ 770 BChargerFault 0;
+BA_ "GenSigSendType" SG_ 770 BChargerCableFault 0;
+BA_ "GenSigSendType" SG_ 1471 NBMS_Diag_16 0;
+BA_ "GenSigSendType" SG_ 1470 NBMS_Diag_15 0;
+BA_ "GenSigSendType" SG_ 1469 NBMS_Diag_14 0;
+BA_ "GenSigSendType" SG_ 1468 NBMS_Diag_13 0;
+BA_ "GenSigSendType" SG_ 1467 NBMS_Diag_12 0;
+BA_ "GenSigSendType" SG_ 1466 NBMS_Diag_11 0;
+BA_ "GenSigSendType" SG_ 1465 NBMS_Diag_10 0;
+BA_ "GenSigSendType" SG_ 1464 NBMS_Diag_09 0;
+BA_ "GenSigSendType" SG_ 1463 NBMS_Diag_08 0;
+BA_ "GenSigSendType" SG_ 1462 NBMS_Diag_07 0;
+BA_ "GenSigSendType" SG_ 1461 NBMS_Diag_06 0;
+BA_ "GenSigSendType" SG_ 1460 VVehNegBMS 0;
+BA_ "GenSigSendType" SG_ 1460 VVehPosBMS 0;
+BA_ "GenSigSendType" SG_ 1459 NBMSChargeInhibitMask 0;
+BA_ "GenSigSendType" SG_ 1459 NBMSState 0;
+BA_ "GenSigSendType" SG_ 1459 NTermReason 0;
+BA_ "GenSigSendType" SG_ 1459 VProxPin 0;
+BA_ "GenSigSendType" SG_ 1459 VPilotPin 0;
+BA_ "GenSigStartValue" SG_ 1459 VPilotPin -89;
+BA_ "GenSigSendType" SG_ 1458 NPilotStatus 0;
+BA_ "GenSigSendType" SG_ 1458 BIsTetheredToSomething 0;
+BA_ "GenSigSendType" SG_ 1458 Additional_BMS_Errors_Chg_3 0;
+BA_ "GenSigSendType" SG_ 1458 BIsTetheredToNothing 0;
+BA_ "GenSigSendType" SG_ 1458 BIsChargerCapableToCharge 0;
+BA_ "GenSigSendType" SG_ 1458 Additional_BMS_Errors_Chg_1 0;
+BA_ "GenSigSendType" SG_ 1458 BIsChargerReady 0;
+BA_ "GenSigSendType" SG_ 1458 BPilotControl 0;
+BA_ "GenSigSendType" SG_ 1458 VPackBMS 0;
+BA_ "GenSigSendType" SG_ 1458 NProxStatus 0;
+BA_ "GenSigSendType" SG_ 1458 BIsTetheredToActiveCharger 0;
+BA_ "GenSigSendType" SG_ 1458 BIsTetheredToCharger 0;
+BA_ "GenSigSendType" SG_ 1458 Additional_BMS_Errors_Chg_2 0;
+BA_ "GenSigSendType" SG_ 1457 NChgState 0;
+BA_ "GenSigSendType" SG_ 1457 VChgPosBMS 0;
+BA_ "GenSigSendType" SG_ 1457 VChgNegBMS 0;
+BA_ "GenSigSendType" SG_ 1457 NChgLastResult 0;
+BA_ "GenSigSendType" SG_ 1457 BCtcNegVehHs 0;
+BA_ "GenSigSendType" SG_ 1457 BCtcNegChgHs 0;
+BA_ "GenSigSendType" SG_ 1457 BCtcPosChgLs 0;
+BA_ "GenSigSendType" SG_ 1457 BCtcNegChgLs 0;
+BA_ "GenSigSendType" SG_ 1457 BCtcPosChgHs 0;
+BA_ "GenSigSendType" SG_ 1457 BCtcNegVehLs 0;
+BA_ "GenSigSendType" SG_ 1457 NCcoState 0;
+BA_ "GenSigSendType" SG_ 1456 VCellMaxBMS 0;
+BA_ "GenSigSendType" SG_ 1456 IChargerBMS 0;
+BA_ "GenSigSendType" SG_ 1456 VCellMinBMS 0;
+BA_ "GenSigSendType" SG_ 772 RBMSHVPos 0;
+BA_ "GenSigStartValue" SG_ 772 RBMSHVPos 65535;
+BA_ "GenSigSendType" SG_ 772 NBMS_CH2Counter 0;
+BA_ "GenSigStartValue" SG_ 772 NBMS_CH2Counter 15;
+BA_ "GenSigSendType" SG_ 772 NBMS_CH2Checksum 0;
+BA_ "GenSigStartValue" SG_ 772 NBMS_CH2Checksum 255;
+BA_ "GenSigSendType" SG_ 772 RBMSHVNeg 0;
+BA_ "GenSigStartValue" SG_ 772 RBMSHVNeg 65535;
+BA_ "GenSigSendType" SG_ 769 BCableFault 0;
+BA_ "GenSigSendType" SG_ 769 BBMSIsolationInhibit 0;
+BA_ "GenSigSendType" SG_ 769 BConnectorCheckInhibit 0;
+BA_ "GenSigSendType" SG_ 769 BBMSFault 0;
+BA_ "GenSigSendType" SG_ 769 B12VSupplyInhibit 0;
+BA_ "GenSigSendType" SG_ 769 VChargerSet 0;
+BA_ "GenSigStartValue" SG_ 769 VChargerSet 65535;
+BA_ "GenSigSendType" SG_ 769 NChargerHVContactorReq 0;
+BA_ "GenSigStartValue" SG_ 769 NChargerHVContactorReq 3;
+BA_ "GenSigSendType" SG_ 769 BEPBInhibit 0;
+BA_ "GenSigSendType" SG_ 769 NBMS_CH1Checksum 0;
+BA_ "GenSigStartValue" SG_ 769 NBMS_CH1Checksum 255;
+BA_ "GenSigSendType" SG_ 769 BBMSHVFault 0;
+BA_ "GenSigSendType" SG_ 769 BChargerIndicatesFault 0;
+BA_ "GenSigSendType" SG_ 769 BVehicleAwakeInhibit 0;
+BA_ "GenSigSendType" SG_ 769 NBMS_CH1Counter 0;
+BA_ "GenSigStartValue" SG_ 769 NBMS_CH1Counter 15;
+BA_ "GenSigSendType" SG_ 769 BVehicleFault 0;
+BA_ "GenSigSendType" SG_ 769 NBMSCommandedMode 0;
+BA_ "GenSigStartValue" SG_ 769 NBMSCommandedMode 7;
+BA_ "GenSigSendType" SG_ 769 IChargerSet 0;
+BA_ "GenSigStartValue" SG_ 769 IChargerSet 255;
+BA_ "GenSigSendType" SG_ 769 BBMSIndicateChargerFault 0;
+BA_ "GenSigSendType" SG_ 769 rBatterySOCCharger 0;
+BA_ "GenSigStartValue" SG_ 769 rBatterySOCCharger 255;
+BA_ "GenSigSendType" SG_ 769 BBMSVehicleShuttingDownInhibit 0;
+BA_ "GenSigSendType" SG_ 769 NChargingCompleteStatus 0;
+BA_ "GenSigStartValue" SG_ 769 NChargingCompleteStatus 3;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 771 VCharger 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 771 NOBC_2Counter 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 771 NOBC_2Checksum 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 771 ICharger 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 BChargerIsolationInhibit 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 BBMSIndicatesFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 NCharger12VSupplyStatus 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 NOBC_1Checksum 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 BChargerHVFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 IChargerMax 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 BChargerDetectBMSFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 NChargerHVContactorStatus 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 BChargerIndicatesEPBInhibit 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 NChargerSerialID 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 NOBC_1Counter 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 NChargerStatus 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 BChargerFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 770 BChargerCableFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 772 RBMSHVPos 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 772 NBMS_CH2Counter 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 772 NBMS_CH2Checksum 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 772 RBMSHVNeg 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BCableFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BBMSIsolationInhibit 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BConnectorCheckInhibit 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BBMSFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 B12VSupplyInhibit 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 VChargerSet 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 NChargerHVContactorReq 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BEPBInhibit 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 NBMS_CH1Checksum 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BBMSHVFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BChargerIndicatesFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BVehicleAwakeInhibit 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 NBMS_CH1Counter 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BVehicleFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 NBMSCommandedMode 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 IChargerSet 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BBMSIndicateChargerFault 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 rBatterySOCCharger 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 BBMSVehicleShuttingDownInhibit 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ OBC SG_ 769 NChargingCompleteStatus 100;
+VAL_ 1503 fault_codes 145 "shutdwon HV shutdown timeout" 129 "sleep HV shutdown timeout" 115 "charging HV shutdown timeout  system_state = _x74" 114 "charging HV shutdown timeout   system_state = _x73" 113 "charging HV match timeout" 68 "HV Safety Check ISOu comm timeout" 67 "HV Safety Check ISOu self check timeout" 66 "HV Safety Check ISOu not ready timeout" 65 "HV Safety Check cooling  timeout" 50 "VLV battery reocvery timeout" 49 "VLV battery recovery  is disconnected TIMEOUT" 19 "VLV voltage not going above 10.0 V timeout" 18 "self test timeout fault" 17 "Mains  Prox timeout fault" ;
+VAL_ 1493 NMainProxStatus 2 "MAINS_PROX_GND_FAULT" 1 "MAINS_PROX_CONNECTD" 0 "MAINS_PROX_DISCONNECTD" ;
+VAL_ 1492 NRcmStatus 9 "RCM_ERROR" 8 "RCM_ALARM_ON" 7 "RCM_CALIBRATION" 6 "RCM_RESET_AND_CALIBRATION_RC" 5 "RCM_RESET_AND_CALIBRATION_CTRL_OFF" 4 "RCM_RESET" 3 "RCM_MEASURE" 2 "RCM_INITIALISE" 1 "RCM_DELAY" 0 "RCM_POWER_OFF" ;
+VAL_ 1492 NVehPilotStatus 3 "V_PILOT_CONNECTED_03" 2 "V_PILOT_CONNECTED_FAULT_02" 1 "V_PILOT_NOT_CONNECTED_01" 0 "V_PILOT_NOT_CONNECT_FAULT_00" ;
+VAL_ 1492 NVehConStatus 3 "V_PILOT_GLOBAL_ASSERT" 2 "V_PILOT_GLOBAL_CONNECTED" 1 "V_PILOT_GLOBAL_NOT_CONNECTED" 0 "V_PILOT_GLOBAL_FAULT" ;
+VAL_ 1492 BPowerSwitch 1 "ON" 0 "OFF" ;
+VAL_ 1492 NSystemStatus 241 "SYS_FAULT_ERROR_DISCONNECTED_xF1" 240 "SYS_FAULT_ERROR_CONNECTED_xF0" 146 "SYS_GND_SHUTDOWN_RECOVER_x92" 145 "SYS_GND_SHUTDOW_SAFE_x91" 144 "SYS_GND_SHUTTING_DOWN_x90" 131 "SYS_SLEEP_CHARGE_LV_x83  " 130 "SYS_SLEEP_NO_PILOT_x82" 129 "SYS_SLEEP_x81 /*0x19*/ " 128 "SYS_SLEEP_ISO_SHUTDOWN_80" 116 "SYS_CHG_SHUTDOWN_TO_SLEEP_INI_x74" 115 "SYS_CHG_SHUTDOWN_TO_STANDBY_W_ASSERT_x73" 114 "SYS_CHG_HV_CHARGE_x72" 113 "SYS_CHG_CHECK_HV_CLOSE_CONTACTORS_x71" 112 "SYS_CHG_SET_HV_REQ_CONTACTORS_x70" 99 "SYS_STANDBY_BMS_CAN_ERROR_x63" 98 "SYS_STANDBY_WAIT_CAN_REQ_x62" 97 "SYS_STANDBY_INHIBIT_x61" 96 "SYS_STANDBY_x60" 83 "SYS_BMS_CAN_ERROR_x53" 82 "SYS_ISO_BMS_WATING_STANDBY_CAN_REQ_x52" 81 "SYS_BMS_WAKE_ERROR_x51" 80 "SYS_BMS_GND_WATING_ASSERT_x50" 72 "SYS_ISO_CAN_MESSAGES_CHECK_x48 " 71 "SYS_ISO_PROCESS_CHECKS_x47 " 70 "SYS_ISO_REQ_READY_ISO_SELF_CHECK_x46 " 69 "SYS_ISO_TEMP_STABILIZING_x45" 68 "SYS_ISO_TEMP_CHECK_x44 " 67 "SYS_ISO_WAKEUP_ISO_x43 " 66 "SYS_ISO_DELAY_B4_REINIT_STAGE2_x42 " 65 "SYS_ISO_REINIT_ISO_STAGE1_x41" 64 "SYS_GND_SET_J1772_MAINS_CURRENT_x40" 52 "SYS_GND_LV_BATT_RECOVERY_OPEN_CONTACTOR_x34" 51 "SYS_GND_LV_BATT_RECOVERY_PROCESS_x33" 50 "SYS_GND_DELAY_AFTER_RELAY_CLOSE_x32" 49 "SYS_GND_DELAY_B4_RELAY_CLOSE_x31" 48 "SYS_GND_RELAY_CLOSE_LV_CHECK_x30 " 33 "SYS_GND_IDLE_DELAY_AFTER_VEH_CONNECT_x21" 32 "SYS_GND_IDLE_x20" 18 "SYS_GND_SELF_TEST_x12" 17 "SYS_GND_LED_TEST_X11" 16 "SYS_GND_INIT_x10" 1 "sys_GND_OFFLINE_x01" ;
+VAL_ 258 NIsoSystemState 11 "SYS_PRE_COOL" 10 "SYS_SW_PSU_ON_MIN_OP" 9 "SYS_GO_OFFLINE" 8 "SYS_FAULT_DET" 7 "SYS_FAULT" 6 "SYS_ONLINE" 5 "SYS_READY" 4 "SYS_RELAY_CHECK" 3 "SYS_POWER_CHECK" 2 "SYS_SELF_CHECK" 1 "SYS_OFFLINE" 0 "SYS_INITIALISE" ;
+VAL_ 256 NIsoOpMode 3 "ISO_REQ_PRECOOL" 2 "ISO_REQ_ONLINE" 1 "ISO_REQ_READY" 0 "ISO_REQ_OFFLINE" ;
+VAL_ 771 VCharger 255 "Default" ;
+VAL_ 771 ICharger 255 "Default" ;
+VAL_ 770 BChargerIsolationInhibit 1 "Inhibit" 0 "No inhibit" ;
+VAL_ 770 BBMSIndicatesFault 1 "Fault" 0 "No fault" ;
+VAL_ 770 NCharger12VSupplyStatus 3 "Default" 2 "Not used" 1 "Healthy" 0 "Not healthy" ;
+VAL_ 770 BChargerHVFault 1 "Fault" 0 "No fault" ;
+VAL_ 770 IChargerMax 255 "Default" ;
+VAL_ 770 BChargerDetectBMSFault 1 "Fault" 0 "No fault" ;
+VAL_ 770 NChargerHVContactorStatus 3 "Default" 2 "Not used" 1 "HV contactor CLOSED" 0 "HV contactor OPEN" ;
+VAL_ 770 BChargerIndicatesEPBInhibit 1 "EPB inhibit" 0 "No EPB inhibit" ;
+VAL_ 770 NChargerStatus 15 "Default" 14 "Fault" 6 "Sleep" 5 "Charge" 4 "Standby" 3 "Waiting for BMS" 2 "12V recovery" 1 "HV safety checks" 0 "Not defined" ;
+VAL_ 770 BChargerFault 1 "Fault" 0 "No fault" ;
+VAL_ 770 BChargerCableFault 1 "Fault" 0 "No fault" ;
+VAL_ 1459 NBMSState 8 "Error" 7 "Shutdown" 6 "Charger" 2 "Standby" 1 "Initialisation" ;
+VAL_ 1458 NPilotStatus 4 "Short To Battery" 3 "Charger Ready" 2 "Charger Waiting" 1 "No Charger" 0 "Unexpected" ;
+VAL_ 1458 NProxStatus 6 "Short To Batt" 5 "Untethered" 4 "Cable Fault" 3 "Tethered" 2 "Guarded" 1 "Unexpected" 0 "Short To Ground" ;
+VAL_ 1457 NChgState 40 "Stopped" 39 "Isolation" 38 "Terminating" 37 "CCCV : Complete" 36 "CCCV : Constant Voltage" 35 "CCCV : Constant Current" 34 "CCCV : Current Ramp Up" 33 "CCCV : Voltage Ramp Up" 32 "CCCV Uninit" 31 "Charger Voltage Available Low" 30 "Charger opened contactors" 29 "Too Long Charging" 28 "Charging OK" 27 "Contactor Closure Timeout" 26 "Contactor Closure" 25 "Voltage Equalisation Timeout" 24 "Voltage Equalisation" 23 "HV Connection Timeout" 22 "Charger HV Connection" 21 "Charger Shutdown" 20 "Not Possible" 19 "Current Reading Invalid" 18 "Contactor Fault" 17 "Contactors Open" 16 "Not OK to charge" 15 "Charger not present" 14 "Not tethered" 13 "Charger Inhibit Fault Reaction" 12 "HVIL Missing" 11 "Cell Voltage To High" 10 "Cell Temperature Too High" 9 "Cooldown" 8 "Power Low" 7 "Charger Voltage Available Low 7" 6 "Charging In Progress" 5 "Voltage on Charger Bus Not Zero" 4 "Voltage on Charger Bus Invalid" 3 "Cell Voltages Not Available" 2 "Cell Temperatures Not Available" 1 "No Demand" 0 "OK" ;
+VAL_ 1457 NChgLastResult 40 "Stopped" 39 "Isolation" 38 "Terminating" 37 "CCCV : Complete" 36 "CCCV : Constant Voltage" 35 "CCCV : Constant Current" 34 "CCCV : Current Ramp Up" 33 "CCCV : Voltage Ramp Up" 32 "CCCV Uninit" 31 "Charger Voltage Available Low" 30 "Charger opened contactors" 29 "Too Long Charging" 28 "Charging OK" 27 "Contactor Closure Timeout" 26 "Contactor Closure" 25 "Voltage Equalisation Timeout" 24 "Voltage Equalisation" 23 "HV Connection Timeout" 22 "Charger HV Connection" 21 "Charger Shutdown" 20 "Not Possible" 19 "Current Reading Invalid" 18 "Contactor Fault" 17 "Contactors Open" 16 "Not OK to charge" 15 "Charger not present" 14 "Not tethered" 13 "Charger Inhibit Fault Reaction" 12 "HVIL Missing" 11 "Cell Voltage To High" 10 "Cell Temperature Too High" 9 "Cooldown" 8 "Power Low" 7 "Charger Voltage Available Low 7" 6 "Charging In Progress" 5 "Voltage on Charger Bus Not Zero" 4 "Voltage on Charger Bus Invalid" 3 "Cell Voltages Not Available" 2 "Cell Temperatures Not Available" 1 "No Demand" 0 "OK" ;
+VAL_ 1457 NCcoState 10 "Isolation" 9 "Stop" 8 "Charging Termination" 7 "Charging" 6 "Pack Contactor Closure" 5 "Voltage Equalisation" 4 "Charger HV Connection" 3 "Charger Shutdown" 2 "Not Possible" 1 "Decision" 0 "Start" ;
+VAL_ 772 RBMSHVPos 65535 "Default" ;
+VAL_ 772 RBMSHVNeg 65535 "Default" ;
+VAL_ 769 BCableFault 1 "Fault" 0 "No fault" ;
+VAL_ 769 BBMSIsolationInhibit 1 "Inhibit" 0 "No inhibit" ;
+VAL_ 769 BConnectorCheckInhibit 1 "Inhibit" 0 "No inhibit" ;
+VAL_ 769 BBMSFault 1 "Fault" 0 "No fault" ;
+VAL_ 769 B12VSupplyInhibit 1 "Inhibit" 0 "No inhibit" ;
+VAL_ 769 VChargerSet 255 "Default" ;
+VAL_ 769 NChargerHVContactorReq 3 "Default" 2 "Not used" 1 "HV contactor CLOSED" 0 "HV contactor OPEN" ;
+VAL_ 769 BEPBInhibit 1 "Inhibit" 0 "No inhibit" ;
+VAL_ 769 BBMSHVFault 1 "Fault" 0 "No fault" ;
+VAL_ 769 BChargerIndicatesFault 1 "Fault" 0 "No fault" ;
+VAL_ 769 BVehicleAwakeInhibit 1 "Inhibit" 0 "Non inhibit" ;
+VAL_ 769 BVehicleFault 1 "Fault" 0 "No fault" ;
+VAL_ 769 NBMSCommandedMode 7 "Default" 3 "Sleep" 2 "Charge" 1 "Standby" 0 "Not defined" ;
+VAL_ 769 IChargerSet 255 "Default" ;
+VAL_ 769 BBMSIndicateChargerFault 1 "Fault" 0 "No fault" ;
+VAL_ 769 rBatterySOCCharger 255 "Default" ;
+VAL_ 769 BBMSVehicleShuttingDownInhibit 1 "Inhibit" 0 "No inhibit" ;
+VAL_ 769 NChargingCompleteStatus 3 "Default" 2 "not used" 1 "Charging complete" 0 "Charging not complete" ;
+

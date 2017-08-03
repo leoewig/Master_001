@@ -1,0 +1,13 @@
+    /begin COMPU_METHOD cal_off_data_status_t "Conversion for cal_off_data_status_t type"
+        TAB_VERB "%0.0" ""
+        COMPU_TAB_REF cal_off_data_status_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB cal_off_data_status_vtab "" TAB_VERB 5
+        0 "cal_off_data_ok"
+        1 "cal_off_data_bad_range"
+        2 "cal_off_data_invalid_crc"
+        3 "cal_off_data_wrong_format"
+        4 "cal_off_data_not_checked_yet"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

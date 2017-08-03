@@ -1,0 +1,22 @@
+/* 
+ * $Id: mmc_icm_faults.def 12601 2015-02-26 10:24:21Z pr4 $ 
+ * This file lists the faults which are monitored by the ICM feature
+ *  
+ * The condition listed is the precondition for calling the function that 
+ * checks a given fault. It is still possible for a fault to not be 'monitored'
+ * even if this condition is met.
+ * 
+ */
+
+ICM_FAULT(plat_cell_t,				icm_new_measure_available)
+ICM_FAULT(plat_vtbm_n_cell_t_lost,	icm_new_measure_available)
+ICM_FAULT(plat_n_cell_t_lost,		icm_new_measure_available)
+ICM_FAULT(flash_singlebit_fault_corrected,      icm_new_status_available)
+/* @todo, I can't find PLAT_VTBM_OPTOMOS_FAILURE fault */
+ICM_FAULT(plat_cell_v,				icm_new_measure_available)
+ICM_FAULT(plat_vtbm_n_cell_v_lost,	icm_new_measure_available)
+ICM_FAULT(plat_n_cell_v_lost,		icm_new_measure_available)
+ICM_FAULT(plat_vtbm_ref,				icm_new_refs_available)
+ICM_FAULT(plat_uncommanded_balancing,	icm_new_status_available)
+ICM_FAULT(plat_balancing_request_not_actioned, icm_new_status_available)
+

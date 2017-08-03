@@ -1,0 +1,26 @@
+/**
+@file
+@ingroup charger_dbc_handedits
+
+$Id$
+*/
+/**
+@defgroup charger_dbc_handedits Hand-Edits of Charger DBC File McLaren_P12_Charger_CAN_PP4_4.dbc
+@ingroup mmc_cfg
+
+The DBC file needs following modifications:
+
+1. Couple of signal tables have duplicate items, which result in errors during the compile. Following
+items must be made unique
+
+Before:
+~~~
+VAL_ 1457 NChgState 40 "Stopped" 39 "Isolation" 38 "Terminating" 37 "CCCV : Complete" 36 "CCCV : Constant Voltage" 35 "CCCV : Constant Current" 34 "CCCV : Current Ramp Up" 33 "CCCV : Voltage Ramp Up" 32 "CCCV Uninit" 31 "Charger Voltage Available Low" 30 "Charger opened contactors" 29 "Too Long Charging" 28 "Charging OK" 27 "Contactor Closure Timeout" 26 "Contactor Closure" 25 "Voltage Equalisation Timeout" 24 "Voltage Equalisation" 23 "HV Connection Timeout" 22 "Charger HV Connection" 21 "Charger Shutdown" 20 "Not Possible" 19 "Current Reading Invalid" 18 "Contactor Fault" 17 "Contactors Open" 16 "Not OK to charge" 15 "Charger not present" 14 "Not tethered" 13 "Charger Inhibit Fault Reaction" 12 "HVIL Missing" 11 "Cell Voltage To High" 10 "Cell Temperature Too High" 9 "Cooldown" 8 "Power Low" 7 "Charger Voltage Available Low" 6 "Charging In Progress" 5 "Voltage on Charger Bus Not Zero" 4 "Voltage on Charger Bus Invalid" 3 "Cell Voltages Not Available" 2 "Cell Temperatures Not Available" 1 "No Demand" 0 "OK" ;
+VAL_ 1457 NChgLastResult 40 "Stopped" 39 "Isolation" 38 "Terminating" 37 "CCCV : Complete" 36 "CCCV : Constant Voltage" 35 "CCCV : Constant Current" 34 "CCCV : Current Ramp Up" 33 "CCCV : Voltage Ramp Up" 32 "CCCV Uninit" 31 "Charger Voltage Available Low" 30 "Charger opened contactors" 29 "Too Long Charging" 28 "Charging OK" 27 "Contactor Closure Timeout" 26 "Contactor Closure" 25 "Voltage Equalisation Timeout" 24 "Voltage Equalisation" 23 "HV Connection Timeout" 22 "Charger HV Connection" 21 "Charger Shutdown" 20 "Not Possible" 19 "Current Reading Invalid" 18 "Contactor Fault" 17 "Contactors Open" 16 "Not OK to charge" 15 "Charger not present" 14 "Not tethered" 13 "Charger Inhibit Fault Reaction" 12 "HVIL Missing" 11 "Cell Voltage To High" 10 "Cell Temperature Too High" 9 "Cooldown" 8 "Power Low" 7 "Charger Voltage Available Low" 6 "Charging In Progress" 5 "Voltage on Charger Bus Not Zero" 4 "Voltage on Charger Bus Invalid" 3 "Cell Voltages Not Available" 2 "Cell Temperatures Not Available" 1 "No Demand" 0 "OK" ;
+
+After:
+~~~
+VAL_ 1457 NChgState 40 "Stopped" 39 "Isolation" 38 "Terminating" 37 "CCCV : Complete" 36 "CCCV : Constant Voltage" 35 "CCCV : Constant Current" 34 "CCCV : Current Ramp Up" 33 "CCCV : Voltage Ramp Up" 32 "CCCV Uninit" 31 "Charger Voltage Available Low" 30 "Charger opened contactors" 29 "Too Long Charging" 28 "Charging OK" 27 "Contactor Closure Timeout" 26 "Contactor Closure" 25 "Voltage Equalisation Timeout" 24 "Voltage Equalisation" 23 "HV Connection Timeout" 22 "Charger HV Connection" 21 "Charger Shutdown" 20 "Not Possible" 19 "Current Reading Invalid" 18 "Contactor Fault" 17 "Contactors Open" 16 "Not OK to charge" 15 "Charger not present" 14 "Not tethered" 13 "Charger Inhibit Fault Reaction" 12 "HVIL Missing" 11 "Cell Voltage To High" 10 "Cell Temperature Too High" 9 "Cooldown" 8 "Power Low" 7 "Charger Voltage Available Low 7" 6 "Charging In Progress" 5 "Voltage on Charger Bus Not Zero" 4 "Voltage on Charger Bus Invalid" 3 "Cell Voltages Not Available" 2 "Cell Temperatures Not Available" 1 "No Demand" 0 "OK" ;
+VAL_ 1457 NChgLastResult 40 "Stopped" 39 "Isolation" 38 "Terminating" 37 "CCCV : Complete" 36 "CCCV : Constant Voltage" 35 "CCCV : Constant Current" 34 "CCCV : Current Ramp Up" 33 "CCCV : Voltage Ramp Up" 32 "CCCV Uninit" 31 "Charger Voltage Available Low" 30 "Charger opened contactors" 29 "Too Long Charging" 28 "Charging OK" 27 "Contactor Closure Timeout" 26 "Contactor Closure" 25 "Voltage Equalisation Timeout" 24 "Voltage Equalisation" 23 "HV Connection Timeout" 22 "Charger HV Connection" 21 "Charger Shutdown" 20 "Not Possible" 19 "Current Reading Invalid" 18 "Contactor Fault" 17 "Contactors Open" 16 "Not OK to charge" 15 "Charger not present" 14 "Not tethered" 13 "Charger Inhibit Fault Reaction" 12 "HVIL Missing" 11 "Cell Voltage To High" 10 "Cell Temperature Too High" 9 "Cooldown" 8 "Power Low" 7 "Charger Voltage Available Low 7" 6 "Charging In Progress" 5 "Voltage on Charger Bus Not Zero" 4 "Voltage on Charger Bus Invalid" 3 "Cell Voltages Not Available" 2 "Cell Temperatures Not Available" 1 "No Demand" 0 "OK" ;
+
+*/

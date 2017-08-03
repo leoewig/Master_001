@@ -1,0 +1,60 @@
+/**
+
+@file
+@ingroup testing
+Testing documentation
+
+$Id: testing.dox 3145 2012-08-02 13:14:28Z vs7 $
+
+*/
+/**
+<!--
+This becomes the Testing page referenced from the main page
+
+Doxygen doesn't give us an easy way to link to modules so we use the fact that
+it wil lbe called group__<module-name>.html and put in an HTML link
+-->
+
+@page testingpage NightWing Testing
+
+Testing is executed from within Developer Studio projects within the nwtest
+solution.
+
+The following testing is possible
+	- @ref utsect "unit testing" on the PC
+	- target testing with I/O provided by the prodder (coming soon)
+
+All the testing types share the infrastructure provided by the
+<a href="group__sharedlib.html">sharedlib</a> project.  This infrastructure
+provides a common method for defining and running tests.
+
+@section utsect Unit Testing
+
+Unit testing involves bringing target code into the mmccode project and
+compiling it on the PC.  The project is set up to compile with the \#define
+HOSTED which looks after target/PC differences.  For example, spoofed I/O
+register definitions from hostedxep100.h are used instead of the real ones
+from ioxep100.h
+
+Test functions are written in the mmchostunit project and listed in either
+tests.defs or personal.defs and defined in .cpp files with the #TEST_HEADER macro.
+
+Unit test functions set up the state of global variables, call the function
+under test with desired arguments and then check outputs and global variables.
+
+See diounit.cpp for examples of unit tests.
+
+*/
+/**
+
+Go @ref testingpage "here" for an overview of testing
+
+@defgroup testing Testing
+
+*/
+/**
+
+@defgroup unittesting Unit Testing
+@ingroup testing
+
+*/

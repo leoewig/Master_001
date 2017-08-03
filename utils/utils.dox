@@ -1,0 +1,17 @@
+/**
+Documentation file to hold Utilities group description
+
+@file
+@ingroup utils
+
+$Id: utils.dox 2659 2012-06-28 13:13:58Z vs7 $
+*/
+
+Copyright (c) Linkedriving Tech 2011
+
+/**
+
+Utility functions and include files
+
+@defgroup utils Utilities
+*/

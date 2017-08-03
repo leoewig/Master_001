@@ -1,0 +1,32 @@
+/*****************************************************************************
+ *
+ * Copyright (c) Linkedriving Tech 2016 - All rights reserved 
+ *
+ * file name:    def
+ *
+ * description:  
+ *  sent cyclic messages
+ * 
+ *
+ * revision history:
+ *
+ * Date        Author           Description
+ * 2016-May-17  Jun Wu           initial version
+ *
+ *****************************************************************************/
+
+EXC_CYCLIC_MSG_CONTROL(BMS_00)
+EXC_CYCLIC_MSG_CONTROL(BMS_01)
+EXC_CYCLIC_MSG_CONTROL(BMS_02)
+EXC_CYCLIC_MSG_CONTROL(BMS_03)
+EXC_CYCLIC_MSG_CONTROL(BMS_04)
+EXC_CYCLIC_MSG_CONTROL(BMS_05)
+EXC_CYCLIC_MSG_CONTROL(BMS_06)
+EXC_CYCLIC_MSG_CONTROL(BMS_07)
+EXC_CYCLIC_MSG_CONTROL(BMS_08)
+EXC_CYCLIC_MSG_CONTROL(BMS_09)
+EXC_CYCLIC_MSG_CONTROL(BMS_0A)
+EXC_CYCLIC_MSG_CONTROL(BMS_0B)
+EXC_CYCLIC_MSG_CONTROL(BMS_0C)
+EXC_CYCLIC_MSG_CONTROL(BMS_Diag_01)
+EXC_CYCLIC_MSG_CONTROL(ISA_Command)

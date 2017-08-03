@@ -1,0 +1,231 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: isa mmc pc
+VAL_TABLE_ ISA_Response_ID 143 "Serial number message" 142 "SW Version message" 141 "Device ID message" 135 "Module status message" 134 "status of OC-test signal line" 132 "Threshold configuration" 131 "Measurement configuration" 130 "Operation mode" ;
+VAL_TABLE_ ISA_Input_type 0 "None" 5 "Temperature" 4 "Voltage 3" 3 "Voltage 2" 2 "Voltage 1" 1 "Current" ;
+VAL_TABLE_ ISA_Result_status 8 "Result is invalid" 1 "Result out of range" 0 "Result is OK" ;
+VAL_TABLE_ ISA_Command_ID 33 "STORE" 22 "START_OC_TEST" 16 "TRIGGER" 79 "GET_SERIAL_NUMBER" 78 "GET_SW_VERSION" 77 "GET_DEVICE_ID" 71 "GET_STATUS" 68 "GET_THRESHOLD" 67 "GET_CONFIG" 66 "GET_MODE" 32 "SET_CANID" 20 "SET_THRESHOLD" 19 "SET_CONFIG" 18 "SET_MODE" ;
+VAL_TABLE_ DM_type_res 128 "Error" 36 "Four bytes type" 24 "Three bytes type" 16 "Two bytes type" 8 "One byte type" ;
+VAL_TABLE_ DM_type_req 24 "Three bytes type" 32 "Four bytes type" 16 "Two bytes type" 8 "One byte type" ;
+
+BO_ 1315 ISA_Result_msg3: 8 isa
+ SG_ ISA_Sixth_type : 32|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Sixth_status : 36|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Sixth_result : 40|24@1- (1,0) [0|0] ""  mmc
+ SG_ ISA_Fifth_type : 0|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Fifth_status : 4|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Fifth_result : 8|24@1- (1,0) [0|0] ""  mmc
+
+BO_ 1314 ISA_Result_msg2: 8 isa
+ SG_ ISA_Fourth_type : 32|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Fourth_status : 36|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Fourth_result : 40|24@1- (1,0) [0|0] ""  mmc
+ SG_ ISA_Third_type : 0|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Third_status : 4|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Third_result : 8|24@1- (1,0) [0|0] ""  mmc
+
+BO_ 1313 ISA_Result_msg1: 8 isa
+ SG_ ISA_Second_type : 32|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Second_status : 36|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Second_result : 40|24@1- (1,0) [0|0] ""  mmc
+ SG_ ISA_First_type : 0|4@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_First_result : 8|24@1- (1,0) [0|0] ""  mmc
+ SG_ ISA_First_status : 4|4@1+ (1,0) [0|0] ""  mmc
+
+BO_ 1297 ISA_Response_msg: 8 isa
+ SG_ ISA_Response_ID : 0|8@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Response_DB7 : 56|8@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Response_DB6 : 48|8@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Response_DB5 : 40|8@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Response_DB4 : 32|8@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Response_DB3 : 24|8@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Response_DB2 : 16|8@1+ (1,0) [0|0] ""  mmc
+ SG_ ISA_Response_DB1 : 8|8@1+ (1,0) [0|0] ""  mmc
+
+BO_ 1041 ISA_Command: 8 mmc
+ SG_ ISA_Cmd_DB7 : 56|8@1+ (1,0) [0|0] ""  isa
+ SG_ ISA_Cmd_DB6 : 48|8@1+ (1,0) [0|0] ""  isa
+ SG_ ISA_Cmd_DB5 : 40|8@1+ (1,0) [0|0] ""  isa
+ SG_ ISA_Cmd_DB4 : 32|8@1+ (1,0) [0|0] ""  isa
+ SG_ ISA_Cmd_DB3 : 24|8@1+ (1,0) [0|0] ""  isa
+ SG_ ISA_Cmd_DB2 : 16|8@1+ (1,0) [0|0] ""  isa
+ SG_ ISA_Cmd_DB1 : 8|8@1+ (1,0) [0|0] ""  isa
+ SG_ ISA_Command_ID : 0|8@1+ (1,0) [0|0] ""  isa
+
+BO_ 2028 ID: 8 mmc
+ SG_ ID_reason : 63|8@0+ (1,0) [0|0] ""  pc
+ SG_ ID_year : 15|8@0+ (1,0) [0|0] ""  pc
+ SG_ ID_second : 55|8@0+ (1,0) [0|0] ""  pc
+ SG_ ID_month : 23|8@0+ (1,0) [0|0] ""  pc
+ SG_ ID_minute : 47|8@0+ (1,0) [0|0] ""  pc
+ SG_ ID_hour : 39|8@0+ (1,0) [0|0] ""  pc
+ SG_ ID_date : 31|8@0+ (1,0) [0|0] ""  pc
+ SG_ ID_build : 7|8@0+ (1,0) [0|0] ""  pc
+
+BO_ 2021 DMsut_wrrsp: 8 mmc
+ SG_ DMsut_wrrsp_data : 39|32@0+ (1,0) [0|4294967295] ""  pc
+ SG_ DMsut_wrrsp_address : 15|24@0+ (1,0) [0|16777215] ""  pc
+ SG_ DMsut_wrrsp_type : 7|8@0+ (1,0) [0|2] ""  pc
+
+BO_ 2020 DMsut_wrreq: 8 pc
+ SG_ DMsut_wrreq_data : 39|32@0+ (1,0) [0|4294967295] ""  mmc
+ SG_ DMsut_wrreq_address : 15|24@0+ (1,0) [0|16777215] ""  mmc
+ SG_ DMsut_wrreq_type : 7|8@0+ (1,0) [0|2] ""  mmc
+
+BO_ 2023 DMsut_rdrsp: 8 mmc
+ SG_ DMsut_rdrsp_data : 39|32@0+ (1,0) [0|4294967295] ""  pc
+ SG_ DMsut_rdrsp_address : 15|24@0+ (1,0) [0|16777215] ""  pc
+ SG_ DMsut_rdrsp_type : 7|8@0+ (1,0) [0|2] ""  pc
+
+BO_ 2022 DMsut_rdreq: 8 pc
+ SG_ DMsut_rdreq_address : 15|24@0+ (1,0) [0|16777215] ""  mmc
+ SG_ DMsut_rdreq_type : 7|8@0+ (1,0) [0|2] ""  mmc
+
+EV_ EnvKlemme15: 0 [0|1] "" 0 1 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+BA_DEF_ BO_  "ExcludeFromUnitTesting" ENUM  "No","Yes";
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_  "ILTxTimeout" INT 0 10000;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ SG_  "NWMWakeupAllowed" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmMessage" ENUM  "no","yes";
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmNode" ENUM  "no","yes";
+BA_DEF_ BU_  "NmStationAddress" INT 0 63;
+BA_DEF_  "NmBaseAddress" HEX 1024 1087;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 50000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 999999;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","Cyclic","NotUsed","IfActive","NoMsgSendType","NotUsed","vector_leerstring";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed";
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 100000000000;
+
+BA_DEF_DEF_  "ExcludeFromUnitTesting" "No";
+BA_DEF_DEF_  "Manufacturer" "McLaren";
+BA_DEF_DEF_  "ILUsed" "Yes";
+BA_DEF_DEF_  "ILTxTimeout" 30;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NWMWakeupAllowed" "No";
+BA_DEF_DEF_  "NmMessage" "no";
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "NmNode" "no";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+
+BA_ "GenSigSendType" SG_ 1315 ISA_Sixth_type 1;
+BA_ "GenSigSendType" SG_ 1315 ISA_Sixth_status 1;
+BA_ "GenSigSendType" SG_ 1315 ISA_Sixth_result 1;
+BA_ "GenSigSendType" SG_ 1315 ISA_Fifth_type 1;
+BA_ "GenSigSendType" SG_ 1315 ISA_Fifth_status 1;
+BA_ "GenSigSendType" SG_ 1315 ISA_Fifth_result 1;
+BA_ "GenSigSendType" SG_ 1314 ISA_Fourth_type 1;
+BA_ "GenSigSendType" SG_ 1314 ISA_Fourth_status 1;
+BA_ "GenSigSendType" SG_ 1314 ISA_Fourth_result 1;
+BA_ "GenSigSendType" SG_ 1314 ISA_Third_type 1;
+BA_ "GenSigSendType" SG_ 1314 ISA_Third_status 1;
+BA_ "GenSigSendType" SG_ 1314 ISA_Third_result 1;
+BA_ "GenSigSendType" SG_ 1313 ISA_Second_type 1;
+BA_ "GenSigSendType" SG_ 1313 ISA_Second_status 1;
+BA_ "GenSigSendType" SG_ 1313 ISA_Second_result 1;
+BA_ "GenSigSendType" SG_ 1313 ISA_First_type 1;
+BA_ "GenSigSendType" SG_ 1313 ISA_First_result 1;
+BA_ "GenSigSendType" SG_ 1313 ISA_First_status 1;
+BA_ "GenSigSendType" SG_ 1297 ISA_Response_ID 1;
+BA_ "GenSigSendType" SG_ 1297 ISA_Response_DB7 1;
+BA_ "GenSigSendType" SG_ 1297 ISA_Response_DB6 1;
+BA_ "GenSigSendType" SG_ 1297 ISA_Response_DB5 1;
+BA_ "GenSigSendType" SG_ 1297 ISA_Response_DB4 1;
+BA_ "GenSigSendType" SG_ 1297 ISA_Response_DB3 1;
+BA_ "GenSigSendType" SG_ 1297 ISA_Response_DB2 1;
+BA_ "GenSigSendType" SG_ 1297 ISA_Response_DB1 1;
+BA_ "GenSigSendType" SG_ 1041 ISA_Cmd_DB7 1;
+BA_ "GenSigSendType" SG_ 1041 ISA_Cmd_DB6 1;
+BA_ "GenSigSendType" SG_ 1041 ISA_Cmd_DB5 1;
+BA_ "GenSigSendType" SG_ 1041 ISA_Cmd_DB4 1;
+BA_ "GenSigSendType" SG_ 1041 ISA_Cmd_DB3 1;
+BA_ "GenSigSendType" SG_ 1041 ISA_Cmd_DB2 1;
+BA_ "GenSigSendType" SG_ 1041 ISA_Cmd_DB1 1;
+BA_ "GenSigSendType" SG_ 1041 ISA_Command_ID 1;
+BA_ "ExcludeFromUnitTesting" BO_ 2028 1;
+BA_ "ExcludeFromUnitTesting" BO_ 2021 1;
+BA_ "ExcludeFromUnitTesting" BO_ 2020 1;
+BA_ "ExcludeFromUnitTesting" BO_ 2023 1;
+BA_ "ExcludeFromUnitTesting" BO_ 2022 1;
+BA_ "GenSigSendType" SG_ 2028 ID_build 1;
+BA_ "GenSigSendType" SG_ 2021 DMsut_wrrsp_data 1;
+BA_ "GenSigSendType" SG_ 2023 DMsut_rdrsp_data 1;
+
+VAL_ 1315 ISA_Sixth_type 0 "None" 5 "Temperature" 4 "Voltage 3" 3 "Voltage 2" 2 "Voltage 1" 1 "Current" ;
+VAL_ 1315 ISA_Sixth_status 8 "Result is invalid" 1 "Result out of range" 0 "Result is OK" ;
+VAL_ 1315 ISA_Fifth_type 0 "None" 5 "Temperature" 4 "Voltage 3" 3 "Voltage 2" 2 "Voltage 1" 1 "Current" ;
+VAL_ 1315 ISA_Fifth_status 8 "Result is invalid" 1 "Result out of range" 0 "Result is OK" ;
+VAL_ 1314 ISA_Fourth_type 0 "None" 5 "Temperature" 4 "Voltage 3" 3 "Voltage 2" 2 "Voltage 1" 1 "Current" ;
+VAL_ 1314 ISA_Fourth_status 8 "Result is invalid" 1 "Result out of range" 0 "Result is OK" ;
+VAL_ 1314 ISA_Third_type 0 "None" 5 "Temperature" 4 "Voltage 3" 3 "Voltage 2" 2 "Voltage 1" 1 "Current" ;
+VAL_ 1314 ISA_Third_status 8 "Result is invalid" 1 "Result out of range" 0 "Result is OK" ;
+VAL_ 1313 ISA_Second_type 0 "None" 5 "Temperature" 4 "Voltage 3" 3 "Voltage 2" 2 "Voltage 1" 1 "Current" ;
+VAL_ 1313 ISA_Second_status 8 "Result is invalid" 1 "Result out of range" 0 "Result is OK" ;
+VAL_ 1313 ISA_First_type 0 "None" 5 "Temperature" 4 "Voltage 3" 3 "Voltage 2" 2 "Voltage 1" 1 "Current" ;
+VAL_ 1313 ISA_First_status 8 "Result is invalid" 1 "Result out of range" 0 "Result is OK" ;
+VAL_ 1297 ISA_Response_ID 143 "Serial number message" 142 "SW Version message" 141 "Device ID message" 135 "Module status message" 134 "status of OC-test signal line" 132 "Threshold configuration" 131 "Measurement configuration" 130 "Operation mode" ;
+VAL_ 1041 ISA_Command_ID 33 "STORE" 22 "START_OC_TEST" 16 "TRIGGER" 79 "GET_SERIAL_NUMBER" 78 "GET_SW_VERSION" 77 "GET_DEVICE_ID" 71 "GET_STATUS" 68 "GET_THRESHOLD" 67 "GET_CONFIG" 66 "GET_MODE" 32 "SET_CANID" 20 "SET_THRESHOLD" 19 "SET_CONFIG" 18 "SET_MODE" ;
+VAL_ 2021 DMsut_wrrsp_type 128 "Error" 36 "Four bytes type" 24 "Three bytes type" 16 "Two bytes type" 8 "One byte type" ;
+VAL_ 2020 DMsut_wrreq_type 24 "Three bytes type" 32 "Four bytes type" 16 "Two bytes type" 8 "One byte type" ;
+VAL_ 2023 DMsut_rdrsp_type 128 "Error" 36 "Four bytes type" 24 "Three bytes type" 16 "Two bytes type" 8 "One byte type" ;
+VAL_ 2022 DMsut_rdreq_type 24 "Three bytes type" 32 "Four bytes type" 16 "Two bytes type" 8 "One byte type" ;
+
+SIG_GROUP_ 1315 sixth_grp 1 : ISA_Sixth_result ISA_Sixth_status ISA_Sixth_type;
+SIG_GROUP_ 1315 fifth_grp 1 : ISA_Fifth_result ISA_Fifth_status ISA_Fifth_type;
+SIG_GROUP_ 1314 fourth_grp 1 : ISA_Fourth_result ISA_Fourth_status ISA_Fourth_type;
+SIG_GROUP_ 1314 third_grp 1 : ISA_Third_result ISA_Third_status ISA_Third_type;
+SIG_GROUP_ 1313 second_grp 1 : ISA_Second_result ISA_Second_status ISA_Second_type;
+SIG_GROUP_ 1313 first_grp 1 : ISA_First_result ISA_First_type ISA_First_status;
+SIG_GROUP_ 1297 response_grp 1 : ISA_Response_DB1 ISA_Response_DB2 ISA_Response_DB3 ISA_Response_DB4 ISA_Response_DB5 ISA_Response_DB6 ISA_Response_DB7 ISA_Response_ID;
+SIG_GROUP_ 1041 Command_grp 1 : ISA_Cmd_DB7 ISA_Cmd_DB6 ISA_Cmd_DB5 ISA_Cmd_DB4 ISA_Cmd_DB3 ISA_Cmd_DB2 ISA_Cmd_DB1 ISA_Command_ID;
+

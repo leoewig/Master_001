@@ -1,0 +1,54 @@
+/**
+ * @file
+ * This file contains the vehicle bus Tx & Rx CAN message configuration.
+ *
+ * $Id: veh_can_msg.def 937 2015-04-24 15:43:18Z j_bailey $
+ **/
+
+/*
+ * Transmit message configuration:
+ * Messages are processed in the order they are defined here hence to preserve
+ * the message priority they should be listed in an ascending message ID order
+ * (i.e. if all were to be queued at the same time and we ran out of Tx buffer 
+ * space, the lower priority messages will be dropped).
+ * VIO_TX_MSG(message, id, dlc, tx_en, type, cycle_time)
+ *  => message:     message name
+ *  => id:          message ID
+ *  => dlc:         message length (maximum 8 bytes)
+ *  => tx_en:       default enable status, i.e. at startup; for single
+ *                  shot messages set this to TRUE if the message is to be
+ *                  transmitted on startup
+ *  => type:        cyclic or single
+ *  => cycle_time:  cyclic message period (in ms)
+ */
+VIO_TX_MSG(BMS_1, 0x203, 8, TRUE, cyclic, 50)
+VIO_TX_MSG(BMS_2, 0x213, 8, TRUE, cyclic, 200)
+VIO_TX_MSG(BMS_3, 0x223, 8, TRUE, cyclic, 100)
+VIO_TX_MSG(BMS_4, 0x233, 8, TRUE, cyclic, 100)
+VIO_TX_MSG(BMS_5, 0x243, 8, TRUE, cyclic, 100)
+VIO_TX_MSG(BMS_6, 0x253, 8, TRUE, cyclic, 100)
+VIO_TX_MSG(BMS_7, 0x263, 8, TRUE, cyclic, 100)
+VIO_TX_MSG(BMS_8, 0x273, 8, TRUE, cyclic, 100)
+VIO_TX_MSG(BMS_CHARGER, 0x333, 8, FALSE, cyclic, 200)
+
+#if defined ENABLE_VIO_DEBUG_MESSAGES
+VIO_TX_MSG(DEBUG_GEN1, 0x700, 8, TRUE, cyclic, 200)
+VIO_TX_MSG(DEBUG_ICM, 0x701, 8, TRUE, cyclic, 10)
+VIO_TX_MSG(DEBUG_ICM_SPI1, 0x702, 8, TRUE, cyclic, 250)
+#endif
+
+/*
+ * Receive message configuration:
+ * VIO_RX_MSG(message, id, dlc, rx_en, ini_tout, tout)
+ *  => message:     message name
+ *  => id:          message ID
+ *  => dlc:         message length (maximum 8 bytes)
+ *  => rx_en:       default enable status, i.e. at startup, indicating whether 
+ *                  to expect the message or not (for timeout detection)
+ *  => ini_tout:    period in ms on startup after which the message is 
+ *                  assumed to have timed out
+ *  => tout:        period in ms after which the message is assumed
+ *                  to have timed out
+ */
+VIO_RX_MSG(VCU_BMS, 0x231, 8, TRUE, 450, 150)
+VIO_RX_MSG(CHARGER_1, 0x408, 8, FALSE, 600, 600)

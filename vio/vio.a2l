@@ -1,0 +1,38 @@
+/* A2L fragment to define conversions for fixed point types */
+/* $Id: vio.a2l 12446 2014-10-06 14:10:34Z pr4 $ */
+
+    /begin COMPU_METHOD flow_t "Conversion for flow_t type"
+        LINEAR "%3.1" "l/min"
+        COEFFS_LINEAR 0.25 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD vio_ign_status_e "Conversion for vio_ign_status_e type"
+        TAB_VERB "%0.0" ""
+        COMPU_TAB_REF vio_ign_status_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vio_ign_status_vtab "" TAB_VERB 8
+        0  "ign_status_veh_locked"
+        1  "ign_status_veh_unlocked"
+        2  "ign_status_standby"
+        3  "ign_status_accessory"
+        4  "ign_status_wakeup"
+        5  "ign_status_on"
+        6  "ign_status_crank"
+        15 "ign_status_default"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD vio_cont_req_e "Conversion for vio_cont_req_e type"
+        TAB_VERB "%0.0" ""
+        COMPU_TAB_REF vio_cont_req_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vio_cont_req_vtab "" TAB_VERB 4
+        0 "cont_open"
+        1 "cont_closed"
+        2 "cont_invalid"
+        3 "cont_no_request"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+

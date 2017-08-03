@@ -1,0 +1,374 @@
+##############################################################################
+#
+# $Id: mmc.lkf 2134 2010-10-29 14:11:26Z pr4 $
+#
+# Linker file for building the MMC on an MC9S12XEP100 with the cosmic compiler
+#
+# The MC9S12XEP100 has a very complicated address map.  This is not the place
+# to look for enlightenment.  To understand this file you need a grounding in
+# logical (i.e. 16bit), paged and global addressing.  You could probably do
+# worse than to read BattManS12XPaging on the Miscprojects wiki.
+#
+##############################################################################
+
+##############################################################################
+#                              Flash usage map
+##############################################################################
+#
+# This mapping must correspond to the ranges in:
+#  srec_info_logical_blocks.py, bms_prog and the a2l templates
+#
+# --------------------------- bootloader -------------------------------------
+#
+# Global address        Description
+# 7ff000-7fffff         Last 4K of unpaged flash.
+#                           *** Reserved for the bootloader ***
+#
+# --------------------------- app1 -------------------------------------------
+#
+# 7fc000-7fefff         First 12K of upper unpaged flash. Near code:
+#                           .text           Unpaged S12 code.
+#
+# 7f8000-7fbfff        [flash page FE not used because debugger problems
+#                        have been reported when using this page (see PR4)]
+#
+# 7f4000-7f7fff         16K lower unpaged flash.
+#                           .APPLVECT       Interrupt vectors (remapped by IVBR)
+#                           .const          Near constants
+#
+# 7ec000-7f3fff         2x16k Flash pages FB-FC.
+#                           *** Not used ***
+#
+# --------------------------- bootloader -------------------------------------
+#
+# 7d8000-7ebfff         5x16k Flash pages F6-FA.
+#                           *** Reserved for the bootloader ***
+# ----------------------------------------------------------------------------
+#
+#                       *** Not included in fbl mapping ***
+#
+# 7d0000-7d7fff         2x16k Flash pages F4-F5.
+#                           *** Not used ***
+#
+# --------------------------- cal --------------------------------------------
+#
+# 7c0000-7cffff         4x16k Flash pages F0-F3.
+#                           .init           Initialisation table
+#
+# --------------------------- app2 -------------------------------------------
+#
+# 788000-7bffff         14x16k Flash pages E2-EF
+#                           .ftext          Far code
+#
+# 780800-787fff         2x16k Flash pages E0,E1.  XGATE addressable half of
+#                       GPAGE 78:
+#                           .relid          s/w release information
+#                           .xrom           XGATE constants placed in ROM
+#                           .fgdata         Shared far constants
+#
+# fgdata_12 and offlinecal are placed onto the same GPAGE but are emitted into
+# separate srecords in order to allow the offline cal to be flashed separately
+#
+# 750000-77ffff        12x16k Flash pages D4-DF.
+#                           .ftext          Far code
+#
+# 744000-74ffff         3x16k Flash pages D1-C3.
+#                           .fgdata_s12     Far constants (S12 only)
+#
+# --------------------------- packcal ----------------------------------------
+#
+# 740000-743fff         1x16k Flash pages D0.
+#                           .offlinecal     Offline calibration
+#
+# ---------------------------- app3 ------------------------------------------
+# 720000-73ffff         8x16k Flash pages C8-CF.
+#                       Expansion area either for VTBM image
+#                       or more paged MMC application code
+#
+# --------------------------- vtbm_image -------------------------------------
+#
+# 700000-71ffff         8x16k Flash pages C0-C7.  VTBM image (patched into
+#                       image by external tool)
+#
+##############################################################################
+
+##############################################################################
+#                              DFLASH usage map
+##############################################################################
+# Global Address        Description
+# 100000-1000ff         EOL
+# 100100-1003ff         Sensor CAL
+#(100400-107fff         EEE NVM under h/w control)
+#(13f000-13feff         User RAM - not used)
+# 13ff00-13ffff         Emulated EEPROM
+#
+##############################################################################
+
+##############################################################################
+#                              RAM usage map
+##############################################################################
+# Global Address        Description
+# fd000-fffff           3x4k Unpaged RAM
+#                           .stack
+#                           .data
+#                           .uninit
+# f8000-fcfff           5x4k XGATE addressible paged RAM:
+#                           .xvectors
+#                           .xstack_lp
+#                           .xstack_hp
+#                           .xtext
+#                           .xnop
+#                           .xconst
+#                           .xdata
+#                           .gdata
+#                           .calram
+# f0000-f7fff           8x4k Paged RAM:
+#                           .gdata_s12
+#                           .calram_s12
+#
+##############################################################################
+
+
+##############################################################################
+#                               Notes
+##############################################################################
+#
+# Name spaces
+# -----------
+# The S12 and XGATE share a single namespace as much as possible.  The only
+# requirement for a separate namespace is when linking the XGATE C runtime
+# library since the function names clash with the S12 version.
+#
+# Addressing far segments
+# -----------------------
+# the most efficient way to address far RAM is to use the 4k RAM window and
+# RPAGE addressing.  Unfortunately, cosmic support for this is subtlely broken
+# in many ways.  Cosmic admit that it's broken but confess to having no plans
+# to fix it because everyone else just uses GPAGE addressing.  Reluctantly,
+# we must follow suit.  As a result, we only use GPAGE addressing for paged RAM.
+#
+##############################################################################
+
+##############################################################################
+#                       +seg options
+##############################################################################
+#
+# -n <name>     Segment name.  The word after +seg is, strictly speaking, the
+#               section type.  The distinction between the section type and the
+#               segment name is confusing so we always add a -n option and set
+#               the segment name equal to the section type
+#
+# -b <value>    Bias.  The physical start address of the segment
+#
+# -o <value>    Offset.  The logical start address of the segment.  The paged
+#               memory architecture means that multiple segments will have the
+#               same offset, which will be the logical start address of the
+#               memory window.
+#
+# -m <value>    Maximum size.  where segments are appended together, this will
+#               be the maximum size of all appended segments.
+#
+# -a <value>    Append to the named segment.
+#
+# -ds<value>    Number of bits of the logical address which are
+#               significant when computing the physical address, i.e.
+#                       -ds12 for RPAGE-addressed RAM
+#                       -ds14 for PPAGE-addressed flash
+#                       -ds16 for GPAGE-addressed memory.
+#
+# -w <value>    Window size, i.e. 0x1000 for paged RAM, 0x4000 for paged flash
+#
+# -pr           Physical relocation.  Allows XGATE addresses to be computed in
+#               XGATE code.  Seems superfluous to me (GVS) but is used in all
+#               Cosmic XGATE examples.
+#
+# -r1           Round segment size up to an even number of bytes
+#
+# -id           Initialise segment from the initialisation table
+#
+# -ib           Don't initialise segment
+#
+# -it           Place the intialisation table at the end of this segment
+#
+# -c            Don't emit code or data - used for the stacks to avoid getting
+#               fills in the S-Records from the +spc option
+#
+##############################################################################
+
+##############################################################################
+#               Constants used in this file
+##############################################################################
+
+# Paging constants giving the logical start address and size of each window
+
++def FLASH_PAGE_START=0x8000	# address of ROM window paged by PPAGE
++def FLASH_PAGE_SIZE=0x4000	# PPAGE addresses 16k between 0x8000 and 0xc000
+
+##############################################################################
+#                              Flash segments
+##############################################################################
+
+# 128k for the VTBM image.
++seg .vtbm_image -n .vtbm_image -b 0x700000 -m 0x20000 -ds16 -ib -c
+# 128k for 'app3' potentially ftext or vtbm image
++seg .app3 -n .app3 -b 0x720000 -m 0x20000 -ds16 -ib
+# Space for pack calibration contained in flash
+# this segment doesn't need to be this large, but it has been allocated as a
+# whole page to avoid any possible paging bugs in the following fgdata_s12
+# segment
++seg .offlinecal -n .offlinecal -b 0x740000 -m 0x4000 -ds16 -ib -c
+# Subsequent pages are S12 far data
++seg .fgdata_s12 -n .fgdata_s12 -b 0x744000 -m 0xC000 -ds16
+
+### 2K of ROM hidden on XGATE by registers is excluded from map ###
+
+# Flash accessible to the XGATE (1st half of GPAGE 78 minus the 2K
+# register space) used for release info, XGATE ROM constants and shared far
+# constants
++seg .relid -n .relid -b 0x780800 -m 0x7800 -pr -r1 -ds16
++seg .xrom -n .xrom -a .relid -pr -r1 -ds16
++seg .fgdata -n .fgdata -a .xrom -pr -r1 -ds16
+
+# Far code (14 pages):
++seg .ftext -n.ftext2 -b 0x788000 -o FLASH_PAGE_START -w FLASH_PAGE_SIZE -m 0x38000 -ds14
+
+# PPAGE-addressed flash used to host the initialisation tables (4 pages)
+# NB .init must be aligned on a GPAGE page boundary as crtsi3.s assumes all
+# initialisation data is addressable from a fixed GPAGE
++seg .init -n .init -b 0x7c0000 -m 0x10000 -o FLASH_PAGE_START -w FLASH_PAGE_SIZE -ds14 -it
+
+### 7e0000-7f3fff (pages F6-FA) reserved for the bootloader ###
+
+# lower unpaged flash area for interrupt vectors and near constants
+# *** BOOTLOADER INTERFACE: ADDRESS OF .jtable/.APPLVECT MUST NOT CHANGE
+#     WITHOUT UPDATING BOOTLOADER ***
+# TODO: replace jtable with APPLVECT so remove following two lines...
++seg .jtable -n .jtable -b 0x7f4010 -o 0x4010 -m FLASH_PAGE_SIZE-0x10
++seg .const -n .const -a .jtable
+#TODO: ...and uncomment following two lines
+#+seg .APPLVECT -n .APPLVECT -b 0x7f4010 -o 0x4010 -m FLASH_PAGE_SIZE-0x10
+#+seg .const -n .const -a .APPLVECT
+
+# First 12k of upper unpaged flash area for near code
++seg .text -n .text -b 0x7fc000 -o 0xc000 -m 0x3000
+# remaining 4K of flash is reserved for the bootloader
+
+##############################################################################
+#                              DFLASH segments
+##############################################################################
++seg .eol -n .eol -b 0x100000 -m0x100 -ds16 -ib -c
++seg .sensor_cal -n .sensor_cal -b 0x100100 -m0x300 -ds16 -ib -c
+
+# Address the emulated EEPROM as near data using the default value for EPAGE
+
+# bootloader EEE structure must sit at a fixed address
++seg .bl_eee -n .bl_eee -b 0x13ff00 -o 0xf00 -m0x100 -ib -c
+
+# application can use the rest of the EEE page for itself
++seg .app_eee -n .app_eee -a .bl_eee -ib -c
+
+##############################################################################
+#                              RAM segments
+##############################################################################
+
+#               Paged RAM inaccessible to the XGATE (8x4K pages)
+
+# Eight pages (32k) for gdata_s12 and calram_s12 (NB The total size of
+# calram+calram_s12 is limited to 8k by available space in the EEPROM).
++seg .gdata_s12 -n .gdata_s12 -b 0xf0000 -m 0x8000 -id -ds16
++seg .calram_s12 -n .calram_s12 -a .gdata_s12 -id -ds16
+
+#               Paged RAM accessible to the XGATE (6x4k pages)
+# Put the stacks and interrupt vectors onto the first page .
+# The stacks are not initialised by the start-up code (-ib) but are
+# initialised by the S12 application (hence -ds16 for gpage addressing)
+# xvectors is initialised by the start-up code (-id) but is not addressed
+# by the S12 (hence no -ds12)
++seg .xvectors -n .xvectors -b 0xf8000 -r1 -pr -id
++seg .xstack_lp -n .xstack_lp -a .xvectors -r1 -pr -ib -c -ds16
++spc .xstack_lp=128     # Reserve space for low priority stack (Cosmic doesn't
+                        # allow a symbol)
++seg .xstack_hp -n .xstack_hp -a .xstack_lp -r1 -pr -ib -c -ds16
++spc .xstack_hp=128     # Reserve space for high priority stack
++seg .xtext -n .xtext -a .xstack_hp -pr -r1 -id -ds16
++seg .xnop -n .xnop -a .xtext -pr -r1 -id -ds16   # see xnop.c for purpose
+                                                  # of .xnop segment
++seg .xconst -n .xconst -a .xnop -pr -r1 -id -ds16
++seg .xdata -n .xdata -a .xconst -pr -r1 -id -ds16
++seg .gdata -n .gdata -a .xdata -pr -r1 -id -ds16
+# NB The total size of calram+calram_s12 is limited to 8k by available space
+# in the EEPROM.
++seg .calram -n .calram -a .gdata -pr -r1 -id -ds16
+
+# unpaged area
++seg .nram -n .nram  -b 0xfd000 -o 0x1000 -m 0x3000
+# A debug region which is left untouched between resets
++seg .uninit -n .uninit -a .nram -ib -c
++seg .data -n .data -a .uninit -id
+# static_initialisation.s depends on using the DIRECT page as set to the
+# bootloader's stack. This means that static data cannot be placed at the
+# top-end of RAM or it will be trash the crt startup (and thus the app data).
+# However the application stack is larger than the bootloader stack so
+# putting it at the end of RAM ensures the  bootloader stack is somewhere
+# inside it.
++seg .stack -n .stack -a .data -c
++spc .stack=0x800       # reserve space for the S12 stack
+#+spc .stack=0x800       # reserve space for the S12 stack
+
+##############################################################################
+#                       Object file inclusion
+##############################################################################
+#
+# XGATE objects are included first so that they can be linked with their own
+# libraries, then S12 objects and finally S12 libraries
+#
++inc xg_link_objs.lnk   #       XGATE object files
+
+libm.xgt		#	XGATE Machine library (names are unique so
+			#	doesn't need +pri
++pri
+libi.xgt		#	C library names do clash so this library must
+			#	be in a private portion
+
++new			#	Start a new region (to end the preceding
+			#	private portion)
+
++inc s12_bank_objs-2.blnk  #       S12 object files
+
++seg .ftext -n.ftext1 -b 0x750000 -o FLASH_PAGE_START -w FLASH_PAGE_SIZE -m 0x30000 -ds14
+
++inc s12_bank_objs-1.blnk  #       S12 object files
+
+libf.x12		#	Single float library.
+libi.x12		#	Integer-only 'C' library.
+libmc.x12		#	Machine library.
+
+
+
+##############################################################################
+#                       Symbol definition
+##############################################################################
+
+# Define symbols for the physical end of the XGATE stack segments (so that S12
+# loads XGISPxx with an XGATE address and not a logical S12 address)
++def _xstack_lp_xg_addr=pend(.xstack_lp)
++def _xstack_hp_xg_addr=pend(.xstack_hp)
+
+# XGATE address of the vector table
++def _xvectors_xg_addr=pstart(.xvectors)
+
+# symbols for the top and bottom of the stack (which grows downwards)
++def __stack_low=start(.stack)
++def __stack=end(.stack)
+
+# Symbol for the efficiently-addressed constant gpage area.  Must both equal
+# the GPAGe corresponding to all RAM
++def __sgconst=0xf0000
++def __sgdata=0xf0000
+
++def _calram_start=pstart(.calram)
++def _calram_size=size(.calram)
++def _calram_s12_start=pstart(.calram_s12)
++def _calram_s12_size=size(.calram_s12)
+
++def _image_folder=pstart(.vtbm_image)

@@ -1,0 +1,116 @@
+/* A2L fragment to define conversions for fixed point types, for the Balancing feature */
+/* $Id: bal.a2l 7912 2013-03-27 16:23:18Z gvs $ */
+
+    /begin COMPU_METHOD vprg_demand_e "Conversion for vprg_demand_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF vprg_demand_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vprg_demand_vtab "" TAB_VERB 7
+        0 "Vprg dmd none"
+        1 "Vprg dmd prepare"
+        2 "Vprg dmd program"
+        3 "Vprg dmd reset"
+        4 "Vprg dmd return to idle"
+        5 "Vprg dmd inconsistent"
+        6 "Vprg dmd unknown"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD vprg_state_e "Conversion for vprg_state_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF vprg_state_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vprg_state_vtab "" TAB_VERB 8
+        0 "Vprg idle"
+        1 "Vprg checkking image"
+        2 "Vprg ready to program"
+        3 "Vprg shutdown ICM"
+        4 "Vprg cycle VTBMs"
+        5 "Vprg communicating"
+        6 "Vprg programming complete"
+        7 "Vprg error"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+
+    /begin COMPU_METHOD vprg_error_e "Conversion for vprg_error_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF vprg_error_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vprg_error_vtab "" TAB_VERB 9
+        0 "Vprg no error"
+        1 "Vprg unknown demand"
+        2 "Vprg inconsistent demand"
+        3 "Vprg wrong demand for state"
+        4 "Vprg image check failed"
+        5 "Vprg conditions not correct"
+        6 "Vprg image not checked"
+        7 "Vprg invalid VTBM mask"
+        8 "Vprg programming failed"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+
+    /begin COMPU_METHOD vprg_image_error_e "Conversion for vprg_image_error_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF vprg_image_error_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vprg_image_error_vtab "" TAB_VERB 6
+        0 "Vprg image no error"
+        1 "Vprg image error: no folder"
+        2 "Vprg image error: corrupt folder"
+        3 "Vprg image error: bad image number"
+        4 "Vprg image error: bad image header"
+        5 "Vprg image error: bad sector"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD vprg_ci_state_e "Conversion for vprg_ci_state_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF vprg_ci_state_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vprg_ci_state_vtab "" TAB_VERB 4
+        0 "Vprg check image no request"
+        1 "Vprg checking image"
+        2 "Vprg image ok"
+        3 "Vprg image error"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD vprg_comms_state_e "Conversion for vprg_comms_state_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF vprg_comms_state_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vprg_comms_state_vtab "" TAB_VERB 8
+        0 "Vprg comms no request"
+        1 "Vprg comms connect"
+        2 "Vprg comms program start"
+        3 "Vprg comms erase"
+        4 "Vprg comms program"
+        5 "Vprg comms program reset"
+        6 "Vprg comms complete"
+        7 "Vprg comms error"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD vprg_comms_error_e "Conversion for vprg_comms_error_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF vprg_comms_error_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB vprg_comms_error_vtab "" TAB_VERB 6
+        0 "Vprg comms no error"
+        1 "Vprg comms error: internal mask error"
+        2 "Vprg comms error: XCP timeout"
+        3 "Vprg comms error: XCP error"
+        4 "Vprg comms error: XCP cmd unknown"
+        5 "Vprg comms error: CRC mismatch"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+

@@ -1,0 +1,27 @@
+/* A2L fragment to define conversions FM types */
+/* $Id: fm.a2l 9632 2013-07-23 07:58:43Z tg10 $ */
+
+    /begin COMPU_METHOD Fm_latch_type_e "Conversion for enum Fm_latch_type_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF fm_latch_type_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB fm_latch_type_vtab "" TAB_VERB 3
+        0 "No latch"
+        1 "Ign cycle latch"
+		2 "Ign off latch"
+        2 "Service latch"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD Fm_ignition_status_e "Conversion for enum Fm_ignition_status_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF Fm_ignition_status_e_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB Fm_ignition_status_e_vtab "" TAB_VERB 3
+        0 "Ignition Off"
+        1 "Ignition On"
+		2 "Ignition Don't know"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

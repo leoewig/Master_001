@@ -1,0 +1,73 @@
+/**
+ * @file
+ * @ingroup exc
+ *
+ * External CAN data integrity module configuration for mmc target
+ *
+ * This file configures all CANbedded driven incoming and outgoing messages required to
+ * be processed using additional integrity measures according to
+ * the @ref exc_adi "Additional data integrity".
+ *
+ * $Id: mmc_exc_integrity.def 11510 2013-12-18 17:37:30Z dc17 $
+ */
+
+/******************************************************************************
+ * VEHICLE BUS
+ *****************************************************************************/
+
+/* outbound messages configuration  */
+EXC_INTEGRITY_TX(BMS_00)
+EXC_INTEGRITY_TX(BMS_01)
+EXC_INTEGRITY_TX(BMS_02)
+EXC_INTEGRITY_TX(BMS_03)
+EXC_INTEGRITY_TX(BMS_04)
+EXC_INTEGRITY_TX(BMS_05)
+EXC_INTEGRITY_TX(BMS_06)
+EXC_INTEGRITY_TX(BMS_07)
+EXC_INTEGRITY_TX(BMS_08)
+EXC_INTEGRITY_TX(BMS_09)
+EXC_INTEGRITY_TX(BMS_3A)
+
+
+/*               message      timeout             fault handling      fault name                      check level         CAN bus */
+EXC_INTEGRITY_RX(SBCPTStatus, Exc_timeout_long,   Exc_int_no_faults,  Fm_internal_error_unexpected,   Exc_int_check_sum_cnt,  Exc_vehicle_bus)
+/* Signals belonging to SBCPTStatus, which data integrity status shall be indiced */
+/*                   parent message name,   signal name */
+EXC_INTEGRITY_RX_SIG(SBCPTStatus,           NIgnitionStatus)
+
+/*               message      timeout             fault handling      fault name                      check level         CAN bus */
+EXC_INTEGRITY_RX(IC_HCAN,     Exc_timeout_short,  Exc_int_no_faults,  Fm_internal_error_unexpected,   Exc_int_check_timeout,Exc_vehicle_bus)
+/* Signals belonging to IC_HCAN, which data integrity status shall be indiced */
+/*                   parent message name,   signal name */
+EXC_INTEGRITY_RX_SIG(IC_HCAN,               NEPBEngaged)
+EXC_INTEGRITY_RX_SIG(IC_HCAN,               vVehicleIC)
+
+/*               message      timeout             fault handling      fault name                      check level         CAN bus */
+EXC_INTEGRITY_RX(ECM_6,       Exc_timeout_medium, Exc_int_no_faults,  Fm_internal_error_unexpected,   Exc_int_check_timeout,Exc_vehicle_bus)
+/* Signals belonging to IC_HCAN, which data integrity status shall be indiced */
+/*                   parent message name,   signal name */
+EXC_INTEGRITY_RX_SIG(ECM_6,                 PID04_CalculatedLoad)
+EXC_INTEGRITY_RX_SIG(ECM_6,                 PID05_TEngineCoolant)
+EXC_INTEGRITY_RX_SIG(ECM_6,                 PID49_AbsolutePedalPosn)
+EXC_INTEGRITY_RX_SIG(ECM_6,                 PID4A_AbsolutePedalPosn)
+
+/*               message      timeout             fault handling      fault name                      check level         CAN bus */
+EXC_INTEGRITY_RX(ECM_14,      Exc_timeout_medium, Exc_int_no_faults,  Fm_internal_error_unexpected,   Exc_int_check_timeout,Exc_vehicle_bus)
+/* Signals belonging to ECM_14, which data integrity status shall be indiced */
+/*                   parent message name,   signal name */
+EXC_INTEGRITY_RX_SIG(ECM_14,                PID0D_vVehicleOBD)
+EXC_INTEGRITY_RX_SIG(ECM_14,                PID0C_nEngine)
+/*               message      timeout             fault handling      fault name                      check level         CAN bus */
+EXC_INTEGRITY_RX(ECM_HMI,       Exc_timeout_medium, Exc_int_no_faults,  Fm_internal_error_unexpected,   Exc_int_check_timeout,Exc_vehicle_bus)
+EXC_INTEGRITY_RX_SIG(ECM_HMI,    NEngineStatus)
+
+/******************************************************************************
+ * CHARGER BUS
+ *****************************************************************************/
+/* outbound messages configuration  */
+EXC_INTEGRITY_TX(BMS_CH1)
+EXC_INTEGRITY_TX(BMS_CH2)
+/* inbound messages configuration  */
+/*               message      timeout             fault handling            fault name                  check level         CAN bus */
+
+

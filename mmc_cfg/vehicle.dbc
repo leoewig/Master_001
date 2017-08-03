@@ -1,0 +1,2753 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: MCU InstrumentCluster EngineControlModule CP1 BMS
+
+
+BO_ 769 VIN: 8 EngineControlModule
+ SG_ NVINPart2 m1 : 15|56@0+ (1,0) [0|7.2057594037928E+016] ""  BMS,MCU
+ SG_ NVINPart1 m0 : 15|56@0+ (1,0) [0|7.2057594037928E+016] ""  BMS,MCU
+ SG_ NVINDataBytesIndex M : 7|8@0+ (1,0) [0|2] ""  MCU,BMS
+ SG_ NVINPart3 m2 : 15|24@0+ (1,0) [0|7.2057594037928E+016] ""  BMS,MCU
+
+BO_ 784 UserConfig: 2 InstrumentCluster
+ SG_ NKL58UserLevelSelected : 10|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ BvUnitsMPH : 14|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NTyreType : 3|4@0+ (1,0) [0|63] "" Vector__XXX
+ SG_ BTBatteryHighLimitEnable : 6|1@0+ (1,0) [0|15] ""  BMS
+ SG_ BValetModeOn : 7|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BlUnitsMiles : 13|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 260 SBCPTStatus: 5 EngineControlModule
+ SG_ NDoorDriverOpenStatus : 3|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NImmobiliserStatus : 13|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NVehicleStatus : 7|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ NStartStopButtonContact1 : 25|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NDoorPassengerOpenStatus : 1|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NStartStopButtonContact2 : 27|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NDoorROpenStatus : 23|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NVehicleLockStatus : 21|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ NSBCPTStatusCounter : 31|4@0+ (1,0) [0|15] ""  MCU,BMS
+ SG_ NDoorLOpenStatus : 15|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NIgnitionStatus : 11|4@0+ (1,0) [0|15] ""  MCU,BMS
+ SG_ NSBCPTStatusChecksum : 39|8@0+ (1,0) [0|255] ""  BMS,MCU
+
+BO_ 1792 NmMCUMessage: 8 MCU
+ SG_ N_NMDestinationMCU : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ N_NMOpcodeMCU : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ N_NMSleepMCU : 13|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 1796 NmICMessage: 8 InstrumentCluster
+ SG_ N_NMSleepIC : 13|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ N_NMDestinationIC : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ N_NMOpcodeIC : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 1795 NmECMMessage: 8 EngineControlModule
+ SG_ N_NMDestinationECM : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ N_NMSleepECM : 13|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ N_NMOpcodeECM : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 1793 NmBMSMessage: 8 BMS
+ SG_ N_NMDestinationBMS : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ N_NMOpcodeBMS : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ N_NMSleepBMS : 13|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 1287 MCU_CCP2: 8 MCU
+
+BO_ 1286 MCU_CCP1: 8 MCU
+
+BO_ 1285 MCU_5: 8 MCU
+ SG_ NMCU_5Checksum : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ BMCU_MotorPositionUnknown : 41|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_DCLinkDischargeFault : 42|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_CANFault : 13|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_IGBT_ExternalFault : 37|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_InputSignalInvalid : 32|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_PowerConsistencyFault : 51|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BV_MCU_DCBusHighFault : 10|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_PosOverSpeedFault : 14|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_SensorIntegrityFault : 40|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NIGBTExternalDisableStatus : 17|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BMCU_GateDriverEnableFault : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NMCU_5Counter : 55|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BT_MCU_IGBT_HighFaultHW : 30|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_ProcessorError : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_VDCLinkFault : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_TorqueDemFault : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_IGBT_InternalFault : 36|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_NegOverSpeedFault : 15|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BV_MCU_VehicleBusHighFault : 4|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_CANSignalInvalid : 33|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_LLMC_Fault : 38|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_GateDriverFault : 34|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NLastResetReason : 23|5@0+ (1,0) [0|31] "" Vector__XXX
+ SG_ BV_MCU_VehicleBusLowFault : 3|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BV_MCU_DCBusHighFaultHW : 31|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_CANTimeoutFault : 7|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_LLMC_PositionFault : 6|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_AnaloguesFault : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_LLMC_MissedASACFault : 5|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_Watchdog : 35|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_ClockStatusFault : 49|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_DisabledFault : 50|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_InvalidSpeedFault : 18|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_SPIFault : 12|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_PositionFeedbackFault : 1|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_LLMC_MissedPWMFault : 2|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_MON_RefSpeedFault : 48|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1284 MCU_4: 8 MCU
+ SG_ NMCU_4Checksum : 63|8@0+ (1,0) [0|255] ""  BMS,InstrumentCluster,EngineControlModule
+ SG_ NMCUClusterMessage : 39|8@0+ (1,0) [0|255] ""  EngineControlModule,InstrumentCluster
+ SG_ NMCU_4Counter : 55|4@0+ (1,0) [0|15] ""  EngineControlModule,BMS,InstrumentCluster
+ SG_ TMCU_IGBTMax : 7|8@0+ (1,-40) [-40|215] "deg. C"  EngineControlModule
+ SG_ TMCUColdPlate : 23|8@0+ (1,-40) [-40|215] "deg. C"  EngineControlModule
+ SG_ TMotorStator : 15|8@0+ (1,-40) [-40|215] "deg. C"  EngineControlModule
+ SG_ TMotorRotor : 47|8@0+ (1,-40) [-40|215] "deg. C"  EngineControlModule
+ SG_ NIGBTCycleCompleted : 51|2@0+ (1,0) [0|3] ""  EngineControlModule
+ SG_ TDCDC : 31|8@0+ (1,-40) [-40|215] "deg. C"  EngineControlModule
+
+BO_ 1283 MCU_3: 8 MCU
+ SG_ BT_MCUProcessorHighFault : 44|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NMaxSrtTermLimitType : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ B_MCU_LLMC_CurrentFault : 50|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BM_MCUDemandConsistencyFault : 33|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BP_MCUConsistencyFault : 32|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BT_MCUDriverBoardHighFault : 43|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BV_MCU_DCLinkImbalanceFault : 45|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NMCUStatus : 7|5@0+ (1,0) [0|31] ""  InstrumentCluster,EngineControlModule,BMS
+ SG_ B_MCU_SoftwareIncompatible : 47|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NMaxLngTermLimitType : 31|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BM_MCUControlConsistencyFault : 34|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BT_MCU_ColdPlateImplausible : 36|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BI_MCU_DCLinkLeakageFault : 51|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ B_MCU_LLMC_ResolverFault : 48|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ Bv_MCUConsistencyFault : 35|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NMaxMedTermLimitType : 23|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NMCU_3Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule,BMS
+ SG_ BV_MCU_ProcIsolationFault : 46|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BT_MCUColdPlateHighFault : 41|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BT_MCUMotorHighFault : 40|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NMinMedTermLimitType : 19|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NMinSrtTermLimitType : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NMinLngTermLimitType : 27|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BMCU_LLMC_OutputFault : 38|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NMCU_3Counter : 55|4@0+ (1,0) [0|15] ""  EngineControlModule,BMS
+ SG_ B_MCU_LLMC_VoltageFault : 49|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BI_MCU_HighFaultHW : 2|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NMCUMILRequested : 1|2@0+ (1,0) [0|3] ""  EngineControlModule
+ SG_ BMCU_LLMC_InputFault : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMCU_MotorStallFault : 37|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BT_MCU_IGBT_HighFaultSW : 42|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1282 MCU_2: 8 MCU
+ SG_ IMCUDCLink : 39|8@0+ (5,-511) [-511|512] "A"  BMS,EngineControlModule
+ SG_ MMotor : 23|16@0+ (0.1,-130) [-130|130] "Nm"  EngineControlModule
+ SG_ NMCU_2Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule
+ SG_ VMCUDCLink : 47|8@0+ (4,0) [0|700] "V"  EngineControlModule
+ SG_ NMCU_2Counter : 55|4@0+ (1,0) [0|15] ""  EngineControlModule
+ SG_ nMotor : 7|16@0+ (0.625,-18000) [-18000|18000] "rpm"  EngineControlModule
+
+BO_ 1281 MCU_1: 8 MCU
+ SG_ MMotorMinLongTerm : 15|8@0+ (0.625,-130) [-130|0] "Nm"  EngineControlModule,InstrumentCluster
+ SG_ NMCU_1Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule,InstrumentCluster
+ SG_ MMotorMinShortTerm : 47|8@0+ (0.625,-130) [-130|0] "Nm"  EngineControlModule
+ SG_ MMotorMaxMedTerm : 23|8@0+ (0.625,0) [0|130] "Nm"  InstrumentCluster,EngineControlModule
+ SG_ MMotorMaxLongTerm : 7|8@0+ (0.625,0) [0|130] "Nm"  InstrumentCluster,EngineControlModule
+ SG_ NMCU_1Counter : 55|4@0+ (1,0) [0|15] ""  InstrumentCluster,EngineControlModule
+ SG_ MMotorMaxShortTerm : 39|8@0+ (0.625,0) [0|130] "Nm"  EngineControlModule
+ SG_ MMotorMinMedTerm : 31|8@0+ (0.625,-130) [-130|0] "Nm"  EngineControlModule,InstrumentCluster
+
+BO_ 216 IC_HCAN: 8 InstrumentCluster
+ SG_ vVehicleIC : 7|16@0+ (0.01,0) [0|655.35] "km/h"  MCU,BMS
+ SG_ lPART1Totalizer : 23|32@0+ (0.01,0) [0|2600000] "km"  BMS,MCU
+ SG_ NEPBEngaged : 55|2@0+ (1,0) [0|3] ""  BMS
+
+BO_ 1111 Hybrid_Rig_457: 8 Vector__XXX
+
+BO_ 1110 Hybrid_Rig_456: 8 Vector__XXX
+
+BO_ 1109 Hybrid_Rig_455: 8 Vector__XXX
+
+BO_ 1108 Hybrid_Rig_454: 8 Vector__XXX
+
+BO_ 1107 Hybrid_Rig_453: 8 Vector__XXX
+
+BO_ 1106 Hybrid_Rig_452: 8 Vector__XXX
+
+BO_ 1105 Hybrid_Rig_451: 8 Vector__XXX
+
+BO_ 1104 Hybrid_Rig_450: 8 Vector__XXX
+
+BO_ 262 HVAC_SDCP: 5 EngineControlModule
+ SG_ NHVACEngineStopDisable : 10|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BHVACGearboxStartRequest : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NSCUGStatus : 31|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ pHVAC : 23|8@0+ (0.2,0) [0|35] "bar absolute" Vector__XXX
+ SG_ NHVACGearboxStopDisable : 13|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BHVACEngineStartRequest : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ MPowertrainHVACDemanded : 7|5@0+ (1,0) [0|31] "Nm" Vector__XXX
+ SG_ NHVACIdleJackRequest : 15|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ TAmbientRaw : 39|8@0+ (1,-40) [-40|215] "deg. C"  MCU,BMS
+ SG_ BHVACEngaged : 24|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1091 ECM_logging: 8 EngineControlModule
+ SG_ rThermostat1Demand : 23|8@0+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ rThermostat2Demand : 31|8@0+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ rCoolingFanDuty : 15|8@0+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ BSecAirPumpStatus : 48|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ TRadiatorInlet1 : 39|8@0+ (0.75,-48) [-48|142.5] "deg. C" Vector__XXX
+ SG_ TRadiatorInlet2 : 47|8@0+ (0.75,-48) [-48|142.5] "deg. C" Vector__XXX
+ SG_ TCoolantSetPoint : 7|8@0+ (0.75,0) [0|191.25] "deg. C" Vector__XXX
+ SG_ rFuelPumpDuty : 55|7@0+ (1,0) [0|100] "%" Vector__XXX
+
+BO_ 1096 ECM_HMI: 8 EngineControlModule
+ SG_ BECMClusterMessage15 : 57|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ tToNextEngineStartDisplayed : 10|4@1+ (1,0) [0|13] "s"  InstrumentCluster
+ SG_ NBoostStatus : 14|2@1+ (1,0) [0|3] ""  InstrumentCluster
+ SG_ NEngineStatus : 45|3@1+ (1,0) [0|7] ""  MCU,BMS
+ SG_ rBoostMaxDisplayed : 0|7@1+ (1,0) [0|100] "%"  InstrumentCluster
+ SG_ rBoostAvailableDisplayed : 16|7@1+ (1,0) [0|100] "%"  InstrumentCluster
+ SG_ NRegenStatusDisplayed : 37|3@1+ (1,0) [0|7] ""  InstrumentCluster
+ SG_ BECMClusterMessage11 : 61|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ NPowertrainStatus : 42|3@1+ (1,0) [0|7] ""  BMS,MCU
+ SG_ BECMClusterMessage01 : 55|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage08 : 48|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage12 : 60|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage14 : 58|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage02 : 54|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage03 : 53|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage16 : 56|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage05 : 51|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage06 : 50|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ sElectricRangeDisplayed : 24|8@1+ (0.1,0) [0|25.5] "km"  InstrumentCluster
+ SG_ BPitLaneChargingActive : 23|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage13 : 59|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage04 : 52|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage07 : 49|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage10 : 62|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BBoostMode : 7|1@1+ (1,0) [0|1] ""  InstrumentCluster
+ SG_ BECMClusterMessage09 : 63|1@1+ (1,0) [0|1] ""  InstrumentCluster
+
+BO_ 1090 ECM_HCAN_2: 8 EngineControlModule
+ SG_ BDCDCEnable : 48|1@0+ (1,0) [0|1] ""  MCU
+ SG_ NECM_HCAN_2Checksum : 63|8@0+ (1,0) [0|255] ""  MCU
+ SG_ VDCDCDemanded : 47|8@0+ (0.1,12) [12|16] "V"  MCU
+ SG_ NECM_HCAN_2Counter : 55|4@0+ (1,0) [0|15] ""  MCU
+ SG_ MMotorMaxSpeedControl : 23|8@0+ (0.625,0) [0|130] "Nm"  MCU
+ SG_ MMotorMinSpeedControl : 15|8@0+ (0.625,-130) [-130|0] "Nm"  MCU
+
+BO_ 1089 ECM_HCAN_1: 8 EngineControlModule
+ SG_ MMotorDemanded : 15|16@0+ (0.1,-130) [-130|130] "Nm"  MCU
+ SG_ NECM_HCAN_1Checksum : 63|8@0+ (1,0) [0|255] ""  MCU
+ SG_ NHDAClutchState : 1|2@0+ (1,0) [0|1] ""  MCU
+ SG_ NECM_HCAN_1Counter : 55|4@0+ (1,0) [0|15] ""  MCU
+ SG_ nMotorDemanded : 31|16@0+ (1,0) [0|18000] "rpm"  MCU
+ SG_ nMotorReference : 47|8@0+ (100,0) [0|18000] "rpm"  MCU
+ SG_ NMCUStateDemanded : 7|4@0+ (1,0) [0|15] ""  MCU
+
+BO_ 150 ECM_CP1_15: 8 EngineControlModule
+ SG_ MY15_CCU_pLimReq : 15|1@1+ (1,0) [0|1] ""  CP1
+ SG_ MY15_CCU_pMin : 16|4@1+ (1,0) [0|15] ""  CP1
+ SG_ MY15_CCU_stModeReq : 12|3@1+ (1,0) [0|7] ""  CP1
+ SG_ MY15_Checksumme : 0|8@1+ (1,0) [0|255] ""  CP1
+ SG_ MY15_CCU_pMax : 20|4@1+ (1,30) [30|44] "bar"  CP1
+ SG_ MY15_CCU_posDes : 24|13@1+ (1,0) [0|6945] "deg"  CP1
+ SG_ MY15_Zaehler : 8|4@1+ (1,0) [0|15] ""  CP1
+
+BO_ 934 ECM_CP1_01: 8 EngineControlModule
+ SG_ MY01_Checksumme : 0|8@1+ (1,0) [0|255] ""  CP1
+ SG_ MY01_SleepAckn : 12|1@1+ (1,0) [0|1] ""  CP1
+ SG_ MY01_Zaehler : 8|4@1+ (1,0) [0|15] ""  CP1
+
+BO_ 1088 ECM_BMS_00: 8 EngineControlModule
+ SG_ NCrashSeverity : 7|2@0+ (1,0) [0|3] ""  BMS
+ SG_ NECM_BMS_00Checksum : 63|8@0+ (1,0) [0|255] ""  MCU,BMS
+ SG_ NContactorRequested : 3|4@0+ (1,0) [0|15] ""  BMS
+ SG_ NECM_BMS_00Counter : 55|4@0+ (1,0) [0|15] ""  BMS,MCU
+ SG_ nPowertrain : 23|16@0+ (0.25,0) [0|16383.75] "rpm"  BMS,MCU
+
+BO_ 145 ECM_6: 8 EngineControlModule
+ SG_ PID04_CalculatedLoad : 8|8@1+ (0.3922,0) [0|100] "%"  BMS,MCU
+ SG_ PID4A_AbsolutePedalPosn : 24|8@1+ (0.3922,0) [0|100] "%"  MCU,BMS
+ SG_ PID33_BarometricPressure : 0|8@1+ (1,0) [0|255] "kPa"  MCU,BMS
+ SG_ PID43_AbsoluteLoad : 32|16@1+ (0.3922,0) [0|25700] "%"  BMS,MCU
+ SG_ PID05_TEngineCoolant : 48|8@1+ (0.75,-48) [-48|142.5] "deg. C"  MCU,BMS
+ SG_ PID49_AbsolutePedalPosn : 16|8@1+ (0.3922,0) [0|100] "%"  MCU,BMS
+
+BO_ 1289 ECM_14: 8 EngineControlModule
+ SG_ PID0D_vVehicleOBD : 16|9@1+ (1,0) [0|511] "km/h"  MCU,BMS
+ SG_ PID0C_nEngine : 0|16@1+ (0.25,0) [0|16383.75] "rpm"  BMS,MCU
+
+BO_ 2028 DiagResponseMCU: 8 MCU
+ SG_ NDiagResponseMCU : 0|64@1+ (1,0) [0|1] ""  EngineControlModule
+
+BO_ 2027 DiagResponseBMS: 8 BMS
+ SG_ NDiagResponseBMS : 0|64@1+ (1,0) [0|1] ""  EngineControlModule
+
+BO_ 2020 DiagRequestMCU: 8 EngineControlModule
+ SG_ NDiagRequestMCU : 0|64@1+ (1,0) [0|1] ""  MCU
+
+BO_ 2019 DiagRequestBMS: 8 EngineControlModule
+ SG_ NDiagRequestBMS : 0|64@1+ (1,0) [0|1] ""  BMS
+
+BO_ 2015 DiagFuncRequest: 8 EngineControlModule
+ SG_ NFuncDiagRequest : 0|64@1+ (1,0) [0|1] ""  BMS,MCU
+
+BO_ 163 DCT_2: 8 EngineControlModule
+ SG_ NDCT_2Checksum : 63|8@0+ (1,0) [0|255] ""  MCU
+ SG_ NDCT_2Counter : 55|4@0+ (1,0) [0|15] ""  MCU
+ SG_ MPowertrainInternalDemanded : 24|11@0+ (1,-500) [-500|1547] "Nm" Vector__XXX
+ SG_ NTransmissionStatus : 45|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ NMPowertrainRequestType : 51|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ MPowertrainDemandedFuture : 19|11@0+ (1,-500) [-500|1547] "Nm" Vector__XXX
+ SG_ nPowertrainDemandedInverted : 13|10@0+ (-10,10230) [0|10230] "" Vector__XXX
+ SG_ NSpeedControlEngaged : 49|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ nPowertrainDemanded : 7|10@0+ (10,0) [0|10230] "rpm" Vector__XXX
+ SG_ NClutchStatus : 42|3@0+ (1,0) [0|7] ""  MCU
+
+BO_ 162 DCT_1: 8 EngineControlModule
+ SG_ NGearTarget : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NGearEngaged : 27|4@0+ (1,0) [0|15] ""  BMS,MCU
+ SG_ NGearboxMode : 29|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BSoftRevLimiterRequired : 40|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NDCT_1Counter : 55|4@0+ (1,0) [0|15] ""  MCU
+ SG_ NDCT_1Checksum : 63|8@0+ (1,0) [0|255] ""  MCU
+ SG_ NTCULaunchRequest : 19|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NTCUMILRequested : 17|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NGearPreSelected : 44|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NShiftInProgress : 23|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ rMEngineWheelRatio : 39|11@0+ (0.01,0) [0|20.47] "" Vector__XXX
+ SG_ NDCTStatus : 51|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NLaunchStatus : 21|2@0+ (1,0) [0|3] ""  MCU
+ SG_ NGearSelected : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ MTransmissionDragEstimated : 7|8@0+ (1,0) [0|255] "Nm" Vector__XXX
+
+BO_ 1288 DCDC_1: 8 MCU
+ SG_ NDCDC_1Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule
+ SG_ NDCDCErrorState : 13|3@0+ (1,0) [0|7] ""  EngineControlModule
+ SG_ BDCDCEnableCheck : 15|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NDCDC_1Counter : 55|4@0+ (1,0) [0|15] ""  EngineControlModule
+ SG_ PDCDCActual : 31|8@0+ (16,0) [0|4080] "W"  EngineControlModule
+ SG_ IDCDCOutput : 39|8@0+ (2,0) [0|260] "A"  EngineControlModule,BMS
+ SG_ BDCDCIOStatus : 14|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NDCDCStatus : 10|3@0+ (1,0) [0|7] ""  InstrumentCluster,EngineControlModule
+
+BO_ 452 CentralTime: 6 EngineControlModule
+ SG_ tSecond : 7|8@0+ (0.25,0) [0|59.75] "seconds"  BMS,MCU
+ SG_ tDay : 28|5@0+ (1,1) [1|31] "days"  MCU,BMS
+ SG_ tMonth : 35|4@0+ (1,1) [1|16] "months"  MCU,BMS
+ SG_ tYear : 47|8@0+ (1,2008) [2008|2263] "years"  MCU,BMS
+ SG_ tHour : 20|5@0+ (1,0) [0|23] "hours"  BMS,MCU
+ SG_ tMinute : 13|6@0+ (1,0) [0|59] "minutes"  MCU,BMS
+
+BO_ 768 CarConfig: 8 EngineControlModule
+ SG_ BNavigationAvailable m2 : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NHeadUnitType m2 : 30|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NWindscreenType m2 : 26|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ NCarConfigMultiplexor M : 2|3@0+ (1,0) [0|7] ""  BMS
+ SG_ BGarageControlFitted m2 : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BAirbrakeAvailable m1 : 38|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NSteeringWheelSwitchesFitted m2 : 47|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BWindowAntiTrapAvailable m2 : 12|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NRearWheelType m1 : 45|6@0+ (1,0) [0|63] "" Vector__XXX
+ SG_ BWasherHeatingAvailable m2 : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BAutoTransmissionAvailable m1 : 16|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BKeylessGoAvailable m2 : 59|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BIRSAlarmAvailable m2 : 16|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NEngineType m0 : 43|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NPassengerSeatOption m0 : 55|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NFuelTankType m2 : 23|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NColumnSwtches2Fitted m2 : 51|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NCentreDifferential m1 : 22|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ BBluetoothTelephonyAvailable m2 : 38|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NTransmissionType m0 : 37|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NDoorMirrorControl m2 : 33|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BEPBFitted m1 : 23|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BAdaptiveCCAvailable m1 : 46|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NBatteryType m0 : 59|4@0+ (1,0) [0|15] ""  BMS
+ SG_ NDriveBatteryType m0 : 63|2@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BStopStartAvailable m0 : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NFrontWheelType m1 : 37|6@0+ (1,0) [0|63] "" Vector__XXX
+ SG_ BABS_ESPAvailable m1 : 39|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NVehicleDriveHand m0 : 33|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NRollControl m1 : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BDoorMirrorFoldingAvailable m2 : 34|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NFasciaPanelType m2 : 43|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BClosuresAlarmAvailable m2 : 14|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BHybridDriveAvailable m0 : 38|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NVehicleModel m0 : 27|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NDriverSeatOption m0 : 51|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BSpeedLimiterAvailable m1 : 47|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BVoiceActivationAvailable m2 : 60|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NRearDifferential m1 : 26|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ BTowAlarmAvailable m2 : 15|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NDriveMotorType m0 : 61|2@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BTransImmobAvailable m2 : 18|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NParkingSensorsFitted m2 : 55|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NAmplifierType m2 : 28|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NFrontDifferential m1 : 19|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ NColumnSwtches3Fitted m2 : 53|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NBodyType m0 : 13|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NFrontBrakeType m1 : 63|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NVehicleModelYear m0 : 22|7@0+ (1,0) [0|127] "" Vector__XXX
+ SG_ NColumnSwtches1Fitted m2 : 49|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BDoorMirrorHeatingAvailable m2 : 35|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NHeadlightType m2 : 63|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ BTrackerAvailable m2 : 19|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NDampingControl m1 : 59|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NRoadSpring m1 : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NVehicleMarket m0 : 31|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NVehicleType m0 : 9|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NDriveType m0 : 15|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NDifferentialRatio m1 : 51|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BCruiseControlAvailable m1 : 27|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BDoorMirrorApproachLight m2 : 36|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NNoseLiftAvailable m2 : 11|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BEngineImmoboliserAvailable m2 : 17|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BTPMSFitted m1 : 31|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NFrontAuxLightOption m0 : 47|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NHVACControllerFitted m2 : 58|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ BRearMirrorECControlAvailable m2 : 37|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NRearBrakeType m1 : 55|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BWindowAutoCloseAvailable m2 : 13|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NExhaustType m1 : 30|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ BHeadlightWashAvailable m2 : 31|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1715 CP1_02: 8 CP1
+ SG_ CY02_HW_Version : 16|8@1+ (1,0) [0|255] ""  EngineControlModule
+ SG_ CY02_Serial_Number : 32|16@1+ (1,0) [0|65535] ""  EngineControlModule
+ SG_ CY02_SPart_Number : 48|16@1+ (1,0) [0|65535] ""  EngineControlModule
+ SG_ CY02_Checksumme : 0|8@1+ (1,0) [0|255] ""  EngineControlModule
+ SG_ CY02_SW_Version : 24|8@1+ (1,0) [0|255] ""  EngineControlModule
+ SG_ CY02_Zaehler : 8|4@1+ (1,0) [0|15] ""  EngineControlModule
+ SG_ CY02_Medium : 12|4@1+ (1,0) [0|15] ""  EngineControlModule
+
+BO_ 127 CP1_01: 8 CP1
+ SG_ CY01_pCurr : 56|8@1+ (0.2,0) [0|50.6] "bar"  EngineControlModule
+ SG_ CY01_ErrTempHigh : 38|1@1+ (1,0) [0|1] ""  EngineControlModule
+ SG_ CY01_ErrMech : 34|1@1+ (1,0) [0|1] ""  EngineControlModule
+ SG_ CY01_AngSpdCurr : 24|9@1+ (200,-51000) [-51000|50800] "deg/s"  EngineControlModule
+ SG_ CY01_posCurr : 40|13@1+ (1,0) [0|8191] "deg"  EngineControlModule
+ SG_ CY01_i2trqCurr : 12|12@1+ (0.25,-511) [-511|512.25] "A"  EngineControlModule
+ SG_ CY01_Zaehler : 8|4@1+ (1,0) [0|15] ""  EngineControlModule
+ SG_ CY01_Checksumme : 0|8@1+ (1,0) [0|255] ""  EngineControlModule
+ SG_ CY01_ErrUBattLow : 36|1@1+ (1,0) [0|1] ""  EngineControlModule
+ SG_ CY01_SleepInd : 39|1@1+ (1,0) [0|1] ""  EngineControlModule
+ SG_ CY01_stMode : 53|3@1+ (1,0) [0|7] ""  EngineControlModule
+ SG_ CY01_ErrTempWarn : 37|1@1+ (1,0) [0|1] ""  EngineControlModule
+ SG_ CY01_ErrHW : 33|1@1+ (1,0) [0|1] ""  EngineControlModule
+ SG_ CY01_ErrCAN : 35|1@1+ (1,0) [0|1] ""  EngineControlModule
+
+BO_ 168 CCU_1: 8 EngineControlModule
+ SG_ THybridSystemCombined : 39|8@0+ (1,-50) [-50|205] "deg. C" Vector__XXX
+ SG_ NCCU_1Counter : 55|4@0+ (1,0) [0|15] ""  BMS,MCU
+ SG_ NAirbrakeClusterMessage : 23|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ NCCU_1Checksum : 63|8@0+ (1,0) [0|255] ""  BMS,MCU
+ SG_ NNoseLiftStatus : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NNoseLiftAvailability : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NPCSClusterMessage : 31|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ NCCUMiscClusterMessage : 47|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ qWaterPumpHybridCooling : 7|8@0+ (0.25,0) [0|50] "l/min"  MCU,BMS
+ SG_ NDRSActive : 49|2@0+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 1086 BMS_XCP_DTO: 8 BMS
+ SG_ DTO_DATA : 0|64@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1087 BMS_XCP_CRO: 8 Vector__XXX
+ SG_ CRO_DATA : 0|64@1+ (1,0) [0|1] ""  BMS
+
+BO_ 1845 BMS_735: 8 BMS
+
+BO_ 1829 BMS_725: 8 BMS
+
+BO_ 1085 BMS_3D: 8 BMS
+ SG_ Additional_BMS_Errors_3 : 23|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Additional_BMS_Errors_SubType_3 : 47|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Additional_BMS_Errors_1 : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Additional_BMS_Errors_2 : 15|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Additional_BMS_Errors_SubType_2 : 39|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Additional_BMS_Errors_SubType_1 : 31|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1084 BMS_3C: 8 BMS
+ SG_ NTCellMin : 39|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ NVCellMax : 63|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCellSOCMax : 23|16@0+ (0.12207,0) [0|7999.85745] "mV" Vector__XXX
+ SG_ VCellSOCMin : 7|16@0+ (0.12207,0) [0|7999.85745] "mV" Vector__XXX
+ SG_ NTCellMax : 55|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ NVCellMin : 47|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1083 BMS_3B: 8 BMS
+ SG_ ctc_overall_voltage : 7|16@0+ (0.0001220703125,0) [0|7.9998779296875] "" Vector__XXX
+ SG_ ctc_pos_voltage : 23|16@0+ (0.0001220703125,0) [0|7.9998779296875] "" Vector__XXX
+ SG_ ctc_latest_imi : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ctc_save_seq : 55|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ ctc_marker : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1082 BMS_3A: 8 BMS
+ SG_ NBMS_FirstFaultCode : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ NBMS_SecondFaultCode : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ NBMS_RecentFaultCode : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ NBMS_3ACounter : 55|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ NBMS_3AChecksum : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1081 BMS_39: 8 BMS
+ SG_ bms_dbg_39_7 : 63|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_dbg_39_6 : 55|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_dbg_39_5 : 47|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_dbg_39_4 : 39|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_dbg_39_1 : 15|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_dbg_39_0 : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ SOCcHigh : 31|8@0+ (1,-100) [0|100] "%" Vector__XXX
+ SG_ SOCcLow : 23|8@0+ (1,-100) [0|100] "%" Vector__XXX
+
+BO_ 1080 BMS_38: 8 BMS
+ SG_ bms_dbg_38_7 : 63|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_dbg_38_6 : 55|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_dbg_38_1 : 15|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_dbg_38_0 : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ ctc_no_close_reason : 23|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IRaw : 31|24@0- (-0.001,0) [0|0] "A" Vector__XXX
+
+BO_ 1079 BMS_37: 8 BMS
+ SG_ dcd_tm_ceRunTime0 : 39|16@0+ (10,0) [0|655350] "s" Vector__XXX
+ SG_ dcd_tm_socRunTime0 : 7|16@0+ (10,0) [0|655350] "s" Vector__XXX
+ SG_ VPackDCLink : 23|16@0- (0.125,0) [0|0] "V" Vector__XXX
+
+BO_ 1078 BMS_36: 8 BMS
+ SG_ hrd_cellSerResEst_Ohm : 7|16@0+ (0.0009765625,0) [0|63.9990234375] "mOhm" Vector__XXX
+ SG_ mad_A_packMovAvgChg_A : 23|8@0+ (1,0) [0|255] "A" Vector__XXX
+ SG_ mad_A_packMovAvgDis_A : 31|8@0+ (1,0) [0|255] "A" Vector__XXX
+ SG_ mad_A_packMovAvgNet_A : 39|8@0- (2,0) [-256|254] "A" Vector__XXX
+
+BO_ 1077 BMS_35: 8 BMS
+ SG_ ccv_pct_cellSOC_min : 7|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ ccv_pct_cellSOC_max : 15|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ cev_pct_cellVSOCEst_min : 23|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ cev_pct_cellVSOCEst_max : 31|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ scv_pct_socObvEst_min : 39|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ scv_pct_socObvEst_max : 47|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ tmv_t_cellCoreModel_dC_min : 55|8@0- (1,0) [-128|127] "deg. C" Vector__XXX
+ SG_ tmv_t_cellCoreModel_dC_max : 63|8@0- (1,0) [-128|127] "deg. C" Vector__XXX
+
+BO_ 1076 BMS_34: 8 BMS
+ SG_ acv_enum_packDisLimReasonFF_Long : 47|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ acv_enum_packChgLimReasonFF_Med : 15|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ acv_enum_packChgLimReasonFF_Long : 23|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ acv_enum_packChgLimReasonFF_Shrt : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ acv_enum_packDisLimReasonFF_Shrt : 31|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ acv_enum_packDisLimReasonFF_Med : 39|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1075 BMS_33: 8 BMS
+
+BO_ 1074 BMS_32: 8 BMS
+
+BO_ 1073 BMS_31: 8 BMS
+
+BO_ 1072 BMS_30: 8 BMS
+
+BO_ 1071 BMS_2F: 8 BMS
+
+BO_ 1070 BMS_2E: 8 BMS
+
+BO_ 1069 BMS_2D: 8 BMS
+
+BO_ 1068 BMS_2C: 8 BMS
+
+BO_ 1067 BMS_2B: 8 BMS
+
+BO_ 1066 BMS_2A: 8 BMS
+
+BO_ 1065 BMS_29: 8 BMS
+
+BO_ 1064 BMS_28: 8 BMS
+
+BO_ 1063 BMS_27: 8 BMS
+
+BO_ 1062 BMS_26: 8 BMS
+
+BO_ 1061 BMS_25: 8 BMS
+
+BO_ 1060 BMS_24: 8 BMS
+
+BO_ 1059 BMS_23: 8 BMS
+
+BO_ 1058 BMS_22: 8 BMS
+
+BO_ 1057 BMS_21: 8 BMS
+
+BO_ 1056 BMS_20: 8 BMS
+
+BO_ 1055 BMS_1F: 8 BMS
+
+BO_ 1054 BMS_1E: 8 BMS
+
+BO_ 1053 BMS_1D: 8 BMS
+
+BO_ 1052 BMS_1C: 8 BMS
+
+BO_ 1051 BMS_1B: 8 BMS
+
+BO_ 1050 BMS_1A: 8 BMS
+
+BO_ 1049 BMS_19: 8 BMS
+
+BO_ 1048 BMS_18: 8 BMS
+
+BO_ 1047 BMS_17: 8 BMS
+
+BO_ 1046 BMS_16: 8 BMS
+
+BO_ 1045 BMS_15: 8 BMS
+
+BO_ 1044 BMS_14: 8 BMS
+
+BO_ 1043 BMS_13: 8 BMS
+
+BO_ 1042 BMS_12: 8 BMS
+
+BO_ 1041 BMS_11: 8 BMS
+
+BO_ 1040 BMS_10: 8 BMS
+
+BO_ 1039 BMS_0F: 8 BMS
+
+BO_ 1038 BMS_0E: 8 BMS
+
+BO_ 1037 BMS_0D: 8 BMS
+
+BO_ 1036 BMS_0C: 8 BMS
+
+BO_ 1035 BMS_0B: 8 BMS
+
+BO_ 1034 BMS_0A: 8 BMS
+
+BO_ 1033 BMS_09: 8 BMS
+ SG_ NBMS_09Counter : 55|4@0+ (1,0) [0|15] ""  MCU,EngineControlModule
+ SG_ IChargeMaxLongTerm : 7|16@0+ (0.0625,0) [0|1000] "A"  EngineControlModule,MCU
+ SG_ PChargeMaxLongTerm : 23|16@0+ (16,0) [0|1000000] "W"  MCU
+ SG_ NBMS_09Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule,MCU
+
+BO_ 1032 BMS_08: 8 BMS
+ SG_ NBMS_08Counter : 55|4@0+ (1,0) [0|15] ""  MCU,EngineControlModule
+ SG_ NBMS_08Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule,MCU
+ SG_ IDischargeMaxLongTerm : 7|16@0+ (0.0625,0) [0|1000] "A"  EngineControlModule,MCU
+ SG_ PDischargeMaxLongTerm : 23|16@0+ (16,0) [0|1000000] "W"  MCU,EngineControlModule
+
+BO_ 1031 BMS_07: 8 BMS
+ SG_ IChargeMaxMediumTerm : 7|16@0+ (0.0625,0) [0|1000] "A"  EngineControlModule,MCU
+ SG_ PChargeMaxMediumTerm : 23|16@0+ (16,0) [0|1000000] "W"  MCU
+ SG_ NBMS_07Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule,MCU
+ SG_ NBMS_07Counter : 55|4@0+ (1,0) [0|15] ""  MCU,EngineControlModule
+
+BO_ 1030 BMS_06: 8 BMS
+ SG_ NBMS_06Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule,MCU
+ SG_ PDischargeMaxMediumTerm : 23|16@0+ (16,0) [0|1000000] "W"  MCU,EngineControlModule
+ SG_ IDischargeMaxMediumTerm : 7|16@0+ (0.0625,0) [0|1000] "A"  EngineControlModule,MCU
+ SG_ NBMS_06Counter : 55|4@0+ (1,0) [0|15] ""  MCU,EngineControlModule
+
+BO_ 1029 BMS_05: 8 BMS
+ SG_ rBatterySOHCPB : 31|8@0+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ NBMS_05Checksum : 63|8@0+ (1,0) [0|255] ""  InstrumentCluster,EngineControlModule
+ SG_ NBMS_05Counter : 55|4@0+ (1,0) [0|15] ""  EngineControlModule,InstrumentCluster
+ SG_ rLastChargeSOCDelta : 22|7@0+ (1,0) [0|100] "%"  InstrumentCluster
+ SG_ rBatterySOC : 7|8@0+ (0.5,0) [0|100] "%"  EngineControlModule,InstrumentCluster
+ SG_ NBatterySOCDesired : 51|4@0+ (1,0) [0|15] ""  EngineControlModule
+ SG_ NBMSClusterMessage : 15|8@0+ (1,0) [0|255] ""  InstrumentCluster
+ SG_ BBatteryWarrantyVoid : 23|1@0+ (1,0) [0|1] ""  InstrumentCluster
+
+BO_ 1028 BMS_04: 8 BMS
+ SG_ NBMS_04Counter : 55|4@0+ (1,0) [0|15] ""  InstrumentCluster,MCU,EngineControlModule
+ SG_ NBMS_04Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule,InstrumentCluster,MCU
+ SG_ rBatterySOHCPC : 47|8@0+ (0.5,0) [0|100] "%"  EngineControlModule
+ SG_ BBMSChargerTetheredStatus : 51|1@0+ (1,0) [0|1] ""  EngineControlModule,InstrumentCluster
+ SG_ TBMSOutlet : 15|8@0+ (1,-50) [-50|203] "deg. C"  EngineControlModule,MCU
+ SG_ TCellMax : 27|12@0+ (0.1,-204) [-204|204] "deg. C"  EngineControlModule
+ SG_ TBMSInlet : 7|8@0+ (1,-50) [-50|203] "deg. C"  EngineControlModule
+ SG_ TCellMin : 23|12@0+ (0.1,-204) [-204|204] "deg. C"  EngineControlModule
+
+BO_ 1027 BMS_03: 8 BMS
+ SG_ NBMS_03Counter : 55|4@0+ (1,0) [0|15] ""  EngineControlModule,MCU
+ SG_ BBMSContactorOpenIndicator : 17|1@0+ (1,0) [0|1] ""  MCU
+ SG_ NBMSMILRequested : 47|2@0+ (1,0) [0|3] ""  EngineControlModule
+ SG_ BVehicleNegContactorState : 25|1@0+ (1,0) [0|1] ""  MCU
+ SG_ NFullDischargeRequested : 1|2@0+ (1,0) [0|3] ""  MCU
+ SG_ BBMSContactorCloseIndicator : 16|1@0+ (1,0) [0|1] ""  EngineControlModule
+ SG_ BVehiclePosContactorState : 24|1@0+ (1,0) [0|1] ""  MCU
+ SG_ BContactorStuckClosed : 2|1@0+ (1,0) [0|1] ""  MCU
+ SG_ BContactorStuckOpen : 3|1@0+ (1,0) [0|1] ""  MCU
+ SG_ BChargerPosContactorState : 26|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NBMSStatus : 23|5@0+ (1,0) [0|31] ""  InstrumentCluster,MCU,EngineControlModule
+ SG_ BPrechargeContactorState : 28|1@0+ (1,0) [0|1] ""  MCU
+ SG_ BChargerNegContactorState : 27|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NBMS_03Checksum : 63|8@0+ (1,0) [0|255] ""  MCU,EngineControlModule
+ SG_ NHVBSoCResetState : 11|4@0+ (1,0) [0|15] ""  InstrumentCluster
+
+BO_ 1026 BMS_02: 8 BMS
+ SG_ IChargeMaxShortTerm : 7|16@0+ (0.0625,0) [0|1000] "A"  MCU
+ SG_ NBMS_02Checksum : 63|8@0+ (1,0) [0|255] ""  MCU
+ SG_ NBMS_02Counter : 55|4@0+ (1,0) [0|15] ""  MCU
+ SG_ PChargeMaxShortTerm : 23|16@0+ (16,0) [0|1000000] "W"  MCU
+
+BO_ 1025 BMS_01: 8 BMS
+ SG_ PDischargeMaxShortTerm : 23|16@0+ (16,0) [0|1000000] "W"  MCU
+ SG_ NBMS_01Checksum : 63|8@0+ (1,0) [0|255] ""  MCU
+ SG_ tChargingRemainingDisplayed : 33|10@0+ (1,0) [0|1023] "mins"  InstrumentCluster
+ SG_ NBMS_01Counter : 55|4@0+ (1,0) [0|15] ""  MCU
+ SG_ IDischargeMaxShortTerm : 7|16@0+ (0.0625,0) [0|1000] "A"  MCU
+
+BO_ 1024 BMS_00: 8 BMS
+ SG_ NBMS_00Checksum : 63|8@0+ (1,0) [0|255] ""  EngineControlModule,MCU
+ SG_ VHybridBattery : 7|16@0+ (0.125,0) [0|1000] "Volts"  MCU,EngineControlModule
+ SG_ NBMS_00Counter : 55|4@0+ (1,0) [0|15] ""  EngineControlModule,MCU
+ SG_ PActual : 39|16@0+ (16,0) [0|1000000] "W" Vector__XXX
+ SG_ IActual : 23|16@0+ (0.0625,-1000) [-1000|1000] "A"  EngineControlModule,MCU,InstrumentCluster
+
+BO_ 212 BCPowertrain: 5 EngineControlModule
+ SG_ NIBSIdleJackRequest : 11|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ BCrankInhibit : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BRLSRainDetected : 5|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BPowerSavingMode : 8|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VAlternatorRequest : 31|6@0+ (0.1,10.6) [10.6|16] "volts" Vector__XXX
+ SG_ NBatteryChargeRequest : 33|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NWashSwitch : 4|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ NBrakeLightRequestSource : 36|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ NBatteryStatus : 7|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ VBattery : 23|8@0+ (0.1,0) [0|25.5] "Volts"  MCU,BMS
+ SG_ NWiperSwitch : 2|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ NStatusIlluminationReq : 15|4@0+ (1,0) [0|15] "" Vector__XXX
+
+
+
+CM_ "P12 5.1";
+CM_ BU_ InstrumentCluster "IC";
+CM_ BU_ EngineControlModule "Engine controller";
+CM_ SG_ 769 NVINPart2 "VIN part 2";
+CM_ SG_ 769 NVINPart1 "VIN part 1";
+CM_ SG_ 769 NVINDataBytesIndex "VIN Message Information";
+CM_ SG_ 769 NVINPart3 "VIN part 3";
+CM_ SG_ 784 NKL58UserLevelSelected "KL58 level set by user";
+CM_ SG_ 784 BvUnitsMPH "User config";
+CM_ SG_ 784 NTyreType "User config";
+CM_ SG_ 784 BTBatteryHighLimitEnable "In UserConfig";
+CM_ SG_ 784 BlUnitsMiles "User config";
+CM_ SG_ 260 NDoorDriverOpenStatus "Resolved driver door state";
+CM_ SG_ 260 NImmobiliserStatus "Immobiliser status";
+CM_ SG_ 260 NVehicleStatus "vehicle, ignition and engine status information";
+CM_ SG_ 260 NStartStopButtonContact1 "Start/stop button contact 1 status";
+CM_ SG_ 260 NDoorPassengerOpenStatus "Passenger door resolved state";
+CM_ SG_ 260 NStartStopButtonContact2 "Start/stop button contact 2 status";
+CM_ SG_ 260 NDoorROpenStatus "Righ door resolved status";
+CM_ SG_ 260 NVehicleLockStatus "Vehicle locked status";
+CM_ SG_ 260 NSBCPTStatusCounter "Message counter";
+CM_ SG_ 260 NDoorLOpenStatus "Left door resolved status";
+CM_ SG_ 260 NIgnitionStatus "Ignition status
+0- Shut down and locked
+1- Vehicle Systems Shut down (KL30 supplied devices active only)
+2- Body Systems Awake (KL15C asserted)
+3- Accessory Position (KL15C asserted)
+4- Powertrain CAN wake (KL15 and KL15C asserted)
+5- Ignition on (KL15 and KL15C asserted) (Engine may or may not be running)
+6- Engine Crank (KL15 and KL15C asserted)";
+CM_ SG_ 260 NSBCPTStatusChecksum "Message checksum";
+CM_ SG_ 1792 N_NMDestinationMCU "Destination address of NM message";
+CM_ SG_ 1792 N_NMOpcodeMCU "Opcode of NM message";
+CM_ SG_ 1792 N_NMSleepMCU "Opcode of NM message";
+CM_ SG_ 1796 N_NMSleepIC "Opcode of NM message";
+CM_ SG_ 1796 N_NMDestinationIC "Destination address of NM message";
+CM_ SG_ 1796 N_NMOpcodeIC "Opcode of NM message";
+CM_ SG_ 1795 N_NMDestinationECM "Destination address of NM message";
+CM_ SG_ 1795 N_NMSleepECM "Opcode of NM message";
+CM_ SG_ 1795 N_NMOpcodeECM "Opcode of NM message";
+CM_ SG_ 1793 N_NMDestinationBMS "Destination address of NM message";
+CM_ SG_ 1793 N_NMOpcodeBMS "Opcode of NM message";
+CM_ SG_ 1793 N_NMSleepBMS "Opcode of NM message";
+CM_ SG_ 1285 NMCU_5Checksum "checksum";
+CM_ SG_ 1285 BMCU_MotorPositionUnknown "MCU fault - Motor position offset unknown";
+CM_ SG_ 1285 BMCU_DCLinkDischargeFault "MCU fault - DC link discharge fault";
+CM_ SG_ 1285 BMCU_IGBT_ExternalFault "MCU fault - External IGBT enable removed unexpectedly";
+CM_ SG_ 1285 BMCU_InputSignalInvalid "MCU fault - Input signal(s) invalid";
+CM_ SG_ 1285 BV_MCU_DCBusHighFault "DC Bus Overvoltage (detected by SKAI module or ICE)";
+CM_ SG_ 1285 B_MCU_PosOverSpeedFault "Over speed positive (in the good direction)";
+CM_ SG_ 1285 BMCU_SensorIntegrityFault "MCU fault - Sensor integrity test failed";
+CM_ SG_ 1285 NIGBTExternalDisableStatus "Set if IGBTs in MCU are disabled by digital input";
+CM_ SG_ 1285 BMCU_GateDriverEnableFault "MCU fault - Gate driver enable test failed";
+CM_ SG_ 1285 NMCU_5Counter "message counter";
+CM_ SG_ 1285 BT_MCU_IGBT_HighFaultHW "MCU fault - IGBT overtemperature fault detected by the MCU hardware
+This is a hardware based fault trip";
+CM_ SG_ 1285 B_MCU_ProcessorError "Processor error (internal watchdog, unexpected reset, stack error etc)";
+CM_ SG_ 1285 BMCU_IGBT_InternalFault "MCU fault - Monitor processor IGBT enable removed unexpectedly";
+CM_ SG_ 1285 B_MCU_NegOverSpeedFault "Over speed negative (in the bad direction!)";
+CM_ SG_ 1285 BV_MCU_VehicleBusHighFault "Vehicle Bus Over voltage (software based trip)";
+CM_ SG_ 1285 BMCU_CANSignalInvalid "MCU fault - CAN signal(s) invalid";
+CM_ SG_ 1285 BMCU_LLMC_Fault "MCU fault - LLMC fault";
+CM_ SG_ 1285 BMCU_GateDriverFault "MCU fault - IGBT gate driver fault";
+CM_ SG_ 1285 NLastResetReason "MCU last reset reason";
+CM_ SG_ 1285 BV_MCU_VehicleBusLowFault "Vehicle Bus Under voltage (software based trip)";
+CM_ SG_ 1285 BV_MCU_DCBusHighFaultHW "MCU fault - DC link overvoltage fault detected by the MCU hardware";
+CM_ SG_ 1285 B_MCU_CANTimeoutFault "CAN bus timeout failure (Valid HCU1 has not been received for 100ms) ";
+CM_ SG_ 1285 B_MCU_PositionFeedbackFault "Position feedback error";
+CM_ SG_ 1284 NMCU_4Checksum "checksum";
+CM_ SG_ 1284 NMCUClusterMessage "MCU message on cluster";
+CM_ SG_ 1284 NMCU_4Counter "message counter";
+CM_ SG_ 1284 TMCU_IGBTMax "Highest IGBT temeperature";
+CM_ SG_ 1284 TMCUColdPlate "Cold plate temperature";
+CM_ SG_ 1284 TMotorStator "Motor stator temperature";
+CM_ SG_ 1284 TMotorRotor "Motor rotor temperature";
+CM_ SG_ 1284 NIGBTCycleCompleted "Indicated that MCU has switched the IGBT's on then off";
+CM_ SG_ 1284 TDCDC "DCDC convertor substrate temperature";
+CM_ SG_ 1283 BT_MCUProcessorHighFault "MCU fault - Processor board over-temperature fault";
+CM_ SG_ 1283 NMaxSrtTermLimitType "Max Short Term Derate Reason";
+CM_ SG_ 1283 BM_MCUDemandConsistencyFault "MCU fault - Torque demand consistency fault";
+CM_ SG_ 1283 BP_MCUConsistencyFault "MCU fault - Power consistency fault";
+CM_ SG_ 1283 BT_MCUDriverBoardHighFault "MCU fault - Driver board over-temperature fault";
+CM_ SG_ 1283 NMCUStatus "MCU status";
+CM_ SG_ 1283 NMaxLngTermLimitType "Max Long Term Derate Reason";
+CM_ SG_ 1283 BM_MCUControlConsistencyFault "MCU fault - Torque control consistency fault";
+CM_ SG_ 1283 Bv_MCUConsistencyFault "MCU fault - Speed consistency fault";
+CM_ SG_ 1283 NMaxMedTermLimitType "Max Medium Term Derate Reason";
+CM_ SG_ 1283 NMCU_3Checksum "checksum";
+CM_ SG_ 1283 BT_MCUColdPlateHighFault "MCU fault - Cold plate over-temperature fault";
+CM_ SG_ 1283 BT_MCUMotorHighFault "MCU fault - Motor over-temperature fault";
+CM_ SG_ 1283 NMinMedTermLimitType "Min Medium Term Derate Reason";
+CM_ SG_ 1283 NMinSrtTermLimitType "Min Short Term Derate Reason";
+CM_ SG_ 1283 NMinLngTermLimitType "Min Long Term Derate Reason";
+CM_ SG_ 1283 BMCU_LLMC_OutputFault "MCU fault - LLMC PI controller output fault ";
+CM_ SG_ 1283 NMCU_3Counter "message counter";
+CM_ SG_ 1283 BI_MCU_HighFaultHW "MCU fault - Phase overcurrent fault detected by the MCU hardware";
+CM_ SG_ 1283 NMCUMILRequested "MCU MIL lamp";
+CM_ SG_ 1283 BMCU_LLMC_InputFault "MCU fault - LLMC PI controller input fault";
+CM_ SG_ 1283 BMCU_MotorStallFault "MCU fault - Motor stall fault";
+CM_ SG_ 1283 BT_MCU_IGBT_HighFaultSW "MCU fault - IGBT over-temperature fault
+This is a software based fault trip";
+CM_ SG_ 1282 IMCUDCLink "Average DC link current";
+CM_ SG_ 1282 MMotor "Actual motor torque";
+CM_ SG_ 1282 NMCU_2Checksum "checksum";
+CM_ SG_ 1282 VMCUDCLink "Average DC link voltage";
+CM_ SG_ 1282 NMCU_2Counter "message counter";
+CM_ SG_ 1282 nMotor "Motor speed";
+CM_ SG_ 1281 MMotorMinLongTerm "Long term motor min torque";
+CM_ SG_ 1281 NMCU_1Checksum "checksum";
+CM_ SG_ 1281 MMotorMinShortTerm "Short term motor min torque";
+CM_ SG_ 1281 MMotorMaxMedTerm "Medium term motor max torque";
+CM_ SG_ 1281 MMotorMaxLongTerm "Long term motor max torque";
+CM_ SG_ 1281 NMCU_1Counter "message counter";
+CM_ SG_ 1281 MMotorMaxShortTerm "Short term motor max torque";
+CM_ SG_ 1281 MMotorMinMedTerm "Medium term motor min torque";
+CM_ SG_ 216 vVehicleIC "Vehicle speed displayed on dashboard instrument cluster";
+CM_ SG_ 216 lPART1Totalizer "Total distance in Km";
+CM_ SG_ 216 NEPBEngaged "Current status of the EPB";
+CM_ BO_ 1111 "Message reserved for Hybrid Rig";
+CM_ BO_ 1110 "Message reserved for Hybrid Rig";
+CM_ BO_ 1109 "Message reserved for Hybrid Rig";
+CM_ BO_ 1108 "Message reserved for Hybrid Rig";
+CM_ BO_ 1107 "Message reserved for Hybrid Rig";
+CM_ BO_ 1106 "Message reserved for Hybrid Rig";
+CM_ BO_ 1105 "Message reserved for Hybrid Rig";
+CM_ BO_ 1104 "Message reserved for Hybrid Rig";
+CM_ SG_ 262 NHVACEngineStopDisable "Engine stop disable";
+CM_ SG_ 262 BHVACGearboxStartRequest "Gearbox clutch input shaft start request";
+CM_ SG_ 262 NSCUGStatus "Bus off on PowertrainChassisCAN refers to BodyCAN & vice-versa";
+CM_ SG_ 262 pHVAC "AC_CLG_PRESS AC cooling liquid pressure.";
+CM_ SG_ 262 NHVACGearboxStopDisable "Gearbox clutch input shaft stop disable";
+CM_ SG_ 262 BHVACEngineStartRequest "Engine start request";
+CM_ SG_ 262 MPowertrainHVACDemanded "ACTTRQ_AC_COMP actual AC compressor torque";
+CM_ SG_ 262 NHVACIdleJackRequest "HVAC request for increased idle rpm";
+CM_ SG_ 262 TAmbientRaw "Ambient temperature. Set to open-circuitvalue (-40) if sensor not present or by SCUG if HVAC off-bus";
+CM_ SG_ 262 BHVACEngaged "AC_STATE Air Con state (actual compressor NOT switch)";
+CM_ SG_ 1091 rThermostat1Demand "Thermostat 1 heating demand (for logging only)
+";
+CM_ SG_ 1091 rThermostat2Demand "Thermostat 2 heating demand (for logging only)
+";
+CM_ SG_ 1091 rCoolingFanDuty "Cooling fan duty cycle (for logging only)";
+CM_ SG_ 1091 BSecAirPumpStatus "Secondary Air Pump status";
+CM_ SG_ 1091 TRadiatorInlet1 "Radiator inlet temperature sensor 1";
+CM_ SG_ 1091 TRadiatorInlet2 "Radiator inlet temperature sensor 2";
+CM_ SG_ 1091 TCoolantSetPoint "Engine coolant set point";
+CM_ SG_ 1091 rFuelPumpDuty "Fuel Pump duty cycle";
+CM_ SG_ 1096 BECMClusterMessage15 "ECM Cluster Message";
+CM_ SG_ 1096 tToNextEngineStartDisplayed "Time to next engine start for cluster";
+CM_ SG_ 1096 NBoostStatus "Boost status displayed on cluster";
+CM_ SG_ 1096 NEngineStatus "Engine status";
+CM_ SG_ 1096 rBoostMaxDisplayed "Boost maximum % for display on cluster";
+CM_ SG_ 1096 rBoostAvailableDisplayed "Boost available % for display on cluster";
+CM_ SG_ 1096 NRegenStatusDisplayed "Regeneration status for display";
+CM_ SG_ 1096 BECMClusterMessage11 "ECM Cluster Message";
+CM_ SG_ 1096 NPowertrainStatus "Powertrain status";
+CM_ SG_ 1096 BECMClusterMessage01 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage08 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage12 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage14 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage02 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage03 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage16 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage05 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage06 "ECM Cluster Message";
+CM_ SG_ 1096 sElectricRangeDisplayed "Electric range for display on cluster";
+CM_ SG_ 1096 BPitLaneChargingActive "Status of the Pit Lane Charging function";
+CM_ SG_ 1096 BECMClusterMessage13 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage04 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage07 "ECM Cluster Message";
+CM_ SG_ 1096 BECMClusterMessage10 "ECM Cluster Message";
+CM_ SG_ 1096 BBoostMode "Boost Mode: Auto or Manual";
+CM_ SG_ 1096 BECMClusterMessage09 "ECM Cluster Message";
+CM_ SG_ 1090 BDCDCEnable "DC/DC convertor enable";
+CM_ SG_ 1090 NECM_HCAN_2Checksum "checksum";
+CM_ SG_ 1090 VDCDCDemanded "Desired DCDC output voltage";
+CM_ SG_ 1090 NECM_HCAN_2Counter "message counter";
+CM_ SG_ 1090 MMotorMaxSpeedControl "maximum torque for speed or voltage control";
+CM_ SG_ 1090 MMotorMinSpeedControl "minimum torque for speed or voltage control";
+CM_ SG_ 1089 MMotorDemanded "Desired torque";
+CM_ SG_ 1089 NECM_HCAN_1Checksum "checksum";
+CM_ SG_ 1089 NHDAClutchState "State of HDA Clutch";
+CM_ SG_ 1089 NECM_HCAN_1Counter "message counter";
+CM_ SG_ 1089 nMotorDemanded "Desired motor speed";
+CM_ SG_ 1089 nMotorReference "Reference e-motor speed. Signal is derived from DCT clutch input speed.";
+CM_ SG_ 1089 NMCUStateDemanded "MCU state desired";
+CM_ SG_ 150 MY15_CCU_pLimReq "MY15_CCU_pLimReq /nAktivierung Systemdruckbegrenzung Aktuator";
+CM_ SG_ 150 MY15_CCU_pMin "Ab PRJ061970 Release 4.1
+MY15_CCU_pMin  Steuerung Untertauchen und Haltestromreduktion";
+CM_ SG_ 150 MY15_CCU_stModeReq "MY15_CCU_stModeReq /nSollmodus Aktuator
+1: Secure_Mode 
+2: Operation_Mode
+3: RemovingAir_Mode
+4: Filling_Mode
+5: Info_Mode (Ueber Info_Mode kann die zusaetzliche Botschaft CCU_HYB_02 angefordert werden)
+6: reserve
+7: MSG befindet sich in der Init-Phase;";
+CM_ SG_ 150 MY15_Checksumme "Checksumme /nDefinition nach CAN-Lastenheft";
+CM_ SG_ 150 MY15_CCU_pMax "MY15_CCU_pMax /nMaximal erlaubter Systemdruck bei aktiver Druckbegrenzung Aktuator";
+CM_ SG_ 150 MY15_CCU_posDes "MY15_CCU_posDes /nSollposition Aktuator";
+CM_ SG_ 150 MY15_Zaehler "Botschaftszähler /nFreilaufender Botschaftszaehler";
+CM_ SG_ 934 MY01_Checksumme "Checksumme /nChecksumme nach CAN-Lastenheft";
+CM_ SG_ 934 MY01_SleepAckn "Sleep Acknowledge /nNach Empfang des 'Sleep Acknowledge' muss der Sendebetrieb sofort eingestellt werden; die CAN-Schnittstelle (empfangseitig) wird nach der Wartezeit (750 ms) komplett abgeschaltet";
+CM_ SG_ 934 MY01_Zaehler "Botschaftszähler /nfreilaufender Botschaftszähler";
+CM_ SG_ 1088 NCrashSeverity "Low severity - Control locking open, Hazard warning system ON,Interior illumination ON
+High severity - Fuel Cut OFF + Emergency call initiation ";
+CM_ SG_ 1088 NECM_BMS_00Checksum "checksum";
+CM_ SG_ 1088 NContactorRequested "ST_Demand. HCU request for contactor open / close";
+CM_ SG_ 1088 NECM_BMS_00Counter "message counter";
+CM_ SG_ 1088 nPowertrain "Powertrain speed";
+CM_ SG_ 145 PID04_CalculatedLoad " Freeze Frame - Calculated load";
+CM_ SG_ 145 PID4A_AbsolutePedalPosn " Freeze Frame - absolute pedal position";
+CM_ SG_ 145 PID33_BarometricPressure " Freeze Frame - Barometric pressure";
+CM_ SG_ 145 PID43_AbsoluteLoad " Freeze Frame - Absolute load";
+CM_ SG_ 145 PID05_TEngineCoolant "Freeze frame - Engine temperature";
+CM_ SG_ 145 PID49_AbsolutePedalPosn " Freeze Frame - absolute pedal position";
+CM_ SG_ 1289 PID0D_vVehicleOBD "Freeze frame - Vehicle speed
+If vehicle speed is higher than 327kph, signal is set to 327kph";
+CM_ SG_ 1289 PID0C_nEngine "Freeze frame - Engine speed  ";
+CM_ SG_ 163 NDCT_2Checksum "checksum";
+CM_ SG_ 163 NDCT_2Counter "Message counter";
+CM_ SG_ 163 MPowertrainInternalDemanded "Target internal IC Engine plus eMotor trque";
+CM_ SG_ 163 NTransmissionStatus "Transmission status";
+CM_ SG_ 163 NMPowertrainRequestType "Type of torque request";
+CM_ SG_ 163 MPowertrainDemandedFuture "Future IC Engine plus eMotor torque demand";
+CM_ SG_ 163 nPowertrainDemandedInverted "Inverse of target powertrain speed";
+CM_ SG_ 163 NSpeedControlEngaged "Speed limiter engaged";
+CM_ SG_ 163 nPowertrainDemanded "Target powertrain speed";
+CM_ SG_ 163 NClutchStatus "Clutch status";
+CM_ SG_ 162 NGearTarget "Gear target";
+CM_ SG_ 162 NGearEngaged "Actual gear";
+CM_ SG_ 162 NGearboxMode "Gearbox mode";
+CM_ SG_ 162 BSoftRevLimiterRequired "PCCU informing ECM of type of rev limiting required";
+CM_ SG_ 162 NDCT_1Counter "message counter";
+CM_ SG_ 162 NDCT_1Checksum "checksum";
+CM_ SG_ 162 NTCULaunchRequest "Launch request";
+CM_ SG_ 162 NTCUMILRequested "TCU MIL lamp";
+CM_ SG_ 162 NGearPreSelected "Gear pre-selected";
+CM_ SG_ 162 rMEngineWheelRatio "Engine to wheel torque ratio";
+CM_ SG_ 162 NDCTStatus "DCT status";
+CM_ SG_ 162 NLaunchStatus "Launch control status";
+CM_ SG_ 162 NGearSelected "Gear selected";
+CM_ SG_ 162 MTransmissionDragEstimated "Estimated transmission drag";
+CM_ SG_ 1288 NDCDC_1Checksum "checksum";
+CM_ SG_ 1288 NDCDCErrorState "DCDC convertor error state";
+CM_ SG_ 1288 BDCDCEnableCheck "DC/DC Converter Enable Signal";
+CM_ SG_ 1288 NDCDC_1Counter "message counter";
+CM_ SG_ 1288 PDCDCActual "DCDC convertor power";
+CM_ SG_ 1288 IDCDCOutput "DCDC convertor output current";
+CM_ SG_ 1288 BDCDCIOStatus "DC/DC Converter input/output status";
+CM_ SG_ 1288 NDCDCStatus "DCDC convertor status";
+CM_ SG_ 452 tSecond "Seconds";
+CM_ SG_ 452 tDay "Date";
+CM_ SG_ 452 tMonth "Month";
+CM_ SG_ 452 tYear "Year";
+CM_ SG_ 452 tHour "Hours";
+CM_ SG_ 452 tMinute "Minutes";
+CM_ SG_ 768 BNavigationAvailable "In CarConfig";
+CM_ SG_ 768 NHeadUnitType "In CarConfig";
+CM_ SG_ 768 NWindscreenType "In CarConfig";
+CM_ SG_ 768 NCarConfigMultiplexor "Multiplexor signal to select car config message";
+CM_ SG_ 768 BGarageControlFitted "In CarConfig";
+CM_ SG_ 768 BAirbrakeAvailable "In CarConfig";
+CM_ SG_ 768 NSteeringWheelSwitchesFitted "In CarConfig";
+CM_ SG_ 768 BWindowAntiTrapAvailable "In CarConfig";
+CM_ SG_ 768 NRearWheelType "In CarConfig";
+CM_ SG_ 768 BWasherHeatingAvailable "In CarConfig";
+CM_ SG_ 768 BAutoTransmissionAvailable "In CarConfig";
+CM_ SG_ 768 BKeylessGoAvailable "In CarConfig";
+CM_ SG_ 768 BIRSAlarmAvailable "In CarConfig";
+CM_ SG_ 768 NEngineType "In CarConfig";
+CM_ SG_ 768 NPassengerSeatOption "In CarConfig";
+CM_ SG_ 768 NFuelTankType "In CarConfig";
+CM_ SG_ 768 NColumnSwtches2Fitted "In CarConfig";
+CM_ SG_ 768 NCentreDifferential "In CarConfig";
+CM_ SG_ 768 BBluetoothTelephonyAvailable "In CarConfig";
+CM_ SG_ 768 NTransmissionType "In CarConfig";
+CM_ SG_ 768 NDoorMirrorControl "In CarConfig";
+CM_ SG_ 768 BEPBFitted "In CarConfig";
+CM_ SG_ 768 BAdaptiveCCAvailable "In CarConfig";
+CM_ SG_ 768 NBatteryType "In CarConfig";
+CM_ SG_ 768 NDriveBatteryType "In CarConfig";
+CM_ SG_ 768 BStopStartAvailable "In CarConfig";
+CM_ SG_ 768 NFrontWheelType "In CarConfig";
+CM_ SG_ 768 BABS_ESPAvailable "In CarConfig";
+CM_ SG_ 768 NVehicleDriveHand "In CarConfig";
+CM_ SG_ 768 NRollControl "In CarConfig";
+CM_ SG_ 768 BDoorMirrorFoldingAvailable "In CarConfig";
+CM_ SG_ 768 NFasciaPanelType "In CarConfig";
+CM_ SG_ 768 BClosuresAlarmAvailable "In CarConfig";
+CM_ SG_ 768 BHybridDriveAvailable "In CarConfig";
+CM_ SG_ 768 NVehicleModel "In CarConfig";
+CM_ SG_ 768 NDriverSeatOption "In CarConfig";
+CM_ SG_ 768 BSpeedLimiterAvailable "In CarConfig";
+CM_ SG_ 768 BVoiceActivationAvailable "In CarConfig";
+CM_ SG_ 768 NRearDifferential "In CarConfig";
+CM_ SG_ 768 BTowAlarmAvailable "In CarConfig";
+CM_ SG_ 768 NDriveMotorType "In CarConfig";
+CM_ SG_ 768 BTransImmobAvailable "In CarConfig";
+CM_ SG_ 768 NParkingSensorsFitted "In CarConfig";
+CM_ SG_ 768 NAmplifierType "In CarConfig";
+CM_ SG_ 768 NFrontDifferential "In CarConfig";
+CM_ SG_ 768 NColumnSwtches3Fitted "In CarConfig";
+CM_ SG_ 768 NBodyType "In CarConfig";
+CM_ SG_ 768 NFrontBrakeType "In CarConfig";
+CM_ SG_ 768 NVehicleModelYear "In CarConfig";
+CM_ SG_ 768 NColumnSwtches1Fitted "In CarConfig";
+CM_ SG_ 768 BDoorMirrorHeatingAvailable "In CarConfig";
+CM_ SG_ 768 NHeadlightType "In CarConfig";
+CM_ SG_ 768 BTrackerAvailable "In CarConfig";
+CM_ SG_ 768 NDampingControl "In CarConfig";
+CM_ SG_ 768 NRoadSpring "In CarConfig";
+CM_ SG_ 768 NVehicleMarket "In CarConfig";
+CM_ SG_ 768 NVehicleType "In CarConfig";
+CM_ SG_ 768 NDriveType "In CarConfig";
+CM_ SG_ 768 NDifferentialRatio "In CarConfig";
+CM_ SG_ 768 BCruiseControlAvailable "In CarConfig";
+CM_ SG_ 768 BDoorMirrorApproachLight "In CarConfig";
+CM_ SG_ 768 NNoseLiftAvailable "In CarConfig";
+CM_ SG_ 768 BEngineImmoboliserAvailable "In CarConfig";
+CM_ SG_ 768 BTPMSFitted "In CarConfig";
+CM_ SG_ 768 NFrontAuxLightOption "In CarConfig";
+CM_ SG_ 768 NHVACControllerFitted "In CarConfig";
+CM_ SG_ 768 BRearMirrorECControlAvailable "In CarConfig";
+CM_ SG_ 768 NRearBrakeType "In CarConfig";
+CM_ SG_ 768 BWindowAutoCloseAvailable "In CarConfig";
+CM_ SG_ 768 NExhaustType "In CarConfig";
+CM_ SG_ 768 BHeadlightWashAvailable "In CarConfig";
+CM_ SG_ 1715 CY02_HW_Version "CY02_HW_Version /nHardware Stand Aktuator
+0: A0_Muster
+1: A1_Muster
+2: A2_Muster
+3: B0_Muster
+4: B1_Muster
+5: B2_Muster
+6: B3_Muster
+7: C0_Muster
+8: C1_Muster
+9: C2_Muster
+10: Nullserie
+255: Zwischenstand";
+CM_ SG_ 1715 CY02_Serial_Number "CY02_Serial_Number /nLaufende Nummer Aktuator";
+CM_ SG_ 1715 CY02_SPart_Number "CY02_Part_Number /nOEM spezifische Teilenummer Aktuator";
+CM_ SG_ 1715 CY02_Checksumme "CY02_Checksumme /nDefinition nach CAN-Lastenheft";
+CM_ SG_ 1715 CY02_SW_Version "CY02_SW_Version /nSoftware Stand Aktuator
+105: v105
+106: v106
+107: v107
+108: v108
+109: v109
+";
+CM_ SG_ 1715 CY02_Zaehler "CY02_Zaehler /nFreilaufender Botschaftszaehler";
+CM_ SG_ 1715 CY02_Medium "CY02_Medium /nVerwendetes Medium Aktuator
+4: Mineraloel_Pentosin
+7: Bremsfluessigkeit";
+CM_ SG_ 127 CY01_pCurr "CY01_pCurr /nSystemdruck AktuatorCY01_i2trqCurr /nDrehmomentbildender Strom Aktuator";
+CM_ SG_ 127 CY01_ErrTempHigh "CY01_ErrTempHigh /nKritische CPU Temperatur bzw. kritisches Motor Stromintegral Aktuator festgestellt";
+CM_ SG_ 127 CY01_ErrMech "CY01_ErrMech /nSystemdruckniveau Aktuator in Nullposition > erlaubter Schwelle";
+CM_ SG_ 127 CY01_AngSpdCurr "CY01_AngSpdCurr /nWinkelgeschwindigkeit Aktuator";
+CM_ SG_ 127 CY01_posCurr "CY01_posCurr /nPosition Aktuator";
+CM_ SG_ 127 CY01_Zaehler "Botschaftszähler /nFreilaufender Botschaftszaehler";
+CM_ SG_ 127 CY01_Checksumme "Checksumme /nDefinition nach CAN-Lastenheft";
+CM_ SG_ 127 CY01_ErrUBattLow "CY01_ErrUBattLow /nUnterspannung Aktuator festgestellt";
+CM_ SG_ 127 CY01_SleepInd "CY01_SleepInd /nDie Sleep-Bereitschaft wird nach Rücknahme von Klemme 15 durch Setzen dieses Bits signalisiert";
+CM_ SG_ 127 CY01_stMode "CY01_stMode /nModus Aktuator
+0: Init Mode
+1: Secure_Mode 
+2: Operation_Mode
+3: RemovingAir_Mode
+4: Filling_Mode
+5...6: reserve
+7: Initialisierung
+Anmerkung: bei PL71 initialisiert die CCU noch mit '0'";
+CM_ SG_ 127 CY01_ErrTempWarn "CY01_ErrTempWarn /nErhoehte CPU Temperatur bzw. erhoehtes Motor Stromintegral Aktuator festgestellt";
+CM_ SG_ 127 CY01_ErrHW "CY01_ErrHW /nHW Fehler im Aktuator festgestellt";
+CM_ SG_ 127 CY01_ErrCAN "CY01_ErrCAN /nCAN Fehler Aktuator festgestellt";
+CM_ SG_ 168 THybridSystemCombined "Hybrid system temperature";
+CM_ SG_ 168 NCCU_1Counter "Message counter";
+CM_ SG_ 168 NAirbrakeClusterMessage "PCCU Airbrake message number on cluster";
+CM_ SG_ 168 NCCU_1Checksum "checksum";
+CM_ SG_ 168 NPCSClusterMessage "CCU PCS message number on cluster";
+CM_ SG_ 168 NCCUMiscClusterMessage "CCU cluster message number";
+CM_ SG_ 168 qWaterPumpHybridCooling "Flow rate of the water pump for the Hybrid System cooling";
+CM_ SG_ 168 NDRSActive "DRS availability and state (active/not active)";
+CM_ BO_ 1086 "Reserved for BMS debugging";
+CM_ BO_ 1087 "Reserved for BMS debugging";
+CM_ BO_ 1845 "Reserved for BMS debugging";
+CM_ BO_ 1829 "Reserved for BMS debugging";
+CM_ BO_ 1085 "Reserved for BMS debugging";
+CM_ BO_ 1084 "Reserved for BMS debugging";
+CM_ BO_ 1083 "Reserved for BMS debugging";
+CM_ BO_ 1082 "Reserved for BMS debugging";
+CM_ SG_ 1082 NBMS_FirstFaultCode "The first detected failure code (i.e. the failure for which the fault filter has first saturated)";
+CM_ SG_ 1082 NBMS_SecondFaultCode "The second detected failure code";
+CM_ SG_ 1082 NBMS_RecentFaultCode "The most recently detected failure code (i.e. the failure for which the fault filter has most recently saturated)";
+CM_ SG_ 1082 NBMS_3ACounter "message counter";
+CM_ SG_ 1082 NBMS_3AChecksum "checksum";
+CM_ BO_ 1081 "Reserved for BMS debugging";
+CM_ BO_ 1080 "Reserved for BMS debugging";
+CM_ BO_ 1079 "Reserved for BMS debugging";
+CM_ SG_ 1079 dcd_tm_ceRunTime0 "Run time since last successful charge estimate (EEPROM state)";
+CM_ SG_ 1079 dcd_tm_socRunTime0 "Run time since last successful coulomb count reset (EEPROM state)";
+CM_ BO_ 1078 "Misc States";
+CM_ SG_ 1078 hrd_cellSerResEst_Ohm "Best current estimate for average cell Ohmic resistance";
+CM_ SG_ 1078 mad_A_packMovAvgChg_A "Moving average pack charge current";
+CM_ SG_ 1078 mad_A_packMovAvgDis_A "Moving average pack discharge current";
+CM_ SG_ 1078 mad_A_packMovAvgNet_A "Moving average pack net current";
+CM_ BO_ 1077 "SOCs and Temp";
+CM_ SG_ 1077 ccv_pct_cellSOC_min "Minimal estimated cell SOC based on coulomb counting";
+CM_ SG_ 1077 ccv_pct_cellSOC_max "Maximal estimated cell SOC based on coulomb counting";
+CM_ SG_ 1077 cev_pct_cellVSOCEst_min "Minimal instantaneous directly voltage based SOC estimates";
+CM_ SG_ 1077 cev_pct_cellVSOCEst_max "Maximal instantaneous directly voltage based SOC estimates";
+CM_ SG_ 1077 scv_pct_socObvEst_min "Minimal observer estimated cell SOC (internal SOC)";
+CM_ SG_ 1077 scv_pct_socObvEst_max "Maximal observer estimated cell SOC (internal SOC)";
+CM_ SG_ 1077 tmv_t_cellCoreModel_dC_min "Minimal estimated cell core temperature";
+CM_ SG_ 1077 tmv_t_cellCoreModel_dC_max "Maximal estimated cell core temperature";
+CM_ BO_ 1076 "Available Current Limit Reasons";
+CM_ SG_ 1076 acv_enum_packDisLimReasonFF_Long "Reason code for current limits, including FF implementation";
+CM_ SG_ 1076 acv_enum_packChgLimReasonFF_Med "Reason code for current limits, including FF implementation";
+CM_ SG_ 1076 acv_enum_packChgLimReasonFF_Long "Reason code for current limits, including FF implementation";
+CM_ SG_ 1076 acv_enum_packChgLimReasonFF_Shrt "Reason code for current limits, including FF implementation";
+CM_ SG_ 1076 acv_enum_packDisLimReasonFF_Shrt "Reason code for current limits, including FF implementation";
+CM_ SG_ 1076 acv_enum_packDisLimReasonFF_Med "Reason code for current limits, including FF implementation";
+CM_ BO_ 1075 "Reserved for BMS debugging";
+CM_ BO_ 1074 "Reserved for BMS debugging";
+CM_ BO_ 1073 "Reserved for BMS debugging";
+CM_ BO_ 1072 "Reserved for BMS debugging";
+CM_ BO_ 1071 "Reserved for BMS debugging";
+CM_ BO_ 1070 "Reserved for BMS debugging";
+CM_ BO_ 1069 "Reserved for BMS debugging";
+CM_ BO_ 1068 "Reserved for BMS debugging";
+CM_ BO_ 1067 "Reserved for BMS debugging";
+CM_ BO_ 1066 "Reserved for BMS debugging";
+CM_ BO_ 1065 "Reserved for BMS debugging";
+CM_ BO_ 1064 "Reserved for BMS debugging";
+CM_ BO_ 1063 "Reserved for BMS debugging";
+CM_ BO_ 1062 "Reserved for BMS debugging";
+CM_ BO_ 1061 "Reserved for BMS debugging";
+CM_ BO_ 1060 "Reserved for BMS debugging";
+CM_ BO_ 1059 "Reserved for BMS debugging";
+CM_ BO_ 1058 "Reserved for BMS debugging";
+CM_ BO_ 1057 "Reserved for BMS debugging";
+CM_ BO_ 1056 "Reserved for BMS debugging";
+CM_ BO_ 1055 "Reserved for BMS debugging";
+CM_ BO_ 1054 "Reserved for BMS debugging";
+CM_ BO_ 1053 "Reserved for BMS debugging";
+CM_ BO_ 1052 "Reserved for BMS debugging";
+CM_ BO_ 1051 "Reserved for BMS debugging";
+CM_ BO_ 1050 "Reserved for BMS debugging";
+CM_ BO_ 1049 "Reserved for BMS debugging";
+CM_ BO_ 1048 "Reserved for BMS debugging";
+CM_ BO_ 1047 "Reserved for BMS debugging";
+CM_ BO_ 1046 "Reserved for BMS debugging";
+CM_ BO_ 1045 "Reserved for BMS debugging";
+CM_ BO_ 1044 "Reserved for BMS debugging";
+CM_ BO_ 1043 "Reserved for BMS debugging";
+CM_ BO_ 1042 "Reserved for BMS debugging";
+CM_ BO_ 1041 "Reserved for BMS debugging";
+CM_ BO_ 1040 "Reserved for BMS debugging";
+CM_ BO_ 1039 "Reserved for BMS debugging";
+CM_ BO_ 1038 "Reserved for BMS debugging";
+CM_ BO_ 1037 "Reserved for BMS debugging";
+CM_ BO_ 1036 "Reserved for BMS debugging";
+CM_ BO_ 1035 "Reserved for BMS debugging";
+CM_ BO_ 1034 "Reserved for BMS debugging";
+CM_ SG_ 1033 NBMS_09Counter "message counter";
+CM_ SG_ 1033 IChargeMaxLongTerm "Long term maximum charge current";
+CM_ SG_ 1033 PChargeMaxLongTerm "Long term maximum charge power";
+CM_ SG_ 1033 NBMS_09Checksum "checksum";
+CM_ SG_ 1032 NBMS_08Counter "message counter";
+CM_ SG_ 1032 NBMS_08Checksum "checksum";
+CM_ SG_ 1032 IDischargeMaxLongTerm "Long term maximum discharge current";
+CM_ SG_ 1032 PDischargeMaxLongTerm "Long term maximum discharge power";
+CM_ SG_ 1031 IChargeMaxMediumTerm "Medium term maximum charge current";
+CM_ SG_ 1031 PChargeMaxMediumTerm "Medium term maximum charge power";
+CM_ SG_ 1031 NBMS_07Checksum "checksum";
+CM_ SG_ 1031 NBMS_07Counter "message counter";
+CM_ SG_ 1030 NBMS_06Checksum "checksum";
+CM_ SG_ 1030 PDischargeMaxMediumTerm "Medium term maximum discharge power";
+CM_ SG_ 1030 IDischargeMaxMediumTerm "Medium term maximum discharge current";
+CM_ SG_ 1030 NBMS_06Counter "message counter";
+CM_ SG_ 1029 rBatterySOHCPB "% SOH capability";
+CM_ SG_ 1029 NBMS_05Checksum "checksum";
+CM_ SG_ 1029 NBMS_05Counter "message counter";
+CM_ SG_ 1029 rLastChargeSOCDelta "% SOC change during last charging event";
+CM_ SG_ 1029 rBatterySOC "Battery state of charge";
+CM_ SG_ 1029 NBatterySOCDesired "SOC variation request/demand
+
+The ECM manages a request upon other conditions.
+The ECM manages a demand in every condition.";
+CM_ SG_ 1029 NBMSClusterMessage "BMS message on cluster";
+CM_ SG_ 1029 BBatteryWarrantyVoid "HV Battery Warranty Void status";
+CM_ SG_ 1028 NBMS_04Counter "message counter";
+CM_ SG_ 1028 NBMS_04Checksum "checksum";
+CM_ SG_ 1028 rBatterySOHCPC "Battery state of health";
+CM_ SG_ 1028 BBMSChargerTetheredStatus "Charger is tethered - do not crank";
+CM_ SG_ 1028 TBMSOutlet "BMS Outlet Temperature";
+CM_ SG_ 1028 TCellMax "Maximum cell temperature";
+CM_ SG_ 1028 TBMSInlet "BMS Inlet Temperature";
+CM_ SG_ 1028 TCellMin "Minimum cell temperature";
+CM_ SG_ 1027 NBMS_03Counter "message counter";
+CM_ SG_ 1027 BBMSContactorOpenIndicator "Opening of contactors is imminent";
+CM_ SG_ 1027 NBMSMILRequested "BMS MIL lamp";
+CM_ SG_ 1027 BVehicleNegContactorState "Contactor state";
+CM_ SG_ 1027 NFullDischargeRequested "Full discharge request from BMS to MCU
+To be used to allow the BMS to close contactors if more than 0V are present in the DC link";
+CM_ SG_ 1027 BBMSContactorCloseIndicator "BMS is ready to close contactors";
+CM_ SG_ 1027 BVehiclePosContactorState "Contactor state";
+CM_ SG_ 1027 BContactorStuckClosed "BMS fault";
+CM_ SG_ 1027 BContactorStuckOpen "BMS fault";
+CM_ SG_ 1027 BChargerPosContactorState "Contactor state";
+CM_ SG_ 1027 NBMSStatus "BMS status";
+CM_ SG_ 1027 BPrechargeContactorState "Contactor state";
+CM_ SG_ 1027 BChargerNegContactorState "Contactor state";
+CM_ SG_ 1027 NBMS_03Checksum "checksum";
+CM_ SG_ 1027 NHVBSoCResetState "SoC reset status
+(maps internal BMS variable dcd_enum_state)";
+CM_ SG_ 1026 IChargeMaxShortTerm "Short term maximum charge current";
+CM_ SG_ 1026 NBMS_02Checksum "checksum";
+CM_ SG_ 1026 NBMS_02Counter "message counter";
+CM_ SG_ 1026 PChargeMaxShortTerm "Short term maximum charge power";
+CM_ SG_ 1025 PDischargeMaxShortTerm "Short term maximum discharge power";
+CM_ SG_ 1025 NBMS_01Checksum "checksum";
+CM_ SG_ 1025 tChargingRemainingDisplayed "Charge time remaining for cluster.";
+CM_ SG_ 1025 NBMS_01Counter "message counter";
+CM_ SG_ 1025 IDischargeMaxShortTerm "Short term maximum discharge current";
+CM_ SG_ 1024 NBMS_00Checksum "checksum";
+CM_ SG_ 1024 VHybridBattery "V_act. Actual battery voltage";
+CM_ SG_ 1024 NBMS_00Counter "message counter";
+CM_ SG_ 1024 PActual "P_act. Actual power";
+CM_ SG_ 1024 IActual "I_act. Actual current
+For Motoring (discharge) IActual is negative
+For Regeneration (charge) IActual is positive";
+CM_ SG_ 212 NIBSIdleJackRequest "IBS request for increased idle rpm";
+CM_ SG_ 212 BCrankInhibit "BC to SBC to inhibit cranking";
+CM_ SG_ 212 BRLSRainDetected "S_RAIN - rain detected";
+CM_ SG_ 212 BPowerSavingMode "Power Saving Mode";
+CM_ SG_ 212 VAlternatorRequest "Battery request for alternator set voltage - 0x0 indicates no control";
+CM_ SG_ 212 NBatteryChargeRequest "Tells the engine how to treat the alternator setpoint";
+CM_ SG_ 212 NWashSwitch "State of wash switch";
+CM_ SG_ 212 NBrakeLightRequestSource "Brake light request source";
+CM_ SG_ 212 NBatteryStatus "Battery status";
+CM_ SG_ 212 VBattery "12V Battery voltage (from IBS via Body Controller)";
+CM_ SG_ 212 NWiperSwitch "State of wiper switch";
+CM_ SG_ 212 NStatusIlluminationReq "Status illumination intensity";
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","NoMsgSendType","NotUsed";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 0;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed";
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "VersionYear" INT 0 99;
+BA_DEF_  "VersionWeek" INT 0 53;
+BA_DEF_  "Version" HEX 0 255;
+BA_DEF_ BO_  "TpTxIndex" INT 0 99;
+BA_DEF_ BU_  "TpOwnSystemEcuNumber" HEX 0 255;
+BA_DEF_ BU_  "TpNodeBaseAddress" HEX 0 65535;
+BA_DEF_  "SamplePointMin" FLOAT 0 100;
+BA_DEF_  "SamplePointMax" FLOAT 0 100;
+BA_DEF_ SG_  "RID" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmStationAddress" HEX 0 64;
+BA_DEF_ BU_  "NmNode" ENUM  "No","Yes";
+BA_DEF_  "NmMessageCount" INT 0 64;
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmInmMaster" ENUM  "no","yes";
+BA_DEF_  "NmBaseAddress" INT 0 0;
+BA_DEF_  "NBTMin" INT 0 255;
+BA_DEF_  "NBTMax" INT 0 255;
+BA_DEF_ BU_  "ILUsed" ENUM  "No","Yes";
+BA_DEF_  "ILTxTimeout" INT 0 10000;
+BA_DEF_ SG_  "GenSigSpecialFunction" STRING ;
+BA_DEF_ SG_  "GenSigSNA" STRING ;
+BA_DEF_ SG_  "GenSigReceiveSetting" STRING ;
+BA_DEF_ SG_  "GenSigPreSetting" STRING ;
+BA_DEF_ SG_  "GenSigPreIfSetting" STRING ;
+BA_DEF_ SG_  "GenSigPostSetting" STRING ;
+BA_DEF_ SG_  "GenSigPostIfSetting" STRING ;
+BA_DEF_ SG_  "GenSigEnvVarType" ENUM  "int","float","undef";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "GenSigConditionalSend" STRING ;
+BA_DEF_ SG_  "GenSigAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigAutoGenDsp" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigAssignSetting" STRING ;
+BA_DEF_ SG_  "GenSigAltSetting" STRING ;
+BA_DEF_  "GenNWMSleepTime" INT 0 10000000;
+BA_DEF_ BO_  "GenMsgStartValue" STRING ;
+BA_DEF_ BO_  "GenMsgPreSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPreIfSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPostSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPostIfSetting" STRING ;
+BA_DEF_ BO_  "GenMsgMinAcceptLength" INT 0 0;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgEVName" STRING ;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgConditionalSend" STRING ;
+BA_DEF_ BO_  "GenMsgAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgAutoGenDsp" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgAltSetting" STRING ;
+BA_DEF_ SG_  "Gatewaysignal" INT 0 1;
+BA_DEF_ BO_  "DiagState" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagRequest" ENUM  "No","Yes";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_REL_ BU_SG_REL_  "GenSigTimeoutTime" INT 0 0;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "Baudrate" 125000;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NmType" "";
+BA_DEF_DEF_  "Manufacturer" "McLaren";
+BA_DEF_DEF_  "VersionYear" 7;
+BA_DEF_DEF_  "VersionWeek" 6;
+BA_DEF_DEF_  "Version" 160;
+BA_DEF_DEF_  "TpTxIndex" 0;
+BA_DEF_DEF_  "TpOwnSystemEcuNumber" 0;
+BA_DEF_DEF_  "TpNodeBaseAddress" 0;
+BA_DEF_DEF_  "SamplePointMin" 75;
+BA_DEF_DEF_  "SamplePointMax" 81.25;
+BA_DEF_DEF_  "RID" "";
+BA_DEF_DEF_  "NodeLayerModules" "OSEKNM01.dll,CANoeILNLVector.dll";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmNode" "Yes";
+BA_DEF_DEF_  "NmMessageCount" 64;
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "NmInmMaster" "no";
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "NBTMin" 9;
+BA_DEF_DEF_  "NBTMax" 21;
+BA_DEF_DEF_  "ILUsed" "Yes";
+BA_DEF_DEF_  "ILTxTimeout" 30;
+BA_DEF_DEF_  "GenSigSpecialFunction" "";
+BA_DEF_DEF_  "GenSigSNA" "";
+BA_DEF_DEF_  "GenSigReceiveSetting" "";
+BA_DEF_DEF_  "GenSigPreSetting" "";
+BA_DEF_DEF_  "GenSigPreIfSetting" "";
+BA_DEF_DEF_  "GenSigPostSetting" "";
+BA_DEF_DEF_  "GenSigPostIfSetting" "";
+BA_DEF_DEF_  "GenSigEnvVarType" "undef";
+BA_DEF_DEF_  "GenSigEVName" "";
+BA_DEF_DEF_  "GenSigConditionalSend" "";
+BA_DEF_DEF_  "GenSigAutoGenSnd" "No";
+BA_DEF_DEF_  "GenSigAutoGenDsp" "No";
+BA_DEF_DEF_  "GenSigAssignSetting" "";
+BA_DEF_DEF_  "GenSigAltSetting" "";
+BA_DEF_DEF_  "GenNWMSleepTime" 10000000;
+BA_DEF_DEF_  "GenMsgStartValue" "";
+BA_DEF_DEF_  "GenMsgPreSetting" "";
+BA_DEF_DEF_  "GenMsgPreIfSetting" "";
+BA_DEF_DEF_  "GenMsgPostSetting" "";
+BA_DEF_DEF_  "GenMsgPostIfSetting" "";
+BA_DEF_DEF_  "GenMsgMinAcceptLength" 8;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgEVName" "";
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgConditionalSend" "";
+BA_DEF_DEF_  "GenMsgAutoGenSnd" "No";
+BA_DEF_DEF_  "GenMsgAutoGenDsp" "No";
+BA_DEF_DEF_  "GenMsgAltSetting" "";
+BA_DEF_DEF_  "Gatewaysignal" 0;
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_REL_ "GenSigTimeoutTime" 0;
+BA_ "NmMessageCount" 32;
+BA_ "NmBaseAddress" 1792;
+BA_ "NBTMin" 0;
+BA_ "NBTMax" 20;
+BA_ "Baudrate" 500000;
+BA_ "BusType" "CAN";
+BA_ "NmType" "Vector";
+BA_ "Manufacturer" "McLaren";
+BA_ "DBName" "HybridCAN";
+BA_ "NmStationAddress" BU_ MCU 0;
+BA_ "NmStationAddress" BU_ InstrumentCluster 4;
+BA_ "NmStationAddress" BU_ EngineControlModule 3;
+BA_ "NodeLayerModules" BU_ CP1 "CANoeILNLVector.dll";
+BA_ "NmStationAddress" BU_ CP1 5;
+BA_ "NmNode" BU_ CP1 0;
+BA_ "NmStationAddress" BU_ BMS 1;
+BA_ "GenMsgSendType" BO_ 769 8;
+BA_ "GenMsgCycleTime" BO_ 784 1000;
+BA_ "GenMsgSendType" BO_ 784 0;
+BA_ "GenMsgSendType" BO_ 260 8;
+BA_ "GenMsgSendType" BO_ 1792 8;
+BA_ "NmMessage" BO_ 1792 1;
+BA_ "GenMsgILSupport" BO_ 1792 0;
+BA_ "GenMsgSendType" BO_ 1796 8;
+BA_ "NmMessage" BO_ 1796 1;
+BA_ "GenMsgILSupport" BO_ 1796 0;
+BA_ "GenMsgSendType" BO_ 1795 8;
+BA_ "NmMessage" BO_ 1795 1;
+BA_ "GenMsgILSupport" BO_ 1795 0;
+BA_ "GenMsgSendType" BO_ 1793 8;
+BA_ "NmMessage" BO_ 1793 1;
+BA_ "GenMsgILSupport" BO_ 1793 0;
+BA_ "GenMsgCycleTime" BO_ 1287 100;
+BA_ "GenMsgSendType" BO_ 1287 0;
+BA_ "GenMsgILSupport" BO_ 1287 0;
+BA_ "GenMsgCycleTime" BO_ 1286 100;
+BA_ "GenMsgSendType" BO_ 1286 0;
+BA_ "GenMsgILSupport" BO_ 1286 0;
+BA_ "GenMsgCycleTime" BO_ 1285 100;
+BA_ "GenMsgSendType" BO_ 1285 0;
+BA_ "GenMsgCycleTime" BO_ 1284 100;
+BA_ "GenMsgSendType" BO_ 1284 0;
+BA_ "GenMsgCycleTime" BO_ 1283 10;
+BA_ "GenMsgSendType" BO_ 1283 0;
+BA_ "GenMsgCycleTime" BO_ 1282 5;
+BA_ "GenMsgSendType" BO_ 1282 0;
+BA_ "GenMsgCycleTime" BO_ 1281 10;
+BA_ "GenMsgSendType" BO_ 1281 0;
+BA_ "GenMsgCycleTime" BO_ 216 40;
+BA_ "GenMsgSendType" BO_ 216 0;
+BA_ "GenMsgSendType" BO_ 262 8;
+BA_ "GenMsgCycleTime" BO_ 1091 100;
+BA_ "GenMsgSendType" BO_ 1091 0;
+BA_ "GenMsgCycleTime" BO_ 1096 100;
+BA_ "GenMsgSendType" BO_ 1096 0;
+BA_ "GenMsgCycleTime" BO_ 1090 10;
+BA_ "GenMsgSendType" BO_ 1090 0;
+BA_ "GenMsgCycleTime" BO_ 1089 5;
+BA_ "GenMsgSendType" BO_ 1089 0;
+BA_ "GenMsgCycleTime" BO_ 150 10;
+BA_ "GenMsgSendType" BO_ 150 0;
+BA_ "GenMsgCycleTime" BO_ 934 100;
+BA_ "GenMsgSendType" BO_ 934 0;
+BA_ "GenMsgCycleTime" BO_ 1088 10;
+BA_ "GenMsgSendType" BO_ 1088 0;
+BA_ "GenMsgCycleTime" BO_ 145 200;
+BA_ "GenMsgSendType" BO_ 145 0;
+BA_ "GenMsgCycleTime" BO_ 1289 200;
+BA_ "GenMsgSendType" BO_ 1289 0;
+BA_ "GenMsgSendType" BO_ 2028 8;
+BA_ "GenMsgILSupport" BO_ 2028 0;
+BA_ "DiagResponse" BO_ 2028 1;
+BA_ "GenMsgSendType" BO_ 2027 8;
+BA_ "GenMsgILSupport" BO_ 2027 0;
+BA_ "DiagResponse" BO_ 2027 1;
+BA_ "GenMsgSendType" BO_ 2020 8;
+BA_ "GenMsgILSupport" BO_ 2020 0;
+BA_ "DiagRequest" BO_ 2020 1;
+BA_ "GenMsgSendType" BO_ 2019 8;
+BA_ "GenMsgILSupport" BO_ 2019 0;
+BA_ "DiagRequest" BO_ 2019 1;
+BA_ "GenMsgSendType" BO_ 2015 8;
+BA_ "GenMsgILSupport" BO_ 2015 0;
+BA_ "DiagState" BO_ 2015 1;
+BA_ "GenMsgCycleTime" BO_ 163 1000;
+BA_ "GenMsgSendType" BO_ 163 0;
+BA_ "GenMsgCycleTime" BO_ 162 1000;
+BA_ "GenMsgSendType" BO_ 162 0;
+BA_ "GenMsgCycleTime" BO_ 1288 10;
+BA_ "GenMsgSendType" BO_ 1288 0;
+BA_ "GenMsgSendType" BO_ 452 8;
+BA_ "GenMsgSendType" BO_ 768 8;
+BA_ "GenMsgSendType" BO_ 1715 8;
+BA_ "GenMsgCycleTime" BO_ 127 5;
+BA_ "GenMsgSendType" BO_ 127 0;
+BA_ "GenMsgSendType" BO_ 168 8;
+BA_ "GenMsgILSupport" BO_ 1086 0;
+BA_ "GenMsgILSupport" BO_ 1087 0;
+BA_ "GenMsgSendType" BO_ 1845 8;
+BA_ "GenMsgSendType" BO_ 1829 8;
+BA_ "GenMsgCycleTime" BO_ 1085 100;
+BA_ "GenMsgSendType" BO_ 1085 0;
+BA_ "GenMsgCycleTime" BO_ 1084 100;
+BA_ "GenMsgSendType" BO_ 1084 0;
+BA_ "GenMsgCycleTime" BO_ 1083 10;
+BA_ "GenMsgSendType" BO_ 1083 0;
+BA_ "GenMsgCycleTime" BO_ 1082 100;
+BA_ "GenMsgSendType" BO_ 1082 0;
+BA_ "GenMsgCycleTime" BO_ 1081 100;
+BA_ "GenMsgSendType" BO_ 1081 0;
+BA_ "GenMsgCycleTime" BO_ 1080 10;
+BA_ "GenMsgSendType" BO_ 1080 0;
+BA_ "GenMsgCycleTime" BO_ 1079 10;
+BA_ "GenMsgSendType" BO_ 1079 0;
+BA_ "GenMsgCycleTime" BO_ 1078 250;
+BA_ "GenMsgSendType" BO_ 1078 0;
+BA_ "GenMsgCycleTime" BO_ 1077 250;
+BA_ "GenMsgSendType" BO_ 1077 0;
+BA_ "GenMsgCycleTime" BO_ 1076 250;
+BA_ "GenMsgSendType" BO_ 1076 0;
+BA_ "GenMsgSendType" BO_ 1075 8;
+BA_ "GenMsgSendType" BO_ 1074 8;
+BA_ "GenMsgSendType" BO_ 1073 8;
+BA_ "GenMsgSendType" BO_ 1072 8;
+BA_ "GenMsgSendType" BO_ 1071 8;
+BA_ "GenMsgSendType" BO_ 1070 8;
+BA_ "GenMsgSendType" BO_ 1069 8;
+BA_ "GenMsgSendType" BO_ 1068 8;
+BA_ "GenMsgSendType" BO_ 1067 8;
+BA_ "GenMsgSendType" BO_ 1066 8;
+BA_ "GenMsgSendType" BO_ 1065 8;
+BA_ "GenMsgSendType" BO_ 1064 8;
+BA_ "GenMsgSendType" BO_ 1063 8;
+BA_ "GenMsgSendType" BO_ 1062 8;
+BA_ "GenMsgSendType" BO_ 1061 8;
+BA_ "GenMsgSendType" BO_ 1060 8;
+BA_ "GenMsgSendType" BO_ 1059 8;
+BA_ "GenMsgSendType" BO_ 1058 8;
+BA_ "GenMsgSendType" BO_ 1057 8;
+BA_ "GenMsgSendType" BO_ 1056 8;
+BA_ "GenMsgSendType" BO_ 1055 8;
+BA_ "GenMsgSendType" BO_ 1054 8;
+BA_ "GenMsgSendType" BO_ 1053 8;
+BA_ "GenMsgSendType" BO_ 1052 8;
+BA_ "GenMsgSendType" BO_ 1051 8;
+BA_ "GenMsgSendType" BO_ 1050 8;
+BA_ "GenMsgSendType" BO_ 1049 8;
+BA_ "GenMsgSendType" BO_ 1048 8;
+BA_ "GenMsgSendType" BO_ 1047 8;
+BA_ "GenMsgSendType" BO_ 1046 8;
+BA_ "GenMsgSendType" BO_ 1045 8;
+BA_ "GenMsgSendType" BO_ 1044 8;
+BA_ "GenMsgSendType" BO_ 1043 8;
+BA_ "GenMsgSendType" BO_ 1042 8;
+BA_ "GenMsgSendType" BO_ 1041 8;
+BA_ "GenMsgSendType" BO_ 1040 8;
+BA_ "GenMsgSendType" BO_ 1039 8;
+BA_ "GenMsgSendType" BO_ 1038 8;
+BA_ "GenMsgSendType" BO_ 1037 8;
+BA_ "GenMsgSendType" BO_ 1036 8;
+BA_ "GenMsgSendType" BO_ 1035 8;
+BA_ "GenMsgSendType" BO_ 1034 8;
+BA_ "GenMsgCycleTime" BO_ 1033 100;
+BA_ "GenMsgSendType" BO_ 1033 0;
+BA_ "GenMsgCycleTime" BO_ 1032 100;
+BA_ "GenMsgSendType" BO_ 1032 0;
+BA_ "GenMsgCycleTime" BO_ 1031 100;
+BA_ "GenMsgSendType" BO_ 1031 0;
+BA_ "GenMsgCycleTime" BO_ 1030 100;
+BA_ "GenMsgSendType" BO_ 1030 0;
+BA_ "GenMsgCycleTime" BO_ 1029 100;
+BA_ "GenMsgSendType" BO_ 1029 0;
+BA_ "GenMsgCycleTime" BO_ 1028 100;
+BA_ "GenMsgSendType" BO_ 1028 0;
+BA_ "GenMsgCycleTime" BO_ 1027 10;
+BA_ "GenMsgSendType" BO_ 1027 0;
+BA_ "GenMsgCycleTime" BO_ 1026 100;
+BA_ "GenMsgSendType" BO_ 1026 0;
+BA_ "GenMsgCycleTime" BO_ 1025 100;
+BA_ "GenMsgSendType" BO_ 1025 0;
+BA_ "GenMsgCycleTime" BO_ 1024 50;
+BA_ "GenMsgSendType" BO_ 1024 0;
+BA_ "GenMsgSendType" BO_ 212 8;
+BA_ "GenSigSendType" SG_ 769 NVINPart2 7;
+BA_ "GenSigSendType" SG_ 769 NVINPart1 7;
+BA_ "GenSigSendType" SG_ 769 NVINDataBytesIndex 1;
+BA_ "GenSigSendType" SG_ 769 NVINPart3 7;
+BA_ "GenSigSendType" SG_ 784 NKL58UserLevelSelected 0;
+BA_ "GenSigSendType" SG_ 784 BvUnitsMPH 0;
+BA_ "GenSigSendType" SG_ 784 NTyreType 0;
+BA_ "GenSigSendType" SG_ 784 BTBatteryHighLimitEnable 0;
+BA_ "GenSigSendType" SG_ 784 BValetModeOn 0;
+BA_ "GenSigSendType" SG_ 784 BlUnitsMiles 0;
+BA_ "GenSigStartValue" SG_ 260 NDoorDriverOpenStatus 3;
+BA_ "GenSigSendType" SG_ 260 NDoorDriverOpenStatus 1;
+BA_ "GenSigStartValue" SG_ 260 NImmobiliserStatus 3;
+BA_ "GenSigSendType" SG_ 260 NImmobiliserStatus 1;
+BA_ "GenSigStartValue" SG_ 260 NVehicleStatus 7;
+BA_ "GenSigSendType" SG_ 260 NVehicleStatus 1;
+BA_ "GenSigSendType" SG_ 260 NStartStopButtonContact1 1;
+BA_ "GenSigStartValue" SG_ 260 NDoorPassengerOpenStatus 3;
+BA_ "GenSigSendType" SG_ 260 NDoorPassengerOpenStatus 1;
+BA_ "GenSigSendType" SG_ 260 NStartStopButtonContact2 1;
+BA_ "GenSigSendType" SG_ 260 NDoorROpenStatus 1;
+BA_ "GenSigSendType" SG_ 260 NVehicleLockStatus 1;
+BA_ "GenSigStartValue" SG_ 260 NSBCPTStatusCounter 15;
+BA_ "GenSigSendType" SG_ 260 NSBCPTStatusCounter 1;
+BA_ "GenSigSendType" SG_ 260 NDoorLOpenStatus 1;
+BA_ "GenSigStartValue" SG_ 260 NIgnitionStatus 15;
+BA_ "GenSigSendType" SG_ 260 NIgnitionStatus 1;
+BA_ "GenSigStartValue" SG_ 260 NSBCPTStatusChecksum 255;
+BA_ "GenSigSendType" SG_ 260 NSBCPTStatusChecksum 1;
+BA_ "GenSigSendType" SG_ 1792 N_NMDestinationMCU 7;
+BA_ "GenSigSendType" SG_ 1792 N_NMOpcodeMCU 7;
+BA_ "GenSigSendType" SG_ 1792 N_NMSleepMCU 7;
+BA_ "GenSigSendType" SG_ 1796 N_NMSleepIC 7;
+BA_ "GenSigSendType" SG_ 1796 N_NMDestinationIC 7;
+BA_ "GenSigSendType" SG_ 1796 N_NMOpcodeIC 7;
+BA_ "GenSigSendType" SG_ 1795 N_NMDestinationECM 7;
+BA_ "GenSigSendType" SG_ 1795 N_NMSleepECM 7;
+BA_ "GenSigSendType" SG_ 1795 N_NMOpcodeECM 7;
+BA_ "GenSigSendType" SG_ 1793 N_NMDestinationBMS 7;
+BA_ "GenSigSendType" SG_ 1793 N_NMOpcodeBMS 7;
+BA_ "GenSigSendType" SG_ 1793 N_NMSleepBMS 7;
+BA_ "GenSigStartValue" SG_ 1285 NMCU_5Checksum 255;
+BA_ "GenSigSendType" SG_ 1285 NMCU_5Checksum 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_MotorPositionUnknown 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_DCLinkDischargeFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_CANFault 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_IGBT_ExternalFault 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_InputSignalInvalid 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_PowerConsistencyFault 0;
+BA_ "GenSigSendType" SG_ 1285 BV_MCU_DCBusHighFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_PosOverSpeedFault 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_SensorIntegrityFault 0;
+BA_ "GenSigSendType" SG_ 1285 NIGBTExternalDisableStatus 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_GateDriverEnableFault 0;
+BA_ "GenSigStartValue" SG_ 1285 NMCU_5Counter 15;
+BA_ "GenSigSendType" SG_ 1285 NMCU_5Counter 0;
+BA_ "GenSigSendType" SG_ 1285 BT_MCU_IGBT_HighFaultHW 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_ProcessorError 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_VDCLinkFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_TorqueDemFault 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_IGBT_InternalFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_NegOverSpeedFault 0;
+BA_ "GenSigSendType" SG_ 1285 BV_MCU_VehicleBusHighFault 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_CANSignalInvalid 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_LLMC_Fault 0;
+BA_ "GenSigSendType" SG_ 1285 BMCU_GateDriverFault 0;
+BA_ "GenSigSendType" SG_ 1285 NLastResetReason 0;
+BA_ "GenSigSendType" SG_ 1285 BV_MCU_VehicleBusLowFault 0;
+BA_ "GenSigSendType" SG_ 1285 BV_MCU_DCBusHighFaultHW 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_CANTimeoutFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_LLMC_PositionFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_AnaloguesFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_LLMC_MissedASACFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_Watchdog 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_ClockStatusFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_DisabledFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_InvalidSpeedFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_SPIFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_PositionFeedbackFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_LLMC_MissedPWMFault 0;
+BA_ "GenSigSendType" SG_ 1285 B_MCU_MON_RefSpeedFault 0;
+BA_ "GenSigStartValue" SG_ 1284 NMCU_4Checksum 255;
+BA_ "GenSigSendType" SG_ 1284 NMCU_4Checksum 0;
+BA_ "GenSigStartValue" SG_ 1284 NMCUClusterMessage 63;
+BA_ "GenSigSendType" SG_ 1284 NMCUClusterMessage 0;
+BA_ "GenSigStartValue" SG_ 1284 NMCU_4Counter 15;
+BA_ "GenSigSendType" SG_ 1284 NMCU_4Counter 0;
+BA_ "GenSigStartValue" SG_ 1284 TMCU_IGBTMax 40;
+BA_ "GenSigSendType" SG_ 1284 TMCU_IGBTMax 0;
+BA_ "GenSigStartValue" SG_ 1284 TMCUColdPlate 255;
+BA_ "GenSigSendType" SG_ 1284 TMCUColdPlate 0;
+BA_ "GenSigStartValue" SG_ 1284 TMotorStator 40;
+BA_ "GenSigSendType" SG_ 1284 TMotorStator 0;
+BA_ "GenSigStartValue" SG_ 1284 TMotorRotor 40;
+BA_ "GenSigSendType" SG_ 1284 TMotorRotor 0;
+BA_ "GenSigStartValue" SG_ 1284 NIGBTCycleCompleted 3;
+BA_ "GenSigSendType" SG_ 1284 NIGBTCycleCompleted 0;
+BA_ "GenSigStartValue" SG_ 1284 TDCDC 40;
+BA_ "GenSigSendType" SG_ 1284 TDCDC 0;
+BA_ "GenSigSendType" SG_ 1283 BT_MCUProcessorHighFault 0;
+BA_ "GenSigSendType" SG_ 1283 NMaxSrtTermLimitType 0;
+BA_ "GenSigSendType" SG_ 1283 B_MCU_LLMC_CurrentFault 0;
+BA_ "GenSigSendType" SG_ 1283 BM_MCUDemandConsistencyFault 0;
+BA_ "GenSigSendType" SG_ 1283 BP_MCUConsistencyFault 0;
+BA_ "GenSigSendType" SG_ 1283 BT_MCUDriverBoardHighFault 0;
+BA_ "GenSigSendType" SG_ 1283 BV_MCU_DCLinkImbalanceFault 0;
+BA_ "GenSigStartValue" SG_ 1283 NMCUStatus 31;
+BA_ "GenSigSendType" SG_ 1283 NMCUStatus 0;
+BA_ "GenSigSendType" SG_ 1283 B_MCU_SoftwareIncompatible 0;
+BA_ "GenSigSendType" SG_ 1283 NMaxLngTermLimitType 0;
+BA_ "GenSigSendType" SG_ 1283 BM_MCUControlConsistencyFault 0;
+BA_ "GenSigSendType" SG_ 1283 BT_MCU_ColdPlateImplausible 0;
+BA_ "GenSigSendType" SG_ 1283 BI_MCU_DCLinkLeakageFault 0;
+BA_ "GenSigSendType" SG_ 1283 B_MCU_LLMC_ResolverFault 0;
+BA_ "GenSigSendType" SG_ 1283 Bv_MCUConsistencyFault 0;
+BA_ "GenSigSendType" SG_ 1283 NMaxMedTermLimitType 0;
+BA_ "GenSigStartValue" SG_ 1283 NMCU_3Checksum 255;
+BA_ "GenSigSendType" SG_ 1283 NMCU_3Checksum 0;
+BA_ "GenSigSendType" SG_ 1283 BV_MCU_ProcIsolationFault 0;
+BA_ "GenSigSendType" SG_ 1283 BT_MCUColdPlateHighFault 0;
+BA_ "GenSigSendType" SG_ 1283 BT_MCUMotorHighFault 0;
+BA_ "GenSigSendType" SG_ 1283 NMinMedTermLimitType 0;
+BA_ "GenSigSendType" SG_ 1283 NMinSrtTermLimitType 0;
+BA_ "GenSigSendType" SG_ 1283 NMinLngTermLimitType 0;
+BA_ "GenSigSendType" SG_ 1283 BMCU_LLMC_OutputFault 0;
+BA_ "GenSigStartValue" SG_ 1283 NMCU_3Counter 15;
+BA_ "GenSigSendType" SG_ 1283 NMCU_3Counter 0;
+BA_ "GenSigSendType" SG_ 1283 B_MCU_LLMC_VoltageFault 0;
+BA_ "GenSigSendType" SG_ 1283 BI_MCU_HighFaultHW 0;
+BA_ "GenSigStartValue" SG_ 1283 NMCUMILRequested 3;
+BA_ "GenSigSendType" SG_ 1283 NMCUMILRequested 0;
+BA_ "GenSigSendType" SG_ 1283 BMCU_LLMC_InputFault 0;
+BA_ "GenSigSendType" SG_ 1283 BMCU_MotorStallFault 0;
+BA_ "GenSigSendType" SG_ 1283 BT_MCU_IGBT_HighFaultSW 0;
+BA_ "GenSigStartValue" SG_ 1282 IMCUDCLink 102;
+BA_ "GenSigSendType" SG_ 1282 IMCUDCLink 0;
+BA_ "GenSigStartValue" SG_ 1282 MMotor 1300;
+BA_ "GenSigSendType" SG_ 1282 MMotor 0;
+BA_ "GenSigStartValue" SG_ 1282 NMCU_2Checksum 255;
+BA_ "GenSigSendType" SG_ 1282 NMCU_2Checksum 0;
+BA_ "GenSigStartValue" SG_ 1282 VMCUDCLink 255;
+BA_ "GenSigSendType" SG_ 1282 VMCUDCLink 0;
+BA_ "GenSigStartValue" SG_ 1282 NMCU_2Counter 15;
+BA_ "GenSigSendType" SG_ 1282 NMCU_2Counter 0;
+BA_ "GenSigStartValue" SG_ 1282 nMotor 28800;
+BA_ "GenSigSendType" SG_ 1282 nMotor 0;
+BA_ "GenSigStartValue" SG_ 1281 MMotorMinLongTerm 255;
+BA_ "GenSigSendType" SG_ 1281 MMotorMinLongTerm 0;
+BA_ "GenSigStartValue" SG_ 1281 NMCU_1Checksum 255;
+BA_ "GenSigSendType" SG_ 1281 NMCU_1Checksum 0;
+BA_ "GenSigStartValue" SG_ 1281 MMotorMinShortTerm 255;
+BA_ "GenSigSendType" SG_ 1281 MMotorMinShortTerm 0;
+BA_ "GenSigStartValue" SG_ 1281 MMotorMaxMedTerm 255;
+BA_ "GenSigSendType" SG_ 1281 MMotorMaxMedTerm 0;
+BA_ "GenSigStartValue" SG_ 1281 MMotorMaxLongTerm 255;
+BA_ "GenSigSendType" SG_ 1281 MMotorMaxLongTerm 0;
+BA_ "GenSigStartValue" SG_ 1281 NMCU_1Counter 15;
+BA_ "GenSigSendType" SG_ 1281 NMCU_1Counter 0;
+BA_ "GenSigStartValue" SG_ 1281 MMotorMaxShortTerm 255;
+BA_ "GenSigSendType" SG_ 1281 MMotorMaxShortTerm 0;
+BA_ "GenSigStartValue" SG_ 1281 MMotorMinMedTerm 255;
+BA_ "GenSigSendType" SG_ 1281 MMotorMinMedTerm 0;
+BA_ "GenSigStartValue" SG_ 216 vVehicleIC 65535;
+BA_ "GenSigSendType" SG_ 216 vVehicleIC 0;
+BA_ "GenSigSendType" SG_ 216 lPART1Totalizer 0;
+BA_ "GenSigStartValue" SG_ 216 NEPBEngaged 3;
+BA_ "GenSigSendType" SG_ 216 NEPBEngaged 0;
+BA_ "GenSigStartValue" SG_ 262 NHVACEngineStopDisable 3;
+BA_ "GenSigSendType" SG_ 262 NHVACEngineStopDisable 1;
+BA_ "GenSigSendType" SG_ 262 BHVACGearboxStartRequest 1;
+BA_ "GenSigSendType" SG_ 262 NSCUGStatus 1;
+BA_ "GenSigStartValue" SG_ 262 pHVAC 255;
+BA_ "GenSigSendType" SG_ 262 pHVAC 1;
+BA_ "GenSigStartValue" SG_ 262 NHVACGearboxStopDisable 3;
+BA_ "GenSigSendType" SG_ 262 NHVACGearboxStopDisable 1;
+BA_ "GenSigSendType" SG_ 262 BHVACEngineStartRequest 1;
+BA_ "GenSigStartValue" SG_ 262 MPowertrainHVACDemanded 31;
+BA_ "GenSigSendType" SG_ 262 MPowertrainHVACDemanded 1;
+BA_ "GenSigSendType" SG_ 262 NHVACIdleJackRequest 1;
+BA_ "GenSigStartValue" SG_ 262 TAmbientRaw 255;
+BA_ "GenSigSendType" SG_ 262 TAmbientRaw 1;
+BA_ "GenSigSendType" SG_ 262 BHVACEngaged 1;
+BA_ "GenSigSendType" SG_ 1091 rThermostat1Demand 0;
+BA_ "GenSigSendType" SG_ 1091 rThermostat2Demand 0;
+BA_ "GenSigSendType" SG_ 1091 rCoolingFanDuty 0;
+BA_ "GenSigSendType" SG_ 1091 BSecAirPumpStatus 0;
+BA_ "GenSigStartValue" SG_ 1091 TRadiatorInlet1 64;
+BA_ "GenSigSendType" SG_ 1091 TRadiatorInlet1 0;
+BA_ "GenSigStartValue" SG_ 1091 TRadiatorInlet2 64;
+BA_ "GenSigSendType" SG_ 1091 TRadiatorInlet2 0;
+BA_ "GenSigSendType" SG_ 1091 TCoolantSetPoint 0;
+BA_ "GenSigSendType" SG_ 1091 rFuelPumpDuty 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage15 0;
+BA_ "GenSigStartValue" SG_ 1096 tToNextEngineStartDisplayed 15;
+BA_ "GenSigSendType" SG_ 1096 tToNextEngineStartDisplayed 0;
+BA_ "GenSigStartValue" SG_ 1096 NBoostStatus 3;
+BA_ "GenSigSendType" SG_ 1096 NBoostStatus 0;
+BA_ "GenSigStartValue" SG_ 1096 NEngineStatus 7;
+BA_ "GenSigSendType" SG_ 1096 NEngineStatus 0;
+BA_ "GenSigSendType" SG_ 1096 rBoostMaxDisplayed 0;
+BA_ "GenSigStartValue" SG_ 1096 rBoostAvailableDisplayed 127;
+BA_ "GenSigSendType" SG_ 1096 rBoostAvailableDisplayed 0;
+BA_ "GenSigStartValue" SG_ 1096 NRegenStatusDisplayed 7;
+BA_ "GenSigSendType" SG_ 1096 NRegenStatusDisplayed 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage11 0;
+BA_ "GenSigStartValue" SG_ 1096 NPowertrainStatus 7;
+BA_ "GenSigSendType" SG_ 1096 NPowertrainStatus 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage01 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage08 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage12 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage14 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage02 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage03 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage16 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage05 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage06 0;
+BA_ "GenSigStartValue" SG_ 1096 sElectricRangeDisplayed 255;
+BA_ "GenSigSendType" SG_ 1096 sElectricRangeDisplayed 0;
+BA_ "GenSigSendType" SG_ 1096 BPitLaneChargingActive 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage13 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage04 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage07 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage10 0;
+BA_ "GenSigSendType" SG_ 1096 BBoostMode 0;
+BA_ "GenSigSendType" SG_ 1096 BECMClusterMessage09 0;
+BA_ "GenSigSendType" SG_ 1090 BDCDCEnable 0;
+BA_ "GenSigStartValue" SG_ 1090 NECM_HCAN_2Checksum 255;
+BA_ "GenSigSendType" SG_ 1090 NECM_HCAN_2Checksum 0;
+BA_ "GenSigStartValue" SG_ 1090 VDCDCDemanded 255;
+BA_ "GenSigSendType" SG_ 1090 VDCDCDemanded 0;
+BA_ "GenSigStartValue" SG_ 1090 NECM_HCAN_2Counter 15;
+BA_ "GenSigSendType" SG_ 1090 NECM_HCAN_2Counter 0;
+BA_ "GenSigStartValue" SG_ 1090 MMotorMaxSpeedControl 255;
+BA_ "GenSigSendType" SG_ 1090 MMotorMaxSpeedControl 0;
+BA_ "GenSigStartValue" SG_ 1090 MMotorMinSpeedControl 255;
+BA_ "GenSigSendType" SG_ 1090 MMotorMinSpeedControl 0;
+BA_ "GenSigStartValue" SG_ 1089 MMotorDemanded 1300;
+BA_ "GenSigSendType" SG_ 1089 MMotorDemanded 0;
+BA_ "GenSigStartValue" SG_ 1089 NECM_HCAN_1Checksum 255;
+BA_ "GenSigSendType" SG_ 1089 NECM_HCAN_1Checksum 0;
+BA_ "GenSigSendType" SG_ 1089 NHDAClutchState 0;
+BA_ "GenSigStartValue" SG_ 1089 NECM_HCAN_1Counter 15;
+BA_ "GenSigSendType" SG_ 1089 NECM_HCAN_1Counter 0;
+BA_ "GenSigStartValue" SG_ 1089 nMotorDemanded 65535;
+BA_ "GenSigSendType" SG_ 1089 nMotorDemanded 0;
+BA_ "GenSigStartValue" SG_ 1089 nMotorReference 255;
+BA_ "GenSigSendType" SG_ 1089 nMotorReference 0;
+BA_ "GenSigSendType" SG_ 1089 NMCUStateDemanded 0;
+BA_ "GenSigSendType" SG_ 150 MY15_CCU_pLimReq 0;
+BA_ "GenSigSendType" SG_ 150 MY15_CCU_pMin 0;
+BA_ "GenSigSendType" SG_ 150 MY15_CCU_stModeReq 0;
+BA_ "GenSigSendType" SG_ 150 MY15_Checksumme 0;
+BA_ "GenSigSendType" SG_ 150 MY15_CCU_pMax 0;
+BA_ "GenSigSendType" SG_ 150 MY15_CCU_posDes 0;
+BA_ "GenSigSendType" SG_ 150 MY15_Zaehler 0;
+BA_ "GenSigSendType" SG_ 934 MY01_Checksumme 0;
+BA_ "GenSigSendType" SG_ 934 MY01_SleepAckn 0;
+BA_ "GenSigSendType" SG_ 934 MY01_Zaehler 0;
+BA_ "GenSigSendType" SG_ 1088 NCrashSeverity 0;
+BA_ "GenSigStartValue" SG_ 1088 NECM_BMS_00Checksum 255;
+BA_ "GenSigSendType" SG_ 1088 NECM_BMS_00Checksum 0;
+BA_ "GenSigSendType" SG_ 1088 NContactorRequested 0;
+BA_ "GenSigStartValue" SG_ 1088 NECM_BMS_00Counter 15;
+BA_ "GenSigSendType" SG_ 1088 NECM_BMS_00Counter 0;
+BA_ "GenSigStartValue" SG_ 1088 nPowertrain 65535;
+BA_ "GenSigSendType" SG_ 1088 nPowertrain 0;
+BA_ "GenSigSendType" SG_ 145 PID04_CalculatedLoad 0;
+BA_ "GenSigSendType" SG_ 145 PID4A_AbsolutePedalPosn 0;
+BA_ "GenSigSendType" SG_ 145 PID33_BarometricPressure 0;
+BA_ "GenSigSendType" SG_ 145 PID43_AbsoluteLoad 0;
+BA_ "GenSigStartValue" SG_ 145 PID05_TEngineCoolant 255;
+BA_ "GenSigSendType" SG_ 145 PID05_TEngineCoolant 0;
+BA_ "GenSigSendType" SG_ 145 PID49_AbsolutePedalPosn 0;
+BA_ "GenSigStartValue" SG_ 1289 PID0D_vVehicleOBD 511;
+BA_ "GenSigSendType" SG_ 1289 PID0D_vVehicleOBD 0;
+BA_ "GenSigStartValue" SG_ 1289 PID0C_nEngine 65535;
+BA_ "GenSigSendType" SG_ 1289 PID0C_nEngine 0;
+BA_ "GenSigSendType" SG_ 2028 NDiagResponseMCU 7;
+BA_ "GenSigSendType" SG_ 2027 NDiagResponseBMS 7;
+BA_ "GenSigSendType" SG_ 2020 NDiagRequestMCU 7;
+BA_ "GenSigSendType" SG_ 2019 NDiagRequestBMS 7;
+BA_ "Gatewaysignal" SG_ 2015 NFuncDiagRequest 1;
+BA_ "GenSigSendType" SG_ 2015 NFuncDiagRequest 7;
+BA_ "GenSigStartValue" SG_ 163 NDCT_2Checksum 255;
+BA_ "GenSigSendType" SG_ 163 NDCT_2Checksum 0;
+BA_ "GenSigStartValue" SG_ 163 NDCT_2Counter 15;
+BA_ "GenSigSendType" SG_ 163 NDCT_2Counter 0;
+BA_ "GenSigStartValue" SG_ 163 MPowertrainInternalDemanded 2047;
+BA_ "GenSigSendType" SG_ 163 MPowertrainInternalDemanded 0;
+BA_ "GenSigStartValue" SG_ 163 NTransmissionStatus 7;
+BA_ "GenSigSendType" SG_ 163 NTransmissionStatus 0;
+BA_ "GenSigStartValue" SG_ 163 NMPowertrainRequestType 3;
+BA_ "GenSigSendType" SG_ 163 NMPowertrainRequestType 0;
+BA_ "GenSigStartValue" SG_ 163 MPowertrainDemandedFuture 2047;
+BA_ "GenSigSendType" SG_ 163 MPowertrainDemandedFuture 0;
+BA_ "GenSigStartValue" SG_ 163 nPowertrainDemandedInverted 1023;
+BA_ "GenSigSendType" SG_ 163 nPowertrainDemandedInverted 0;
+BA_ "GenSigStartValue" SG_ 163 NSpeedControlEngaged 3;
+BA_ "GenSigSendType" SG_ 163 NSpeedControlEngaged 0;
+BA_ "GenSigStartValue" SG_ 163 nPowertrainDemanded 1023;
+BA_ "GenSigSendType" SG_ 163 nPowertrainDemanded 0;
+BA_ "GenSigStartValue" SG_ 163 NClutchStatus 7;
+BA_ "GenSigSendType" SG_ 163 NClutchStatus 0;
+BA_ "GenSigSendType" SG_ 162 NGearTarget 0;
+BA_ "GenSigStartValue" SG_ 162 NGearEngaged 15;
+BA_ "GenSigSendType" SG_ 162 NGearEngaged 0;
+BA_ "GenSigStartValue" SG_ 162 NGearboxMode 3;
+BA_ "GenSigSendType" SG_ 162 NGearboxMode 0;
+BA_ "GenSigSendType" SG_ 162 BSoftRevLimiterRequired 0;
+BA_ "GenSigStartValue" SG_ 162 NDCT_1Counter 15;
+BA_ "GenSigSendType" SG_ 162 NDCT_1Counter 0;
+BA_ "GenSigStartValue" SG_ 162 NDCT_1Checksum 255;
+BA_ "GenSigSendType" SG_ 162 NDCT_1Checksum 0;
+BA_ "GenSigSendType" SG_ 162 NTCULaunchRequest 0;
+BA_ "GenSigStartValue" SG_ 162 NTCUMILRequested 3;
+BA_ "GenSigSendType" SG_ 162 NTCUMILRequested 0;
+BA_ "GenSigSendType" SG_ 162 NGearPreSelected 0;
+BA_ "GenSigSendType" SG_ 162 NShiftInProgress 0;
+BA_ "GenSigSendType" SG_ 162 rMEngineWheelRatio 0;
+BA_ "GenSigSendType" SG_ 162 NDCTStatus 0;
+BA_ "GenSigStartValue" SG_ 162 NLaunchStatus 3;
+BA_ "GenSigSendType" SG_ 162 NLaunchStatus 0;
+BA_ "GenSigStartValue" SG_ 162 NGearSelected 15;
+BA_ "GenSigSendType" SG_ 162 NGearSelected 0;
+BA_ "GenSigStartValue" SG_ 162 MTransmissionDragEstimated 255;
+BA_ "GenSigSendType" SG_ 162 MTransmissionDragEstimated 0;
+BA_ "GenSigStartValue" SG_ 1288 NDCDC_1Checksum 255;
+BA_ "GenSigSendType" SG_ 1288 NDCDC_1Checksum 0;
+BA_ "GenSigSendType" SG_ 1288 NDCDCErrorState 0;
+BA_ "GenSigSendType" SG_ 1288 BDCDCEnableCheck 0;
+BA_ "GenSigStartValue" SG_ 1288 NDCDC_1Counter 15;
+BA_ "GenSigSendType" SG_ 1288 NDCDC_1Counter 0;
+BA_ "GenSigSendType" SG_ 1288 PDCDCActual 0;
+BA_ "GenSigSendType" SG_ 1288 IDCDCOutput 0;
+BA_ "GenSigSendType" SG_ 1288 BDCDCIOStatus 0;
+BA_ "GenSigSendType" SG_ 1288 NDCDCStatus 0;
+BA_ "GenSigStartValue" SG_ 452 tSecond 255;
+BA_ "GenSigSendType" SG_ 452 tSecond 1;
+BA_ "GenSigStartValue" SG_ 452 tDay 31;
+BA_ "GenSigSendType" SG_ 452 tDay 1;
+BA_ "GenSigStartValue" SG_ 452 tMonth 14;
+BA_ "GenSigSendType" SG_ 452 tMonth 1;
+BA_ "GenSigStartValue" SG_ 452 tYear 255;
+BA_ "GenSigSendType" SG_ 452 tYear 1;
+BA_ "GenSigStartValue" SG_ 452 tHour 31;
+BA_ "GenSigSendType" SG_ 452 tHour 1;
+BA_ "GenSigStartValue" SG_ 452 tMinute 63;
+BA_ "GenSigSendType" SG_ 452 tMinute 1;
+BA_ "GenSigSendType" SG_ 768 BNavigationAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NHeadUnitType 7;
+BA_ "GenSigSendType" SG_ 768 NWindscreenType 7;
+BA_ "GenSigSendType" SG_ 768 NCarConfigMultiplexor 1;
+BA_ "GenSigSendType" SG_ 768 BGarageControlFitted 7;
+BA_ "GenSigSendType" SG_ 768 BAirbrakeAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NSteeringWheelSwitchesFitted 7;
+BA_ "GenSigSendType" SG_ 768 BWindowAntiTrapAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NRearWheelType 7;
+BA_ "GenSigSendType" SG_ 768 BWasherHeatingAvailable 7;
+BA_ "GenSigSendType" SG_ 768 BAutoTransmissionAvailable 7;
+BA_ "GenSigSendType" SG_ 768 BKeylessGoAvailable 7;
+BA_ "GenSigSendType" SG_ 768 BIRSAlarmAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NEngineType 7;
+BA_ "GenSigSendType" SG_ 768 NPassengerSeatOption 7;
+BA_ "GenSigSendType" SG_ 768 NFuelTankType 7;
+BA_ "GenSigSendType" SG_ 768 NColumnSwtches2Fitted 7;
+BA_ "GenSigSendType" SG_ 768 NCentreDifferential 7;
+BA_ "GenSigSendType" SG_ 768 BBluetoothTelephonyAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NTransmissionType 7;
+BA_ "GenSigSendType" SG_ 768 NDoorMirrorControl 7;
+BA_ "GenSigSendType" SG_ 768 BEPBFitted 7;
+BA_ "GenSigSendType" SG_ 768 BAdaptiveCCAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NBatteryType 7;
+BA_ "GenSigSendType" SG_ 768 NDriveBatteryType 7;
+BA_ "GenSigSendType" SG_ 768 BStopStartAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NFrontWheelType 7;
+BA_ "GenSigSendType" SG_ 768 BABS_ESPAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NVehicleDriveHand 7;
+BA_ "GenSigSendType" SG_ 768 NRollControl 7;
+BA_ "GenSigSendType" SG_ 768 BDoorMirrorFoldingAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NFasciaPanelType 7;
+BA_ "GenSigSendType" SG_ 768 BClosuresAlarmAvailable 7;
+BA_ "GenSigSendType" SG_ 768 BHybridDriveAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NVehicleModel 7;
+BA_ "GenSigSendType" SG_ 768 NDriverSeatOption 7;
+BA_ "GenSigSendType" SG_ 768 BSpeedLimiterAvailable 7;
+BA_ "GenSigSendType" SG_ 768 BVoiceActivationAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NRearDifferential 7;
+BA_ "GenSigSendType" SG_ 768 BTowAlarmAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NDriveMotorType 7;
+BA_ "GenSigSendType" SG_ 768 BTransImmobAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NParkingSensorsFitted 7;
+BA_ "GenSigSendType" SG_ 768 NAmplifierType 7;
+BA_ "GenSigSendType" SG_ 768 NFrontDifferential 7;
+BA_ "GenSigSendType" SG_ 768 NColumnSwtches3Fitted 7;
+BA_ "GenSigSendType" SG_ 768 NBodyType 7;
+BA_ "GenSigSendType" SG_ 768 NFrontBrakeType 7;
+BA_ "GenSigSendType" SG_ 768 NVehicleModelYear 7;
+BA_ "GenSigSendType" SG_ 768 NColumnSwtches1Fitted 7;
+BA_ "GenSigSendType" SG_ 768 BDoorMirrorHeatingAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NHeadlightType 7;
+BA_ "GenSigSendType" SG_ 768 BTrackerAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NDampingControl 7;
+BA_ "GenSigSendType" SG_ 768 NRoadSpring 7;
+BA_ "GenSigSendType" SG_ 768 NVehicleMarket 7;
+BA_ "GenSigSendType" SG_ 768 NVehicleType 7;
+BA_ "GenSigSendType" SG_ 768 NDriveType 7;
+BA_ "GenSigSendType" SG_ 768 NDifferentialRatio 7;
+BA_ "GenSigSendType" SG_ 768 BCruiseControlAvailable 7;
+BA_ "GenSigSendType" SG_ 768 BDoorMirrorApproachLight 7;
+BA_ "GenSigSendType" SG_ 768 NNoseLiftAvailable 7;
+BA_ "GenSigSendType" SG_ 768 BEngineImmoboliserAvailable 7;
+BA_ "GenSigSendType" SG_ 768 BTPMSFitted 7;
+BA_ "GenSigSendType" SG_ 768 NFrontAuxLightOption 7;
+BA_ "GenSigSendType" SG_ 768 NHVACControllerFitted 7;
+BA_ "GenSigSendType" SG_ 768 BRearMirrorECControlAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NRearBrakeType 7;
+BA_ "GenSigSendType" SG_ 768 BWindowAutoCloseAvailable 7;
+BA_ "GenSigSendType" SG_ 768 NExhaustType 7;
+BA_ "GenSigSendType" SG_ 768 BHeadlightWashAvailable 7;
+BA_ "GenSigSendType" SG_ 1715 CY02_HW_Version 7;
+BA_ "GenSigSendType" SG_ 1715 CY02_Serial_Number 7;
+BA_ "GenSigSendType" SG_ 1715 CY02_SPart_Number 7;
+BA_ "GenSigSendType" SG_ 1715 CY02_Checksumme 7;
+BA_ "GenSigSendType" SG_ 1715 CY02_SW_Version 7;
+BA_ "GenSigSendType" SG_ 1715 CY02_Zaehler 7;
+BA_ "GenSigSendType" SG_ 1715 CY02_Medium 7;
+BA_ "GenSigSendType" SG_ 127 CY01_pCurr 0;
+BA_ "GenSigSendType" SG_ 127 CY01_ErrTempHigh 0;
+BA_ "GenSigSendType" SG_ 127 CY01_ErrMech 0;
+BA_ "GenSigStartValue" SG_ 127 CY01_AngSpdCurr 255;
+BA_ "GenSigSendType" SG_ 127 CY01_AngSpdCurr 0;
+BA_ "GenSigSendType" SG_ 127 CY01_posCurr 0;
+BA_ "GenSigStartValue" SG_ 127 CY01_i2trqCurr 2044;
+BA_ "GenSigSendType" SG_ 127 CY01_i2trqCurr 0;
+BA_ "GenSigSendType" SG_ 127 CY01_Zaehler 0;
+BA_ "GenSigSendType" SG_ 127 CY01_Checksumme 0;
+BA_ "GenSigSendType" SG_ 127 CY01_ErrUBattLow 0;
+BA_ "GenSigSendType" SG_ 127 CY01_SleepInd 0;
+BA_ "GenSigSendType" SG_ 127 CY01_stMode 0;
+BA_ "GenSigSendType" SG_ 127 CY01_ErrTempWarn 0;
+BA_ "GenSigSendType" SG_ 127 CY01_ErrHW 0;
+BA_ "GenSigSendType" SG_ 127 CY01_ErrCAN 0;
+BA_ "GenSigStartValue" SG_ 168 THybridSystemCombined 255;
+BA_ "GenSigSendType" SG_ 168 THybridSystemCombined 1;
+BA_ "GenSigStartValue" SG_ 168 NCCU_1Counter 15;
+BA_ "GenSigSendType" SG_ 168 NCCU_1Counter 1;
+BA_ "GenSigStartValue" SG_ 168 NAirbrakeClusterMessage 63;
+BA_ "GenSigSendType" SG_ 168 NAirbrakeClusterMessage 1;
+BA_ "GenSigStartValue" SG_ 168 NCCU_1Checksum 255;
+BA_ "GenSigSendType" SG_ 168 NCCU_1Checksum 1;
+BA_ "GenSigStartValue" SG_ 168 NNoseLiftStatus 3;
+BA_ "GenSigSendType" SG_ 168 NNoseLiftStatus 1;
+BA_ "GenSigStartValue" SG_ 168 NNoseLiftAvailability 15;
+BA_ "GenSigSendType" SG_ 168 NNoseLiftAvailability 1;
+BA_ "GenSigStartValue" SG_ 168 NPCSClusterMessage 63;
+BA_ "GenSigSendType" SG_ 168 NPCSClusterMessage 1;
+BA_ "GenSigSendType" SG_ 168 NCCUMiscClusterMessage 1;
+BA_ "GenSigSendType" SG_ 168 qWaterPumpHybridCooling 1;
+BA_ "GenSigStartValue" SG_ 168 NDRSActive 3;
+BA_ "GenSigSendType" SG_ 168 NDRSActive 1;
+BA_ "GenSigSendType" SG_ 1085 Additional_BMS_Errors_3 7;
+BA_ "GenSigSendType" SG_ 1085 Additional_BMS_Errors_SubType_3 7;
+BA_ "GenSigSendType" SG_ 1085 Additional_BMS_Errors_1 7;
+BA_ "GenSigSendType" SG_ 1085 Additional_BMS_Errors_2 7;
+BA_ "GenSigSendType" SG_ 1085 Additional_BMS_Errors_SubType_2 7;
+BA_ "GenSigSendType" SG_ 1085 Additional_BMS_Errors_SubType_1 7;
+BA_ "GenSigSendType" SG_ 1084 NTCellMin 7;
+BA_ "GenSigSendType" SG_ 1084 NVCellMax 7;
+BA_ "GenSigSendType" SG_ 1084 VCellSOCMax 7;
+BA_ "GenSigSendType" SG_ 1084 VCellSOCMin 7;
+BA_ "GenSigSendType" SG_ 1084 NTCellMax 7;
+BA_ "GenSigSendType" SG_ 1084 NVCellMin 7;
+BA_ "GenSigSendType" SG_ 1082 NBMS_FirstFaultCode 0;
+BA_ "GenSigSendType" SG_ 1082 NBMS_SecondFaultCode 0;
+BA_ "GenSigSendType" SG_ 1082 NBMS_RecentFaultCode 0;
+BA_ "GenSigStartValue" SG_ 1082 NBMS_3ACounter 15;
+BA_ "GenSigSendType" SG_ 1082 NBMS_3ACounter 0;
+BA_ "GenSigStartValue" SG_ 1082 NBMS_3AChecksum 255;
+BA_ "GenSigSendType" SG_ 1082 NBMS_3AChecksum 0;
+BA_ "GenSigStartValue" SG_ 1081 SOCcHigh 100;
+BA_ "GenSigSendType" SG_ 1081 SOCcHigh 7;
+BA_ "GenSigStartValue" SG_ 1081 SOCcLow 100;
+BA_ "GenSigSendType" SG_ 1081 SOCcLow 7;
+BA_ "GenSigSendType" SG_ 1080 IRaw 7;
+BA_ "GenSigSendType" SG_ 1079 VPackDCLink 7;
+BA_ "GenSigSendType" SG_ 1076 acv_enum_packDisLimReasonFF_Long 0;
+BA_ "GenSigSendType" SG_ 1076 acv_enum_packChgLimReasonFF_Med 0;
+BA_ "GenSigSendType" SG_ 1076 acv_enum_packChgLimReasonFF_Long 0;
+BA_ "GenSigSendType" SG_ 1076 acv_enum_packChgLimReasonFF_Shrt 0;
+BA_ "GenSigSendType" SG_ 1076 acv_enum_packDisLimReasonFF_Shrt 0;
+BA_ "GenSigSendType" SG_ 1076 acv_enum_packDisLimReasonFF_Med 0;
+BA_ "GenSigStartValue" SG_ 1033 NBMS_09Counter 15;
+BA_ "GenSigSendType" SG_ 1033 NBMS_09Counter 0;
+BA_ "GenSigSendType" SG_ 1033 IChargeMaxLongTerm 0;
+BA_ "GenSigSendType" SG_ 1033 PChargeMaxLongTerm 0;
+BA_ "GenSigStartValue" SG_ 1033 NBMS_09Checksum 255;
+BA_ "GenSigSendType" SG_ 1033 NBMS_09Checksum 0;
+BA_ "GenSigStartValue" SG_ 1032 NBMS_08Counter 15;
+BA_ "GenSigSendType" SG_ 1032 NBMS_08Counter 0;
+BA_ "GenSigStartValue" SG_ 1032 NBMS_08Checksum 255;
+BA_ "GenSigSendType" SG_ 1032 NBMS_08Checksum 0;
+BA_ "GenSigSendType" SG_ 1032 IDischargeMaxLongTerm 0;
+BA_ "GenSigSendType" SG_ 1032 PDischargeMaxLongTerm 0;
+BA_ "GenSigSendType" SG_ 1031 IChargeMaxMediumTerm 0;
+BA_ "GenSigSendType" SG_ 1031 PChargeMaxMediumTerm 0;
+BA_ "GenSigStartValue" SG_ 1031 NBMS_07Checksum 255;
+BA_ "GenSigSendType" SG_ 1031 NBMS_07Checksum 0;
+BA_ "GenSigStartValue" SG_ 1031 NBMS_07Counter 15;
+BA_ "GenSigSendType" SG_ 1031 NBMS_07Counter 0;
+BA_ "GenSigStartValue" SG_ 1030 NBMS_06Checksum 255;
+BA_ "GenSigSendType" SG_ 1030 NBMS_06Checksum 0;
+BA_ "GenSigSendType" SG_ 1030 PDischargeMaxMediumTerm 0;
+BA_ "GenSigSendType" SG_ 1030 IDischargeMaxMediumTerm 0;
+BA_ "GenSigStartValue" SG_ 1030 NBMS_06Counter 15;
+BA_ "GenSigSendType" SG_ 1030 NBMS_06Counter 0;
+BA_ "GenSigStartValue" SG_ 1029 rBatterySOHCPB 255;
+BA_ "GenSigSendType" SG_ 1029 rBatterySOHCPB 0;
+BA_ "GenSigStartValue" SG_ 1029 NBMS_05Checksum 255;
+BA_ "GenSigSendType" SG_ 1029 NBMS_05Checksum 0;
+BA_ "GenSigStartValue" SG_ 1029 NBMS_05Counter 15;
+BA_ "GenSigSendType" SG_ 1029 NBMS_05Counter 0;
+BA_ "GenSigStartValue" SG_ 1029 rLastChargeSOCDelta 127;
+BA_ "GenSigSendType" SG_ 1029 rLastChargeSOCDelta 0;
+BA_ "GenSigStartValue" SG_ 1029 rBatterySOC 255;
+BA_ "GenSigSendType" SG_ 1029 rBatterySOC 0;
+BA_ "GenSigStartValue" SG_ 1029 NBatterySOCDesired 15;
+BA_ "GenSigSendType" SG_ 1029 NBatterySOCDesired 0;
+BA_ "GenSigStartValue" SG_ 1029 NBMSClusterMessage 63;
+BA_ "GenSigSendType" SG_ 1029 NBMSClusterMessage 0;
+BA_ "GenSigSendType" SG_ 1029 BBatteryWarrantyVoid 0;
+BA_ "GenSigStartValue" SG_ 1028 NBMS_04Counter 15;
+BA_ "GenSigSendType" SG_ 1028 NBMS_04Counter 0;
+BA_ "GenSigStartValue" SG_ 1028 NBMS_04Checksum 255;
+BA_ "GenSigSendType" SG_ 1028 NBMS_04Checksum 0;
+BA_ "GenSigStartValue" SG_ 1028 rBatterySOHCPC 255;
+BA_ "GenSigSendType" SG_ 1028 rBatterySOHCPC 0;
+BA_ "GenSigSendType" SG_ 1028 BBMSChargerTetheredStatus 0;
+BA_ "GenSigStartValue" SG_ 1028 TBMSOutlet 50;
+BA_ "GenSigSendType" SG_ 1028 TBMSOutlet 0;
+BA_ "GenSigStartValue" SG_ 1028 TCellMax 2040;
+BA_ "GenSigSendType" SG_ 1028 TCellMax 0;
+BA_ "GenSigStartValue" SG_ 1028 TBMSInlet 50;
+BA_ "GenSigSendType" SG_ 1028 TBMSInlet 0;
+BA_ "GenSigStartValue" SG_ 1028 TCellMin 2040;
+BA_ "GenSigSendType" SG_ 1028 TCellMin 0;
+BA_ "GenSigStartValue" SG_ 1027 NBMS_03Counter 15;
+BA_ "GenSigSendType" SG_ 1027 NBMS_03Counter 0;
+BA_ "GenSigSendType" SG_ 1027 BBMSContactorOpenIndicator 0;
+BA_ "GenSigStartValue" SG_ 1027 NBMSMILRequested 3;
+BA_ "GenSigSendType" SG_ 1027 NBMSMILRequested 0;
+BA_ "GenSigSendType" SG_ 1027 BVehicleNegContactorState 0;
+BA_ "GenSigStartValue" SG_ 1027 NFullDischargeRequested 3;
+BA_ "GenSigSendType" SG_ 1027 NFullDischargeRequested 0;
+BA_ "GenSigSendType" SG_ 1027 BBMSContactorCloseIndicator 0;
+BA_ "GenSigSendType" SG_ 1027 BVehiclePosContactorState 0;
+BA_ "GenSigSendType" SG_ 1027 BContactorStuckClosed 0;
+BA_ "GenSigSendType" SG_ 1027 BContactorStuckOpen 0;
+BA_ "GenSigSendType" SG_ 1027 BChargerPosContactorState 0;
+BA_ "GenSigStartValue" SG_ 1027 NBMSStatus 31;
+BA_ "GenSigSendType" SG_ 1027 NBMSStatus 0;
+BA_ "GenSigSendType" SG_ 1027 BPrechargeContactorState 0;
+BA_ "GenSigSendType" SG_ 1027 BChargerNegContactorState 0;
+BA_ "GenSigStartValue" SG_ 1027 NBMS_03Checksum 255;
+BA_ "GenSigSendType" SG_ 1027 NBMS_03Checksum 0;
+BA_ "GenSigSendType" SG_ 1027 NHVBSoCResetState 0;
+BA_ "GenSigSendType" SG_ 1026 IChargeMaxShortTerm 0;
+BA_ "GenSigStartValue" SG_ 1026 NBMS_02Checksum 255;
+BA_ "GenSigSendType" SG_ 1026 NBMS_02Checksum 0;
+BA_ "GenSigStartValue" SG_ 1026 NBMS_02Counter 15;
+BA_ "GenSigSendType" SG_ 1026 NBMS_02Counter 0;
+BA_ "GenSigSendType" SG_ 1026 PChargeMaxShortTerm 0;
+BA_ "GenSigSendType" SG_ 1025 PDischargeMaxShortTerm 0;
+BA_ "GenSigStartValue" SG_ 1025 NBMS_01Checksum 255;
+BA_ "GenSigSendType" SG_ 1025 NBMS_01Checksum 0;
+BA_ "GenSigStartValue" SG_ 1025 tChargingRemainingDisplayed 1023;
+BA_ "GenSigSendType" SG_ 1025 tChargingRemainingDisplayed 0;
+BA_ "GenSigStartValue" SG_ 1025 NBMS_01Counter 15;
+BA_ "GenSigSendType" SG_ 1025 NBMS_01Counter 0;
+BA_ "GenSigSendType" SG_ 1025 IDischargeMaxShortTerm 0;
+BA_ "GenSigStartValue" SG_ 1024 NBMS_00Checksum 255;
+BA_ "GenSigSendType" SG_ 1024 NBMS_00Checksum 0;
+BA_ "GenSigStartValue" SG_ 1024 VHybridBattery 65535;
+BA_ "GenSigSendType" SG_ 1024 VHybridBattery 0;
+BA_ "GenSigStartValue" SG_ 1024 NBMS_00Counter 15;
+BA_ "GenSigSendType" SG_ 1024 NBMS_00Counter 0;
+BA_ "GenSigSendType" SG_ 1024 PActual 0;
+BA_ "GenSigStartValue" SG_ 1024 IActual 16000;
+BA_ "GenSigSendType" SG_ 1024 IActual 0;
+BA_ "GenSigSendType" SG_ 212 NIBSIdleJackRequest 1;
+BA_ "GenSigSendType" SG_ 212 BCrankInhibit 1;
+BA_ "GenSigSendType" SG_ 212 BRLSRainDetected 1;
+BA_ "GenSigSendType" SG_ 212 BPowerSavingMode 1;
+BA_ "GenSigSendType" SG_ 212 VAlternatorRequest 1;
+BA_ "GenSigSendType" SG_ 212 NBatteryChargeRequest 1;
+BA_ "GenSigStartValue" SG_ 212 NWashSwitch 3;
+BA_ "GenSigSendType" SG_ 212 NWashSwitch 1;
+BA_ "GenSigStartValue" SG_ 212 NBrakeLightRequestSource 7;
+BA_ "GenSigSendType" SG_ 212 NBrakeLightRequestSource 1;
+BA_ "GenSigSendType" SG_ 212 NBatteryStatus 1;
+BA_ "GenSigSendType" SG_ 212 VBattery 1;
+BA_ "GenSigStartValue" SG_ 212 NWiperSwitch 7;
+BA_ "GenSigSendType" SG_ 212 NWiperSwitch 1;
+BA_ "GenSigSendType" SG_ 212 NStatusIlluminationReq 1;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 769 NVINPart2 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 769 NVINPart2 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 769 NVINPart1 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 769 NVINPart1 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 769 NVINDataBytesIndex 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 769 NVINDataBytesIndex 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 769 NVINPart3 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 769 NVINPart3 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 784 BTBatteryHighLimitEnable 3000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 260 NSBCPTStatusCounter 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 260 NSBCPTStatusCounter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 260 NIgnitionStatus 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 260 NIgnitionStatus 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 260 NSBCPTStatusChecksum 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 260 NSBCPTStatusChecksum 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1284 NMCU_4Checksum 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1284 NMCU_4Checksum 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 NMCU_4Checksum 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 NMCUClusterMessage 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1284 NMCUClusterMessage 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 NMCU_4Counter 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1284 NMCU_4Counter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1284 NMCU_4Counter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 TMCU_IGBTMax 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 TMCUColdPlate 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 TMotorStator 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 TMotorRotor 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 NIGBTCycleCompleted 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1284 TDCDC 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1283 NMCUStatus 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1283 NMCUStatus 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1283 NMCUStatus 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1283 NMCU_3Checksum 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1283 NMCU_3Checksum 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1283 NMCU_3Counter 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1283 NMCU_3Counter 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1283 NMCUMILRequested 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1282 IMCUDCLink 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1282 IMCUDCLink 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1282 MMotor 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1282 NMCU_2Checksum 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1282 VMCUDCLink 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1282 NMCU_2Counter 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1282 nMotor 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1281 MMotorMinLongTerm 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1281 MMotorMinLongTerm 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1281 NMCU_1Checksum 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1281 NMCU_1Checksum 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1281 MMotorMinShortTerm 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1281 MMotorMaxMedTerm 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1281 MMotorMaxMedTerm 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1281 MMotorMaxLongTerm 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1281 MMotorMaxLongTerm 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1281 NMCU_1Counter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1281 NMCU_1Counter 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1281 MMotorMaxShortTerm 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1281 MMotorMinMedTerm 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1281 MMotorMinMedTerm 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 216 vVehicleIC 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 216 vVehicleIC 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 216 lPART1Totalizer 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 216 lPART1Totalizer 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 216 NEPBEngaged 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 262 TAmbientRaw 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 262 TAmbientRaw 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage15 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 tToNextEngineStartDisplayed 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 NBoostStatus 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1096 NEngineStatus 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1096 NEngineStatus 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 rBoostMaxDisplayed 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 rBoostAvailableDisplayed 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 NRegenStatusDisplayed 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage11 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1096 NPowertrainStatus 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1096 NPowertrainStatus 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage01 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage08 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage12 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage14 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage02 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage03 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage16 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage05 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage06 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 sElectricRangeDisplayed 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BPitLaneChargingActive 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage13 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage04 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage07 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage10 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BBoostMode 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1096 BECMClusterMessage09 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1090 BDCDCEnable 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1090 NECM_HCAN_2Checksum 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1090 VDCDCDemanded 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1090 NECM_HCAN_2Counter 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1090 MMotorMaxSpeedControl 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1090 MMotorMinSpeedControl 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1089 MMotorDemanded 25;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1089 NECM_HCAN_1Checksum 25;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1089 NHDAClutchState 25;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1089 NECM_HCAN_1Counter 25;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1089 nMotorDemanded 25;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1089 nMotorReference 25;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1089 NMCUStateDemanded 25;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 150 MY15_CCU_pLimReq 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 150 MY15_CCU_pMin 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 150 MY15_CCU_stModeReq 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 150 MY15_Checksumme 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 150 MY15_CCU_pMax 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 150 MY15_CCU_posDes 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 150 MY15_Zaehler 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 934 MY01_Checksumme 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 934 MY01_SleepAckn 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ CP1 SG_ 934 MY01_Zaehler 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1088 NCrashSeverity 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1088 NECM_BMS_00Checksum 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1088 NECM_BMS_00Checksum 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1088 NContactorRequested 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1088 NECM_BMS_00Counter 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1088 NECM_BMS_00Counter 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1088 nPowertrain 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1088 nPowertrain 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 145 PID04_CalculatedLoad 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 145 PID04_CalculatedLoad 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 145 PID4A_AbsolutePedalPosn 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 145 PID4A_AbsolutePedalPosn 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 145 PID33_BarometricPressure 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 145 PID33_BarometricPressure 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 145 PID43_AbsoluteLoad 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 145 PID43_AbsoluteLoad 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 145 PID05_TEngineCoolant 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 145 PID05_TEngineCoolant 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 145 PID49_AbsolutePedalPosn 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 145 PID49_AbsolutePedalPosn 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1289 PID0D_vVehicleOBD 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1289 PID0D_vVehicleOBD 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1289 PID0C_nEngine 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1289 PID0C_nEngine 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 163 NDCT_2Checksum 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 163 NDCT_2Counter 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 163 NClutchStatus 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 162 NGearEngaged 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 162 NGearEngaged 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 162 NDCT_1Counter 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 162 NDCT_1Checksum 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 162 NLaunchStatus 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1288 NDCDC_1Checksum 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1288 NDCDCErrorState 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1288 NDCDC_1Counter 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1288 PDCDCActual 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1288 IDCDCOutput 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 1288 IDCDCOutput 100;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1288 NDCDCStatus 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1288 NDCDCStatus 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 452 tSecond 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 452 tSecond 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 452 tDay 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 452 tDay 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 452 tMonth 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 452 tMonth 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 452 tYear 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 452 tYear 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 452 tHour 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 452 tHour 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 452 tMinute 5000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 452 tMinute 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 768 NCarConfigMultiplexor 10000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_pCurr 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_ErrTempHigh 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_ErrMech 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_AngSpdCurr 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_posCurr 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_i2trqCurr 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_Zaehler 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_Checksumme 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_ErrUBattLow 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_SleepInd 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_stMode 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_ErrTempWarn 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_ErrHW 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 127 CY01_ErrCAN 15;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 168 NCCU_1Counter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 168 NCCU_1Counter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 168 NCCU_1Checksum 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 168 NCCU_1Checksum 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 168 qWaterPumpHybridCooling 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 168 qWaterPumpHybridCooling 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1033 NBMS_09Counter 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1033 NBMS_09Counter 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1033 IChargeMaxLongTerm 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1033 IChargeMaxLongTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1033 PChargeMaxLongTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1033 NBMS_09Checksum 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1033 NBMS_09Checksum 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1032 NBMS_08Counter 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1032 NBMS_08Counter 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1032 NBMS_08Checksum 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1032 NBMS_08Checksum 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1032 IDischargeMaxLongTerm 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1032 IDischargeMaxLongTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1032 PDischargeMaxLongTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1032 PDischargeMaxLongTerm 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1031 IChargeMaxMediumTerm 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1031 IChargeMaxMediumTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1031 PChargeMaxMediumTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1031 NBMS_07Checksum 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1031 NBMS_07Checksum 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1031 NBMS_07Counter 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1031 NBMS_07Counter 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1030 NBMS_06Checksum 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1030 NBMS_06Checksum 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1030 PDischargeMaxMediumTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1030 PDischargeMaxMediumTerm 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1030 IDischargeMaxMediumTerm 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1030 IDischargeMaxMediumTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1030 NBMS_06Counter 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1030 NBMS_06Counter 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1029 NBMS_05Checksum 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1029 NBMS_05Checksum 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1029 NBMS_05Counter 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1029 NBMS_05Counter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1029 rLastChargeSOCDelta 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1029 rBatterySOC 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1029 rBatterySOC 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1029 NBatterySOCDesired 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1029 NBMSClusterMessage 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1029 BBatteryWarrantyVoid 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1028 NBMS_04Counter 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1028 NBMS_04Counter 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1028 NBMS_04Counter 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1028 NBMS_04Checksum 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1028 NBMS_04Checksum 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1028 NBMS_04Checksum 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1028 rBatterySOHCPC 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1028 BBMSChargerTetheredStatus 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1028 BBMSChargerTetheredStatus 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1028 TBMSOutlet 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1028 TBMSOutlet 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1028 TCellMax 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1028 TBMSInlet 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1028 TCellMin 300;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1027 NBMS_03Counter 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 NBMS_03Counter 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 BBMSContactorOpenIndicator 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1027 NBMSMILRequested 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 BVehicleNegContactorState 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1027 BBMSContactorCloseIndicator 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 BVehiclePosContactorState 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 BContactorStuckClosed 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 BContactorStuckOpen 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1027 NBMSStatus 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 NBMSStatus 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1027 NBMSStatus 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 BPrechargeContactorState 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1027 NBMS_03Checksum 50;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1027 NBMS_03Checksum 30;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1027 NHVBSoCResetState 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1026 IChargeMaxShortTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1026 NBMS_02Checksum 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1026 NBMS_02Counter 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1026 PChargeMaxShortTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1025 PDischargeMaxShortTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1025 NBMS_01Checksum 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1025 tChargingRemainingDisplayed 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1025 NBMS_01Counter 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1025 IDischargeMaxShortTerm 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1024 NBMS_00Checksum 150;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1024 NBMS_00Checksum 250;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1024 VHybridBattery 250;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1024 VHybridBattery 150;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1024 NBMS_00Counter 150;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1024 NBMS_00Counter 250;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ EngineControlModule SG_ 1024 IActual 150;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 1024 IActual 250;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ InstrumentCluster SG_ 1024 IActual 1000;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ MCU SG_ 212 VBattery 500;
+BA_REL_ "GenSigTimeoutTime" BU_SG_REL_ BMS SG_ 212 VBattery 1000;
+VAL_ 769 NVINDataBytesIndex 255 "VIN not available" 3 "Unused" 2 "VIN Bytes 15-17" 1 "VIN Bytes 8-14" 0 "VIN Bytes 1-7" ;
+VAL_ 784 NKL58UserLevelSelected 7 "High 14" 6 "12" 5 "10" 4 "8" 3 "6" 2 "4" 1 "Low 2" 0 "Off" ;
+VAL_ 784 BvUnitsMPH 1 "mph" 0 "kph" ;
+VAL_ 784 NTyreType 2 "Winter" 1 "Corsa" 0 "Rossa" ;
+VAL_ 784 BTBatteryHighLimitEnable 1 "Enabled" 0 "Not enabled" ;
+VAL_ 784 BlUnitsMiles 1 "Distance in miles" 0 "Distance in km" ;
+VAL_ 260 NDoorDriverOpenStatus 3 "default" 2 "ambiguous" 1 "closed" 0 "open" ;
+VAL_ 260 NImmobiliserStatus 3 "default" 2 "not in use" 1 "immobilised" 0 "not immobilised" ;
+VAL_ 260 NVehicleStatus 7 "default" 4 "Vehicle awake, engine run" 3 "Starting in progress" 2 "Ignition ON - ready to start" 1 "Vehicle awake, engine stop" 0 "Vehicle asleep, engine stop" ;
+VAL_ 260 NStartStopButtonContact1 3 "default" 2 "Fault" 1 "Pressed" 0 "Unpressed" ;
+VAL_ 260 NDoorPassengerOpenStatus 3 "default" 2 "ambiguous" 1 "closed" 0 "open" ;
+VAL_ 260 NStartStopButtonContact2 3 "default" 2 "Fault" 1 "Pressed" 0 "Unpressed" ;
+VAL_ 260 NDoorROpenStatus 3 "default" 2 "ambiguous" 1 "closed" 0 "open" ;
+VAL_ 260 NVehicleLockStatus 7 "default" 6 "PE locked" 5 "RKE locked" 4 "PE selective unlocked" 3 "RKE selective unlocked" 2 "Internal locked" 1 "PE unlocked" 0 "RKE unlocked" ;
+VAL_ 260 NDoorLOpenStatus 3 "default" 2 "ambiguous" 1 "closed" 0 "open" ;
+VAL_ 260 NIgnitionStatus 15 "Default" 6 "Crank" 5 "Ignition" 4 "Powertrain wake" 3 "Accessory" 2 "Awake" 1 "Sleep" 0 "Locked" ;
+VAL_ 1792 N_NMOpcodeMCU 7 "INVALID: ALIVE+RING+LIMPHOME" 6 "INVALID: RING+LIMPHOME" 5 "INVALID: ALIVE+LIMPHOME" 4 "LIMPHOME" 3 "INVALID: LIVE+RING" 2 "RING" 1 "ALIVE" ;
+VAL_ 1792 N_NMSleepMCU 3 "SLEEPIND+SLEEPACK" 2 "SLEEPACK" 1 "SLEEPIND" 0 "NOSLEEPFLAG" ;
+VAL_ 1796 N_NMSleepIC 3 "SLEEPIND+SLEEPACK" 2 "SLEEPACK" 1 "SLEEPIND" 0 "NOSLEEPFLAG" ;
+VAL_ 1796 N_NMOpcodeIC 7 "INVALID: ALIVE+RING+LIMPHOME" 6 "INVALID: RING+LIMPHOME" 5 "INVALID: ALIVE+LIMPHOME" 4 "LIMPHOME" 3 "INVALID: LIVE+RING" 2 "RING" 1 "ALIVE" ;
+VAL_ 1795 N_NMSleepECM 3 "SLEEPIND+SLEEPACK" 2 "SLEEPACK" 1 "SLEEPIND" 0 "NOSLEEPFLAG" ;
+VAL_ 1795 N_NMOpcodeECM 7 "INVALID: ALIVE+RING+LIMPHOME" 6 "INVALID: RING+LIMPHOME" 5 "INVALID: ALIVE+LIMPHOME" 4 "LIMPHOME" 3 "INVALID: LIVE+RING" 2 "RING" 1 "ALIVE" ;
+VAL_ 1793 N_NMOpcodeBMS 7 "INVALID: ALIVE+RING+LIMPHOME" 6 "INVALID: RING+LIMPHOME" 5 "INVALID: ALIVE+LIMPHOME" 4 "LIMPHOME" 3 "INVALID: LIVE+RING" 2 "RING" 1 "ALIVE" ;
+VAL_ 1793 N_NMSleepBMS 3 "SLEEPIND+SLEEPACK" 2 "SLEEPACK" 1 "SLEEPIND" 0 "NOSLEEPFLAG" ;
+VAL_ 1285 BMCU_MotorPositionUnknown 1 "position unknown" 0 "position known" ;
+VAL_ 1285 BMCU_DCLinkDischargeFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_CANFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 BMCU_IGBT_ExternalFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 BMCU_InputSignalInvalid 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_PowerConsistencyFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 BV_MCU_DCBusHighFault 1 "Fault" 0 "No fault" ;
+VAL_ 1285 B_MCU_PosOverSpeedFault 1 "Fault" 0 "No fault" ;
+VAL_ 1285 BMCU_SensorIntegrityFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 NIGBTExternalDisableStatus 3 "Default" 2 "Not used" 1 "Disabled" 0 "Not disabled" ;
+VAL_ 1285 BMCU_GateDriverEnableFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 BT_MCU_IGBT_HighFaultHW 1 "fault" 0 "no fault" ;
+VAL_ 1285 B_MCU_ProcessorError 1 "Fault" 0 "No fault" ;
+VAL_ 1285 B_MCU_MON_VDCLinkFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_TorqueDemFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 BMCU_IGBT_InternalFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_NegOverSpeedFault 1 "Fault" 0 "No fault" ;
+VAL_ 1285 BV_MCU_VehicleBusHighFault 1 "Fault" 0 "No fault" ;
+VAL_ 1285 BMCU_CANSignalInvalid 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 BMCU_LLMC_Fault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 BMCU_GateDriverFault 1 "fault" 0 "no fault" ;
+VAL_ 1285 NLastResetReason 18 "5ms task watchdog" 17 "Missing watchdog" 16 "Tune data" 15 "EEPROM manager" 14 "Background watchdog" 13 "Ignition off" 12 "Hard reset" 11 "DCDC watchdog" 10 "HLMC watchdog" 9 "Inter processor watchdog" 8 "PWM task watchdog" 7 "100ms task watchdog" 6 "10ms task watchdog" 5 "1ms task watchdog" 4 "Scheduler task watchdog" 3 "Exception" 2 "unknown" 1 "Reprogram request" 0 "None" ;
+VAL_ 1285 BV_MCU_VehicleBusLowFault 1 "Fault" 0 "No fault" ;
+VAL_ 1285 BV_MCU_DCBusHighFaultHW 1 "fault" 0 "no fault" ;
+VAL_ 1285 B_MCU_CANTimeoutFault 1 "Fault" 0 "No fault" ;
+VAL_ 1285 B_MCU_LLMC_PositionFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_AnaloguesFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_LLMC_MissedASACFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_Watchdog 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_ClockStatusFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_DisabledFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_InvalidSpeedFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_SPIFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_PositionFeedbackFault 1 "Fault" 0 "No fault" ;
+VAL_ 1285 B_MCU_LLMC_MissedPWMFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1285 B_MCU_MON_RefSpeedFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1284 NMCUClusterMessage 255 "default" 0 "No change" ;
+VAL_ 1284 NIGBTCycleCompleted 3 "Default" 2 "Not used" 1 "Cycle completed" 0 "Cycle not completed" ;
+VAL_ 1283 BT_MCUProcessorHighFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 NMaxSrtTermLimitType 15 "Torque Not Available" 14 "unknown" 13 "unknown" 12 "unknown" 11 "unknown" 10 "Available Output Voltage" 9 "DCLink Volts" 8 "Motor Speed" 7 "Motor Power Curve" 6 "Battery Power Availability" 5 "Motor Rotor Coolant Heating" 4 "Motor Rotor Temp" 3 "Motor Stator Temp" 2 "Inverter Voltage Overshoot" 1 "Inverter Losses/Cooling Availability" 0 "None" ;
+VAL_ 1283 B_MCU_LLMC_CurrentFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BM_MCUDemandConsistencyFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BP_MCUConsistencyFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BT_MCUDriverBoardHighFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BV_MCU_DCLinkImbalanceFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 NMCUStatus 31 "Default" 17 "M3 Fault" 16 "M2 Fault" 15 "M1 Fault" 14 "Resolver learning" 13 "Shutdown cancelled" 12 "Ready to shutdown" 11 "Discharging DC link" 10 "Waiting for contactors to open" 9 "Waiting for motor to stop" 8 "Not used" 7 "Running Speed control" 6 "Running Torque control" 5 "Running Standby (no load)" 4 "Testing system integrity" 3 "Testing proc. gate driver enable" 2 "Waiting for ext. invertor enable" 1 "Waiting for contactors to close" 0 "Initialisation" ;
+VAL_ 1283 B_MCU_SoftwareIncompatible 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 NMaxLngTermLimitType 15 "Torque Not Available" 14 "unknown" 13 "unknown" 12 "unknown" 11 "unknown" 10 "Available Output Voltage" 9 "DCLink Volts" 8 "Motor Speed" 7 "Motor Power Curve" 6 "Battery Power Availability" 5 "Motor Rotor Coolant Heating" 4 "Motor Rotor Temp" 3 "Motor Stator Temp" 2 "Inverter Voltage Overshoot" 1 "Inverter Losses/Cooling Availability" 0 "None" ;
+VAL_ 1283 BM_MCUControlConsistencyFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BT_MCU_ColdPlateImplausible 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BI_MCU_DCLinkLeakageFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 B_MCU_LLMC_ResolverFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 Bv_MCUConsistencyFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 NMaxMedTermLimitType 15 "Torque Not Available" 14 "unknown" 13 "unknown" 12 "unknown" 11 "unknown" 10 "Available Output Voltage" 9 "DCLink Volts" 8 "Motor Speed" 7 "Motor Power Curve" 6 "Battery Power Availability" 5 "Motor Rotor Coolant Heating" 4 "Motor Rotor Temp" 3 "Motor Stator Temp" 2 "Inverter Voltage Overshoot" 1 "Inverter Losses/Cooling Availability" 0 "None" ;
+VAL_ 1283 BV_MCU_ProcIsolationFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BT_MCUColdPlateHighFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BT_MCUMotorHighFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 NMinMedTermLimitType 15 "Torque Not Available" 14 "unknown" 13 "unknown" 12 "unknown" 11 "unknown" 10 "Available Output Voltage" 9 "DCLink Volts" 8 "Motor Speed" 7 "Motor Power Curve" 6 "Battery Power Availability" 5 "Motor Rotor Coolant Heating" 4 "Motor Rotor Temp" 3 "Motor Stator Temp" 2 "Inverter Voltage Overshoot" 1 "Inverter Losses/Cooling Availability" 0 "None" ;
+VAL_ 1283 NMinSrtTermLimitType 15 "Torque Not Available" 14 "unknown" 13 "unknown" 12 "unknown" 11 "unknown" 10 "Available Output Voltage" 9 "DCLink Volts" 8 "Motor Speed" 7 "Motor Power Curve" 6 "Battery Power Availability" 5 "Motor Rotor Coolant Heating" 4 "Motor Rotor Temp" 3 "Motor Stator Temp" 2 "Inverter Voltage Overshoot" 1 "Inverter Losses/Cooling Availability" 0 "None" ;
+VAL_ 1283 NMinLngTermLimitType 15 "Torque Not Available" 14 "unknown" 13 "unknown" 12 "unknown" 11 "unknown" 10 "Available Output Voltage" 9 "DCLink Volts" 8 "Motor Speed" 7 "Motor Power Curve" 6 "Battery Power Availability" 5 "Motor Rotor Coolant Heating" 4 "Motor Rotor Temp" 3 "Motor Stator Temp" 2 "Inverter Voltage Overshoot" 1 "Inverter Losses/Cooling Availability" 0 "None" ;
+VAL_ 1283 BMCU_LLMC_OutputFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 B_MCU_LLMC_VoltageFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BI_MCU_HighFaultHW 1 "fault" 0 "no fault" ;
+VAL_ 1283 NMCUMILRequested 3 "Default" 2 "Not used" 1 "Lamp on" 0 "Lamp off" ;
+VAL_ 1283 BMCU_LLMC_InputFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BMCU_MotorStallFault 1 "Fault" 0 "No Fault" ;
+VAL_ 1283 BT_MCU_IGBT_HighFaultSW 1 "Fault" 0 "No Fault" ;
+VAL_ 216 NEPBEngaged 3 "unavailable" 2 "Not used" 1 "brake applied" 0 "brake released" ;
+VAL_ 262 NHVACEngineStopDisable 3 "Default" 2 "Stop disallowed int fault" 1 "Stop disallowed int conditions" 0 "Engine stop allowed" ;
+VAL_ 262 BHVACGearboxStartRequest 1 "Start request" 0 "No start request" ;
+VAL_ 262 NSCUGStatus 15 "Default" 1 "Bus off" 0 "OK" ;
+VAL_ 262 NHVACGearboxStopDisable 3 "Default" 2 "Stop disallowed int fault" 1 "Stop disallowed int conditions" 0 "Gearbox stop allowed" ;
+VAL_ 262 BHVACEngineStartRequest 1 "Start request" 0 "No start request" ;
+VAL_ 262 NHVACIdleJackRequest 3 "Request at least Idle Speed 3" 2 "Request at least Idle Speed 2" 1 "Request at least Idle Speed 1" 0 "No change to Engine-Set Idle Spd" ;
+VAL_ 1091 BSecAirPumpStatus 1 "On" 0 "Off" ;
+VAL_ 1091 rFuelPumpDuty 127 "Default" ;
+VAL_ 1096 BECMClusterMessage15 1 "Show message" 0 "No message" ;
+VAL_ 1096 tToNextEngineStartDisplayed 15 "Default" 14 "Longer than 13s" 13 "13" 12 "12" 11 "11" 10 "10" 9 "9" 8 "8" 7 "7" 6 "6" 5 "5" 4 "4" 3 "3" 2 "2" 1 "1" 0 "0" ;
+VAL_ 1096 NBoostStatus 3 "Default" 2 "Active" 1 "Not Active - Available" 0 "Not Active - Not Available" ;
+VAL_ 1096 NEngineStatus 7 "Engine fault" 6 "Undefined" 5 "After run, ign off, 0 rpm" 4 "After run, ign off, rpm > 0" 3 "Running" 2 "Cranking" 1 "Not running, ign on" 0 "Not running, ign off, 0 rpm" ;
+VAL_ 1096 rBoostMaxDisplayed 127 "Default" ;
+VAL_ 1096 rBoostAvailableDisplayed 127 "Default" ;
+VAL_ 1096 NRegenStatusDisplayed 7 "Default" 1 "Regen" 0 "No Regen" ;
+VAL_ 1096 BECMClusterMessage11 1 "Show message" 0 "No message" ;
+VAL_ 1096 NPowertrainStatus 7 "Powertrain Fault (Torque not av)" 2 "Initialising (Torque not av)" 1 "Torque available" 0 "Torque not available" ;
+VAL_ 1096 BECMClusterMessage01 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage08 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage12 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage14 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage02 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage03 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage16 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage05 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage06 1 "Show message" 0 "No message" ;
+VAL_ 1096 BPitLaneChargingActive 1 "Active" 0 "Not Active" ;
+VAL_ 1096 BECMClusterMessage13 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage04 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage07 1 "Show message" 0 "No message" ;
+VAL_ 1096 BECMClusterMessage10 1 "Show message" 0 "No message" ;
+VAL_ 1096 BBoostMode 1 "Manual" 0 "Auto" ;
+VAL_ 1096 BECMClusterMessage09 1 "Show message" 0 "No message" ;
+VAL_ 1089 NHDAClutchState 3 "Error" 2 "Closed" 1 "Slipping" 0 "Open" ;
+VAL_ 1089 nMotorReference 255 "Default" 254 "Error" ;
+VAL_ 1089 NMCUStateDemanded 15 "Fault" 7 "Running Speed control" 6 "Running Torque control" 5 "Running Standby (no load)" ;
+VAL_ 150 MY15_CCU_pLimReq 1 "pLimReq_On" 0 "pLimReq_Off" ;
+VAL_ 150 MY15_CCU_pMin 11 "Delay_32s_UT" 10 "Delay_32s" 9 "Delay_16s_UT" 8 "Delay_16s" 7 "Delay_8s_UT" 6 "Delay_8s" 5 "Delay_4s_UT" 4 "Delay_4s" 3 "Delay_2s_UT" 2 "Delay_2s" 1 "Untertauchen" 0 "keine Sonderfunktion" ;
+VAL_ 150 MY15_CCU_stModeReq 7 "Initialisierung" 6 "Engineering_Mode" 5 "Info_Mode" 4 "RemovingAir_Mode2" 3 "RemovingAir_Mode1" 2 "Operation_Mode" 1 "Secure_Mode" 0 "Filling_Mode" ;
+VAL_ 150 MY15_CCU_pMax 15 "Init" ;
+VAL_ 150 MY15_CCU_posDes 8191 "Init" ;
+VAL_ 934 MY01_SleepAckn 1 "Sleep_Mode_Befehl" 0 "CAN_wird_benoetigt" ;
+VAL_ 1088 NCrashSeverity 2 "High severity" 1 "Low severity" 0 "Default (no crash)" ;
+VAL_ 1088 NContactorRequested 9 "Close vehicle contactors" 6 "Open vehicle contactors" ;
+VAL_ 145 PID05_TEngineCoolant 255 "Initial value" ;
+VAL_ 163 NTransmissionStatus 7 "default" 6 "Reserved" 5 "Reserved" 4 "All gears unavailable" 3 "Only current gear available" 2 "Even bank failed" 1 "Odd bank failed" 0 "No failure" ;
+VAL_ 163 NMPowertrainRequestType 3 "Default" 2 "Fast and slow path request" 1 "Fast path request" 0 "No torque request" ;
+VAL_ 163 nPowertrainDemandedInverted 0 "Deactivated" ;
+VAL_ 163 NSpeedControlEngaged 3 "default" 2 "Reserved" 1 "Speed control active" 0 "No speed control" ;
+VAL_ 163 NClutchStatus 7 "default" 6 "Reserved" 5 "Reserved" 4 "Reserved" 3 "Clutch failed" 2 "Clutch slipping" 1 "Clutch closed" 0 "Clutch open" ;
+VAL_ 162 NGearTarget 15 "Default" 14 "Unavailable" 13 "Reserved" 12 "Reverse" 11 "Undefined 11" 10 "Undefined 10" 9 "Undefined 9" 8 "Undefined 8" 7 "Seventh gear" 6 "Sixth gear" 5 "Fifth gear" 4 "Fourth gear" 3 "Third gear" 2 "Second gear" 1 "First gear" 0 "Neutral" ;
+VAL_ 162 NGearEngaged 15 "Default" 14 "Unavailable" 13 "Reserved" 12 "Reverse" 11 "Undefined 11" 10 "Undefined 10" 9 "Undefined 9" 8 "Undefined 8" 7 "Seventh gear" 6 "Sixth gear" 5 "Fifth gear" 4 "Fourth gear" 3 "Third gear" 2 "Second gear" 1 "First gear" 0 "Neutral" ;
+VAL_ 162 NGearboxMode 3 "Default" 2 "Manual" 1 "Temporary manual" 0 "Automatic" ;
+VAL_ 162 BSoftRevLimiterRequired 1 "Soft rev limiter required" 0 "Hard rev limiter required" ;
+VAL_ 162 NTCULaunchRequest 3 "default" 2 "Undefined" 1 "launch request" 0 "no launch request" ;
+VAL_ 162 NTCUMILRequested 3 "Default" 2 "Not used" 1 "Lamp on" 0 "Lamp off" ;
+VAL_ 162 NGearPreSelected 15 "Default" 14 "Unavailable" 13 "Reserved" 12 "Reverse" 11 "Undefined 11" 10 "Undefined 10" 9 "Undefined 9" 8 "Undefined 8" 7 "Seventh gear" 6 "Sixth gear" 5 "Fifth gear" 4 "Fourth gear" 3 "Third gear" 2 "Second gear" 1 "First gear" 0 "Neutral" ;
+VAL_ 162 NShiftInProgress 3 "default" 2 "undefined" 1 "Shift in progress" 0 "Not shifting" ;
+VAL_ 162 NDCTStatus 15 "Default" 0 "No failure" ;
+VAL_ 162 NLaunchStatus 3 "default" 2 "Launch unavailable" 1 "Launch control active" 0 "Launch control inactive" ;
+VAL_ 162 NGearSelected 15 "Default" 14 "Unavailable" 13 "Reserved" 12 "Reverse" 11 "Undefined 11" 10 "Undefined 10" 9 "Undefined 9" 8 "Undefined 8" 7 "Seventh gear" 6 "Sixth gear" 5 "Fifth gear" 4 "Fourth gear" 3 "Third gear" 2 "Second gear" 1 "First gear" 0 "Neutral" ;
+VAL_ 1288 NDCDCErrorState 7 "Default" 6 "Reserved" 5 "Reserved" 4 "No Output Fault" 3 "Enable fault (meaning TBC)" 2 "Overtemperature fault" 1 "Overcurrent fault" 0 "No fault" ;
+VAL_ 1288 BDCDCEnableCheck 1 "Enable" 0 "Disable" ;
+VAL_ 1288 BDCDCIOStatus 1 "Fault" 0 "No Fault" ;
+VAL_ 1288 NDCDCStatus 7 "Default" 6 "Reserved" 5 "Reserved" 4 "D3 Fault" 3 "D2 Fault" 2 "D1 Fault" 1 "Off" 0 "On" ;
+VAL_ 768 NHeadUnitType 2 "High line" 1 "Low line" 0 "Not fitted" ;
+VAL_ 768 NWindscreenType 1 "Heat reflective" 0 "Normal" ;
+VAL_ 768 NSteeringWheelSwitchesFitted 1 "passive horn press" 0 "not available" ;
+VAL_ 768 NRearWheelType 1 "Standard P12 11.5J20" 0 "Standard P11 11J20" ;
+VAL_ 768 NEngineType 0 "M838T" ;
+VAL_ 768 NPassengerSeatOption 4 "Electric 3 axis adjustment" 3 "Electric height adjustment" 2 "Mechanical 3 axis adjustment" 1 "Fixed seat, no adjustment" 0 "Not fitted" ;
+VAL_ 768 NFuelTankType 1 "P11 race" 0 "P11 Road" ;
+VAL_ 768 NColumnSwtches2Fitted 1 "standard WWCC" 0 "none fitted" ;
+VAL_ 768 NCentreDifferential 3 "TVD" 2 "Electrically actuated coupling" 1 "Mechanically limited slip" 0 "Open" ;
+VAL_ 768 NTransmissionType 0 "7 speed DCT standard ratios" ;
+VAL_ 768 NDoorMirrorControl 2 "Electric with position" 1 "Electric only" 0 "Not fitted" ;
+VAL_ 768 NBatteryType 15 "default" 3 "Lead Acid, H6" 2 "Lead Acid, H8" 1 "Lithium Ion, H6" 0 "Lithium Ion, H8" ;
+VAL_ 768 NDriveBatteryType 0 "Normal" ;
+VAL_ 768 BStopStartAvailable 1 "Available" 0 "Not Available - Default" ;
+VAL_ 768 NFrontWheelType 1 "Standard P12 9J19" 0 "Standard P11 8.5J19" ;
+VAL_ 768 NVehicleDriveHand 1 "LH drive" 0 "RH drive" ;
+VAL_ 768 NRollControl 1 "Adaptive Kinetic H2" 0 "Passive" ;
+VAL_ 768 NFasciaPanelType 1 "P11 dynamics & gear control" 0 "not available" ;
+VAL_ 768 BHybridDriveAvailable 1 "Available" 0 "Not Available - Default" ;
+VAL_ 768 NVehicleModel 2 "P13" 1 "P12" 0 "P11" ;
+VAL_ 768 NDriverSeatOption 4 "Electric 3 axis adjustment" 3 "Electric height adjustment" 2 "Mechanical 3 axis adjustment" 1 "Fixed seat, no adjustment" 0 "Not fitted" ;
+VAL_ 768 NRearDifferential 3 "TVD" 2 "Electrically actuated coupling" 1 "Mechanically limited slip" 0 "Open" ;
+VAL_ 768 NDriveMotorType 0 "Normal" ;
+VAL_ 768 NParkingSensorsFitted 2 "Front and rear" 1 "Rear only" 0 "Not fitted" ;
+VAL_ 768 NAmplifierType 2 "High line" 1 "Low line" 0 "Not fitted" ;
+VAL_ 768 NFrontDifferential 3 "TVD" 2 "Electrically actuated coupling" 1 "Mechanically limited slip" 0 "Open" ;
+VAL_ 768 NColumnSwtches3Fitted 1 "standard DIMS" 0 "none fitted" ;
+VAL_ 768 NBodyType 4 "GTS Spider" 3 "GTS" 2 "GTR" 1 "Spyder" 0 "Coupe" ;
+VAL_ 768 NFrontBrakeType 2 "P12 CCM 390 x 34" 1 "Option P11 CCM 394 x 36" 0 "Std P11 Iron 370 x 32" ;
+VAL_ 768 NVehicleModelYear 5 "2015" 4 "2014" 3 "2013" 2 "2012" 1 "2011" 0 "2010" ;
+VAL_ 768 NColumnSwtches1Fitted 1 "paddles" 0 "none fitted" ;
+VAL_ 768 NHeadlightType 6 "LED (Dynamic Auto Leveling)" 5 "Bi-Xenon (Dynamic Auto Leveling)" 4 "LED (Static Auto Leveling)" 3 "Bi-Xenon (Static Auto Leveling)" 2 "LED (No Leveling)" 1 "Bi-Xenon (No Leveling)" 0 "Not fitted" ;
+VAL_ 768 NDampingControl 1 "2-Valve Adaptive" 0 "Passive" ;
+VAL_ 768 NRoadSpring 1 "GTR" 0 "Standard rate" ;
+VAL_ 768 NVehicleMarket 10 "USA" 9 "Switzerland" 8 "Russia" 7 "ROW" 6 "Quatar" 5 "Japan" 4 "Gulf States" 3 "Europe" 2 "China" 1 "Canada" 0 "Australia" ;
+VAL_ 768 NVehicleType 3 "Race" 2 "Customer" 1 "Demonstrator" 0 "Prototype" ;
+VAL_ 768 NDriveType 3 "Default" 2 "Not used" 1 "All" 0 "Rear" ;
+VAL_ 768 NDifferentialRatio 1 "3.08:1" 0 "3.308:1" ;
+VAL_ 768 NNoseLiftAvailable 2 "Four Corner Lift" 1 "Front Axle Only" 0 "Not available" ;
+VAL_ 768 NFrontAuxLightOption 2 "Front Driving, LED" 1 "Front Fog, LED" 0 "Not fitted" ;
+VAL_ 768 NHVACControllerFitted 1 "Type 1 - dual zone" 0 "Not fitted" ;
+VAL_ 768 NRearBrakeType 2 "P12 CCM 380 x 29.5" 1 "Option P11 CCM 380 x 32" 0 "Std P11 Iron 350 x 30" ;
+VAL_ 768 NExhaustType 1 "Sports, pneu valve ctrl with pos" 0 "Std, no valve control" ;
+VAL_ 1715 CY02_HW_Version 255 "Fehler" 9 "C1_Muster" 8 "C0_Muster" 7 "B4_Muster" 6 "B3_Muster" 5 "B2_Muster" 4 "B1_Muster" 3 "B0_Muster" 2 "A2_Muster" 1 "A1_Muster" 0 "A0_Muster" ;
+VAL_ 1715 CY02_SW_Version 124 "v124" 123 "v123" 122 "v122" 121 "v121" 120 "v120" 119 "v119" 118 "v118" 117 "v117" 116 "v116" 115 "v115" 114 "v114" 113 "v113" 112 "v112" 111 "v111" 110 "v110" 109 "v109" 108 "v108" 107 "v107" 106 "v106" 105 "v105" ;
+VAL_ 1715 CY02_Medium 15 "Fehler" 7 "Bremsfluessigkeit" 4 "Mineraloel_Pentosin" ;
+VAL_ 127 CY01_pCurr 255 "Fehler" 254 "Init" ;
+VAL_ 127 CY01_ErrTempHigh 1 "Err_TempHigh" ;
+VAL_ 127 CY01_ErrMech 1 "Err_Mech" ;
+VAL_ 127 CY01_AngSpdCurr 511 "Fehler" 510 "Init" ;
+VAL_ 127 CY01_posCurr 8191 "Fehler" 8190 "Init" ;
+VAL_ 127 CY01_i2trqCurr 4095 "Fehler" 4094 "Init" ;
+VAL_ 127 CY01_ErrUBattLow 1 "Err_UBattLow" ;
+VAL_ 127 CY01_SleepInd 1 "Sleep_Indikation" 0 "CAN_wird_benoetigt" ;
+VAL_ 127 CY01_stMode 7 "Initiailisierung" 4 "RemovingAir2_Mode" 3 "RemovingAir1_Mode" 2 "Operation_Mode" 1 "Secure_Mode" 0 "Filling_Mode" ;
+VAL_ 127 CY01_ErrTempWarn 1 "Err_TempWarn" ;
+VAL_ 127 CY01_ErrHW 1 "Err_HW" ;
+VAL_ 127 CY01_ErrCAN 1 "Err_CAN" ;
+VAL_ 168 THybridSystemCombined 255 "Default" ;
+VAL_ 168 NNoseLiftStatus 15 "Default" 4 "Nose Lift Aborted" 3 "Nose Lift Lowering" 2 "Nose Lift Raising" 1 "Nose Lift High" 0 "Nose Lift Low" ;
+VAL_ 168 NNoseLiftAvailability 15 "Default" 6 "Permanently unav System Failure" 5 "Temp unavailable Dynamic cond" 4 "Temp unavailable DriverDoor open" 3 "Temp unavailable Engine not run" 2 "Temporarily unavailable Too fast" 1 "Available dynamic function" 0 "Available static function" ;
+VAL_ 168 NDRSActive 3 "Default" 2 "Available - Active" 1 "Available - Not Active" 0 "Not available" ;
+VAL_ 1080 ctc_no_close_reason 18 "Ctc_na_sequence_fault" 17 "Ctc_na_om_veh_neg_HS_drv_chip" 16 "Ctc_na_om_veh_pos_HS_drv_chip" 15 "Ctc_na_om_prechg_HS_drv_chip" 14 "Ctc_na_prechg_at_idle" 13 "Ctc_na_veh_neg_at_idle" 12 "Ctc_na_veh_pos_at_idle" 11 "Ctc_na_mdm_cell_v_complete" 10 "Ctc_na_prechg_res_mj" 9 "Ctc_na_imi_hv_bus_zero_curr" 8 "Ctc_na_vmi_low_res_bus_0v" 7 "Ctc_na_fail_func_inhibit" 6 "Ctc_na_vmi_hvil_status" 5 "Ctc_na_vmi_12vlogicsupply_status" 4 "Ctc_na_cont_chg_psn_expect" 3 "Ctc_na_veh_delayed_prechg_dmd" 2 "Ctc_na_veh_delayed_neg_dmd" 1 "Ctc_na_veh_delayed_pos_dmd" 0 "Ctc_na_none" ;
+VAL_ 1076 acv_enum_packDisLimReasonFF_Long 10 "FF_INHIBIT_CHG" 9 "FF_INHIBIT_DIS" 8 "FF_CRANK_ONLY" 7 "FF_LIMP_HOME" 6 "CRITICAL_PULSE_FEAT" 5 "CELL_LIMITS_FEAT" 4 "COOLANT_INLET_TEMP" 3 "CELL_CORE_TEMP" 2 "EXT_SOC" 1 "INT_SOC" 0 "INVALID" ;
+VAL_ 1076 acv_enum_packChgLimReasonFF_Med 10 "FF_INHIBIT_CHG" 9 "FF_INHIBIT_DIS" 8 "FF_CRANK_ONLY" 7 "FF_LIMP_HOME" 6 "CRITICAL_PULSE_FEAT" 5 "CELL_LIMITS_FEAT" 4 "COOLANT_INLET_TEMP" 3 "CELL_CORE_TEMP" 2 "EXT_SOC" 1 "INT_SOC" 0 "INVALID" ;
+VAL_ 1076 acv_enum_packChgLimReasonFF_Long 10 "FF_INHIBIT_CHG" 9 "FF_INHIBIT_DIS" 8 "FF_CRANK_ONLY" 7 "FF_LIMP_HOME" 6 "CRITICAL_PULSE_FEAT" 5 "CELL_LIMITS_FEAT" 4 "COOLANT_INLET_TEMP" 3 "CELL_CORE_TEMP" 2 "EXT_SOC" 1 "INT_SOC" 0 "INVALID" ;
+VAL_ 1076 acv_enum_packChgLimReasonFF_Shrt 10 "FF_INHIBIT_CHG" 9 "FF_INHIBIT_DIS" 8 "FF_CRANK_ONLY" 7 "FF_LIMP_HOME" 6 "CRITICAL_PULSE_FEAT" 5 "CELL_LIMITS_FEAT" 4 "COOLANT_INLET_TEMP" 3 "CELL_CORE_TEMP" 2 "EXT_SOC" 1 "INT_SOC" 0 "INVALID" ;
+VAL_ 1076 acv_enum_packDisLimReasonFF_Shrt 10 "FF_INHIBIT_CHG" 9 "FF_INHIBIT_DIS" 8 "FF_CRANK_ONLY" 7 "FF_LIMP_HOME" 6 "CRITICAL_PULSE_FEAT" 5 "CELL_LIMITS_FEAT" 4 "COOLANT_INLET_TEMP" 3 "CELL_CORE_TEMP" 2 "EXT_SOC" 1 "INT_SOC" 0 "INVALID" ;
+VAL_ 1076 acv_enum_packDisLimReasonFF_Med 10 "FF_INHIBIT_CHG" 9 "FF_INHIBIT_DIS" 8 "FF_CRANK_ONLY" 7 "FF_LIMP_HOME" 6 "CRITICAL_PULSE_FEAT" 5 "CELL_LIMITS_FEAT" 4 "COOLANT_INLET_TEMP" 3 "CELL_CORE_TEMP" 2 "EXT_SOC" 1 "INT_SOC" 0 "INVALID" ;
+VAL_ 1029 rBatterySOHCPB 255 "Default" ;
+VAL_ 1029 rLastChargeSOCDelta 127 "Default" ;
+VAL_ 1029 rBatterySOC 255 "Default" ;
+VAL_ 1029 NBatterySOCDesired 15 "Default" 6 "Discharge Demand" 5 "Discharge Request" 4 "Hold charge Demand" 3 "Hold charge Request" 2 "Charge Demand" 1 "Charge Request" 0 "No request" ;
+VAL_ 1029 BBatteryWarrantyVoid 1 "Warranty Void" 0 "Warranty Not Void" ;
+VAL_ 1028 rBatterySOHCPC 255 "Default" ;
+VAL_ 1028 BBMSChargerTetheredStatus 1 "Tethered" 0 "Not tethered" ;
+VAL_ 1027 BBMSContactorOpenIndicator 1 "Opening imminent" 0 "Opening not imminent" ;
+VAL_ 1027 NBMSMILRequested 3 "Default" 2 "Not used" 1 "Lamp on" 0 "Lamp off" ;
+VAL_ 1027 BVehicleNegContactorState 1 "Controlled Closed" 0 "Controlled Open" ;
+VAL_ 1027 NFullDischargeRequested 3 "Default" 2 "not used" 1 "Request" 0 "No request" ;
+VAL_ 1027 BBMSContactorCloseIndicator 1 "Ready to close" 0 "Not ready to close" ;
+VAL_ 1027 BVehiclePosContactorState 1 "Controlled Closed" 0 "Controlled Open" ;
+VAL_ 1027 BContactorStuckClosed 1 "Fault" 0 "No fault" ;
+VAL_ 1027 BContactorStuckOpen 1 "Fault" 0 "No fault" ;
+VAL_ 1027 BChargerPosContactorState 1 "Controlled Closed" 0 "Controlled Open" ;
+VAL_ 1027 NBMSStatus 31 "Default" 15 "Not running (B9 warning)" 14 "B2 Fault" 13 "B1 Fault" 12 "External charging" 11 "Cell balancing only" 10 "Shutting down" 9 "Precharge" 8 "Not running (B8 warning)" 7 "Running (B7 warning)" 6 "Running (B6 warning)" 5 "Running (B5 warning)" 4 "Running (B4 warning)" 3 "Running (B3 warning)" 2 "Running (no warning)" 1 "Standby" 0 "Initialisation" ;
+VAL_ 1027 BPrechargeContactorState 1 "Controlled Closed" 0 "Controlled Open" ;
+VAL_ 1027 BChargerNegContactorState 1 "Controlled Closed" 0 "Controlled Open" ;
+VAL_ 1027 NHVBSoCResetState 12 "Wait after test" 11 "Recharge" 10 "Success" 9 "Measure" 8 "Hold after Discharging with balancing inhibited" 7 "Discharge with balancing inhibited" 6 "Hold after discharging" 5 "Discharge" 4 "Hold after charging" 3 "Charge" 2 "Initial hold" 1 "Normal - not in test cycle" 0 "Disabled" ;
+VAL_ 1025 tChargingRemainingDisplayed 1023 "Default" 1022 "Unknown" ;
+VAL_ 1024 VHybridBattery 65535 "Default" ;
+VAL_ 212 NIBSIdleJackRequest 3 "Request at least Idle Speed 3" 2 "Request at least Idle Speed 2" 1 "Request at least Idle Speed 1" 0 "No change to Engine-Set Idle Spd" ;
+VAL_ 212 BCrankInhibit 1 "Do not crank" 0 "Crank allowed" ;
+VAL_ 212 BRLSRainDetected 1 "rain" 0 "no rain" ;
+VAL_ 212 BPowerSavingMode 1 "Reduced Electrical Consumption" 0 "Normal Electrical Operation" ;
+VAL_ 212 NBatteryChargeRequest 3 "preferential charge allowed" 2 "must charge" 1 "should charge" 0 "ok to charge" ;
+VAL_ 212 NWashSwitch 3 "default" 1 "screen wash" 0 "Wash off" ;
+VAL_ 212 NBrakeLightRequestSource 7 "Default" 4 "EPB RWU Request" 3 "GLongitudinal" 2 "Brake pressure" 1 "Brake light switch" 0 "Not requested" ;
+VAL_ 212 NBatteryStatus 2 "default" 1 "Not OK" 0 "OK" ;
+VAL_ 212 NWiperSwitch 7 "default" 4 "wipe speed 2" 3 "wipe speed 1" 2 "Auto wipe / intermittent" 1 "Momentary wipe" 0 "Wipe off" ;
+VAL_ 212 NStatusIlluminationReq 15 "default" 14 "Bright with roof open" 12 "Bright ambient" 8 "Low ambient light" 4 "Night" ;
+

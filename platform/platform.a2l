@@ -1,0 +1,18 @@
+/* A2L fragment to define conversions for platform types */
+/* $Id: platform.a2l 12446 2014-10-06 14:10:34Z pr4 $ */
+    /begin COMPU_METHOD temperature_t "Conversion for temperature_t type"
+        LINEAR "%6.2" "deg. C"
+        COEFFS_LINEAR   0.00390625 0
+    /end COMPU_METHOD
+
+
+    /begin COMPU_METHOD Dio_pin_trigger_edge_e "Conversion for Dio_pin_trigger_edge_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF Dio_pin_trigger_edge_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB Dio_pin_trigger_edge_vtab "" TAB_VERB 2
+        0 "Positive edge triggered"
+        1 "Negative edge triggered"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

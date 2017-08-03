@@ -1,0 +1,13 @@
+/*         Feature, Shutdown Type, Initial State */
+MS_INHIBIT(vio,     primary,       Ms_shutdown_indeterminate)
+MS_INHIBIT(cgi,     primary,       Ms_shutdown_indeterminate)
+MS_INHIBIT(vmd,     primary,       Ms_shutdown_indeterminate)
+MS_INHIBIT(cmd,     primary,       Ms_shutdown_indeterminate)
+MS_INHIBIT(cm,      primary,       Ms_shutdown_indeterminate)
+MS_INHIBIT(wake,    primary,       Ms_shutdown_indeterminate)
+MS_INHIBIT(mdm,     secondary,     Ms_shutdown_indeterminate)
+MS_INHIBIT(ms,      secondary,     Ms_shutdown_indeterminate)
+MS_INHIBIT(om,      secondary,     Ms_shutdown_indeterminate)
+MS_INHIBIT(aps,     secondary,     Ms_shutdown_indeterminate)
+MS_INHIBIT(log,     primary,       Ms_shutdown_indeterminate)
+MS_INHIBIT(rtc,     secondary,     Ms_shutdown_indeterminate)

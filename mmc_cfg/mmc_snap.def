@@ -1,0 +1,142 @@
+/*
+ * Defines snapshot data elements
+ */
+
+ /* 
+  * The snapshot DID macro format is as follows:
+  * DEF_SS_DID(id, size, description)
+  *     - id: 16-bit data ID unique to the snapshot element. Enter as a 4 character HEX value 
+  *           in lowercase, without the 0x prefix.
+  *     - size: Total size of the packed snapshot element (in bytes).
+  *     - description: Description of the snapshot element (more for documentation purposes
+  *                    since this is not documented anywhere else).
+  *
+  * The DEF_SS_DID is used to define variables that hold the snapshot element configuration data
+  * and to declare a function which is used to collect and record the snapshot element data.
+  *
+  * NOTE:   Order in which these snapshot DIDs are listed is the order in which they will be 
+  *         reported. Hence, the order MUST match the CDD spec.
+  */
+
+DEF_SS_DID(02ff, 13u, "Common McLaren snapshot data")
+DEF_SS_DID(0400,  1u, "Fault sub-type")
+DEF_SS_DID(0401,  2u, "ICM state")
+DEF_SS_DID(0402,  2u, "VTBM status")
+DEF_SS_DID(0403,  3u, "CTC sequence state")
+DEF_SS_DID(0404,  6u, "Cell temperature")
+DEF_SS_DID(0405,  7u, "Cell voltage")
+DEF_SS_DID(0406,  2u, "Summated cell voltage")
+DEF_SS_DID(0407,  4u, "Bus current")
+DEF_SS_DID(0408,  3u, "Current lowest cell temperature")
+DEF_SS_DID(0409,  1u, "CGS state")
+DEF_SS_DID(040a,  1u, "CCO state")
+DEF_SS_DID(040b,  3u, "Pilot input")
+DEF_SS_DID(040c,  3u, "Proximity input")
+DEF_SS_DID(040d,  3u, "Charger current demand")
+DEF_SS_DID(040e,  3u, "Vehicle immobilisation signals")
+DEF_SS_DID(040f,  1u, "ICM balance action demand")
+DEF_SS_DID(0410,  2u, "ICM last rejected message")
+DEF_SS_DID(0411,  4u, "VTBM cell measurements")
+DEF_SS_DID(0412,  9u, "VTBM reference data")
+DEF_SS_DID(0413,  2u, "Inlet/Outlet temperature")
+DEF_SS_DID(0414,  4u, "Inlet/Outlet ADC counts")
+DEF_SS_DID(0415,  4u, "Modelled cell temperature extremes")
+DEF_SS_DID(0416,  4u, "Measured cell temperature extremes")
+DEF_SS_DID(0417,  6u, "Pre-charger contactor driver")
+DEF_SS_DID(0418,  6u, "Vehicle positive contactor driver")
+DEF_SS_DID(0419,  6u, "Vehicle negative contactor driver")
+DEF_SS_DID(041a,  6u, "Charger positive contactor driver")
+DEF_SS_DID(041b,  6u, "Charger negative contactor driver")
+DEF_SS_DID(041c,  7u, "Vehicle bus Hi resolution voltage")
+DEF_SS_DID(041d,  7u, "Charger bus Hi resolution voltage")
+DEF_SS_DID(041e,  3u, "Overall Lo resolution voltage")
+DEF_SS_DID(041f,  3u, "Positive Lo resolution voltage")
+DEF_SS_DID(0420,  1u, "Delayed vehicle CTC demand")
+DEF_SS_DID(0421,  3u, "CTC pre-charge current")
+DEF_SS_DID(0422,  6u, "Precharge CTC wear")
+DEF_SS_DID(0423,  6u, "Vehicle bus positive CTC wear")
+DEF_SS_DID(0424,  6u, "Vehicle bus negative CTC wear")
+DEF_SS_DID(0425,  6u, "Charger bus positive CTC wear")
+DEF_SS_DID(0426,  6u, "Charger bus negative CTC wear")
+DEF_SS_DID(0427, 12u, "Vehicle bus ground fault data")
+DEF_SS_DID(0428, 12u, "Charger bus ground fault data")
+DEF_SS_DID(0429,  1u, "Bleed resistor presence indication")
+DEF_SS_DID(042a,  3u, "12V logic supply voltage")
+DEF_SS_DID(042b,  3u, "12V power supply voltage")
+DEF_SS_DID(042c,  3u, "ISA 12V supply voltage")
+DEF_SS_DID(042d,  3u, "Vehicle negative 12V supply voltage")
+DEF_SS_DID(042e,  3u, "Vehicle positive 12V supply voltage")
+DEF_SS_DID(042f,  3u, "VTBM CAN 5V supply voltage")
+DEF_SS_DID(0430,  3u, "VTBM CAN ground supply voltage")
+DEF_SS_DID(0431,  1u, "ISA supply IO")
+DEF_SS_DID(0432,  1u, "VTBM supply IO")
+DEF_SS_DID(0433,  6u, "Available charge/discharge current")
+DEF_SS_DID(0434, 12u, "ISA version")
+DEF_SS_DID(0435,  1u, "ISA state")
+DEF_SS_DID(0436,  5u, "ISA result")
+DEF_SS_DID(0437,  3u, "Demanded contactor outputs")
+DEF_SS_DID(0438,  2u, "Positive voltage prior to pre-charge")
+DEF_SS_DID(0439,  1u, "EOL data status")
+DEF_SS_DID(043a,  1u, "Sensor calibration data status")
+DEF_SS_DID(043b,  1u, "Offline calibration data status")
+DEF_SS_DID(043c, 10u, "MDM cycle data")
+DEF_SS_DID(043d,  1u, "RTC status")
+DEF_SS_DID(043e,  1u, "Current SOH")
+DEF_SS_DID(043f,  1u, "Closing of vehicle contactors allowed indication")
+DEF_SS_DID(0440,  1u, "Ignition input state")
+DEF_SS_DID(0441,  1u, "Main state machine state")
+DEF_SS_DID(0442,  7u, "ISA response data")
+DEF_SS_DID(0443,  3u, "Pack layout data")
+DEF_SS_DID(0444,  1u, "VMD flags")
+DEF_SS_DID(0445,  1u, "CTC request from HCU")
+DEF_SS_DID(0446,  1u, "Current SOC")
+
+ /* 
+  * The DEF_SNAP macro is used to assign the desired parameters to the snapshot. The format is 
+  * as follows:
+  * DEF_SNAP(name, SET_SS_DIDS(did), description)
+  *     - name: Snapshot name
+  *     - dids: A list of DIDs associated with this snapshot. Use the SS_DID macro for each entry with
+  *             the ID specified as a 4 character HEX value in lowercase, without the 0x prefix). Enter 
+  *             as many entries as required, separated by a space.
+  *     - description: Description of the snapshot (more for documentation purposes
+  *                    since this is not documented anywhere else).
+  */
+DEF_SNAP(common, SS_DID(02ff) SS_DID(0400) SS_DID(0446) SS_DID(0413), "Common snapshot data")
+DEF_SNAP(cell_vt, SS_DID(0404) SS_DID(0405) SS_DID(0406) SS_DID(0407), "Cell voltage and temperature")
+DEF_SNAP(charger, SS_DID(0409) SS_DID(040a) SS_DID(040b) SS_DID(040c) SS_DID(040d) SS_DID(040e) SS_DID(0407), "Charger data")
+DEF_SNAP(vtbm_std, SS_DID(0401) SS_DID(0402) SS_DID(040f) SS_DID(0410) SS_DID(0411) SS_DID(0412), "Standard VTBM status data")
+DEF_SNAP(pack_temp, SS_DID(0414) SS_DID(0404) SS_DID(0415) SS_DID(0416), "Pack temperature")
+DEF_SNAP(prechg_drv_std, SS_DID(0417), "Standard pre-charger contactor driver data")
+DEF_SNAP(veh_pos_drv_std, SS_DID(0418), "Standard vehicle positive contactor driver data")
+DEF_SNAP(veh_neg_drv_std, SS_DID(0419), "Standard vehicle negative contactor driver data")
+DEF_SNAP(chg_pos_drv_std, SS_DID(041a), "Standard charger positive contactor driver data")
+DEF_SNAP(chg_neg_drv_std, SS_DID(041b), "Standard charger negative contactor driver data")
+DEF_SNAP(prechg_drv_ext, SS_DID(0417) SS_DID(0403) SS_DID(0420) SS_DID(0421) SS_DID(0407) SS_DID(041f), "Extended pre-charger contactor driver data")
+DEF_SNAP(veh_neg_drv_ext, SS_DID(0419) SS_DID(0403) SS_DID(0420) SS_DID(0421) SS_DID(0407) SS_DID(041e), "Extended vehicle negative contactor driver data")
+DEF_SNAP(veh_pos_drv_ext, SS_DID(0418) SS_DID(0419) SS_DID(0403) SS_DID(0406) SS_DID(041e), "Extended vehicle positive contactor driver data")
+DEF_SNAP(veh_ctc_wear, SS_DID(0422) SS_DID(0423) SS_DID(0424), "Vehicle contactor wear data")
+DEF_SNAP(chg_ctc_wear, SS_DID(0424) SS_DID(0425) SS_DID(0426), "Charger contactor wear data")
+DEF_SNAP(veh_bus_gf, SS_DID(0429) SS_DID(0427), "Vehicle bus ground fault detection")
+DEF_SNAP(chg_bus_gf, SS_DID(0429) SS_DID(0428), "Charger bus ground fault detection")
+DEF_SNAP(soh, SS_DID(043e), "SOH")
+DEF_SNAP(supp_12v, SS_DID(042a) SS_DID(042b) SS_DID(042e) SS_DID(042d) SS_DID(0406) SS_DID(0407), "12V supply voltages")
+DEF_SNAP(supp_vtbm, SS_DID(042f) SS_DID(0432) SS_DID(0430), "VTBM supply voltages")
+DEF_SNAP(supp_isa, SS_DID(042c) SS_DID(0431), "ISA supply voltage")
+DEF_SNAP(veh_hi_res_v, SS_DID(0406) SS_DID(041c), "Vehicle bus hi resolution voltage")
+DEF_SNAP(chg_hi_res_v, SS_DID(0406) SS_DID(041d), "Charger bus hi resolution voltage")
+DEF_SNAP(bus_current, SS_DID(0407) SS_DID(0433) SS_DID(0404), "Bus current")
+DEF_SNAP(isa, SS_DID(0434) SS_DID(0435) SS_DID(0436), "ISA data")
+DEF_SNAP(ctc_std, SS_DID(0403) SS_DID(0406) SS_DID(0407) SS_DID(0437), "Standard contactor sequence data")
+DEF_SNAP(ctc_chg_bus, SS_DID(0403) SS_DID(0406) SS_DID(0407) SS_DID(0437)SS_DID(041d), "Charger bus contactor data")
+DEF_SNAP(ctc_pos_bus, SS_DID(0403) SS_DID(0406) SS_DID(0407) SS_DID(0437) SS_DID(041f) SS_DID(0438), "Positive rail contactor data")
+DEF_SNAP(eol_status, SS_DID(0439), "EOL data status")
+DEF_SNAP(sens_cal_status, SS_DID(043a), "Sensor calibration data staus")
+DEF_SNAP(offline_cal_status, SS_DID(043b), "Offline calibration data status")
+DEF_SNAP(mdm_cycle, SS_DID(0406) SS_DID(0408) SS_DID(043c), "MDM cycle data")
+DEF_SNAP(rtc, SS_DID(043d), "RTC status")
+DEF_SNAP(ctc_overall, SS_DID(0403) SS_DID(0406) SS_DID(0407) SS_DID(0437) SS_DID(041e), "CTC overall")
+DEF_SNAP(isa_response, SS_DID(0442), "ISA response")
+DEF_SNAP(pack_layout, SS_DID(0443), "Pack layout data")
+DEF_SNAP(veh_dc_link, SS_DID(0406) SS_DID(0407) SS_DID(041e), "Vehicle DC link")
+DEF_SNAP(invalid_comm, SS_DID(0441) SS_DID(0440) SS_DID(043f) SS_DID(0444) SS_DID(0445), "Invalid comms data")

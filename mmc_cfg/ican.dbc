@@ -1,0 +1,1336 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: MMC VTBM
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ ConfigFormat : 0|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 184 SystemCfg: 8 MMC
+ SG_ Vtbm00VoltCount m1 : 11|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm01VoltCount m1 : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm02VoltCount m1 : 27|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm03VoltCount m1 : 35|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm04VoltCount m1 : 43|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm05VoltCount m1 : 51|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm00TempCount m1 : 15|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm01TempCount m1 : 23|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm02TempCount m1 : 31|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm03TempCount m1 : 39|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm04TempCount m1 : 47|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm05TempCount m1 : 55|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm06VoltCount m2 : 11|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm07VoltCount m2 : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm08VoltCount m2 : 27|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm09VoltCount m2 : 35|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm10VoltCount m2 : 43|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm11VoltCount m2 : 51|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm06TempCount m2 : 15|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm07TempCount m2 : 23|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm08TempCount m2 : 31|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm09TempCount m2 : 39|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm10TempCount m2 : 47|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm11TempCount m2 : 55|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm12VoltCount m3 : 11|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm13VoltCount m3 : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm14VoltCount m3 : 27|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm15VoltCount m3 : 35|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm16VoltCount m3 : 43|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm17VoltCount m3 : 51|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm12TempCount m3 : 15|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm13TempCount m3 : 23|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm14TempCount m3 : 31|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm15TempCount m3 : 39|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm16TempCount m3 : 47|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm17TempCount m3 : 55|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm18VoltCount m4 : 11|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm19VoltCount m4 : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm20VoltCount m4 : 27|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm21VoltCount m4 : 35|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm22VoltCount m4 : 43|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm23VoltCount m4 : 51|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm18TempCount m4 : 15|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm19TempCount m4 : 23|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm20TempCount m4 : 31|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm21TempCount m4 : 39|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm22TempCount m4 : 47|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm23TempCount m4 : 55|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm24VoltCount m5 : 11|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm25VoltCount m5 : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm26VoltCount m5 : 27|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm27VoltCount m5 : 35|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm28VoltCount m5 : 43|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm29VoltCount m5 : 51|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm24TempCount m5 : 15|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm25TempCount m5 : 23|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm26TempCount m5 : 31|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm27TempCount m5 : 39|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm28TempCount m5 : 47|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm29TempCount m5 : 55|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm30VoltCount m6 : 11|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm31VoltCount m6 : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm30TempCount m6 : 15|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm31TempCount m6 : 23|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ FrameChecksum : 63|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ ConfigFmt m135 : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ TempSensorType m135 : 39|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ ConfigCRC m6 : 47|16@0+ (1,0) [0|0] ""  VTBM
+ SG_ ResponseStep m135 : 31|8@0- (1,0) [0|0] ""  VTBM
+ SG_ ResponseDelay m135 : 23|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ CfgFrameNum M : 7|8@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 50 MeasureControl: 4 MMC
+ SG_ MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ MeasureWithPassive : 14|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ MeasureWithActive : 15|1@0- (1,0) [0|0] ""  VTBM
+ SG_ MeasureTarget : 12|5@0+ (1,0) [0|0] ""  VTBM
+ SG_ MeasureAction : 7|8@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 512 Vtbm00_Data0: 8 VTBM
+ SG_ Vtbm00_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 544 Vtbm00_Data1: 8 VTBM
+ SG_ Vtbm00_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 576 Vtbm00_Data2: 8 VTBM
+ SG_ Vtbm00_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 608 Vtbm00_Data3: 8 VTBM
+ SG_ Vtbm00_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 640 Vtbm00_Data4: 8 VTBM
+ SG_ Vtbm00_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 672 Vtbm00_Data5: 8 VTBM
+ SG_ Vtbm00_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 704 Vtbm00_Data6: 8 VTBM
+ SG_ Vtbm00_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 736 Vtbm00_Data7: 8 VTBM
+ SG_ Vtbm00_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm00_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 513 Vtbm01_Data0: 8 VTBM
+ SG_ Vtbm01_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 545 Vtbm01_Data1: 8 VTBM
+ SG_ Vtbm01_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 577 Vtbm01_Data2: 8 VTBM
+ SG_ Vtbm01_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 609 Vtbm01_Data3: 8 VTBM
+ SG_ Vtbm01_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 641 Vtbm01_Data4: 8 VTBM
+ SG_ Vtbm01_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 673 Vtbm01_Data5: 8 VTBM
+ SG_ Vtbm01_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 705 Vtbm01_Data6: 8 VTBM
+ SG_ Vtbm01_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 737 Vtbm01_Data7: 8 VTBM
+ SG_ Vtbm01_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm01_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 514 Vtbm02_Data0: 8 VTBM
+ SG_ Vtbm02_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 546 Vtbm02_Data1: 8 VTBM
+ SG_ Vtbm02_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 578 Vtbm02_Data2: 8 VTBM
+ SG_ Vtbm02_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 610 Vtbm02_Data3: 8 VTBM
+ SG_ Vtbm02_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 642 Vtbm02_Data4: 8 VTBM
+ SG_ Vtbm02_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 674 Vtbm02_Data5: 8 VTBM
+ SG_ Vtbm02_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 706 Vtbm02_Data6: 8 VTBM
+ SG_ Vtbm02_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 738 Vtbm02_Data7: 8 VTBM
+ SG_ Vtbm02_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm02_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 515 Vtbm03_Data0: 8 VTBM
+ SG_ Vtbm03_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 547 Vtbm03_Data1: 8 VTBM
+ SG_ Vtbm03_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 579 Vtbm03_Data2: 8 VTBM
+ SG_ Vtbm03_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 611 Vtbm03_Data3: 8 VTBM
+ SG_ Vtbm03_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 643 Vtbm03_Data4: 8 VTBM
+ SG_ Vtbm03_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 675 Vtbm03_Data5: 8 VTBM
+ SG_ Vtbm03_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 707 Vtbm03_Data6: 8 VTBM
+ SG_ Vtbm03_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 739 Vtbm03_Data7: 8 VTBM
+ SG_ Vtbm03_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm03_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 516 Vtbm04_Data0: 8 VTBM
+ SG_ Vtbm04_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 548 Vtbm04_Data1: 8 VTBM
+ SG_ Vtbm04_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 580 Vtbm04_Data2: 8 VTBM
+ SG_ Vtbm04_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 612 Vtbm04_Data3: 8 VTBM
+ SG_ Vtbm04_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 644 Vtbm04_Data4: 8 VTBM
+ SG_ Vtbm04_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 676 Vtbm04_Data5: 8 VTBM
+ SG_ Vtbm04_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 708 Vtbm04_Data6: 8 VTBM
+ SG_ Vtbm04_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 740 Vtbm04_Data7: 8 VTBM
+ SG_ Vtbm04_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm04_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 517 Vtbm05_Data0: 8 VTBM
+ SG_ Vtbm05_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 549 Vtbm05_Data1: 8 VTBM
+ SG_ Vtbm05_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 581 Vtbm05_Data2: 8 VTBM
+ SG_ Vtbm05_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 613 Vtbm05_Data3: 8 VTBM
+ SG_ Vtbm05_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 645 Vtbm05_Data4: 8 VTBM
+ SG_ Vtbm05_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 677 Vtbm05_Data5: 8 VTBM
+ SG_ Vtbm05_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 709 Vtbm05_Data6: 8 VTBM
+ SG_ Vtbm05_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 741 Vtbm05_Data7: 8 VTBM
+ SG_ Vtbm05_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm05_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 518 Vtbm06_Data0: 8 VTBM
+ SG_ Vtbm06_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 550 Vtbm06_Data1: 8 VTBM
+ SG_ Vtbm06_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 582 Vtbm06_Data2: 8 VTBM
+ SG_ Vtbm06_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 614 Vtbm06_Data3: 8 VTBM
+ SG_ Vtbm06_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 646 Vtbm06_Data4: 8 VTBM
+ SG_ Vtbm06_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 678 Vtbm06_Data5: 8 VTBM
+ SG_ Vtbm06_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 710 Vtbm06_Data6: 8 VTBM
+ SG_ Vtbm06_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 742 Vtbm06_Data7: 8 VTBM
+ SG_ Vtbm06_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm06_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 519 Vtbm07_Data0: 8 VTBM
+ SG_ Vtbm07_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 551 Vtbm07_Data1: 8 VTBM
+ SG_ Vtbm07_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 583 Vtbm07_Data2: 8 VTBM
+ SG_ Vtbm07_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 615 Vtbm07_Data3: 8 VTBM
+ SG_ Vtbm07_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 647 Vtbm07_Data4: 8 VTBM
+ SG_ Vtbm07_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 679 Vtbm07_Data5: 8 VTBM
+ SG_ Vtbm07_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 711 Vtbm07_Data6: 8 VTBM
+ SG_ Vtbm07_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 743 Vtbm07_Data7: 8 VTBM
+ SG_ Vtbm07_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm07_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 520 Vtbm08_Data0: 8 VTBM
+ SG_ Vtbm08_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 552 Vtbm08_Data1: 8 VTBM
+ SG_ Vtbm08_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 584 Vtbm08_Data2: 8 VTBM
+ SG_ Vtbm08_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 616 Vtbm08_Data3: 8 VTBM
+ SG_ Vtbm08_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 648 Vtbm08_Data4: 8 VTBM
+ SG_ Vtbm08_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 680 Vtbm08_Data5: 8 VTBM
+ SG_ Vtbm08_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 712 Vtbm08_Data6: 8 VTBM
+ SG_ Vtbm08_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 744 Vtbm08_Data7: 8 VTBM
+ SG_ Vtbm08_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm08_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 521 Vtbm09_Data0: 8 VTBM
+ SG_ Vtbm09_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 553 Vtbm09_Data1: 8 VTBM
+ SG_ Vtbm09_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 585 Vtbm09_Data2: 8 VTBM
+ SG_ Vtbm09_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 617 Vtbm09_Data3: 8 VTBM
+ SG_ Vtbm09_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 649 Vtbm09_Data4: 8 VTBM
+ SG_ Vtbm09_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 681 Vtbm09_Data5: 8 VTBM
+ SG_ Vtbm09_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 713 Vtbm09_Data6: 8 VTBM
+ SG_ Vtbm09_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 745 Vtbm09_Data7: 8 VTBM
+ SG_ Vtbm09_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm09_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 522 Vtbm10_Data0: 8 VTBM
+ SG_ Vtbm10_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 554 Vtbm10_Data1: 8 VTBM
+ SG_ Vtbm10_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 586 Vtbm10_Data2: 8 VTBM
+ SG_ Vtbm10_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 618 Vtbm10_Data3: 8 VTBM
+ SG_ Vtbm10_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 650 Vtbm10_Data4: 8 VTBM
+ SG_ Vtbm10_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 682 Vtbm10_Data5: 8 VTBM
+ SG_ Vtbm10_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 714 Vtbm10_Data6: 8 VTBM
+ SG_ Vtbm10_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 746 Vtbm10_Data7: 8 VTBM
+ SG_ Vtbm10_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm10_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 523 Vtbm11_Data0: 8 VTBM
+ SG_ Vtbm11_Volt00 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Volt01 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Temp00 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_Temp01 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_CycleCount0 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_Data00cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 555 Vtbm11_Data1: 8 VTBM
+ SG_ Vtbm11_Volt02 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Volt03 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Temp02 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_Temp03 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_CycleCount1 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_Data01cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 587 Vtbm11_Data2: 8 VTBM
+ SG_ Vtbm11_Volt04 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Volt05 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Temp04 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_Temp05 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_CycleCount2 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_Data02cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 619 Vtbm11_Data3: 8 VTBM
+ SG_ Vtbm11_Volt06 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Volt07 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Temp06 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_Temp07 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_CycleCount3 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_Data03cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 651 Vtbm11_Data4: 8 VTBM
+ SG_ Vtbm11_Volt08 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Volt09 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Temp08 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_Temp09 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_CycleCount4 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_Data04cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 683 Vtbm11_Data5: 8 VTBM
+ SG_ Vtbm11_Volt10 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Volt11 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Temp10 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_Temp11 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_CycleCount5 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_Data05cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 715 Vtbm11_Data6: 8 VTBM
+ SG_ Vtbm11_Volt12 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Volt13 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Temp12 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_Temp13 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_CycleCount6 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_Data06cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 747 Vtbm11_Data7: 8 VTBM
+ SG_ Vtbm11_Volt14 : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Volt15 : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_Temp14 : 39|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_Temp15 : 44|11@0- (0.125,0) [-128|127.875] "degC"  MMC
+ SG_ Vtbm11_CycleCount7 : 49|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_Data07cs : 63|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1376 Vtbm00_Refs: 8 VTBM
+ SG_ Vtbm00_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm00_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1377 Vtbm01_Refs: 8 VTBM
+ SG_ Vtbm01_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm01_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1378 Vtbm02_Refs: 8 VTBM
+ SG_ Vtbm02_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm02_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1379 Vtbm03_Refs: 8 VTBM
+ SG_ Vtbm03_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm03_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1380 Vtbm04_Refs: 8 VTBM
+ SG_ Vtbm04_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm04_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1381 Vtbm05_Refs: 8 VTBM
+ SG_ Vtbm05_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm05_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1382 Vtbm06_Refs: 8 VTBM
+ SG_ Vtbm06_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm06_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1383 Vtbm07_Refs: 8 VTBM
+ SG_ Vtbm07_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm07_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1384 Vtbm08_Refs: 8 VTBM
+ SG_ Vtbm08_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm08_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1385 Vtbm09_Refs: 8 VTBM
+ SG_ Vtbm09_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm09_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1386 Vtbm10_Refs: 8 VTBM
+ SG_ Vtbm10_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm10_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1387 Vtbm11_Refs: 8 VTBM
+ SG_ Vtbm11_ref_cs : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_ref_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_ref_start_diag : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_ref_pass_diag : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_ref_act_diag : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_start_v : 39|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_pass_v : 23|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+ SG_ Vtbm11_act_v : 7|16@0+ (0.00012207,0) [0|7.9998575] "V"  MMC
+
+BO_ 1344 Vtbm00_Status: 8 VTBM
+ SG_ Vtbm00_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm00protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1345 Vtbm01_Status: 8 VTBM
+ SG_ Vtbm01_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm01protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1346 Vtbm02_Status: 8 VTBM
+ SG_ Vtbm02_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm02protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1347 Vtbm03_Status: 8 VTBM
+ SG_ Vtbm03_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm03protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1348 Vtbm04_Status: 8 VTBM
+ SG_ Vtbm04_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm04protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1349 Vtbm05_Status: 8 VTBM
+ SG_ Vtbm05_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm05protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1350 Vtbm06_Status: 8 VTBM
+ SG_ Vtbm06_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm06protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1351 Vtbm07_Status: 8 VTBM
+ SG_ Vtbm07_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm07protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1352 Vtbm08_Status: 8 VTBM
+ SG_ Vtbm08_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm08protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1353 Vtbm09_Status: 8 VTBM
+ SG_ Vtbm09_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm09protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1354 Vtbm10_Status: 8 VTBM
+ SG_ Vtbm10_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm10protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 1355 Vtbm11_Status: 8 VTBM
+ SG_ Vtbm11_status_csum : 63|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_flash_fault : 40|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_configured : 52|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_calibrated : 53|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_eol_fault : 54|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_eee_fault : 55|1@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_balcell : 27|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_balstatus : 29|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_ErrCode : 15|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_status_ctr : 51|4@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_ReqResp : 31|2@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11_canerr : 23|8@0+ (1,0) [0|0] ""  MMC
+ SG_ Vtbm11protver : 7|8@0+ (1,0) [0|0] ""  MMC
+
+BO_ 320 Vtbm00_BalCtl: 4 MMC
+ SG_ Vtbm00_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm00_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm00_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm00_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm00_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm00_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 321 Vtbm01_BalCtl: 4 MMC
+ SG_ Vtbm01_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm01_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm01_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm01_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm01_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm01_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 322 Vtbm02_BalCtl: 4 MMC
+ SG_ Vtbm02_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm02_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm02_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm02_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm02_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm02_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 323 Vtbm03_BalCtl: 4 MMC
+ SG_ Vtbm03_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm03_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm03_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm03_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm03_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm03_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 324 Vtbm04_BalCtl: 4 MMC
+ SG_ Vtbm04_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm04_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm04_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm04_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm04_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm04_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 325 Vtbm05_BalCtl: 4 MMC
+ SG_ Vtbm05_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm05_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm05_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm05_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm05_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm05_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 326 Vtbm06_BalCtl: 4 MMC
+ SG_ Vtbm06_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm06_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm06_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm06_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm06_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm06_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 327 Vtbm07_BalCtl: 4 MMC
+ SG_ Vtbm07_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm07_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm07_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm07_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm07_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm07_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 328 Vtbm08_BalCtl: 4 MMC
+ SG_ Vtbm08_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm08_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm08_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm08_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm08_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm08_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 329 Vtbm09_BalCtl: 4 MMC
+ SG_ Vtbm09_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm09_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm09_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm09_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm09_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm09_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 330 Vtbm10_BalCtl: 4 MMC
+ SG_ Vtbm10_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm10_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm10_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm10_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm10_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm10_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 331 Vtbm11_BalCtl: 4 MMC
+ SG_ Vtbm11_MsgCounter : 19|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm11_FrameChecksum : 31|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm11_ClearErrCode : 6|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm11_ClearCANflags : 15|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm11_BalDmdCell : 3|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ Vtbm11_BalDmd : 5|2@0+ (1,0) [0|0] ""  VTBM
+
+BO_ 191 NetCtl: 8 MMC
+ SG_ MsgCounter : 51|4@0+ (1,0) [0|0] ""  VTBM
+ SG_ FrameChecksum : 63|8@0+ (1,0) [0|0] ""  VTBM
+ SG_ VtbmStatusRequest : 23|1@0+ (1,0) [0|0] ""  VTBM
+ SG_ MMCProtocolver : 7|8@0+ (1,0) [0|0] ""  VTBM
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "BusType" "CAN";
+VAL_ 184 TempSensorType 2 "PRT" 1 "NTC" ;
+VAL_ 50 MeasureAction 255 "ApplyBalancing" 1 "MeasureRefs" 0 "MeasureCells" ;
+VAL_ 1344 Vtbm00_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1344 Vtbm00_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1345 Vtbm01_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1345 Vtbm01_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1346 Vtbm02_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1346 Vtbm02_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1347 Vtbm03_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1347 Vtbm03_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1348 Vtbm04_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1348 Vtbm04_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1349 Vtbm05_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1349 Vtbm05_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1350 Vtbm06_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1350 Vtbm06_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1351 Vtbm07_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1351 Vtbm07_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1352 Vtbm08_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1352 Vtbm08_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1353 Vtbm09_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1353 Vtbm09_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1354 Vtbm10_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1354 Vtbm10_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 1355 Vtbm11_ErrCode 13 "Cell selection hardware error" 12 "Measure in progress" 11 "Value out of range" 10 "Invalid signal count" 9 "Invalid cell number" 8 "Unsupported command" 7 "Temp. sens. supply error" 6 "Configuration invalid" 5 "Configuration incomplete" 4 "Calibration invalid" 3 "EOL error" 2 "Hardware mismatch" 1 "Internal error" 0 "No error" ;
+VAL_ 1355 Vtbm11_ReqResp 2 "ReqMalformed" 1 "ReqInvalidState" 0 "ReqValid" ;
+VAL_ 320 Vtbm00_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 321 Vtbm01_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 322 Vtbm02_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 323 Vtbm03_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 324 Vtbm04_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 325 Vtbm05_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 326 Vtbm06_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 327 Vtbm07_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 328 Vtbm08_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 329 Vtbm09_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 330 Vtbm10_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+VAL_ 331 Vtbm11_BalDmd 2 "BalanceActive" 1 "BalancePassive" 0 "BalanceOff" ;
+

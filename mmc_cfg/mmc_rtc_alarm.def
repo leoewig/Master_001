@@ -1,0 +1,14 @@
+/**
+ * @file
+ * @ingroup rtc
+ *
+ * RTC alarm configuration for mmc target
+ *
+ * This file configures available independent RTC alarm sources (requesters)
+ *
+ * $Id: mmc_rtc_alarm.def 11919 2014-03-25 16:17:37Z pr4 $
+ */
+
+/* each independent RTC alarm wake-up source shall be listed bellow */
+RTC_ALARM_REQUESTER(cmd, ms_inhibit_cmd)
+RTC_ALARM_REQUESTER(log, ms_inhibit_log)

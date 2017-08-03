@@ -1,0 +1,16 @@
+/* A2L fragment to define conversions for fixed point types */
+/* $Id: icm.a2l 6550 2013-01-29 12:03:51Z pr4 $ */
+
+    /begin COMPU_METHOD eol_data_status_t "Conversion for eol_data_status_t type"
+        TAB_VERB "%0.0" ""
+        COMPU_TAB_REF eol_data_status_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB eol_data_status_vtab "" TAB_VERB 5
+        0 "eol_data_ok"
+        1 "eol_data_unsupported_hw_version"
+        2 "eol_data_invalid_crc"
+        3 "eol_data_wrong_format"
+        4 "eol_data_not_checked_yet"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

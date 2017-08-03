@@ -1,0 +1,14 @@
+/* A2L fragment to display the timing_monitor_e enumeration */
+    /begin COMPU_METHOD timing_monitor_e "Conversion for timing_monitor_e enum"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF timing_monitor_e_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB timing_monitor_e_vtab "" TAB_VERB 4
+        0 "No monitor"
+        1 "Monitor foreground"
+        2 "Monitor background"
+        3 "Monitor idle loop"
+        DEFAULT_VALUE "Unknown"
+    /end COMPU_VTAB
+

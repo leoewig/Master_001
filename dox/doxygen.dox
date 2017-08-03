@@ -1,0 +1,56 @@
+/**
+
+@file
+@ingroup doxygengroup
+
+Documentation file containing structural doxygen information such as the
+<a href="index.html">title</a> page and @ref doxygenpage "notes" on using
+Doxygen.
+
+$Id: doxygen.dox 2861 2012-07-16 14:48:59Z gvs $
+
+*/
+
+/**
+
+@mainpage NightWing Documentation
+
+ - Click on "Modules" above or <a href="modules.html">here</a> to dive into
+	the code
+ - The @ref testingpage "Testing" page describes the various ways to test
+	the code
+ - Use of Doxygen is documented @subpage doxygenpage "here"
+
+*/
+
+/**
+
+@defgroup doxygengroup Doxygen documentation
+
+*/
+/**
+@page doxygenpage
+
+See the NightWing
+[doxygen Twiki page](http://twiki.stc.ricplc.com/twiki5/bin/view/Miscprojects/NightWingDoxygen)
+for more thorough information on writing and using Doxygen documentation.
+
+@section building Re-building the documentation
+
+Command          | effect
+-----------------|-------
+`make docs`      | Build full documentation (slow)
+`make qdocs`     | Build documentation minus call graphs (quite quick)
+`make docsclean` | delete documentation and clean-up temporaries
+`make showdoc`   | Open already-built documentation.  Will peform a _full_ build if =modules.html= doesn't exist
+
+
+Doxygen pages will be created in a subdirectory called <tt>html</tt>.
+
+@section using Documenting code
+
+Use of doxygen within the code is described in the Software Detail Design
+Common Elements (SDDCE) and
+[doxygen Twiki page](http://twiki.stc.ricplc.com/twiki5/bin/view/Miscprojects/NightWingDoxygen)
+
+*/

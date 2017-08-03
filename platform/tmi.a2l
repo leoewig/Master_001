@@ -1,0 +1,38 @@
+/* A2L fragment to define conversions for fixed point types */
+/* $Id: tmi.a2l 7503 2013-03-06 12:16:48Z tg10 $ */
+
+    /begin COMPU_METHOD tmi_state_e "Conversion for tmi_state_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF tmi_state_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB tmi_state_vtab "" TAB_VERB 3
+        0 "Settling"
+        1 "Running"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD tmi_sensor_brand_e "Conversion for tmi_sensor_brand_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF tmi_sensor_brand_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB tmi_sensor_brand_vtab "" TAB_VERB 3
+        0 "No sensor"
+        1 "Bosch sensor"
+        2 "PT1000 sensor"
+        3 "NCP sensor"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD tmi_sensor_direction_e "Conversion for tmi_sensor_direction_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF tmi_sensor_direction_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB tmi_sensor_direction_vtab "" TAB_VERB 3
+        0 "No sensor"
+        1 "Inlet sensor"
+        2 "Outlet sensor"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

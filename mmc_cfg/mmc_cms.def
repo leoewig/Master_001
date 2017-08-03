@@ -1,0 +1,30 @@
+/**
+ * Cluster message definition file
+
+ * @file
+ * @ingroup cms
+ *
+ * This file defines cluster messages. Each cluster message may be defined with CMS_TABLE(name,
+ * index) macro, where first argument is symbolic name of the message and the second parameter is 
+ * its index, which is used as an identificator during communicating the requests to
+ * the instrument cluster. Each cluster message may be requested using 
+ * vio_cms_request(name, state) function, where name is the symbolic name from below prefixed
+ * with Cms_ and state is either Vio_cms_active or Vio_cms_inactive. 
+ *
+ * $Id: mmc_cms.def 11176 2013-11-05 16:31:07Z dc17 $
+ */
+
+CMS_TABLE(ICM1,1)
+CMS_TABLE(ICM2,2)
+CMS_TABLE(ICM3,3)
+CMS_TABLE(ICM4,4)
+CMS_TABLE(ICM5,5)
+CMS_TABLE(ICM6,6)
+CMS_TABLE(ICM7,7)
+CMS_TABLE(ICM8,8)
+CMS_TABLE(ICM9,9)
+CMS_TABLE(ICM10,10)
+CMS_TABLE(ICM11,11)
+CMS_TABLE(ICM12,12)
+CMS_TABLE(ICM13,13)
+CMS_TABLE(ICM14,14)

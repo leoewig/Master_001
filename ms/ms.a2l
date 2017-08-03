@@ -1,0 +1,45 @@
+/* A2L fragment to define conversions for fixed point types */
+/* $Id$ */
+
+    /begin COMPU_METHOD ms_state_e "Conversion for ms_state_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF ms_state_e_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB ms_state_e_vtab "" TAB_VERB 10
+        0 "Low_power"
+        1 "Init"
+        2 "Standby"
+        3 "Veh Closing"
+        4 "Veh Opening"
+        5 "Veh Active"
+        6 "Charger"
+        7 "Shutdown "
+        8 "Error"
+        9 "Limited"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD ms_inhibit_type_e "Conversion for ms_inhibit_type_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF ms_inhibit_type_e_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB ms_inhibit_type_e_vtab "" TAB_VERB 2
+        0 "Primary Feature Shutdown"
+        1 "Secondary Feature Shutdown"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD ms_shutdown_state_e "Conversion for ms_shutdown_state_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF ms_shutdown_state_e_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB ms_shutdown_state_e_vtab "" TAB_VERB 4
+        0 "Not ready to shutdown"
+        1 "Ready to shutdown"
+        2 "Commanded to shutdown"
+        3 "Indeterminate"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

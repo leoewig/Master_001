@@ -1,0 +1,13 @@
+/* A2L fragment to define conversions FM types */
+/* $Id: fm.a2l 7356 2013-02-25 15:00:29Z js45 $ */
+
+    /begin COMPU_METHOD hw_build_versions_e "Conversion for enum hw_build_versions_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF hw_build_versions_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB hw_build_versions_vtab "" TAB_VERB 2
+        0 "RUB_010"
+        1 "RUB_011"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

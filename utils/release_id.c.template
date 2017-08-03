@@ -1,0 +1,102 @@
+/**
+ * @file
+ * @ingroup release_id
+ *
+ * Release ID information
+ *
+ * The build process will use SubWCRev to replace $WCxxx$ placeholders and copy
+ * the result to the build directory.
+ *
+ * $Id: release_id.c.template 9304 2013-07-05 00:59:16Z gvs $
+ */
+/**
+ * <h1> Release ID </h1>
+ *
+ * Release ID puts an identification string into a binary at a fixed location.
+ *
+ * The string consists of the name of the executable together with revision
+ * info gleaned from SubVersion.
+ *
+ * <h2> SubWCRev </h2>
+ * The TortoiseSVN utility SubWCRev (i.e. Subversion Working Copy Revision)
+ * checks the source tree for the highest committed revion number (i.e. the
+ * revision resulting from the most recent committed change), whether there
+ * are mixed revisions and whether there are local changes.
+ *
+ * SubWCRev is run on the MMC_ROOT directory as defined in the Makefile.
+ *
+ * This file is used as a template to create a C file in the build directory
+ * called <em>build-directory</em>_id.c.  SubWCRev fills in the placeholders in
+ * the template with info from SVN.
+ *
+ * To see a list of SubWCRev options, run it without any arguments.
+ *
+ * <h2> Defined constants </h2>
+ * #release_id is defined in the relid section to define a build.
+ *
+ * A second constant #svn_url is defined in regular ROM with the SVN URL
+ * of MMC_ROOT.  This gives user and branch information which, combined
+ * with #release_id, will identify a build with exquisite precision.
+ *
+ * @defgroup release_id Release ID
+ * @ingroup platform
+ */
+
+#include "basic_types.h"
+#include "rel_id.h"
+
+/*
+ * put initilialised data into the relid section (at a fixed location defined
+ * in the .lkf file)
+ */
+#pragma section @gpage @far const {relid}
+
+/**
+ * Release ID formed by concatenating strings, containing:		\n
+ * __FILE__: The name of this file after copying to the build directory	\n
+ * WCREV: The highest committed revision number 			\n
+ * 'X'|'_': 'X' if there are mixed versions, '_' otherwise 		\n
+ * 'M'|'_': 'M' if there are local modification, '_' otherwise 		\n
+ * zero padding
+ *
+ * This constant is located by the linker in the relid section
+ * @a2l{include}
+ * @a2l{type,ASCII}
+ * @note must not move so that application can find bootloader info
+ */
+FROM char_t release_id[RELEASE_ID_SIZE] =
+		    "$WCMIXED?X:_$"	/* X: mixed versions */
+		    "$WCMODS?M:_$" 	/* M: local mods */
+		    " $WCREV$ "		/* Highest committed revision number */
+                    __FILE__;           /* this filename */
+
+/**
+ * Subversion commit date in BCD yyww format
+ * @a2l{include}
+ * @note must not move so that application can find bootloader info
+ * Its address must be given by BL_SVN_DATE_BCD_ADDRESS
+ */
+FROM uint16_t svn_date_bcd = 0x$WCDATE=%y%W$;
+
+/**
+ * Subversion commit date in BCD yyww format
+ * @a2l{include}
+ * @a2l{type,ASCII}
+ * @note must not move so that application can find bootloader info
+ * It's address must be given by BL_SVN_DATE_BCD_ADDRESS
+ */
+FROM char_t software_id[SOFTWARE_ID_LENGTH+1] = SOFTWARE_ID;
+
+/**
+ * SubVersion URL
+ * @a2l{include}
+ * @a2l{type,ASCII}
+ */
+FROM char_t svn_url[SVN_URL_SIZE] = "$WCURL$";
+
+/*
+ * back to regular ROM
+ */
+#pragma section @gpage @far const {}
+
+

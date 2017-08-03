@@ -1,0 +1,267 @@
+/* A2L fragment to define conversions for fixed point types */
+/* $Id: mmc_conversions.a2l 12457 2014-10-23 15:21:08Z dc17 $ */
+
+    /begin COMPU_METHOD seconds_x10_t "Conversion for seconds_x10_t type"
+        LINEAR "6.2" "seconds (*10)"
+        COEFFS_LINEAR   10 0          /* SECONDS_X10_T_BP == 0 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD ohm_per_volt_t "Conversion for ohm_per_volt_t type"
+        LINEAR "6.2" "Ohm/Volt"
+        COEFFS_LINEAR   0.0625 0          /* OHM_PER_VOLT_BP == 4 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD ohm_t "Conversion for ohm_t type"
+        LINEAR "6.2" "Ohm"
+        COEFFS_LINEAR   0.0009765625 0    /* OHM_BP == 10 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD milliohm_t "Conversion for milliohm_t type"
+        LINEAR "6.2" "mOhm"
+        COEFFS_LINEAR   0.0009765625 0    /* MILLIOHM_BP == 10 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD current_t "Conversion for current_t type"
+        LINEAR "6.2" "mA"
+        COEFFS_LINEAR   1.0 0    /* CURRENT_BP == 0 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD ts_time_t "Conversion for ts_time_t type"
+        LINEAR "6.2" "ms"
+        COEFFS_LINEAR   1.0 0    /* TIME_BP == 0 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD ts_ticks_t "Conversion for ts_ticks_t type"
+        LINEAR "6.2" ""
+        COEFFS_LINEAR   1.0 0    /* TICKS_BP == 0 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD temperature_t "Conversion for temperature_t type"
+        LINEAR "6.2" "deg. C"
+        COEFFS_LINEAR   0.00390625 0    /* TEMPERATURE_BP == 8 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD pack_v_t "Conversion for pack_v_t type"
+        LINEAR "6.2" "V"
+        COEFFS_LINEAR   0.0625 0    /* PACK_V_BP == 4 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD supply_v_t "Conversion for supply_v_t type"
+        LINEAR "6.2" "V"
+        COEFFS_LINEAR   0.0009765625 0    /* SUPPLY_V_BP == 10 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD power_t "Conversion for power_t type"
+        LINEAR "6.2" "W"
+        COEFFS_LINEAR   1 0    /* POWER_BP == 0 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD speed_t "Conversion for temperature_t type"
+        LINEAR "6.2" "km/hr"
+        COEFFS_LINEAR   0.00390625 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD bool_t "Conversion for bool_t type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF bool_t_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB bool_t_vtab "" TAB_VERB 2
+        0 "False"
+        1 "True"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD percent_t "Conversion for percent_t type"
+        LINEAR "6.2" "%"
+        COEFFS_LINEAR   0.00390625 0    /* PERCENT_BP == 8 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD data_validity_e "Conversion for data_validity_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF data_validity_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB data_validity_vtab "" TAB_VERB 3
+        0 "No data available"
+        1 "New data available"
+        2 "Old data available"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD cell_v_t "Conversion for cell_v_t type"
+        LINEAR "6.2" "V"
+        COEFFS_LINEAR   0.000122070 0    /* CELL_V_BP == 13 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD adc_v_t "Conversion for adc_v_t type"
+        LINEAR "6.2" "V"
+        COEFFS_LINEAR   0.000122070 0    /* ADC_V_BP == 13 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD fraction_t "Conversion for fraction_t type"
+        LINEAR "6.2" ""
+        COEFFS_LINEAR   0.000030518 0    /* FRACTION_BP == 15 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD frequency_t "Conversion for frequency_t type"
+        LINEAR "6.2" "Hz"
+        COEFFS_LINEAR   0.0078125 0    /* FREQUENCY_BP == 7 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD uint8_t "Conversion for uint8_t type"
+        LINEAR "8.0" ""
+        COEFFS_LINEAR   1 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD int8_t "Conversion for int8_t type"
+        LINEAR "8.0" ""
+        COEFFS_LINEAR   1 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD uint16_t "Conversion for uint16_t type"
+        LINEAR "8.0" ""
+        COEFFS_LINEAR   1 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD int16_t "Conversion for int16_t type"
+        LINEAR "8.0" ""
+        COEFFS_LINEAR   1 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD uint32_t "Conversion for uint32_t type"
+        LINEAR "8.0" ""
+        COEFFS_LINEAR   1 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD int32_t "Conversion for int32_t type"
+        LINEAR "8.0" ""
+        COEFFS_LINEAR   1 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD char_t "Conversion for char_t type"
+        LINEAR "8.0" ""
+        COEFFS_LINEAR   1 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD Eeprom_Op_Status "Conversion for Eeprom_Op_Status type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF Eeprom_Op_Status_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB Eeprom_Op_Status_vtab "" TAB_VERB 7
+        0 "Uninitialised"
+        1 "Driver ready"
+        2 "Driver busy"
+        3 "Device error"
+        4 "Device timeout"
+        5 "Buffer argument error"
+        6 "Address argument error"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD energy_t "Conversion for char_t type"
+        LINEAR "8.0" "mJ"
+        COEFFS_LINEAR   1 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD charge_t "Conversion for charge_t type"
+        LINEAR "6.2" "mC"
+        COEFFS_LINEAR   0.125 0          /* CHARGE_BP == 3 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD high_res_charge_t "Conversion for high_res_charge_t type"
+        LINEAR "6.2" "uC"
+        COEFFS_LINEAR   1.0 0    /* HIGH_RES_CHARGE_BP == 0 */
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD BalAction_e "Conversion for BalAction_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF BalAction_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB BalAction_vtab "" TAB_VERB 3
+        0 "No balancing action"
+        1 "Passive balancing action"
+        2 "Active balancing action"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD cellcount_t "Conversion for cellcount_t type"
+        LINEAR "6.2" ""
+        COEFFS_LINEAR   1.0 0          /* COUNT_BP == 0 */
+    /end COMPU_METHOD
+
+
+    /begin COMPU_METHOD flash_eee_reset_type_e "Conversion for reset type stored in emulated EEPROM"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF flash_eee_reset_type_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB flash_eee_reset_type_vtab "" TAB_VERB 11
+        0 "No application"
+        1 "Uncontrolled reset"
+        2 "Controlled reset"
+        3 "Internal Error"
+        4 "COP timeout"
+        5 "Clock monitor reset"
+        6 "XCP Program internal"
+        7 "XCP Program vehicle"
+        8 "ISO reprogram"
+        9 "Programming complete"
+        65535 "EEPROM uninitialised"
+        DEFAULT_VALUE "Unknown"
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD bms_status_e "Conversion for value which will overide actual NBMSStatus"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF bms_status_e_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB bms_status_e_vtab "" TAB_VERB 32
+        0 "Initialisation"
+        1 "Standby"
+        2 "Running - no warning "
+        3 "Running - B3 warning "
+        4 "Running - B4 warning "
+        5 "Running - B5 warning "
+        6 "Running - B6 warning "
+        7 "Running - B7 warning "
+        8 "Not running - B8 warning "
+        9 "Precharge"
+        10 "Shutting down"
+        11 "Cell balancing only"
+        12 "External charging"
+        13 "B1 Fault"
+        14 "B2 Fault"
+        15 "Not running - B9 warning "
+        16 "Invalid State - 16"
+        17 "Invalid State - 17"
+        18 "Invalid State - 18"
+        19 "Invalid State - 19"
+        20 "Invalid State - 20"
+        21 "Invalid State - 21"
+        22 "Invalid State - 22"
+        23 "Invalid State - 23"
+        24 "Invalid State - 24"
+        25 "Invalid State - 25"
+        26 "Invalid State - 26"
+        27 "Invalid State - 27"
+        28 "Invalid State - 28"
+        29 "Invalid State - 29"
+        30 "Invalid State - 30"
+        31 "Default"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD Ctc_cont_state_e "Conversion for contactor state indicator"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF Ctc_cont_state_e_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB Ctc_cont_state_e_vtab "" TAB_VERB 3
+        0 "Open"
+        1 "Closed"
+        3 "Unknown"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

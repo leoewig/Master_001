@@ -1,0 +1,50 @@
+/* A2L fragment to define conversions for fixed point types */
+/* $Id: imi.a2l 5828 2012-12-17 13:53:06Z tg10 $ */
+
+    /begin COMPU_METHOD imi_hv_bus_zero_curr_status_e "Conversion for imi_hv_bus_zero_curr_status_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF imi_hv_bus_zero_curr_status_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB imi_hv_bus_zero_curr_status_vtab "" TAB_VERB 3
+        0 "Current on the HV bus is zero"
+        1 "Current on the HV bus is non-zero"
+        2 "Latest measured current on the HV bus is invalid"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD imi_integral_validity_e "Conversion for imi_integral_validity_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF imi_integral_validity_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB imi_integral_validity_vtab "" TAB_VERB 3
+        0 "All integral readings valid"
+        1 "Some integral readings invalid"
+        2 "All integral readings invalid (or invalid pointer)"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD Imi_state_e "Conversion for Imi_state_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF Imi_state_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB Imi_state_vtab "" TAB_VERB 3
+        0 "IMI module is uninitialised"
+        1 "IMI module is initialised"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD Imi_sensor_type_e "Conversion for Imi_sensor_type_e type"
+        TAB_VERB "%3.1" ""
+        COMPU_TAB_REF Imi_sensor_type_vtab
+    /end COMPU_METHOD
+
+    /begin COMPU_VTAB Imi_sensor_type_vtab "" TAB_VERB 3
+        0 "LEM sensor"
+        1 "ISA sensor"
+        2 "Multiple sensor"
+        3 "keep this as the last element"
+        DEFAULT_VALUE ""
+    /end COMPU_VTAB

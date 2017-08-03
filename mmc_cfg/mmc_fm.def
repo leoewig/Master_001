@@ -1,0 +1,825 @@
+/* Defines fault types and its calibratable parameters. Also defines
+* fault subtypes, and failure function list. These definitions are used by the
+* fm module. The values for the parameters: fault_type, fault_subtype_name &
+* failure_function_name are derived from the RU_BMS_Diagnosis.xls. All the names
+* MUST be in lower case as other modules use these names for applying fault
+* filter.
+*
+* $Id: mmc_fm.def 12733 2015-07-08 16:01:15Z jdb2 $
+*
+* the def file idiom allows all the configuration information
+* for each fault type to be managed in one place but extracted - through multiple
+* inclusion and macro redefinition - in different places.
+*
+* format of macro FAULT_TABLE() is:
+* FAULT_TABLE(fault_type, failure_absent_inc_rate, failure_absent_dec_rate, flt_threshold,
+*             failure_present_inc_rate, failure_present_dec_rate, fail_func_link,
+*             obd_relevant, latch_type, mon_cond_count_down,
+*             snapshot,
+*             description_string, diagnosis_string )
+*
+* The parameters in the FAULT_TABLE() entries are the default parameters. To
+* associate a failure function to a fault the macro SET_FAIL_FUNC(fail_fun_name)
+* must be used as follows. e.g:
+*   FAULT_TABLE(internal_error, 1u, 1u, 3u, 1u, 1u, SET_FAIL_FUNC(no_fail_fun), SET_FAULT_GROUP(fault_cluster_none),
+*               FALSE, Fm_no_latch, FALSE, "Mondo big fault", "Software "
+*                                                              "team to blame")
+*
+* For associating more than one failure function to a fault, the failure
+* functions must be summed up using the macro SET_FAIL_FUNC(fail_fun_name)
+* as shown in the eg. below:
+* FAULT_TABLE(internal_error_unexpected, 1u, 1u, 3u, 1u, 1u,
+*            (SET_FAIL_FUNC(chg_contactor_inhibit) +
+*             SET_FAIL_FUNC(veh_contactor_inhibit) +
+*             SET_FAIL_FUNC(cell_balance_inhibit)), FALSE, Fm_no_latch, FALSE,
+*             "Mondo big fault", "Software team to blame" )
+*
+*
+* format of macro FAULT_SUBTYPE() is:
+* FAULT_SUBTYPE(fault_subtype_name)
+*
+* format of macro FAIL_FUNC() is:
+* FAIL_FUNC(failure_function_name)
+*
+* format of macro FAULT_GROUP() is:
+* FAULT_GROUP(group_name)
+*/
+
+/* Internal error */
+/*
+   Fault reaction is 'open with grace'
+      Rationale: Reset may involve opening contactors under heavy load.  Despite
+                 the fact that this fault should never be triggered, should aim
+                 for a controlled shutdown
+   Multiple inhibiting fault reactions
+      Rationale: Do not want to provide functionality in the face of an
+                 unknown/unepected internal fault
+*/
+FAULT_TABLE(internal_error_unexpected,1u,1u,3u,3u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(cell_balance_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"MMC Internal Fault (should never happen)","Report to manufacturer")
+FAULT_SUBTYPE(ie_mmc_assert)
+
+/*
+   Multiple inhibiting fault reactions
+      Rationale: Do not want to provide functionality in the face of an
+                 unknown/unepected internal fault.
+*/
+FAULT_TABLE(plat_mmc_watchdog_timeout, 1u,1u,1u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"MMC Watchdog Fault","MMC watchdog timed out causing a microprocessor reset")
+
+/*
+   Multiple inhibiting fault reactions
+      Rationale: Cannot provide function without a valid calibration
+*/
+FAULT_TABLE(plat_calibration_invalid,1u,0u,1u,1u,1u,SET_FAIL_FUNC(chg_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE, FM_FLAG_NONE,"Invalid MMC Calibration","The calibration data associated with the MMC microprocessor application has been found to be invalid")
+FAULT_SUBTYPE(mmc)
+
+/* Realtime Clock */
+/* Fault reaction is 'none'
+      Rationale: Up-stream functions deal with loss of RTC data
+*/
+FAULT_TABLE(plat_rtc,					1u,4u,4u,1u,4u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Fault detected when obtaining Real Time Clock data","")
+FAULT_TABLE(plat_rtc_config,            1u,1u,1u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Fault detected when obtaining Real Time Clock configuration","")
+FAULT_SUBTYPE(bad)
+
+/* CAN drivers */
+/* TODO: Set to zero increment to prevent spurious raising when no charger
+   strategy is present.  Need to set monitoring conditions for this fault */
+/* Fault reaction is 'none'
+      Rationale: Up-stream functions deal with loss of CAN data
+*/
+FAULT_TABLE(plat_veh_can_bus_unavailable,1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Vehicle CAN bus unavailable","")
+FAULT_TABLE(plat_chg_can_bus_unavailable,1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,   Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Off-board charger CAN bus unavailable","")
+FAULT_TABLE(plat_cur_can_bus_unavailable,1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),TRUE,Fm_no_latch,FALSE, FM_FLAG_LOW_V_NOMON,"Current sensor CAN bus unavailable","")
+
+/*
+   Fault reaction is 'none'
+      Rationale: Faults relating to the inability of the BMS to transmit data to
+                 vehicle nodes should be handled by those nodes
+*/
+FAULT_TABLE(plat_veh_can_tx_buffer_full ,1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Vehicle CAN bus transmission buffer full","")
+/*
+   Fault reaction is 'none'
+      Rationale: Fault will be detected due to lack of response to request message
+                 & appropriate fault reaction based on this
+*/
+FAULT_TABLE(plat_cur_can_tx_buffer_full ,1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Current sensor CAN bus transmission buffer full","")
+FAULT_TABLE(plat_chg_can_tx_buffer_full ,1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Charger CAN bus transmission buffer full","")
+FAULT_TABLE(plat_veh_can_rx_buffer_full ,1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Vehicle CAN bus reception buffer full","")
+FAULT_TABLE(plat_cur_can_rx_buffer_full ,1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Current sensor CAN bus reception buffer full","")
+FAULT_SUBTYPE(internal_buffer)
+FAULT_SUBTYPE(hardware_buffer)
+FAULT_TABLE(plat_chg_can_rx_buffer_full, 1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Charger CAN bus reception buffer full","")
+
+/* Feature: CGS *********************************************************** */
+/*
+   Fault reaction is 'none'
+      Rationale: Fault is informational only and currently disabled
+                 due to charger start-up checks
+*/
+FAULT_TABLE(charger_voltage_undesirable,0u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Unexpected voltage seen on off-board charger HV bus.  Charger bus voltage should be zero except when engaged in charging activities.","")
+FAULT_SUBTYPE(max_v)
+FAULT_SUBTYPE(min_v)
+
+/*
+   Fault reaction is 'none'
+      Rationale: Charger current drop-outs mean that setting a failure reaction
+                 may be contrary to successful charging.  Fault currently
+                 disabled due to issues found during charger integration testing
+*/
+FAULT_TABLE(charger_current_high,1u,2u,100u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Charging current out of bounds","")
+FAULT_SUBTYPE(max_i)
+FAULT_SUBTYPE(min_i)
+
+/*
+   Fault reaction is 'external charger inhibit'
+      Rationale: Current flow in "wrong" direction on charger bus should not be
+                 possible.  Shut down charging.
+*/
+FAULT_TABLE(charger_current_direction,	1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Unexpected current direction during charging. Charger should not be drawing current from the battery pack.","")
+
+/*
+   Fault reaction is 'none'
+      Rationale: Awaiting resolution of ground-shift issue.  TODO.
+*/
+FAULT_TABLE(charger_proximity_error,	1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(chg_contactor_cluster),TRUE,Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Error detected on on-board charger proximity line.  Only certain voltages are expected on the proximity line; values other than these indicate a fault of some type.","")
+FAULT_TABLE(charger_connection,         1u,1u,10u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(chg_contactor_cluster),TRUE,Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Inconsistent on-board charger connection state (connection confirmation and pilot line combination)","")
+FAULT_TABLE(charger_pilot_error,        1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(chg_contactor_cluster),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Error detected on on-board charger pilot line.  Only certain voltages are expected on the pilot line; values other than these indicate a fault of some type.","")
+FAULT_TABLE(charger_pilot_pwm_error,    1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(chg_contactor_cluster),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Error detected on on-board charger with regard to PWM frequency","")
+FAULT_TABLE(onboard_chg_not_offline,    1u,1u,50u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"On-board charger failed to deactivate after charging termination","")
+FAULT_SUBTYPE(freq_high)
+FAULT_SUBTYPE(freq_low)
+FAULT_SUBTYPE(invalid)
+FAULT_SUBTYPE(inconsistent)
+
+/*
+   Fault reaction is 'external charger inhibit'
+      Rationale: If integrity of communication with OBC is questionable, do not
+                 want to engage in charging
+*/
+FAULT_TABLE(charger_communication,		1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(chg_contactor_cluster),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Error detected with charger CAN communication","")
+FAULT_SUBTYPE(invalid_data)
+FAULT_SUBTYPE(messsage_lost)
+FAULT_SUBTYPE(timeout)
+
+/*
+   Fault reaction is 'external charger inhibit'
+      Rationale: If behaviour of OBC is questionable, do not want to engage
+                 in charging
+*/
+FAULT_TABLE(charger_unexpected_behaviour,1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Unexpected behaviour by charger as seen by the MMC","")
+FAULT_SUBTYPE(hv_connection_timeout)
+
+/*
+   Fault reaction is 'external charger inhibit'
+      Rationale: OBC has found a fault - should wrap up any charging activity
+*/
+FAULT_TABLE(charger_reported_error,		3u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Charger reported an error","")
+FAULT_SUBTYPE(charger_specific_error)
+
+/*
+   Fault reaction is 'external charger inhibit' and 'charger contactor open immediate'
+      Rationale: If the HVIL has dropped, want to stop charging and get the main
+                 neg open in order to try and prevent charger contactors
+                 breaking current
+*/
+FAULT_TABLE(charger_interlock_error,1u,1u,24u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(chg_contactor_open_immediate),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger contactors did not remain closed during charging process due to HVIL fault","")
+FAULT_SUBTYPE(contactors_open)
+FAULT_SUBTYPE(interlock_broken)
+
+/* Feature: PP ************************************************************ */
+
+/*
+   Multiple fault reaction
+      Rationale: Pack is potentially dangerously over-charged.  Need to isolate
+                 as soon as possible.
+*/
+FAULT_TABLE(pack_max_crit_sum_v, 1u,1u,2u,1u,1u,SET_FAIL_FUNC(veh_contactor_open_immediate)+SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(chg_contactor_open_immediate),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Pack voltage too high (critical)","")
+
+/*
+   Fault raction is 'vtbm shutdown'
+      Rationale: Prevent additional draw from VTBMs when voltage is below
+                 threshold
+*/
+FAULT_TABLE(cell_min_for_vtbm_v,1u,1u,3u,1u,1u,SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(vtbm_shutdown)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Cell voltage below minimum voltage allowed for VTBM operation","")
+
+/*
+   Fault reaction is 'open immediate' and 'charge inhibit'
+      Rationale: Attempt to isolate pack from over-voltage HV bus and
+                 prevent pack from being charged further
+*/
+FAULT_TABLE(pack_max_crit_veh_v,        1u,1u,5u,1u,1u,SET_FAIL_FUNC(veh_contactor_open_immediate)+SET_FAIL_FUNC(charge_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Vehicle bus voltage too high (critical)","")
+FAULT_SUBTYPE(contactors_closed)
+
+/*
+   Fault reaction is 'charge inhibit'
+      Rationale: Pack should not be charged further.  Individual cell monitors
+                 should protect cells, hence no opening sequence triggered here
+*/
+FAULT_TABLE(pack_max_sum_v,				1u,1u,2u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Pack voltage too high (non-critical)","")
+FAULT_TABLE(pack_max_veh_v,				1u,1u,5u,1u,1u,SET_FAIL_FUNC(charge_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Vehicle bus voltage too high (non-critical)","")
+
+/*
+   Fault reaction is 'crank only'
+      Rationale: Pack should not be discharged further, however cranking current
+                 allowed to prevent stranding of vehicle
+*/
+FAULT_TABLE(pack_min_sum_v,				1u,1u,2u,1u,1u,SET_FAIL_FUNC(discharge_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Pack voltage too low (non-critical)","")
+FAULT_TABLE(pack_min_veh_v,				1u,1u,5u,1u,1u,SET_FAIL_FUNC(discharge_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Vehicle bus voltage too low (non-critical)","")
+
+/*
+   Fault reaction is 'discharge inhibit', 'open with grace' & 'vehicle contactor inhibit'
+      Rationale: Pack should not be discharged further, individual cell monitors
+                 should protect cells, hence no VTBM shutdown here.  Pack can
+                 be recovered via OBC
+*/
+FAULT_TABLE(pack_min_crit_sum_v,        1u,1u,2u,1u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(discharge_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Pack voltage too low (critical)","")
+/* */
+
+FAULT_TABLE(pack_min_crit_veh_v,		1u,1u,5u,1u,1u,SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(discharge_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Vehicle bus voltage too low (critical)","")
+
+FAULT_TABLE(cell_max_crit_v,            1u,1u,2u,1u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(veh_contactor_open_immediate)+SET_FAIL_FUNC(charge_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Cell voltage too high (critical)","")
+FAULT_TABLE(cell_max_v,					1u,1u,2u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Cell voltage too high","")
+FAULT_TABLE(cell_min_v,					1u,1u,2u,1u,1u,SET_FAIL_FUNC(discharge_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Cell voltage too low","")
+FAULT_TABLE(cell_min_crit_v,			1u,1u,2u,1u,1u,SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Cell voltage too low (critical)","")
+FAULT_TABLE(cell_max_del_v,				1u,1u,8u,1u,1u,SET_FAIL_FUNC(veh_limp_home),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Cell voltage delta too high","")
+FAULT_TABLE(pack_max_crit_chg_v,        1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(chg_contactor_open_immediate),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger bus voltage too high (critical)","")
+FAULT_TABLE(pack_max_chg_v,				1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Off-board charger bus voltage too high","")
+FAULT_TABLE(pack_min_chg_v,				1u,1u,7u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Off-board charger bus voltage too low","")
+FAULT_TABLE(pack_min_crit_chg_v,        1u,1u,7u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(chg_contactor_open_immediate),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger bus voltage too low (critical)","")
+FAULT_TABLE(pack_unexpected_i,			1u,1u,3u,1u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Unexpected current flow on vehicle bus","")
+FAULT_TABLE(pack_max_veh_i,				1u,1u,2u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Excess current inflow on vehicle bus","")
+FAULT_TABLE(pack_min_veh_i,				1u,1u,2u,1u,1u,SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Excess current outflow on vehicle bus","")
+FAULT_TABLE(pack_max_chg_i,				1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Excess current inflow on off-board charger bus","")
+FAULT_TABLE(pack_min_chg_i,				1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Excess current outflow on off-board charger bus","")
+FAULT_TABLE(pack_max_crit_veh_pow,		1u,1u,100u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Power inflow above limit on vehicle HV bus (critical)","")
+FAULT_TABLE(pack_max_veh_pow,			1u,1u,100u,1u,1u,SET_FAIL_FUNC(charge_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Power inflow above limit on vehicle HV bus (non-critical)","")
+FAULT_TABLE(pack_min_veh_pow,			1u,1u,100u,1u,1u,SET_FAIL_FUNC(discharge_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Power outflow above limit on vehicle HV bus (non-critical)","")
+FAULT_TABLE(pack_min_crit_veh_pow,		1u,1u,100u,1u,1u,SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Power outflow above limit on vehicle HV bus (critical)","")
+
+/* Fault reaction is 'none'
+      Rationale: Fault turned off - charging is CCCV, does not
+                 use internally calculated power limits */
+FAULT_TABLE(pack_max_crit_chg_pow,		0u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Power inflow above limit on off-board charger HV bus (critical)","")
+FAULT_TABLE(pack_max_chg_pow,			0u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Power inflow above limit on off-board charger HV bus (non-critical)","")
+/* Mantis:6031 - disable fault by setting increment to zero */
+
+/* Fault reaction is 'none'
+      Rationale: Not possible to perform cross-check meaningfully due to blocking diode
+                 on charger HV bus
+*/
+FAULT_TABLE(pack_chg_v_vs_sum,			1u,1u,5u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Mismatch between summated cell voltage and observed voltage on off-board charger bus","")
+
+/* Pack temperature faults */
+FAULT_TABLE(pack_max_t,					1u,1u,4u,1u,1u,SET_FAIL_FUNC(veh_limp_home) + SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Pack over temperature","")
+FAULT_SUBTYPE(sensor_position_1)
+FAULT_SUBTYPE(sensor_position_2)
+FAULT_TABLE(pack_min_t,					1u,1u,4u,1u,1u,SET_FAIL_FUNC(veh_limp_home) + SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Pack under temperature","")
+FAULT_TABLE(cell_max_meas_t,			1u,1u,4u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Measured cell temperature exceeds upper limit","")
+FAULT_TABLE(cell_min_meas_t,			1u,1u,4u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Measured cell temperature below lower limit","")
+FAULT_TABLE(cell_max_del_meas_t,		2u,2u,20u,10u,1u,SET_FAIL_FUNC(veh_limp_home),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Measured cell temperature delta too high","")
+
+/* Fault reaction is 'none'
+      Rationale: Need to flag this, but no need to degrade function */
+FAULT_TABLE(pack_soh_min,				1u,2u,20u,1u,2u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"SoH below minimum threshold","")
+
+FAULT_TABLE(pack_veh_ope_high_v,		1u,3u,15u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Voltage on vehicle HV bus increasing when contactors are open","")
+FAULT_TABLE(pack_chg_ope_high_v,		1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Voltage on off-board charger HV bus increasing unexpectedly","")
+
+/* Multiple inhibiting fault reactions
+      Rationale: Implies failure of HV monitoring or cell monitoring
+*/
+FAULT_TABLE(pack_veh_v_vs_sum, 1u,1u,5u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Mismatch between summated cell voltages and observed voltage on vehicle HV bus","")
+FAULT_SUBTYPE(stable_i)
+FAULT_SUBTYPE(unstable_i)
+FAULT_SUBTYPE(v_high)
+FAULT_SUBTYPE(v_low)
+
+/* Feature : Ground Fault ************************************************** */
+/* Fault reaction is 'none'
+      Rationale: Handled via state sent to vehicle
+*/
+FAULT_TABLE(pack_gnd_fault_asymmetric_crit_veh, 1u,4u,250u,1u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Ground fault detected on vehicle HV bus","")
+FAULT_SUBTYPE(single_neg_swing)
+FAULT_SUBTYPE(single_pos_swing)
+FAULT_SUBTYPE(double)
+FAULT_TABLE(pack_gnd_fault_asymmetric_veh,      1u,2u,200u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Reduced insulation detected on vehicle HV bus","")
+FAULT_TABLE(pack_gnd_fault_asymmetric_crit_chg,	1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Ground fault detected on off-board charger HV bus","")
+FAULT_TABLE(pack_gnd_fault_asymmetric_chg,		1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Reduced insulation detected on off-board charger HV bus","")
+
+/* Fault reaction is 'none'
+      Rationale: Handled via state sent to vehicle
+*/
+FAULT_TABLE(pack_gnd_fault_symmetric_crit_veh,		1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Ground fault detected on vehicle HV bus","")
+FAULT_TABLE(pack_gnd_fault_symmetric_veh,			1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Reduced insulation detected on vehicle HV bus","")
+FAULT_TABLE(pack_gnd_fault_symmetric_crit_chg,		1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Ground fault detected on off-board charger HV bus","")
+FAULT_TABLE(pack_gnd_fault_symmetric_chg,			1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Reduced insulation detected on off-board charger HV bus","")
+
+FAULT_TABLE(pack_gnd_fault_asymmetric_run_crit_veh,	1u,1u,50u,1u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Ground fault detected on vehicle HV bus (run mode)","")
+FAULT_TABLE(pack_gnd_fault_asymmetric_run_veh,      1u,1u,50u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Reduced insulation detected on vehicle HV bus (run mode)","")
+FAULT_TABLE(pack_gnd_fault_asymmetric_run_crit_chg,	1u,1u,50u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Ground fault detected on off-board charger HV bus (run mode)","")
+FAULT_TABLE(pack_gnd_fault_asymmetric_run_chg,      1u,1u,50u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Reduced insulation detected on off-board charger HV bus (run mode)","")
+FAULT_TABLE(pack_gnd_fault_symmetric_run_crit_veh,	1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Ground fault detected on vehicle HV bus (run mode)","")
+FAULT_TABLE(pack_gnd_fault_symmetric_run_veh,		1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Reduced insulation detected on vehicle HV bus (run mode)","")
+FAULT_TABLE(pack_gnd_fault_symmetric_run_crit_chg,	1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Ground fault detected on off-board charger HV bus (run mode)","")
+FAULT_TABLE(pack_gnd_fault_symmetric_run_chg,		1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Reduced insulation detected on off-board charger HV bus (run mode)","")
+
+/* Feature: VMI *********************************************************** */
+/* Multiple inhibiting fault reactions
+      Rationale: Loss of ability to support BMS platform
+*/
+FAULT_TABLE(plat_12v_supply,			1u,1u,3u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Fault detected on HVIL","")
+FAULT_SUBTYPE(open_circuit)
+FAULT_SUBTYPE(short_circuit)
+FAULT_TABLE(plat_12v_logic,				12u,4u,48u,12u,2u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Fault detected on 12V Battery supply","")
+
+/* Multiple inhibiting fault reactions
+      Rationale: Loss of ability to measure HV bus
+*/
+FAULT_TABLE(plat_veh_v,					 1u,1u,3u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Fault detected on vehicle HV bus voltage sensing","")
+FAULT_TABLE(plat_chg_v,					 1u,1u,3u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Fault detected on off-board charger HV bus voltage sensing","")
+
+/* Feature: VIO *********************************************************** */
+/* integrity measures related faults
+   Fault reaction is 'open with grace'
+      Rationale: Integrity of vehicle communications in question, pack should be
+                 isolated
+*/
+FAULT_TABLE(veh_comms_lost_vcu_bms,3u,1u,9u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Vehicle CAN communications lost (message VCU_BMS)","")
+
+/* Feature: IMI *********************************************************** */
+/*
+   Multiple fault reaction
+      Rationale: Unable to monitor current flow - need to isolate pack to
+                 prevent potentially unmonitored current flow occurring.
+*/
+FAULT_TABLE(plat_all_i,1u,1u,3u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"All current sensors failed","")
+
+/* Feature: ICM *********************************************************** */
+
+FAULT_TABLE(plat_cell_t,				 25u,5u,50u,25u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Cell temperature monitoring failure","")
+FAULT_TABLE(plat_vtbm_n_cell_t_lost,	 25u,5u,50u,25u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Multiple cell temperature monitoring failures on single VTBM","")
+FAULT_SUBTYPE(vtbm_0)
+FAULT_SUBTYPE(vtbm_1)
+FAULT_SUBTYPE(vtbm_2)
+FAULT_SUBTYPE(vtbm_3)
+FAULT_SUBTYPE(vtbm_4)
+FAULT_SUBTYPE(vtbm_5)
+FAULT_SUBTYPE(vtbm_6)
+FAULT_SUBTYPE(vtbm_7)
+FAULT_SUBTYPE(vtbm_8)
+FAULT_SUBTYPE(vtbm_9)
+FAULT_SUBTYPE(vtbm_10)
+FAULT_SUBTYPE(vtbm_11)
+FAULT_TABLE(plat_n_cell_t_lost,			        25u,5u,50u,25u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Multiple cell temperature monitoring failures across pack","")
+FAULT_TABLE(plat_cell_v,				 25u,1u,50u,50u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Cell voltage monitoring failure","")
+FAULT_TABLE(plat_vtbm_n_cell_v_lost,	 25u,1u,50u,50u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Multiple cell voltage monitoring failures on single VTBM","")
+FAULT_TABLE(plat_n_cell_v_lost,			 25u,1u,50u,50u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Multiple cell voltage monitoring failures across pack","")
+/* @mantis{5090} default Cal change for bench testing */
+FAULT_TABLE(plat_vtbm_ref,				 50u,1u,50u,50u,1u,SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Reference voltage fault on VTBM","")
+
+FAULT_TABLE(plat_bal_board_t,                 0u,5u,50u,25u,1u,SET_FAIL_FUNC(cell_balance_inhibit),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"VTBM balancing board temperature monitoring failure","")
+FAULT_TABLE(plat_vtbm_comms_corrupt_data,     25u,1u,50u,50u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Received VTBM message corrupted (PEC mismatch)","")
+FAULT_TABLE(plat_vtbm_self_test,              20u,1u,60u,60u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"VTBM self-test check failed during configuration","")
+FAULT_TABLE(plat_vtbm_unexpected_status_data, 20u,1u,60u,60u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"VTBM reported unexpected status data","")
+FAULT_TABLE(plat_vtbm_unexpected_config_data, 20u,1u,60u,60u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"VTBM reported unexpected configuration data","")
+FAULT_TABLE(plat_vtbm_unexpected_cell_v_data, 20u,1u,60u,60u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"VTBM reported unexpected voltage data","")
+FAULT_TABLE(plat_vtbm_unexpected_aux_data,    20u,1u,60u,60u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"VTBM reported unexpected temperature measurement data","")
+FAULT_TABLE(plat_vtbm_unexpected_comms_data,  20u,1u,60u,60u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"VTBM reported unexpected serial communication register settings","")
+FAULT_TABLE(plat_vtbm_unexpected_mux_chan,    20u,1u,60u,60u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"VTBM MUX reported an unexpected selected channel","")
+FAULT_TABLE(plat_vtbm_int_die_t,              1u,1u,2u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"High VTBM internal die temperature","")
+FAULT_TABLE(plat_vtbm_mux_fail,               25u,1u,50u,25u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Internal VTBM MUX failed","")
+FAULT_TABLE(plat_vtbm_thermal_shutdown,       10u,1u,1u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"VTBM thermal shutdown","")
+FAULT_TABLE(plat_vtbm_over_v,                 1u,1u,4u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"At least one cell over-voltage condition on VTBM","")
+FAULT_TABLE(plat_vtbm_under_v,                1u,1u,4u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"At least one cell under-voltage condition on VTBM","")
+FAULT_TABLE(plat_vtbm_anlg_ps_v_min,          25u,1u,50u,25u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"VTBM analogue power supply voltage below limit","")
+FAULT_TABLE(plat_vtbm_anlg_ps_v_max,          25u,1u,50u,25u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"VTBM analogue power supply voltage above limit","")
+FAULT_TABLE(plat_vtbm_dig_ps_v_min,           25u,1u,50u,25u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"VTBM digital power supply voltage below limit","")
+FAULT_TABLE(plat_vtbm_dig_ps_v_max,           25u,1u,50u,25u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"VTBM digital power supply voltage above limit","")
+
+
+FAULT_TABLE(plat_uncommanded_balancing,	 20u,1u,40u,20u,1u,SET_FAIL_FUNC(cell_balance_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"VTBM detected to be balancing when not expected","")
+FAULT_TABLE(plat_balancing_request_not_actioned,20u,1u,40u,20u,1u,SET_FAIL_FUNC(cell_balance_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(vtbm_shutdown)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"VTBM balancing request not actioned","")
+/** @todo the following two faults are not used */
+
+/* Feature: TMI *********************************************************** */
+FAULT_TABLE(plat_temp1_input,			 1u,1u,80u,1u,1u,SET_FAIL_FUNC(veh_limp_home),SET_FAULT_GROUP(startup_cluster),TRUE,Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"BCM Temperature input 1 reading failed","")
+FAULT_SUBTYPE(max_plaus)
+FAULT_SUBTYPE(min_plaus)
+FAULT_TABLE(plat_temp2_input,			 1u,1u,80u,1u,1u,SET_FAIL_FUNC(veh_limp_home),SET_FAULT_GROUP(startup_cluster),TRUE,Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"BCM Temperature input 2 reading failed","")
+FAULT_TABLE(plat_temp3_input,			 1u,1u,80u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"BCM Temperature input 3 reading failed","")
+FAULT_TABLE(plat_temp4_input,			 1u,1u,80u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"BCM Temperature input 4 reading failed","")
+FAULT_TABLE(plat_temp_out_of_range,		 1u,1u,80u,1u,1u,SET_FAIL_FUNC(veh_limp_home),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Maximum absolute difference between inlet and outlet temperature measurements exceeded","")
+
+/* Feature: SMG *********************************************************** */
+FAULT_TABLE(plat_i_sensor_supply,		 1u,1u,24u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Fault on current sensor supply","")
+FAULT_SUBTYPE(unexpected_v)
+FAULT_TABLE(plat_vtbm_can_supply,		 1u,1u,24u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(startup_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_LOW_V_NOMON,"Fault on VTBM CAN supply","")
+FAULT_TABLE(veh_interlock_error,		1u,1u,3u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Vehicle bus contactors not intact","")
+FAULT_SUBTYPE(unable_to_close)
+/* Multiple inhibiting fault reactions
+      Rationale: Loss of ability to measure HV bus
+*/
+FAULT_TABLE(plat_vpos_12v_supply,        1u,1u,24u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Positive 12v supply fault","Fault detected with positive 12v supply rail")
+FAULT_TABLE(plat_vneg_12v_supply,        1u,1u,24u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Negative 12v supply fault","Fault detected with negative 12v supply rail")
+
+/* Feature: OM *********************************************************** */
+FAULT_TABLE(plat_uncommanded_output_state,1u,1u,3u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"BCM Output is not in commanded state","")
+FAULT_SUBTYPE(vtbm_can_enbl_high)
+FAULT_SUBTYPE(vtbm_can_enbl_low)
+FAULT_TABLE(plat_charger_hv_pos_driver,	 1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Fault detected on off-board charger HV bus positive contactor driver","")
+FAULT_TABLE(plat_charger_hv_neg_driver,	 1u,1u,3u,1u,1u,SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Fault detected on off-board charger HV bus negative contactor driver","")
+FAULT_TABLE(plat_veh_hv_pos_driver,		 1u,1u,3u,1u,1u,SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(veh_contactor_hard_open),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Fault detected on vehicle HV bus positive contactor driver","")
+FAULT_TABLE(plat_veh_hv_neg_driver,		 1u,1u,3u,1u,1u,SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(veh_contactor_hard_open)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Fault detected on vehicle HV bus negative contactor driver","")
+FAULT_TABLE(plat_veh_hv_pre_driver,		 1u,1u,3u,1u,1u,SET_FAIL_FUNC(veh_contactor_open_with_grace),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Fault detected on vehicle HV bus pre-charge contactor driver","")
+
+/* Feature: NVS *********************************************************** */
+/**
+ * Fault is intentially calibrated to hit threshold after one instance.
+ *    Rationale:  Fm_plat_eeprom_read_failed_soft/hard are logged by nvs_init_failure_management,
+ *                 which is only invoked once after ignition on. Hence if a fault is present, it
+ *                 must reach its threshold immdeiately in order to be logged.
+ */
+FAULT_TABLE(plat_eeprom_read_failed_soft,1u,0u,1u,1u,0u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Latest EEPROM data corrupt","")
+FAULT_TABLE(plat_eeprom_read_failed_hard,1u,0u,1u,1u,0u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),TRUE,Fm_no_latch,FALSE,FM_FLAG_NONE,"No EEPROM data available","")
+
+/* TODO: Rationale */
+FAULT_TABLE(plat_eeprom_write, 1u,1u,3u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Unable to write EEPROM data","")
+
+/* Feature: MMC EOL ******************************************************* */
+FAULT_TABLE(plat_mmc_missing_eol_data,0u,0u,1u,1u,1u,SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"EOL data missing on MMC","")
+
+/* Feature: CTC *********************************************************** */
+
+/*
+ * ctc faults are defined between this comment and the comment block below.
+ * Because contactor sequences are not running periodically ctc needs a way to age faults raised during a sequence.
+ * It does this be periodically running through the sequencial list of ctc faults.
+ * Do not added non-ctc faults between these comment blocks. Review ctc_write_outputs() for more info.
+ */
+
+/* All CTCT faults have similar properties:
+
+   Filters saturate after single instance
+      Rationale: Many checks are only run once or do not necessarily have the
+        opportunity to filter more thoroughly due to the timing constraints
+        of the contactor sequence
+   Fault raction is 'vehicle contactor inhibit'
+      Rationale: This will cause VMD to request error mode from MS.  Contactor
+                 control feature deals with aborting the contactor close
+                 sequence.
+*/
+FAULT_TABLE(ctct_veh_i,                 60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link bus current out-of-bounds","")
+FAULT_TABLE(ctct_chg_i,                 60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link bus current out-of-bounds during charging","")
+FAULT_TABLE(ctct_veh_i_precharge, 60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link bus current out-of-bounds during pre-charge","")
+FAULT_TABLE(ctct_veh_v,			        60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Overall DC link bus voltage out-of-bounds","")
+FAULT_TABLE(ctct_chg_v,			        60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Overall DC link bus voltage out-of-bounds during charging","")
+FAULT_TABLE(ctct_veh_pre_driver_i,		60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Current draw by pre-charge contactor driver out-of-bounds","")
+FAULT_TABLE(ctct_veh_pos_driver_i,		60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Current draw by DC link positive contactor driver out-of-bounds","")
+FAULT_TABLE(ctct_veh_neg_driver_i,		60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Current draw by DC link negative contactor driver out-of-bounds","")
+FAULT_TABLE(ctct_chg_pos_driver_i, 60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Current draw by off-board charger positive contactor driver out-of-bounds","")
+FAULT_TABLE(ctct_chg_neg_driver_i, 60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Current draw by off-board charger negative contactor driver out-of-bounds","")
+FAULT_TABLE(ctct_feedback_supply,       60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"5V contactor position feedback supply is outside expected bounds","")
+FAULT_TABLE(ctct_feedback_dclink_pos,   60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link positive contactor state feedback voltage is outside expected bounds","")
+FAULT_TABLE(ctct_feedback_dclink_neg,   60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link negative contactor state feedback voltage is outside expected bounds","")
+FAULT_TABLE(ctct_feedback_charger_pos,  60u,1u,60u,60u,1u,SET_FAIL_FUNC(chg_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger positive contactor state feedback voltage is outside expected bounds","")
+FAULT_TABLE(ctct_feedback_charger_neg,  60u,1u,60u,60u,1u,SET_FAIL_FUNC(chg_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(chg_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger negative contactor state feedback voltage is outside expected bounds","")
+FAULT_TABLE(ctct_veh_driver, 60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Driver error associated with DC link contactors","")
+FAULT_TABLE(ctct_chg_driver, 60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Driver error associated with charger contactors","")
+FAULT_TABLE(ctct_veh_pre_stuck_open,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Pre-charge contactors stuck open","")
+FAULT_TABLE(ctct_veh_pre_stuck_closed,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Pre-charge contactors stuck closed","")
+FAULT_TABLE(ctct_chg_pos_stuck_closed,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger positive contactor stuck closed","")
+FAULT_TABLE(ctct_chg_pos_stuck_open,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger positive contactor stuck open","")
+FAULT_TABLE(ctct_chg_neg_stuck_closed,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger negative contactor stuck closed","")
+FAULT_TABLE(ctct_chg_neg_stuck_open,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger negative contactor stuck open","")
+FAULT_TABLE(ctct_chg_pre_stuck_open,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Pre-charge contactors stuck open during charging","")
+FAULT_TABLE(ctct_chg_pre_stuck_closed,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Pre-charge contactors stuck closed during charging","")
+FAULT_TABLE(ctct_veh_pos_stuck_closed, 60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link positive contactor stuck closed","")
+FAULT_TABLE(ctct_veh_pos_stuck_open,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link positive contactor stuck open","")
+FAULT_TABLE(ctct_veh_neg_stuck_closed,  60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_open_immediate)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link negative contactor stuck closed","")
+FAULT_TABLE(ctct_veh_neg_stuck_open,	60u,1u,60u,60u,1u,SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(veh_contactor_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"DC link negative contactor stuck open","")
+
+
+
+/*
+ * End of ctc flts definition - see comment block above
+ */
+FAULT_SUBTYPE(posn_1)
+FAULT_SUBTYPE(posn_2)
+FAULT_SUBTYPE(posn_3)
+FAULT_SUBTYPE(posn_4)
+FAULT_SUBTYPE(posn_5)
+FAULT_SUBTYPE(posn_6)
+FAULT_SUBTYPE(posn_7)
+FAULT_SUBTYPE(posn_8)
+FAULT_SUBTYPE(posn_9)
+FAULT_SUBTYPE(posn_10)
+FAULT_SUBTYPE(posn_12)
+FAULT_SUBTYPE(posn_13)
+FAULT_SUBTYPE(posn_14)
+FAULT_SUBTYPE(posn_15)
+FAULT_SUBTYPE(posn_16)
+
+FAULT_SUBTYPE(validity)
+
+/* Feature: LOG */
+
+FAULT_TABLE(pack_veh_pre_contactor_worn,1u,1u,1u,1u,1u,SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(startup_cluster)+SET_FAULT_GROUP(service_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Vehicle pre-charge contactor is worn","")
+FAULT_TABLE(pack_veh_pos_contactor_worn,1u,1u,1u,1u,1u,SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(startup_cluster)+SET_FAULT_GROUP(service_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Vehicle positive bus contactor is worn","")
+FAULT_TABLE(pack_veh_neg_contactor_worn,1u,1u,1u,1u,1u,SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(startup_cluster)+SET_FAULT_GROUP(service_cluster),TRUE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Vehicle negative bus contactor is worn","")
+FAULT_TABLE(pack_chg_pos_contactor_worn,1u,1u,1u,1u,1u,SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(service_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger positive bus contactor is worn","")
+FAULT_TABLE(pack_chg_neg_contactor_worn,1u,1u,1u,1u,1u,SET_FAIL_FUNC(chg_contactor_inhibit),SET_FAULT_GROUP(service_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Off-board charger negative bus contactor is worn","")
+
+/* Feature: VMD */
+
+FAULT_TABLE(veh_gross_overload,	1u,1u,3u,1u,1u,(SET_FAIL_FUNC(veh_main_fuse_blow)+SET_FAIL_FUNC(charge_inhibit)+SET_FAIL_FUNC(discharge_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(ext_charger_inhibit)),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE, FM_FLAG_NONE,"Gross Overload","An extremely large current has been observe flowing out of the battery pack")
+FAULT_TABLE(veh_collision_indication_high,3u,0u,3u,0u,0u,SET_FAIL_FUNC(veh_contactor_open_with_grace)+SET_FAIL_FUNC(veh_contactor_inhibit),SET_FAULT_GROUP(startup_cluster)+SET_FAULT_GROUP(service_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"High severity vehicle collision","")
+
+
+/* Feature: PL pack layout ************************************************ */
+FAULT_TABLE(bad_pack_layout,1u,0u,1u,1u,0u,SET_FAIL_FUNC(cell_balance_inhibit)+SET_FAIL_FUNC(veh_contactor_inhibit)+SET_FAIL_FUNC(vtbm_shutdown)+SET_FAIL_FUNC(ext_charger_inhibit),SET_FAULT_GROUP(startup_cluster),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Invalid pack layout configuration","")
+
+/* Fault reaction is 'none'
+      Rationale: Offline cal not currently essential to correct/safe function of pack
+*/
+FAULT_TABLE(plat_mmc_missing_offline_cal,	0u,1u,1u,0u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Offline calibration data missing on MMC","")
+
+/* Feature: MMC Sensor Cal ************************************************ */
+/* Fault reaction is 'none'
+      Rationale: Offline cal not currently essential to correct/safe function of pack
+*/
+FAULT_TABLE(plat_mmc_missing_sensor_cal_data,	0u,1u,1u,0u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Sensor calibration data missing on MMC","")
+
+/* Feature: flash fault ************************************************** */
+/* Fault reaction is 'none'
+      Rationale: Fault is in system cluster which will cause entry to error
+                 state
+*/
+FAULT_TABLE(flash_singlebit_fault_corrected,1u,0u,1u,0u,0u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none)+SET_FAULT_GROUP(service_cluster),FALSE,Fm_ignition_cycle_latch,FALSE,FM_FLAG_NONE,"Flash corrected a single-bit ECC fault","Flash memory is starting to age")
+
+/* Feature: CGI */
+/* Fault reaction is 'none'
+      Rationale: This fault may be raised as part of normal operation - e.g.
+                 plugging an OBC with no mains power into the BMS.  Therefore
+                 there is no inhibit relating to this.
+*/
+FAULT_TABLE(charger_current_low,      1u,2u,100u,1u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,FALSE,FM_FLAG_NONE,"Charger fails to provide demanded amount of current","")
+
+/* SUB-FEATURE: LEM_DHAB */
+FAULT_TABLE(plat_cur_lem_dhab_low_oor, 3u,1u,20u,3u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,TRUE,FM_FLAG_NONE,"Low-range LEM input out-of-range","")
+FAULT_TABLE(plat_cur_lem_dhab_high_oor, 3u,1u,20u,3u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,TRUE,FM_FLAG_NONE,"High-range LEM input out-of-range","")
+
+/* SUB-FEATURE: CAB300 */
+FAULT_TABLE(plat_cur_lem_c300_timeout, 3u,1u,3u,3u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,TRUE,FM_FLAG_NONE,"C300 results messages have timed out on CAN","")
+FAULT_TABLE(plat_cur_lem_c300_reports_err, 3u,1u,3u,3u,1u,SET_FAIL_FUNC(no_fail_fun),SET_FAULT_GROUP(fault_cluster_none),FALSE,Fm_no_latch,TRUE,FM_FLAG_NONE,"C300 results messages indicates an error","")
+
+/*****************************************************************************
+ List containing the Failure function names.
+ This macro is used to populate the enum Fm_fail_func_list_e
+ Once the enums get generated each element (representing a failure function).
+ The enums generated are prepended with "Fm_"
+ */
+FAIL_FUNC(chg_contactor_inhibit)
+FAIL_FUNC(veh_contactor_inhibit)
+FAIL_FUNC(cell_balance_inhibit)
+FAIL_FUNC(ext_charger_inhibit)
+FAIL_FUNC(charge_inhibit)
+FAIL_FUNC(discharge_inhibit)
+FAIL_FUNC(veh_contactor_open_with_grace)
+FAIL_FUNC(veh_contactor_open_immediate)
+FAIL_FUNC(chg_contactor_open_with_grace)
+FAIL_FUNC(chg_contactor_open_immediate)
+FAIL_FUNC(veh_crank_only)
+FAIL_FUNC(veh_limp_home)
+FAIL_FUNC(veh_main_fuse_blow)
+FAIL_FUNC(vtbm_shutdown)
+FAIL_FUNC(veh_contactor_hard_open)
+
+/* This is the list of fault groups.
+ * This list is used to populate Fm_fault_group_list_e
+ * The enums generated are prepended with "Fm_"
+ */
+FAULT_GROUP(startup_cluster)
+FAULT_GROUP(veh_contactor_cluster)
+FAULT_GROUP(chg_contactor_cluster)
+FAULT_GROUP(service_cluster)
+/* CATARC TODO: Remove this */
+FAULT_GROUP(isa_cluster)
+
+
+
+
+/*
+ * Define DTCs
+ *
+ * This list is based on the McLaren OBD spec and Ricardo internal spreadsheet
+ * that maps DTC codes onto faults.
+ *
+ * It is incomplete, unreviewed and untested.
+ */
+
+/**@lint
+ * Assuming a binary constant
+ *
+ * lint thinks that constants such as 0BBD00 are binary constants. This
+ * is wrong for two reasons: firstly treating 0b or 0B as introducing a
+ * binary constant is not part of standard C90 and secondly these constants
+ * are token pasted during preprocessing to turn them into hex constants so
+ * lint should never even be thinking of checking their form until this point.
+ */
+/*lint -e146 */
+
+/* ordering configs according to the DTC code - it makes life easier when reviewing */
+
+DEF_DTC(Fm_cell_max_meas_t,Fm_general_failure_information,P(0A7E00),SET_SNAPSHOT(cell_vt),1u)
+DEF_DTC(Fm_pack_soh_min,Fm_general_failure_information,P(0A8000),SET_SNAPSHOT(soh),2u)
+DEF_DTC(Fm_plat_12v_logic,Fm_v_low,P(0A8D00),SET_SNAPSHOT(supp_12v),2u)
+DEF_DTC(Fm_plat_12v_logic,Fm_v_high,P(0A8E00),SET_SNAPSHOT(supp_12v),2u)
+DEF_DTC(Fm_ctct_veh_pos_stuck_open,Fm_any_subtype,P(0AA200),SET_SNAPSHOT(ctc_overall),1u)
+DEF_DTC(Fm_ctct_veh_neg_stuck_closed,Fm_any_subtype,P(0AA400), SET_SNAPSHOT(ctc_std), 1u)
+DEF_DTC(Fm_pack_veh_v_vs_sum,Fm_stable_i,P(0ABB00), SET_SNAPSHOT(mdm_cycle), 1u)
+DEF_DTC(Fm_pack_min_crit_veh_v,Fm_general_failure_information,P(0ABC00), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_pack_max_crit_veh_v,Fm_contactors_open ,P(0ABD00), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_pack_veh_v_vs_sum,Fm_unstable_i,P(0ABE00), SET_SNAPSHOT(mdm_cycle), 1u)
+DEF_DTC(Fm_cell_min_crit_v,Fm_general_failure_information,P(0AFA00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_cell_max_crit_v,Fm_general_failure_information,P(0AFB00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_cell_min_meas_t,Fm_general_failure_information,P(0AFD00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_pack_max_crit_veh_v,Fm_contactors_closed ,P(0B1700), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_cell_max_del_v,Fm_general_failure_information,P(0BBD00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_plat_temp1_input,Fm_v_high,P(0C4200), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_plat_temp1_input,Fm_min_plaus,P(0C4400), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_plat_temp1_input,Fm_max_plaus,P(0C4500), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_plat_temp1_input,Fm_v_low,P(0C4600), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_cell_max_del_meas_t,Fm_general_failure_information,P(0C6F00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_plat_temp2_input,Fm_v_high,P(0CD500), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_plat_temp2_input,Fm_min_plaus,P(0CD700), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_plat_temp2_input,Fm_max_plaus,P(0CD800), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_plat_temp2_input,Fm_v_low,P(0CD900), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_charger_pilot_error,Fm_v_high,P(0CF600), SET_SNAPSHOT(charger), 2u)
+DEF_DTC(Fm_charger_proximity_error,Fm_invalid,P(0D5600), SET_SNAPSHOT(charger), 2u)
+DEF_DTC(Fm_charger_proximity_error,Fm_inconsistent,P(0D5700), SET_SNAPSHOT(charger), 2u)
+#if 0
+/* Removed at MAL/Axeon request - Mantis: 6804 */
+DEF_DTC(Fm_charger_pilot_error,Fm_invalid,P(0CF900), SET_SNAPSHOT(charger), 2u)
+#endif
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_0,P(170E00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_1,P(170F00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_2,P(171000), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_3,P(171100), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_4,P(171200), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_5,P(171300), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_6,P(171400), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_7,P(171500), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_8,P(171600), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_9,P(171700), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_10,P(171800), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_t_lost,Fm_vtbm_11,P(171900), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_0,P(171A00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_1,P(171B00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_2,P(171C00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_3,P(171D00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_4,P(171E00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_5,P(171F00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_6,P(172000), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_7,P(172100), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_8,P(172200), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_9,P(172300), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_10,P(172400), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_vtbm_n_cell_v_lost,Fm_vtbm_11,P(172500), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_internal_error_unexpected,Fm_any_subtype,P(173000), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_mmc_watchdog_timeout,Fm_general_failure_information,P(173200), SET_SNAPSHOT(supp_12v), 2u)
+DEF_DTC(Fm_plat_calibration_invalid,Fm_mmc,P(173300), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_rtc,Fm_any_subtype,P(173400), SET_SNAPSHOT(rtc), 1u)
+DEF_DTC(Fm_plat_eeprom_read_failed_soft, Fm_general_failure_information,P(173B00), SET_SNAPSHOT(supp_12v), 2u)
+DEF_DTC(Fm_plat_eeprom_read_failed_hard, Fm_general_failure_information,P(173C00), SET_SNAPSHOT(supp_12v), 2u)
+DEF_DTC(Fm_plat_eeprom_write,Fm_general_failure_information,P(173D00), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_mmc_missing_eol_data,Fm_general_failure_information,P(173E00), SET_SNAPSHOT(eol_status), 1u)
+DEF_DTC(Fm_bad_pack_layout,Fm_general_failure_information,P(173F00), SET_SNAPSHOT(pack_layout), 1u)
+DEF_DTC(Fm_veh_collision_indication_high, Fm_general_failure_information,P(174100), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_plat_vpos_12v_supply,Fm_max_v,P(174600), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_vneg_12v_supply,Fm_max_v,P(174700), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_12v_supply,Fm_v_high,P(174800), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_vtbm_ref,Fm_any_subtype,P(174900), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_veh_interlock_error,Fm_interlock_broken,P(174C00), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_charger_interlock_error,Fm_unable_to_close,P(174D00), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_i_sensor_supply,Fm_any_subtype,P(174E00), SET_SNAPSHOT(supp_isa), 1u)
+DEF_DTC(Fm_plat_uncommanded_balancing,Fm_any_subtype,P(174F00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_balancing_request_not_actioned, Fm_any_subtype,P(175000), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_pack_max_crit_veh_pow,Fm_general_failure_information,P(175300), SET_SNAPSHOT(bus_current), 2u)
+DEF_DTC(Fm_pack_max_veh_pow,Fm_general_failure_information,P(175400), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_pack_min_veh_pow,Fm_general_failure_information,P(175500), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_pack_min_crit_veh_pow,Fm_general_failure_information,P(175600), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_pack_max_crit_chg_pow,Fm_general_failure_information,P(175700), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_pack_max_chg_pow,Fm_general_failure_information,P(175800), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_charger_voltage_undesirable,Fm_max_v,P(175900), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_charger_current_high,Fm_any_subtype,P(175A00), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_charger_current_direction,Fm_general_failure_information,P(175B00), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_charger_unexpected_behaviour,Fm_charger_specific_error,P(175C00), SET_SNAPSHOT(charger), 1u)
+DEF_DTC(Fm_charger_unexpected_behaviour, Fm_hv_connection_timeout,P(175D00), SET_SNAPSHOT(charger), 1u)
+DEF_DTC(Fm_pack_max_crit_sum_v,Fm_general_failure_information,P(175F00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_pack_max_sum_v,Fm_general_failure_information,P(176000), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_pack_min_sum_v,Fm_general_failure_information,P(176100), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_pack_min_crit_sum_v,Fm_general_failure_information,P(176200), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_pack_max_veh_v,Fm_contactors_open,P(176300), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_pack_min_veh_v,Fm_general_failure_information,P(176400), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_plat_veh_v,Fm_open_circuit,P(176500), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_pack_max_crit_chg_v,Fm_contactors_open,P(176600), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_pack_max_chg_v,Fm_contactors_open ,P(176700), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_pack_min_chg_v,Fm_general_failure_information,P(176800), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_pack_min_crit_chg_v,Fm_general_failure_information,P(176900), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_pack_chg_v_vs_sum,Fm_general_failure_information,P(176A00), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_plat_chg_v,Fm_open_circuit,P(176B00), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_cell_max_v,Fm_general_failure_information,P(176C00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_cell_min_v,Fm_general_failure_information,P(176D00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_cell_min_for_vtbm_v,Fm_general_failure_information,P(176E00), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_pack_veh_ope_high_v,Fm_general_failure_information,P(176F00), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_pack_chg_ope_high_v,Fm_general_failure_information,P(177000), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_plat_cell_v,Fm_open_circuit,P(177400), SET_SNAPSHOT(cell_vt), 1u)
+DEF_DTC(Fm_pack_max_veh_i,Fm_general_failure_information,P(177500), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_pack_min_veh_i,Fm_general_failure_information,P(177600), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_pack_max_chg_i,Fm_general_failure_information,P(177700), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_pack_min_chg_i,Fm_general_failure_information,P(177800), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_veh_gross_overload,Fm_general_failure_information,P(177900), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_pack_unexpected_i,Fm_contactors_open,P(177A00), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_plat_veh_hv_pre_driver,Fm_general_failure_information,P(179000), SET_SNAPSHOT(prechg_drv_std), 1u)
+DEF_DTC(Fm_plat_veh_hv_neg_driver,Fm_general_failure_information,P(179100), SET_SNAPSHOT(veh_neg_drv_std), 1u)
+DEF_DTC(Fm_plat_veh_hv_pos_driver,Fm_general_failure_information,P(179200), SET_SNAPSHOT(veh_pos_drv_std), 1u)
+DEF_DTC(Fm_plat_charger_hv_pos_driver,Fm_general_failure_information,P(179300), SET_SNAPSHOT(chg_pos_drv_std), 1u)
+DEF_DTC(Fm_plat_charger_hv_neg_driver,Fm_general_failure_information,P(179400), SET_SNAPSHOT(chg_neg_drv_std), 1u)
+DEF_DTC(Fm_plat_vpos_12v_supply,Fm_min_v,P(17B000), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_vneg_12v_supply,Fm_min_v,P(17B100), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_plat_12v_supply,Fm_v_low,P(17B200), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_charger_voltage_undesirable,Fm_min_v,P(17B300), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_charger_current_low,Fm_min_i,P(17B400), SET_SNAPSHOT(charger), 1u)
+DEF_DTC(Fm_pack_max_t,Fm_sensor_position_1,P(17C100), SET_SNAPSHOT(pack_temp), 1u)
+DEF_DTC(Fm_pack_min_t,Fm_sensor_position_1,P(17C200), SET_SNAPSHOT(pack_temp), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_crit_veh,Fm_single_pos_swing,P(17C300), SET_SNAPSHOT(veh_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_veh,Fm_single_pos_swing,P(17C400), SET_SNAPSHOT(veh_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_crit_chg,Fm_single_pos_swing,P(17C500), SET_SNAPSHOT(chg_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_chg,Fm_single_pos_swing,P(17C600), SET_SNAPSHOT(chg_bus_gf), 1u)
+DEF_DTC(Fm_plat_rtc_config,Fm_any_subtype,P(17C700), SET_SNAPSHOT(rtc), 1u)
+DEF_DTC(Fm_plat_n_cell_t_lost,Fm_general_failure_information,P(17C900), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_plat_uncommanded_output_state,Fm_general_failure_information,P(17CE00), SET_SNAPSHOT(ctc_overall), 1u)
+DEF_DTC(Fm_pack_veh_pre_contactor_worn,Fm_general_failure_information,P(17DC00), SET_SNAPSHOT(veh_ctc_wear), 1u)
+DEF_DTC(Fm_pack_veh_pos_contactor_worn,Fm_general_failure_information,P(17DD00), SET_SNAPSHOT(veh_ctc_wear), 1u)
+DEF_DTC(Fm_pack_veh_neg_contactor_worn,Fm_general_failure_information,P(17DE00), SET_SNAPSHOT(veh_ctc_wear), 1u)
+DEF_DTC(Fm_pack_chg_pos_contactor_worn,Fm_general_failure_information,P(17DF00), SET_SNAPSHOT(chg_ctc_wear), 1u)
+DEF_DTC(Fm_pack_chg_neg_contactor_worn,Fm_general_failure_information,P(17E000), SET_SNAPSHOT(chg_ctc_wear), 1u)
+DEF_DTC(Fm_plat_mmc_missing_offline_cal,Fm_posn_1,P(17E100), SET_SNAPSHOT(offline_cal_status), 1u)
+DEF_DTC(Fm_plat_mmc_missing_sensor_cal_data,Fm_general_failure_information,P(17E200), SET_SNAPSHOT(sens_cal_status), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_run_crit_veh,Fm_single_pos_swing,P(17E700), SET_SNAPSHOT(veh_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_run_veh,Fm_single_pos_swing,P(17E800), SET_SNAPSHOT(veh_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_run_crit_chg,Fm_single_pos_swing,P(17E900), SET_SNAPSHOT(chg_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_run_chg,Fm_single_pos_swing,P(17EA00), SET_SNAPSHOT(chg_bus_gf), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_mmc,P(17EF00), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_ctct_veh_pos_stuck_closed,Fm_posn_1,P(17F400), SET_SNAPSHOT(bus_current), 1u)
+DEF_DTC(Fm_charger_interlock_error,Fm_interlock_broken,P(17F700), SET_SNAPSHOT(supp_12v), 1u)
+DEF_DTC(Fm_pack_max_veh_v,Fm_contactors_closed,P(17F800), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_pack_max_crit_chg_v,Fm_contactors_closed,P(17F900), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_pack_max_chg_v,Fm_contactors_closed, P(17FA00), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_pack_max_t,Fm_sensor_position_2,P(17FC00), SET_SNAPSHOT(pack_temp), 1u)
+DEF_DTC(Fm_pack_min_t,Fm_sensor_position_2,P(17FE00), SET_SNAPSHOT(pack_temp), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_crit_veh,Fm_single_neg_swing,P(17FF00), SET_SNAPSHOT(veh_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_veh,Fm_single_neg_swing,P(180000), SET_SNAPSHOT(veh_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_crit_chg,Fm_single_neg_swing,P(180100), SET_SNAPSHOT(chg_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_chg,Fm_single_neg_swing,P(180200), SET_SNAPSHOT(chg_bus_gf), 1u)
+DEF_DTC(Fm_plat_veh_v,Fm_short_circuit,P(180400), SET_SNAPSHOT(veh_hi_res_v), 1u)
+DEF_DTC(Fm_plat_chg_v,Fm_short_circuit,P(180500), SET_SNAPSHOT(chg_hi_res_v), 1u)
+DEF_DTC(Fm_plat_cell_t,Fm_any_subtype,P(180600), SET_SNAPSHOT(pack_temp), 1u)
+DEF_DTC(Fm_plat_temp_out_of_range,Fm_posn_1,P(180700), SET_SNAPSHOT(pack_temp), 2u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_run_crit_veh,Fm_single_neg_swing,P(181100), SET_SNAPSHOT(veh_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_run_veh,Fm_single_neg_swing,P(181200), SET_SNAPSHOT(veh_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_run_crit_chg,Fm_single_neg_swing,P(181300), SET_SNAPSHOT(chg_bus_gf), 1u)
+DEF_DTC(Fm_pack_gnd_fault_asymmetric_run_chg,Fm_single_neg_swing,P(181400), SET_SNAPSHOT(chg_bus_gf), 1u)
+DEF_DTC(Fm_plat_mmc_missing_offline_cal,Fm_posn_2,P(182C00), SET_SNAPSHOT(offline_cal_status), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_0,P(183000), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_1,P(183100), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_2,P(183200), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_3,P(183300), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_4,P(183400), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_5,P(183500), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_6,P(183600), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_7,P(183700), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_8,P(183800), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_9,P(183900), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_10,P(183A00), SET_SNAPSHOT(vtbm_std), 1u)
+DEF_DTC(Fm_flash_singlebit_fault_corrected,Fm_vtbm_11,P(183B00), SET_SNAPSHOT(vtbm_std), 1u)
+#if 0
+/* Deliberately no DTC for this fault - we treat it as a fault internally but
+   it's expected that it will occur during system/vehicle usage */
+DEF_DTC(Fm_chg_mode_can_init_tmout,Fm_general_failure_information,TODO, SNAPSHOT_NONE, 1u)
+#endif
+DEF_DTC(Fm_plat_cur_can_bus_unavailable,Fm_general_failure_information,U(029A00), SET_SNAPSHOT(isa), 1u)
+DEF_DTC(Fm_plat_vtbm_can_supply,Fm_max_v,U(170000), SET_SNAPSHOT(supp_vtbm), 1u)
+DEF_DTC(Fm_plat_vtbm_can_supply,Fm_min_v,U(170100), SET_SNAPSHOT(supp_vtbm), 1u)
+DEF_DTC(Fm_plat_veh_can_bus_unavailable, Fm_general_failure_information,U(170300), SET_SNAPSHOT(supp_12v), 1u)
+/**@todo check dtcs */
+/** end todo */
+DEF_DTC(Fm_charger_communication,Fm_any_subtype,U(171000), SET_SNAPSHOT(supp_12v), 2u)
+DEF_DTC(Fm_plat_chg_can_bus_unavailable,Fm_general_failure_information,U(170D00), SET_SNAPSHOT(isa), 1u)
+/**@todo check dtcs */
+/** end todo */
+
+/**@todo check dtc */
+//DEF_DTC(Fm_veh_comms_lost_mcu_3,Fm_general_failure_information,U(172600), SET_SNAPSHOT(supp_12v), 1u)
+/** end todo */
+DEF_DTC(Fm_plat_vtbm_can_supply,Fm_unexpected_v,U(172800), SET_SNAPSHOT(supp_vtbm), 1u)
+

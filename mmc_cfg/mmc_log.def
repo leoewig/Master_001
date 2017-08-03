@@ -1,0 +1,185 @@
+/** @polyspace:begin<MISRA-C:8.5:Not a defect:Justify with annotations> .def files require these definitions */
+
+/*
+ * EVENT_COUNTER(
+ *      counter_name,
+ *      event,              specifies the event we are counting (see Log_event_e).
+ *      enable_condition    specifies the condition that must be satisfied to count the event occurence (see Log_en_cond_e).
+ *      )
+ */
+ EVENT_COUNTER(ign_turned_on,           Log_event_ign_on,           Log_en_cond_sys_active)
+ EVENT_COUNTER(veh_ctc_closed,          Log_event_veh_ctc_closed,   Log_en_cond_sys_active)
+ EVENT_COUNTER(chg_ctc_closed,          Log_event_chg_ctc_closed,   Log_en_cond_sys_active)
+ EVENT_COUNTER(time_in_act_op_mode,     Log_event_periodic,         Log_en_cond_op_mode_active)
+ EVENT_COUNTER(succ_chg_cycles,         Log_event_chg_cyc_end,      Log_en_cond_chg_cycle_succ)
+ EVENT_COUNTER(hvil_opened_ctc_closed,  Log_event_hvil_opened,      Log_en_cond_any_ctc_closed)
+ EVENT_COUNTER(hvil_opened_ctc_open,    Log_event_hvil_opened,      Log_en_cond_all_ctc_open)
+
+/*
+ * LOG_TABLE(
+ *      table_name,
+ *      event,              specifies the event that triggers the log action (see Log_event_e).
+ *      enable_condition,   specifies the condition that must be satisfied for the data to be logged (see Log_en_cond_e).
+ *      src_data_adr,       address of the source data used for logging (can be NULL if standard evaluation function not used).
+ *      src_data_type,      type of the source data (see Log_src_data_type_e).
+ *      validity_func,      pointer to the source data validity function (can be NULL if validation not required).
+ *      interval_count,     number of utilised intervals ('bins').
+ *      custom_eval_func    pointer to a custom evaluation function (set to NULL to use standard evaluation function).
+ *      )
+ *
+ * NOTE 1: all the tables are by default enabled. if any of them needs to be
+ * disabled then the corresponding macro must be defined.
+ */
+ /*
+ * INTERVALS(
+ *      Lower_limit,
+ *      Upper_limit_1st_Interval, Upper_limit_2nd_Interval,  Upper_limit_3rd_Interval,  Upper_limit_4th_Interval,
+ *      Upper_limit_5th_Interval, Upper_limit_6th_Interval,  Upper_limit_7th_Interval,  Upper_limit_8th_Interval,
+ *      Upper_limit_9th_Interval, Upper_limit_10th_Interval, Upper_limit_11th_Interval, Upper_limit_12th_Interval
+ *      )
+ *
+ * NOTE 1:
+ * The Interval boundaries must be specified taking into consideration the resolution of the input source data.
+ * For example Cell Temperature is expressed as temperature_t with a binary point set to 8. Hence 1 Lsb is
+ * equivalent to 1/256 degC in a -100 degC to 127.999 degC range being expressed as [-25600 32767].
+ *
+ * NOTE 2:
+ * The no. of intervals are kept fixed at 12 based on the no. of VTBMs used in the system. Tables that do not
+ * require 12 intervals should set any unused limits to "0".
+ *
+ * NOTE 3:
+ * Utilised interval limits must be monotonically increasing.
+*/
+
+#ifndef LOG_DIS_TABLE_OP_MODE
+LOG_TABLE(operating_mode, Log_event_periodic, Log_en_cond_op_mode_active, &log_op_mode, Log_src_data_type_u8, LOG_NO_VALIDITY_FUN, 4u, LOG_NO_EVALUATION_FUN)
+INTERVALS(Log_op_mode_passive, Log_op_mode_standby, Log_op_mode_operational, Log_op_mode_charging, Log_op_mode_post_run, 0, 0, 0, 0, 0, 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_TEMPERATURE
+LOG_TABLE(cell_temperature, Log_event_periodic, Log_en_cond_sys_active, &log_avg_cell_t, Log_src_data_type_s32, &log_is_cell_temperature_valid, 10u, LOG_NO_EVALUATION_FUN)
+INTERVALS(TEMP(-125), TEMP(10), TEMP(20), TEMP(30), TEMP(35), TEMP(40), TEMP(45), TEMP(50), TEMP(55), TEMP(60), TEMP(125), 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_TEMPERATURE
+LOG_TABLE(cell_strg_temperature, Log_event_storage_logging_ready, Log_en_cond_storage_mode, &log_avg_cell_t, Log_src_data_type_s32, &log_is_cell_temperature_valid, 10u, &log_table_eval_cell_strg_temp)
+INTERVALS(TEMP(-125), TEMP(10), TEMP(20), TEMP(30), TEMP(35), TEMP(40), TEMP(45), TEMP(50), TEMP(55), TEMP(60), TEMP(125), 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_SOC
+LOG_TABLE(soc, Log_event_periodic, Log_en_cond_sys_active, &log_current_soc, Log_src_data_type_u16, &log_is_soc_valid, 10u, LOG_NO_EVALUATION_FUN)
+INTERVALS(PERCENT(0), PERCENT(30), PERCENT(40), PERCENT(50), PERCENT(55), PERCENT(60), PERCENT(65), PERCENT(70), PERCENT(75), PERCENT(90), PERCENT(100), 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_DELTA_V
+LOG_TABLE(cell_delta_v, Log_event_periodic, Log_en_cond_sys_active, &mdm_cell_v_delta, Log_src_data_type_u16, &log_is_cell_voltage_valid, 5u, LOG_NO_EVALUATION_FUN)
+INTERVALS(CELL_V(0), CELL_V(0.1), CELL_V(0.25), CELL_V(0.5), CELL_V(1), CELL_V(10), 0, 0, 0, 0, 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_DELTA_T
+LOG_TABLE(cell_delta_t, Log_event_periodic, Log_en_cond_sys_active, &mdm_cell_t_delta, Log_src_data_type_s16, &log_is_cell_temperature_valid,  5u, LOG_NO_EVALUATION_FUN)
+INTERVALS(TEMP(-100), TEMP(2), TEMP(4), TEMP(6), TEMP(10), TEMP(127), 0, 0, 0, 0, 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_N_ACTV_CELLS_BAL
+LOG_TABLE(n_active_cell_bal, Log_event_periodic, Log_en_cond_sys_active, &log_n_cell_active_bal, Log_src_data_type_u8, &log_is_balancing_data_valid, 6u, LOG_NO_EVALUATION_FUN)
+INTERVALS(0, 2, 4, 6, 8, 10, 12, 0, 0, 0, 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_N_PASV_CELLS_BAL
+LOG_TABLE(n_passive_cell_bal, Log_event_periodic, Log_en_cond_sys_active, &log_n_cell_passive_bal, Log_src_data_type_u8, &log_is_balancing_data_valid, 6u, LOG_NO_EVALUATION_FUN)
+INTERVALS(0, 2, 4, 6, 8, 10, 12, 0, 0, 0, 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_VTBM_ACTV_BAL
+LOG_TABLE(vtbm_n_actv_bal, Log_event_periodic, Log_en_cond_sys_active, NULL, Log_src_data_type_none, &log_is_balancing_data_valid, 12u, &log_table_eval_vtbm_actv_bal)
+INTERVALS(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+#endif
+
+#ifndef LOG_DIS_TABLE_VTBM_PASV_BAL
+LOG_TABLE(vtbm_n_pasv_bal, Log_event_periodic, Log_en_cond_sys_active, NULL, Log_src_data_type_none, &log_is_balancing_data_valid, 12u, &log_table_eval_vtbm_pasv_bal)
+INTERVALS(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+#endif
+
+#ifndef LOG_DIS_TABLE_VEH_I
+LOG_TABLE(veh_bus_i, Log_event_periodic, Log_en_cond_veh_ctc_closed, (void *)&(imi_latest_data.latest_mA), Log_src_data_type_s32, &log_is_current_valid, 10u, LOG_NO_EVALUATION_FUN)
+INTERVALS(AMPS(-1500), AMPS(-320), AMPS(-240), AMPS(-160), AMPS(-80), AMPS(0), AMPS(80), AMPS(160), AMPS(240), AMPS(320), AMPS(1500), 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_CHG_I
+LOG_TABLE(charger_bus_i, Log_event_periodic, Log_en_cond_chg_ctc_closed, (void *)&(imi_latest_data.latest_mA), Log_src_data_type_s32, &log_is_current_valid, 10u, LOG_NO_EVALUATION_FUN)
+INTERVALS(AMPS(0), AMPS(0.5), AMPS(1), AMPS(1.5), AMPS(2), AMPS(2.5), AMPS(3), AMPS(3.5), AMPS(4), AMPS(5), AMPS(10), 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_CHG_ENERGY
+LOG_TABLE(charger_energy, Log_event_chg_cyc_end, Log_en_cond_sys_active, &log_lo_res_chg_energy_in_Wh, Log_src_data_type_u32, &log_is_chg_energy_data_valid, 6u, LOG_NO_EVALUATION_FUN)
+INTERVALS(ENERGY_WH(0), ENERGY_WH(1000), ENERGY_WH(2000), ENERGY_WH(3000), ENERGY_WH(4000), ENERGY_WH(6000), ENERGY_WH_MAX, 0, 0, 0, 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_REGEN
+LOG_TABLE(regen_energy, Log_event_drv_cyc_end, Log_en_cond_sys_active, &log_lo_res_veh_energy_in_Wh, Log_src_data_type_u32, &log_is_veh_energy_data_valid, 8u, LOG_NO_EVALUATION_FUN)
+INTERVALS(ENERGY_WH(0), ENERGY_WH(500), ENERGY_WH(2000), ENERGY_WH(5000), ENERGY_WH(10000), ENERGY_WH(20000), ENERGY_WH(50000), ENERGY_WH(150000), ENERGY_WH_MAX, 0, 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_VEH_ENERGY
+LOG_TABLE(veh_energy_usage, Log_event_drv_cyc_end, Log_en_cond_sys_active, &log_lo_res_veh_energy_out_Wh, Log_src_data_type_u32, &log_is_veh_energy_data_valid, 8u, LOG_NO_EVALUATION_FUN)
+INTERVALS(ENERGY_WH(0), ENERGY_WH(500), ENERGY_WH(2000), ENERGY_WH(5000), ENERGY_WH(10000), ENERGY_WH(20000), ENERGY_WH(50000), ENERGY_WH(150000), ENERGY_WH_MAX, 0, 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_DISCHG_POWER
+LOG_TABLE(dischg_power, Log_event_periodic, Log_en_cond_veh_ctc_closed, NULL, Log_src_data_type_none, LOG_NO_VALIDITY_FUN, 10u, LOG_NO_EVALUATION_FUN)
+INTERVALS(0, 20000, 40000, 60000, 80000, 100000, 120000, 140000, 160000, 180000, 200000, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_REGEN_POWER
+LOG_TABLE(regen_power, Log_event_periodic, Log_en_cond_veh_ctc_closed, NULL, Log_src_data_type_none, LOG_NO_VALIDITY_FUN, 10u, LOG_NO_EVALUATION_FUN)
+INTERVALS(0, 20000, 40000, 60000, 80000, 100000, 120000, 140000, 160000, 180000, 200000, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_PRECHG_CTC_OPEN_I
+LOG_TABLE(prechg_ct_opening_i, Log_event_veh_ctc_opened, Log_en_cond_sys_active, &ctc_i_precharge, Log_src_data_type_s32, &log_is_ctc_open_i_data_valid, 9u, LOG_NO_EVALUATION_FUN)
+INTERVALS(AMPS(-1500), AMPS(-10), AMPS(-2), AMPS(-0.1), AMPS(-0.05), AMPS(0.05), AMPS(0.1), AMPS(2), AMPS(10), AMPS(1500), 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_VEH_POS_CTC_OPEN_I
+LOG_TABLE(veh_pos_ct_opening_i, Log_event_veh_ctc_opened, Log_en_cond_sys_active, &ctc_i_veh_pos, Log_src_data_type_s32, &log_is_ctc_open_i_data_valid, 12u, LOG_NO_EVALUATION_FUN)
+INTERVALS(AMPS(-1500), AMPS(-400), AMPS(-200), AMPS(-100), AMPS(-50), AMPS(-10), AMPS(0), AMPS(10), AMPS(50), AMPS(100), AMPS(200), AMPS(400), AMPS(1500))
+#endif
+
+#ifndef LOG_DIS_TABLE_VEH_NEG_CTC_OPEN_I
+LOG_TABLE(veh_neg_ct_opening_i, Log_event_veh_ctc_opened, Log_en_cond_sys_active, &ctc_i_veh_neg, Log_src_data_type_s32, &log_is_ctc_open_i_data_valid, 12u, LOG_NO_EVALUATION_FUN)
+INTERVALS(AMPS(-1500), AMPS(-400), AMPS(-200), AMPS(-100), AMPS(-50), AMPS(-10), AMPS(0), AMPS(10), AMPS(50), AMPS(100), AMPS(200), AMPS(400), AMPS(1500))
+#endif
+
+#ifndef LOG_DIS_TABLE_CHG_POS_CTC_OPEN_I
+LOG_TABLE(chg_pos_ct_opening_i, Log_event_chg_ctc_opened, Log_en_cond_sys_active, &ctc_i_chg_pos, Log_src_data_type_s32, &log_is_ctc_open_i_data_valid, 9u, LOG_NO_EVALUATION_FUN)
+INTERVALS(AMPS(-1500), AMPS(-10), AMPS(-2), AMPS(-0.1), AMPS(-0.05), AMPS(0.05), AMPS(0.1), AMPS(2), AMPS(10), AMPS(1500), 0, 0, 0)
+#endif
+
+#ifndef LOG_DIS_TABLE_CHG_NEG_CTC_OPEN_I
+LOG_TABLE(chg_neg_ct_opening_i, Log_event_chg_ctc_opened, Log_en_cond_sys_active, &ctc_i_chg_neg, Log_src_data_type_s32, &log_is_ctc_open_i_data_valid, 9u, LOG_NO_EVALUATION_FUN)
+INTERVALS(AMPS(-1500), AMPS(-10), AMPS(-2), AMPS(-0.1), AMPS(-0.05), AMPS(0.05), AMPS(0.1), AMPS(2), AMPS(10), AMPS(1500), 0, 0, 0)
+#endif
+
+/*
+ * DATA_INTEGRATION(
+ *      integ_name,
+ *      event,              specifies the event that triggers the log action (see Log_event_e).
+ *      enable_condition    specifies the condition that must be satisfied for the data to be logged (see Log_en_cond_e).
+ *      src_data_adr,       address of the source data used for logging (assumed uint32, cannot be NULL).
+ *      validity_func       pointer to the source data validity function (can be NULL if validation not required).
+ *      )
+ */
+DATA_INTEGRATION(enrg_in_chg_bus,  Log_event_chg_cyc_end,          Log_en_cond_sys_active, &log_lo_res_chg_energy_in_Wh,    &log_is_chg_energy_data_valid)
+DATA_INTEGRATION(enrg_in_veh_bus,  Log_event_drv_cyc_end,          Log_en_cond_sys_active, &log_lo_res_veh_energy_in_Wh,    &log_is_veh_energy_data_valid)
+DATA_INTEGRATION(enrg_out_veh_bus, Log_event_drv_cyc_end,          Log_en_cond_sys_active, &log_lo_res_veh_energy_out_Wh,   &log_is_veh_energy_data_valid)
+DATA_INTEGRATION(ctc_wear_prechg,  Log_event_veh_ctc_state_change, Log_en_cond_sys_active, &log_prechg_ctc_wear_inc,        &log_is_ctc_open_i_data_valid)
+DATA_INTEGRATION(ctc_wear_veh_pos, Log_event_veh_ctc_state_change, Log_en_cond_sys_active, &log_veh_pos_ctc_wear_inc,       &log_is_ctc_open_i_data_valid)
+DATA_INTEGRATION(ctc_wear_veh_neg, Log_event_any_ctc_state_change, Log_en_cond_sys_active, &log_veh_neg_ctc_wear_inc,       &log_is_ctc_open_i_data_valid)
+DATA_INTEGRATION(ctc_wear_chg_pos, Log_event_chg_ctc_state_change, Log_en_cond_sys_active, &log_chg_pos_ctc_wear_inc,       &log_is_ctc_open_i_data_valid)
+DATA_INTEGRATION(ctc_wear_chg_neg, Log_event_chg_ctc_state_change, Log_en_cond_sys_active, &log_chg_neg_ctc_wear_inc,       &log_is_ctc_open_i_data_valid)
+
+#if defined UNIT_TEST && !defined(_lint)
+#endif
+
+/** @polyspace:end<MISRA-C:8.5:Not a defect:Justify with annotations> .def files require these definitions */

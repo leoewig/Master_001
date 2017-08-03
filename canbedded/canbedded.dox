@@ -1,0 +1,366 @@
+/**
+ @file
+ @ingroup canbedded
+ $Id: canbedded.dox 3307 2012-08-16 11:37:09Z vs7 $
+ */
+
+/**
+ @defgroup cbd_overview Overview
+ @ingroup canbedded
+
+ This is CANbedded documentation for Nightwing project. User shall find here
+ all available buses, messages and signals defined within CANbedded enabled
+ CAN channels and configuration of CANdb and GENy tools.
+
+ All CAN related functionality is driven by code generated with GENy application.
+ There's a configuration file for each target (mmc, mmc_test_harness and prodder).
+ All nodes(ECUs), messages and signals of each CAN bus are defined in database files
+ (*.cbd files) which are included to GENy. CANbedded user interface consists
+ of macros, defined in @ref exc "External CAN module". In order to use these macros,
+ user has to know signal name, its group (if any) and the name of Indication
+ or Confirmation flag. All these informations are summarized in @ref cbd_msgs.
+
+ @section cbd_candb_cfg CANdb++ configuration
+
+ All database files are created in CANdb++ tool. Apart from nodes, messages and signals,
+ each database file contains following attribute records required by GENy.
+
+ @subsection cbd_candb_cfg_attr Attributes
+
+ |Type Of Object|Name                   |Value Type     |Minimum    |Maximum    |Default        |
+ |:-------------|:----------------------|:--------------|:----------|:----------|:--------------|
+ |Network       |BusType                |String         |-          |-          |CAN            |
+ |Message       |GenMsgCycleTime        |Integer        | 0         | 50000     |0              |
+ |Message       |GenMsgCycleTimeFast    |Integer        | 0         | 50000     |0              |
+ |Message       |GenMsgDelayTime        |Integer        | 0         | 1000      |0              |
+ |Message       |GenMsgILSupport        |Enumeration    | -         | -         |Yes            |
+ |Message       |GenMsgNrOfRepetition   |Integer        | 0         | 999999    |0              |
+ |Message       |GenMsgSendType         |Enumeration    | -         | -         |NoMsgSendType  |
+ |Message       |GenMsgStartDelayTime   |Integer        | 0         | 65535     | 0             |
+ |Signal        |GenSigInactiveValue    |Integer        | 0         | 100000    | 0             |
+ |Signal        |GenSigSendType         |Enumeration    | -         | -         | NoSigSendType |
+ |Signal        |GenSigStartValue       |Float          | 0         | 1E+11     | 0             |
+ |Network       |ILTxTimeout            |Integer        | 0         | 10000     | 30            |
+ |Node          |ILUsed                 |Enumeration    | -         | -         | Yes           |
+ |Network       |Manufacturer           |String         | -         | -         | McLaren       |
+ |Network       |NmBaseAddress          |Hex            | 0x400     | 0x43F     | 0x400         |
+ |Message       |NmMessage              |Enumeration    | -         | -         | no            |
+ |Node          |NmNode                 |Enumeration    | -         | -         | no            |
+ |Node          |NmStationAddress       |Integer        | 0         | 63        | 0             |
+ |Signal        |NWMWakeupAllowed       |Enumeration    | -         | -         | No            |
+
+ @section cbd_geny_cfg GENy configuration
+
+ This section summarizes settings made in GENy tool for Nightwing project. Only necessary
+ options affecting CANbedded functionality are documented here. Not documented options
+ are set to default or initial values.
+ There're different *.gny files holding GENy configuration for each target. Only
+ difference between these files are database files used and nodes enabled for each channel
+ summarized in @ref cbd_geny_cfg_chn_nodes.
+
+ @subsection cbd_geny_cfg_chn_nodes Channels and nodes
+
+ Following table summarizes all GENy configuration files used for Nightwing project
+ and differences between them.
+
+ Mmc targets - /sw/mmc/proto/mmc_cfg/mmc_veh_isa_charger.gny
+ |Channel   |Database file                                          |Nodes  |
+ |:---------|:------------------------------------------------------|:------|
+ |vehicle   |/sw/mmc/proto/mmc_cfg/McLaren_P12_HybridCAN_XP2_3.dbc  |BMS    |
+ |charger   |/sw/mmc/proto/mmc_cfg/charger.dbc                      |mmc    |
+ |isa       |/sw/mmc/proto/mmc_cfg/isa_control.dbc                  |mmc    |
+
+ Prodder target - /sw/mmc/proto/prodder/prodder_veh_isa_charger.gny
+ |Channel   |Database file                                                  |Nodes  |
+ |:---------|:--------------------------------------------------------------|:------|
+ |vehicle   |/sw/mmc/proto/prodder/prodder_McLaren_P12_HybridCAN_XP2_3.dbc  |prodder|
+ |charger   |/sw/mmc/proto/prodder/prodder_charger.dbc                      |prodder|
+ |isa       |/sw/mmc/proto/prodder/prodder_isa_control.dbc                  |prodder|
+
+ Mmc_test_harness target - /sw/mmc/proto/platform_test/mmc_test_harness_veh_isa_charger.gny
+ |Channel   |Database file                                              |Nodes  |
+ |:---------|:----------------------------------------------------------|:------|
+ |vehicle   |/sw/mmc/proto/mmc_cfg/McLaren_P12_HybridCAN_XP2_3.dbc      |BMS    |
+ |charger   |/sw/mmc/proto/mmc_cfg/charger.dbc                          |mmc    |
+ |isa       |/sw/mmc/proto/mmc_cfg/isa_control.dbc        |mmc    |
+
+ @subsection cbd_geny_cfg_components Component Selection
+ |Software Components   |ECU: mmc   |vehicle    |isa    |charger|
+ |:---------------------|:----------|:----------|:------|:------|
+ |Ccl__core             |no         |yes        |yes    |yes    |
+ |Cp_Xcp                |no         |no         |no     |no     |
+ |Cp_XcpOnCan           |no         |no         |no     |no     |
+ |Diag_CanDesc_UDS      |no         |no         |no     |no     |
+ |DrvCan_Mcs12xMscanHll |no         |yes        |yes    |yes    |
+ |DrvCan_Mcs12xXgateExt |no         |no         |no     |no     |
+ |Hw_Mcs12xCpu          |yes        |yes        |yes    |yes    |
+ |Il_Vector             |no         |yes        |yes    |yes    |
+ |Nm_DirOsek            |no         |no         |no     |no     |
+ |Tp_Iso15765           |no         |no         |no     |no     |
+
+ @subsection cbd_geny_cfg_ccl_core CCl__core
+
+ General settings
+ |Options                           |Ccl__core          |
+ |:---------------------------------|:------------------|
+ |CANbedded Handling                |yes                |
+ |User Config File                  |none               |
+ |State Handler Cycle Time [ms]     |mmc target: 10, mmc_test_harness and prodder targets: 1|
+ |ECU Mode                          |Customer specific  |
+ |Stop Timeout Counter during BusOff|no                 |
+
+ CCL Naming Conventions
+ |Options       | Ccl__core |
+ |:-------------|:----------|
+ |Task Prefix   |Ccl        |
+
+ Advanced Task Settings
+ |Options                   | Ccl__core     |
+ |:-------------------------|:--------------|
+ |Schedule Cycle Time [ms]  |mmc target: 10, mmc_test_harness and prodder targets: 1|
+ |Task Type                 |Schedule_Task  |
+ |Task Mode                 |Function_Call  |
+
+ CCL Communication Requests
+ |Bus               |Handle Name|COM channel|
+ |:-----------------|:----------|:----------|
+ |CCL_vehicle_bus   |vehicle_bus|COM 0      |
+ |CCL_isa_bus       |isa_bus    |COM 1      |
+ |CCL_charger_bus   |charger_bus|COM 2      |
+
+ Debug Support
+ |Options       | Ccl__core |
+ |:-------------|:----------|
+ |Assertions    |yes        |
+ |CCL Error Hook|yes        |
+
+ Advanced Task Settings
+
+ |CCL_Task          |   |
+ |:-----------------|:--|
+ |Cycle Time [ms]   |mmc: 10, other targets: 1|
+ |Offset Time [ms]  |0  |
+ |PreTask           |no |
+ |Post Task         |no |
+
+ |IL_Tx_Task        |COM Channel 1  |COM Channel 2  |COM Channel 3  |
+ |:-----------------|:--------------|:--------------|:--------------|
+ |Cycle Time [ms]   |mmc: 10, other targets: 1|mmc: 10, other targets: 1|mmc: 10, other targets: 1|
+ |Offset Time [ms]  |0              |0              |0              |
+ |PreTask           |no             |no             |no             |
+ |Post Task         |no             |no             |no             |
+
+ |IL_Rx_Task        |COM Channel 1  |COM Channel 2  |COM Channel 3  |
+ |:-----------------|:--------------|:--------------|:--------------|
+ |Cycle Time [ms]   |mmc: 10, other targets: 1|mmc: 10, other targets: 1|mmc: 10, other targets: 1|
+ |Offset Time [ms]  |0              |0              |0              |
+ |PreTask           |no             |no             |no             |
+ |Post Task         |no             |no             |no             |
+
+ Transceiver settings
+ |                              |Communication -> OFF   |ECU Shutdown   |
+ |:-----------------------------|:----------------------|:--------------|
+ |Transceiver State Channel 0   |Standby                |Sleep          |
+ |Transceiver State Channel 1   |Standby                |Sleep          |
+ |Transceiver State Channel 2   |Standby                |Sleep          |
+
+ Channels
+ |Bus       |Bus System Type|Manufacturer   |Wake-up by Bus |First Communication Request|Bus Sleep  |Transceiver Type   |
+ |:---------|:--------------|:--------------|:--------------|:--------------------------|:----------|:------------------|
+ |vehicle   |CAN            |McLaren        |no             |no                         |no         |UNKNOWN            |
+ |isa       |CAN            |McLaren        |no             |no                         |no         |UNKNOWN            |
+ |charger   |CAN            |McLaren        |no             |no                         |no         |UNKNOWN            |
+
+ @subsection cbd_geny_cfg_drvcan DrvCan_Mcs12xMscanHll
+
+ Common Driver Parameters
+ |Name                                          |Value                          |
+ |:---------------------------------------------|:------------------------------|
+ |Split Interrupt Functions                     |no                             |
+ |Active / Passive State                        |no                             |
+ |CAN Cancel Notification                       |yes                            |
+ |Can Interrupt Control Callbacks               |no                             |
+ |Cancel in Hardware                            |no                             |
+ |CANOnline / CANOffline Notification           |no                             |
+ |Common Confirmation Function                  |no                             |
+ |Copy Mechanism                                |copy number of needed bytes    |
+ |CopyToCAN / CopyFromCAN Service               |no                             |
+ |DLC Check                                     |against data length            |
+ |Extended Status                               |yes                            |
+ |FullCAN Overrun Notification                  |no                             |
+ |Generic Precopy                               |yes                            |
+ |Hardware Loop Check                           |no                             |
+ |Message Not Matched Notification              |no                             |
+ |Overrun Notification                          |no                             |
+ |Partial Offline Mode                          |no                             |
+ |RAM Check                                     |no                             |
+ |Rx Notification                               |no                             |
+ |Sleep / Wake-up Functionality                 |no                             |
+ |Transmit Queue                                |yes                            |
+ |Tx Observation                                |no                             |
+ |Use Tx BitQueue                               |yes                            |
+ Polling
+ |Name                      |Value          |
+ |:-------------------------|:--------------|
+ |Polling Type              |None           |
+ |Rx FullCAN Polling        |no             |
+ API
+ |Name                              |Value          |
+ |:---------------------------------|:--------------|
+ |Indexed Component                 |yes            |
+ |Symbolic Names for Signal Values  |yes            |
+ General Settings
+ |Name                      |Value          |
+ |:-------------------------|:--------------|
+ |Security Level            |30             |
+ |User Config File          |yes            |
+ Debug Support
+ |Name                      |Value          |
+ |:-------------------------|:--------------|
+ |Assertions                |None           |
+ |Dynamic Tx Objects
+ |Name                      |Value          |
+ |:-------------------------|:--------------|
+ |Confirmation              |no             |
+ |Data Pointer              |no             |
+ |DLC                       |no             |
+ |ID                        |no             |
+ |Pretransmit               |no             |
+ ID Search Algorithm
+ |Name                      |Value          |
+ |:-------------------------|:--------------|
+ |Additional Memory [byte]  |0              |
+ |Maximum Search Steps      |2              |
+ |Search Algorithm          |Linear         |
+ Hash Search
+ |Name                      |Value          |
+ |:-------------------------|:--------------|
+ |Hash Table Fill Level     |0              |
+
+
+ Channels
+ |Name      |Base Address   |Bus Timing register 0  |Bus Timing register 1  |
+ |:---------|:--------------|:----------------------|:----------------------|
+ |vehicle   |0x140          |0x80                   |0x2b                   |
+ |isa       |0x140          |0x80                   |0x2b                   |
+ |charger   |0x140          |0x80                   |0x2b                   |
+
+ Acceptance Filter Configuration
+
+ Function Optimize was used to get optimal masks for each bus according to its
+ database file.
+
+ */
+/**
+ @defgroup canbedded CANbedded
+
+ @addtogroup cbd_msgs
+ @ingroup canbedded
+
+ @addtogroup ModifyChannelState
+ @ingroup canbedded
+
+ @addtogroup Il_VectorVersion
+ @ingroup canbedded
+
+ @addtogroup CommonReturnValue
+ @ingroup canbedded
+
+ @addtogroup IlStartCycleReturnValue
+ @ingroup canbedded
+
+ @addtogroup IlBooleanReturnValue
+ @ingroup canbedded
+
+ @addtogroup IlTxTypeValuesAndMasks
+ @ingroup canbedded
+
+ @addtogroup ApplIlFatalErrorCodes
+ @ingroup canbedded
+
+ @addtogroup IL_ChannelStateValuesAndMasks
+ @ingroup canbedded
+
+ @addtogroup SpecialTableValues
+ @ingroup canbedded
+
+ @addtogroup APIChannelAbstraction
+ @ingroup canbedded
+
+ @addtogroup CompatibilityMultipleNodes
+ @ingroup canbedded
+
+ @addtogroup CompatibilityAUTOSAR
+ @ingroup canbedded
+
+ @addtogroup DecodeChannelState
+ @ingroup canbedded
+
+ @addtogroup IlGetStatusReturnValue
+ @ingroup canbedded
+
+ @addtogroup ModifyChannelReceive
+ @ingroup canbedded
+
+ @addtogroup ClearStatusFlags
+ @ingroup canbedded
+
+ @addtogroup DataAbstraction
+ @ingroup canbedded
+ */
+
+/**
+ @defgroup cbd_msgs Messages, Signals and Value tables
+
+ Lists of available messages, signals and value tables for each bus and target.
+
+ @section cbd_msgs_bms CANbedded buses, messages and signals
+ Following tables summarizes database files for each CAN bus and its target specific variants.
+ Reason for this is to separate target specific nodes, messages and signals, which are not
+ needed or are not relevant for other targets.
+
+ @subsection cbd_vehicledb Vehicle bus database
+
+ |Target(s)          |Filename                               |Path                       | Documentation module |
+ |:------------------|:--------------------------------------|:--------------------------|:--------------|
+ |mmc,mmc_test_harness|McLaren_P12_HybridCAN_XP2_3.dbc       | "\sw\mmc\proto\mmc_cfg"   |vehicle bus messages and signals for mmc target|
+ |prodder            |prodder_McLaren_P12_HybridCAN_XP2_3.dbc| "\sw\mmc\proto\prodder"   |vehicle bus messages and signals for prodder target|
+
+ @subsection cbd_chargerdb Charger bus database
+
+ |Target(s)          |Filename                               |Path                       | Documentation module |
+ |:------------------|:--------------------------------------|:--------------------------|:--------------|
+ |mmc,mmc_test_harness|charger.dbc         					 | "\sw\mmc\proto\mmc_cfg"   |charger bus messages and signals for mmc target|
+ |prodder            |prodder_charger.dbc 					 | "\sw\mmc\proto\prodder"   |charger bus messages and signals for prodder target|
+
+ @subsection cbd_isadb Isa & control bus database
+
+ |Target(s)         |Filename               |Path                           | Documentation module |
+ |:-----------------|:----------------------|:------------------------------|:---------------------|
+ |mmc,mmc_test_harness|isa_control.dbc      | "\sw\mmc\proto\mmc_cfg"       |isa & control bus messages and signals for mmc target|
+ |prodder           |prodder_isa.dbc        | "\sw\mmc\proto\prodder"       |isa & control bus messages and signals for prodder target|
+
+ @subsection cbd_msgs_doc How to read the documentation of database files
+
+ Meaning of Message table fields:
+ - Name - CAN message symbolic name. This is for information only. Messages
+     are handled automatically by CANbedded and user has no physical access to them.
+ - Transmitter - name of a node transmitting this message
+ - Message ID - a standard CAN identifier
+ - DLC - message length
+
+ Meaning of Signal table fields
+ - Name - a name of a signal to be accessed with #CAN_TX_SIG, #CAN_RX_SIG
+     or #CAN_RX_SIG_ARRAY macros
+ - Group - a group name to be used with #CAN_TX_GRP or #CAN_RX_GRP macros.
+     If this field is empty, no group is associated with a signal.
+ - Size - size of a signal in bits
+ - Value table - a link to a value table associated with a signal. Each value
+     in the table can be accessed with #CAN_VALUE_NAME by its name.
+ - Indication or confirmation flag - a name of a flag associated with a signal
+     or signal group to be used with macros #CAN_RX_SIG_INDICATION
+     and #CAN_RX_SIG_INDICATION_CLR (for received signal or group),
+     or #CAN_TX_SIG_CONFIRMATION and #CAN_TX_SIG_CONFIRMATION_CLR
+     (for transmitted signal or group)
+ - Receiver(s) - a name of a receiving node or nodes of this signal
+ */

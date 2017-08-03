@@ -1,0 +1,11 @@
+/**
+ * @defgroup mmc_cfg MMC configuration
+ *
+ * Customisation for the MMC application
+ *
+ * N.B. A number of the files in this module are copied from into the build
+ * directory and given a generic name.  Only the generic file is included
+ * in the documentation.
+ *
+ * $Id: mmc_cfg.dox 2886 2012-07-17 13:14:47Z jh24 $
+ */

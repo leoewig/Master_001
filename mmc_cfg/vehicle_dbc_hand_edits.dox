@@ -1,0 +1,167 @@
+/**
+@file
+@ingroup vehicle_dbc_handedits
+
+$Id$
+*/
+/**
+@defgroup vehicle_dbc_handedits Hand-Edits of vehicle DBC File McLaren_P12_HybridCAN_PP4_3.dbc
+@ingroup mmc_cfg
+
+The DBC file needs the following tweaks:
+1. Since the NCarConfigMultiplexor is shown as being received by the BMS, a
+  signal within it must also be shown as being received by the BMS.  We
+  change the receiver of NBatteryType from Vector__XXX to BMS
+
+Before:
+~~~
+SG_ NBatteryType m0 : 59|4@0+ (1,0) [0|15] "" Vector__XXX
+
+After:
+~~~
+SG_ NBatteryType m0 : 59|4@0+ (1,0) [0|15] "" BMS
+
+2. We use the last two BMS debug messages for XCP.
+
+XCP support
+-----------
+
+Before:
+~~~
+BO_ 1086 BMS_XCP_DTO: 8 BMS
+
+BO_ 1087 BMS_XCP_CRO: 8 BMS
+
+After:
+~~~
+
+BO_ 1086 BMS_XCP_DTO: 8 BMS
+ SG_ DTO_DATA : 0|64@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1087 BMS_XCP_CRO: 8 Vector__XXX
+ SG_ CRO_DATA : 0|64@1+ (1,0) [0|1] ""  BMS
+...
+BA_ "GenMsgILSupport" BO_ 1087 0;
+BA_ "GenMsgILSupport" BO_ 1086 0;
+~~~
+The `GenMsgILSupport` attribute is required because GENy insists that XCP
+messages are not used by the CANbedded Interaction Layer.
+
+3. Couple of signal tables have duplicate items, which result in errors during the compile. Following
+items must be made unique
+
+Before:
+~~~
+VAL_ 162 NGearTarget 15 "Default" 14 "Unavailable" 13 "Reserved" 12 "Reverse" 11 "Undefined" 10 "Undefined" 9 "Undefined" 8 "Undefined" 7 "Seventh gear" 6 "Sixth gear" 5 "Fifth gear" 4 "Fourth gear" 3 "Third gear" 2 "Second gear" 1 "First gear" 0 "Neutral" ;
+VAL_ 162 NGearEngaged 15 "Default" 14 "Unavailable" 13 "Reserved" 12 "Reverse" 11 "Undefined" 10 "Undefined" 9 "Undefined" 8 "Undefined" 7 "Seventh gear" 6 "Sixth gear" 5 "Fifth gear" 4 "Fourth gear" 3 "Third gear" 2 "Second gear" 1 "First gear" 0 "Neutral" ;
+VAL_ 162 NGearPreSelected 15 "Default" 14 "Unavailable" 13 "Reserved" 12 "Reverse" 11 "Undefined" 10 "Undefined" 9 "Undefined" 8 "Undefined" 7 "Seventh gear" 6 "Sixth gear" 5 "Fifth gear" 4 "Fourth gear" 3 "Third gear" 2 "Second gear" 1 "First gear" 0 "Neutral" ;
+VAL_ 162 NGearSelected 15 "Default" 14 "Unavailable" 13 "Reserved" 12 "Reverse" 11 "Undefined" 10 "Undefined" 9 "Undefined" 8 "Undefined" 7 "Seventh gear" 6 "Sixth gear" 5 "Fifth gear" 4 "Fourth gear" 3 "Third gear" 2 "Second gear" 1 "First gear" 0 "Neutral" ;
+
+After:
+~~~
+VAL_ 162 NGearTarget 15 ... 11 "Undefined 11" 10 "Undefined 10" 9 "Undefined 9" 8 "Undefined 8"
+VAL_ 162 NGearEngaged 15 ... 11 "Undefined 11" 10 "Undefined 10" 9 "Undefined 9" 8 "Undefined 8"
+VAL_ 162 NGearPreSelected 15 ... 11 "Undefined 11" 10 "Undefined 10" 9 "Undefined 9" 8 "Undefined 8"
+VAL_ 162 NGearSelected 15 ... 11 "Undefined 11" 10 "Undefined 10" 9 "Undefined 9" 8 "Undefined 8"
+
+4. Debug message (ID 0x43B) has been added defined as follows:
+BO_ 1083 BMS_3B: 8 BMS
+ SG_ ctc_overall_voltage : 7|16@0+ (0.0001220703125,0) [0|7.9998779296875] "" Vector__XXX
+ SG_ ctc_pos_voltage : 23|16@0+ (0.0001220703125,0) [0|7.9998779296875] "" Vector__XXX
+ SG_ ctc_latest_imi : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ctc_save_seq : 55|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ ctc_marker : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+
+ BA_ "GenMsgSendType" BO_ 1083 0;
+ BA_ "GenMsgCycleTime" BO_ 1083 10;
+
+5. Debug messages (IDs 0x435, 0x436) has ben added defined as follows:
+Before:
+~~~
+ CM_ BO_ 1078 "Reserved for BMS debugging";
+ CM_ BO_ 1077 "Reserved for BMS debugging";
+ CM_ BO_ 1076 "Reserved for BMS debugging";
+
+After:
+~~~
+BO_ 1078 BMS_36: 8 BMS
+ SG_ hrd_cellSerResEst_Ohm : 7|16@0+ (0.0009765625,0) [0|63.9990234375] "mOhm" Vector__XXX
+ SG_ mad_A_packMovAvgChg_A : 23|8@0+ (1,0) [0|255] "A" Vector__XXX
+ SG_ mad_A_packMovAvgDis_A : 31|8@0+ (1,0) [0|255] "A" Vector__XXX
+ SG_ mad_A_packMovAvgNet_A : 39|8@0- (2,0) [-256|254] "A" Vector__XXX
+
+BO_ 1077 BMS_35: 8 BMS
+ SG_ ccv_pct_cellSOC_min : 7|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ ccv_pct_cellSOC_max : 15|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ cev_pct_cellVSOCEst_min : 23|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ cev_pct_cellVSOCEst_max : 31|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ scv_pct_socObvEst_min : 39|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ scv_pct_socObvEst_max : 47|8@0+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ tmv_t_cellCoreModel_dC_min : 55|8@0- (1,0) [-128|127] "deg. C" Vector__XXX
+ SG_ tmv_t_cellCoreModel_dC_max : 63|8@0- (1,0) [-128|127] "deg. C" Vector__XXX
+...
+ CM_ BO_ 1078 "Misc States";
+ CM_ SG_ 1078 hrd_cellSerResEst_Ohm "Best current estimate for average cell Ohmic resistance";
+ CM_ SG_ 1078 mad_A_packMovAvgChg_A "Moving average pack charge current";
+ CM_ SG_ 1078 mad_A_packMovAvgDis_A "Moving average pack discharge current";
+ CM_ SG_ 1078 mad_A_packMovAvgNet_A "Moving average pack net current";
+ CM_ BO_ 1077 "SOCs and Temp";
+ CM_ SG_ 1077 ccv_pct_cellSOC_min "Minimal estimated cell SOC based on coulomb counting";
+ CM_ SG_ 1077 ccv_pct_cellSOC_max "Maximal estimated cell SOC based on coulomb counting";
+ CM_ SG_ 1077 cev_pct_cellVSOCEst_min "Minimal instantaneous directly voltage based SOC estimates";
+ CM_ SG_ 1077 cev_pct_cellVSOCEst_max "Maximal instantaneous directly voltage based SOC estimates";
+ CM_ SG_ 1077 scv_pct_socObvEst_min "Minimal observer estimated cell SOC (internal SOC)";
+ CM_ SG_ 1077 scv_pct_socObvEst_max "Maximal observer estimated cell SOC (internal SOC)";
+ CM_ SG_ 1077 tmv_t_cellCoreModel_dC_min "Minimal estimated cell core temperature";
+ CM_ SG_ 1077 tmv_t_cellCoreModel_dC_max "Maximal estimated cell core temperature";
+ CM_ BO_ 1076 "Available Current Limit Reasons";
+...
+ BA_ "GenMsgSendType" BO_ 1078 0;
+ BA_ "GenMsgCycleTime" BO_ 1078 250;
+ BA_ "GenMsgSendType" BO_ 1077 0;
+ BA_ "GenMsgCycleTime" BO_ 1077 250;
+ BA_ "GenMsgCycleTime" BO_ 1076 250;
+
+6. Following debug message send type has been changed to Cyclic with following cycle times:
+
+Before:
+~~~
+BA_ "GenMsgSendType" BO_ 1085 8;
+BA_ "GenMsgSendType" BO_ 1084 8;
+...
+BA_ "GenMsgSendType" BO_ 1081 8;
+BA_ "GenMsgSendType" BO_ 1080 8;
+BA_ "GenMsgSendType" BO_ 1079 8;
+
+After:
+~~~
+BA_ "GenMsgSendType" BO_ 1085 0;
+BA_ "GenMsgCycleTime" BO_ 1085 100;
+BA_ "GenMsgSendType" BO_ 1084 0;
+BA_ "GenMsgCycleTime" BO_ 1084 100;
+...
+BA_ "GenMsgSendType" BO_ 1081 0;
+BA_ "GenMsgCycleTime" BO_ 1081 100;
+BA_ "GenMsgSendType" BO_ 1080 0;
+BA_ "GenMsgCycleTime" BO_ 1080 10;
+BA_ "GenMsgSendType" BO_ 1079 0;
+BA_ "GenMsgCycleTime" BO_ 1079 10;
+
+7. Following debug signals have been added to message BMS_37
+
+Before:
+~~~
+BO_ 1079 BMS_37: 8 BMS
+ SG_ VPackDCLink : 23|16@0- (0.125,0) [0|0] "V" Vector__XXX
+
+After:
+~~~
+BO_ 1079 BMS_37: 8 BMS
+ SG_ dcd_tm_ceRunTime0 : 39|16@0+ (10,0) [0|655350] "s" Vector__XXX
+ SG_ dcd_tm_socRunTime0 : 7|16@0+ (10,0) [0|655350] "s" Vector__XXX
+ SG_ VPackDCLink : 23|16@0- (0.125,0) [0|0] "V" Vector__XXX
+...
+CM_ SG_ 1079 dcd_tm_ceRunTime0 "Run time since last successful charge estimate (EEPROM state)";
+CM_ SG_ 1079 dcd_tm_socRunTime0 "Run time since last successful coulomb count reset (EEPROM state)";
+
+*/
